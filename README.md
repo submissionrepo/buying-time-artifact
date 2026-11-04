@@ -266,6 +266,6 @@ such as the DefiLlama incident list, remain under their own terms.
 
 Repository: https://github.com/submissionrepo/buying-time-artifact
 
-The linked manuscript PDF is included alongside its source. The release contains a ZIP of this repository.
+The release contains a ZIP of this repository.
 Original code and documentation are available under the [MIT License](LICENSE). Third-party components retain their own licenses. Data reuse conditions and source credits are in [DATA_LICENSE](DATA_LICENSE).
 The `forge-std` source and licenses used by the tests are included in the prototype's `lib/forge-std` directory.
