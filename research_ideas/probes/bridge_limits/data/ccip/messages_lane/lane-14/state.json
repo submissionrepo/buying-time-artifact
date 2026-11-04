@@ -1,0 +1,11 @@
+{
+ "pages_done": 2,
+ "newest_ts": "2026-10-15T14:47:23.000Z",
+ "oldest_ts": "2026-02-19T19:03:54.000Z",
+ "started_utc": "2026-10-15T17:40:27Z",
+ "done": true,
+ "messages": 1328,
+ "last_update_utc": "2026-10-15T17:40:35Z",
+ "stop_reason": "no more pages",
+ "messages_in_global_window": 1328
+}

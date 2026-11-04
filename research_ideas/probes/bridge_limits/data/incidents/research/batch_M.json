@@ -1,0 +1,2487 @@
+{
+ "batch": "M",
+ "generated_utc": "2026-10-16T01:13:25Z",
+ "events": [
+  {
+   "event_id": "E60",
+   "dl_name": "Verus-Ethereum Bridge",
+   "dl_date": "2026-07-22",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Release of reserves from the Ethereum-side Verus bridge contract (ETH, tBTC, USDC, USDT, EURC, MKR, scrvUSD, and DAI drawn from the bridge's DAI Savings Rate balance) in one import call, against a proof of a Verus-side export that carried no backing. Second event on the same bridge after E48 (2026-05-17); not a duplicate. DefiLlama dates it 2026-07-22; the release block is timestamped 2026-07-23 03:45:59 UTC (23:45 on 22 July, US Eastern time).",
+    "sources": [
+     {
+      "url": "https://rekt.news/veruscoin-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "$7.54 million left the Verus-Ethereum Bridge on July 23rd, and every signature checked out."
+     },
+     {
+      "url": "https://rekt.news/veruscoin-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Two months earlier, the same bridge lost $11.6 million to the same entry path and the same bug class."
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/transactions/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC receipt: block 25592836, block timestamp 2026-07-23T03:45:59Z, method submitImports to the bridge contract, status 0x1"
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\":\"Verus-Ethereum Bridge\",\"classification\":\"Bridge & Cross-Chain\",\"technique\":\"Forged Proof\",\"amount\":7530000"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-07-23",
+    "sources": [
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getTransactionReceipt / eth_getBlockByNumber: block 25592836, timestamp 1784778359 (2026-07-23T03:45:59Z)"
+     },
+     {
+      "url": "https://www.coindesk.com/tech/2026/07/23/bitcoin-ethereum-linked-protocols-lose-usd35-million-in-multiple-attacks-hours-apart",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "early Thursday that drained about $7.54 million in ether, tokenized bitcoin and a spread of stablecoins."
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 7540000,
+    "range": "7.3M-7.54M USD (Blockaid and Rekt 7.54M; CertiK and DefiLlama 7.53M; Crowdfund Insider headline 7.44M; Bitcoin.com 7.3M in one sentence and 7.5M in another). Proceeds were later converted to about 3,916 ETH (CertiK via The Block).",
+    "sources": [
+     {
+      "url": "https://x.com/blockaid_/status/2080143099561496896",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "draining ~$7.54M in ETH, tBTC, USDC, USDT, EURC, MKR, and scrvUSD from bridge reserves."
+     },
+     {
+      "url": "https://x.com/CertiKAlert/status/2080153763332174170",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We have seen an exploit on  @VerusCoin Ethereum bridge, from which ~$7.53M was withdrawn"
+     },
+     {
+      "url": "https://www.theblock.co/post/409489/new-verus-ethereum-bridge-attack",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "drained roughly $7.54 million in crypto assets"
+     },
+     {
+      "url": "https://news.bitcoin.com/verus-bridge-suffers-second-exploit-in-66-days-as-flaw-pushes-total-losses-to-19-1m/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The Verus-Ethereum Bridge smart contract was exploited again on Thursday, with attackers draining $7.3 million"
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\":\"Verus-Ethereum Bridge\",\"classification\":\"Bridge & Cross-Chain\",\"technique\":\"Forged Proof\",\"amount\":7530000"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "Ethereum contract accepted a proof of an export output with no backing; transfer hash checked, totals and backing not.",
+    "sources": [
+     {
+      "url": "https://rekt.news/veruscoin-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The attacker hadn't broken a signature or forged a notary key."
+     },
+     {
+      "url": "https://rekt.news/veruscoin-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "checkCCEValues, the function patched after May, had held."
+     },
+     {
+      "url": "https://x.com/CertiKAlert/status/2080153763332174170",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The bridge may have failed to check that Verus side inputs back the amounts paid, as in the May incident."
+     },
+     {
+      "url": "https://x.com/blockaid_/status/2080143099561496896",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "An attacker used the bridge import path to trigger unbacked Ethereum-side payouts"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "100% from the Ethereum bridge contract in one transaction: 1,137.45 ETH, 71.50 tBTC, 149,275.07 USDC, 78,300.54 USDT, 31,475.66 EURC, 59.43 MKR, 92,784.36 scrvUSD, and 220,357.03 DAI. The DAI was withdrawn from the bridge's DAI Savings Rate (Pot) balance and issued through DaiJoin in the same call; Rekt and Bitcoin.com describe it as minted against the bridge's Maker position. Nothing was released on Verus.",
+    "chains": [
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "https://rekt.news/veruscoin-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Eight transfers, all in one transaction: 1,137.45 ETH, 71.50 tBTC, 149,275 USDC, 92,784 scrvUSD, 78,300 USDT 59.43 MKR, 220,357 DAI, and 31,475 EURC"
+     },
+     {
+      "url": "https://rekt.news/veruscoin-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "For DAI, the bridge went further, it drew against its MakerDAO position and minted 220,357 DAI to satisfy the withdrawal."
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/transactions/[redacted]/internal-transactions",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "internal call value 1137452815840000000000 wei from the Delegator to the recipient; calls to Pot (DSR) and DaiJoin in the same transaction"
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Transfer logs in the receipt: tBTC 71.5045915, MKR 59.42954384, USDC 149275.074098, USDT 78300.537681, EURC 31475.664323, scrvUSD 92784.36027725 from the bridge; DAI 220357.02707298 from the zero address"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2026-07-23T03:45:59Z",
+    "last_release_utc": "2026-07-23T03:45:59Z",
+    "duration_min": 0,
+    "release_tx_count": 1,
+    "count_note": "Counted: release transactions from the Ethereum bridge contract. One submitImports transaction (block 25,592,836) carried all eight asset transfers. The state roots it relied on were relayed by the same initiating address in two notarization transactions at 03:23:35 and 03:41:47 UTC (blocks 25,592,725 and 25,592,815); Rekt calls them legitimate notarizations of Verus heights 4,162,938 and 4,162,957 (Verus block times 03:08:36 and 03:34:07 UTC). No other import succeeded from 03:45:59 UTC through 2026-10-16; later import attempts on 25 Aug (5) and 4 Oct (1) reverted.",
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/api/v2/addresses/[redacted]/transactions",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Blockscout listing: setLatestData ok 2026-07-23T03:23:35Z and 03:41:47Z, submitImports ok 03:45:59Z, all from the initiating address; later submitImports status error on 2026-08-25 and 2026-10-04"
+     },
+     {
+      "url": "https://rekt.news/veruscoin-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Two legitimate notarizations (heights 4162938 and 4162957), each signed by eleven notaries, were relayed to Ethereum as usual."
+     },
+     {
+      "url": "https://api.verus.services",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Verus RPC getblock: height 4162938 time 2026-07-23T03:08:36Z; height 4162957 time 2026-07-23T03:34:07Z"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": null,
+    "channel": null,
+    "note": "No Verus statement found as of 2026-10-16. Rekt (29 July) says Verus had said nothing; The Block (23 July, 08:37 UTC) had asked for comment. The @VerusCoin posts linked on Rekt's page are all from May. The first operator-side action visible on-chain is a notary self-revocation at 04:23:47 UTC (see pause).",
+    "sources": [
+     {
+      "url": "https://rekt.news/veruscoin-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Verus said nothing, not the day of the exploit and not a peep since."
+     },
+     {
+      "url": "https://www.theblock.co/post/409489/new-verus-ethereum-bridge-attack",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The Block has reached out to the Verus team for comment on the latest attack."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2026-07-23T04:08:56Z",
+    "channel": "X (@blockaid_)",
+    "by": "Blockaid",
+    "note": "Time from status ID 2080143099561496896, 23 minutes after the release. Later: CertiK 04:51:19 UTC (status 2080153763332174170), PeckShield 05:22:48 UTC (status 2080161688779972940).",
+    "sources": [
+     {
+      "url": "https://x.com/blockaid_/status/2080143099561496896",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Blockaid detected a @VerusCoin Ethereum Bridge exploit on Ethereum."
+     },
+     {
+      "url": "https://rekt.news/veruscoin-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Blockaid was first to the wreckage."
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2026-07-23T04:23:47Z",
+    "basis": "onchain",
+    "what": "First of two notary self-revocations (revokeWithMainAddress) on the Ethereum bridge contract; the second followed at 04:42:47 UTC, leaving 13 of 15 notaries valid. Not a contract pause: the deployed contracts read a halt-flag key (bits that stop notarizations, imports and outbound transfers), and it stayed 0 through 2026-10-16. No notarization was posted after 03:41:47 UTC and no import succeeded after the release.",
+    "by": "Two bridge notaries (one is the address that submitted the 8 and 12 July contract upgrades)",
+    "note": "38 minutes after the release. CoinTurk (24 July) reports that Verus halted all bridge operations, without a time or source. The Verus chain kept producing blocks (block 4,164,000 at 21:33:43 UTC on 23 July), unlike in May, when most block producers went offline.",
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/api/v2/addresses/[redacted]/transactions",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Blockscout listing: revokeWithMainAddress ok at 2026-07-23T04:23:47Z (block 25593022) and 04:42:47Z (block 25593117)"
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_call claimableFees(halt-flag key) = 0 at blocks 25592835 through 26201378 (2026-10-16); notaryAddressMapping state 2 (revoked) for 2 of 15 notaries at the latest block, all 15 valid before the release"
+     },
+     {
+      "url": "https://en.coin-turk.com/verus-ethereum-bridge-suffers-second-exploit-7-54-million-stolen/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Amid the investigation, Verus halted all bridge operations"
+     },
+     {
+      "url": "https://api.verus.services",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Verus RPC getblock: height 4164000 time 2026-07-23T21:33:43Z"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "no",
+    "acted": "n.a.",
+    "how": "The verified implementation contracts used by the import path (SubmitImports, TokenManager, VerusProof; verified on Blockscout 10 July 2026) contain no per-transaction, per-period or delay cap on import payouts; one import paid out eight assets at once. They do contain halt flags for notarizations, imports and outbound transfers, which were not set.",
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/address/[redacted]?tab=contract",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "if (claimableFees[VerusConstants.VDXF_DISABLE_CONTRACT_KEY] & VerusConstants.HALT_SUBMIT_IMPORTS != 0) revert();"
+     },
+     {
+      "url": "https://rekt.news/veruscoin-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Eight transfers, all in one transaction"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": null,
+    "native": "none reported",
+    "date": null,
+    "note": "Rekt (29 July): no freeze, no exchange coordination, no recovery address and no bounty offer. The about 1,192 ETH moved back into the bridge on 8 July was the recovery from the May event, not a return from this one.",
+    "sources": [
+     {
+      "url": "https://rekt.news/veruscoin-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "No freeze."
+     },
+     {
+      "url": "https://rekt.news/veruscoin-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "No recovery address was published."
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2026-07-23T03:45:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 1137.45281584,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "explorer (Blockscout internal transactions)"
+    },
+    {
+     "utc": "2026-07-23T03:45:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 71.5045915,
+     "asset": "tBTC",
+     "usd": null,
+     "basis": "explorer (receipt Transfer log)"
+    },
+    {
+     "utc": "2026-07-23T03:45:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 149275.074098,
+     "asset": "USDC",
+     "usd": null,
+     "basis": "explorer (receipt Transfer log)"
+    },
+    {
+     "utc": "2026-07-23T03:45:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 78300.537681,
+     "asset": "USDT",
+     "usd": null,
+     "basis": "explorer (receipt Transfer log)"
+    },
+    {
+     "utc": "2026-07-23T03:45:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 31475.664323,
+     "asset": "EURC",
+     "usd": null,
+     "basis": "explorer (receipt Transfer log)"
+    },
+    {
+     "utc": "2026-07-23T03:45:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 59.42954384,
+     "asset": "MKR",
+     "usd": null,
+     "basis": "explorer (receipt Transfer log)"
+    },
+    {
+     "utc": "2026-07-23T03:45:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 92784.36027725,
+     "asset": "scrvUSD",
+     "usd": null,
+     "basis": "explorer (receipt Transfer log)"
+    },
+    {
+     "utc": "2026-07-23T03:45:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 220357.02707298,
+     "asset": "DAI (from the bridge's DSR balance via DaiJoin)",
+     "usd": null,
+     "basis": "explorer (receipt Transfer log)"
+    }
+   ],
+   "open_questions": "(1) Class D is chosen because the Ethereum contract paid out against an export output whose totals and backing it did not check; an S reading is possible because the Verus chain accepted and notarized a hand-crafted export. (2) When and why the notaries stopped posting notarizations, and whether Verus has made any statement since (none found as of 2026-10-16). (3) Whether more notaries were meant to revoke (2 of 15 did) or whether the halt flags were deliberately left unset. (4) Loss figures differ (7.3M-7.54M USD).",
+   "onchain_refs": [
+    {
+     "chain": "Ethereum",
+     "role": "bridge contract (Delegator; reserves)",
+     "value": "0x71518580f36feceffe0721f06ba4703218cd7f63"
+    }
+   ]
+  },
+  {
+   "event_id": "E61",
+   "dl_name": "Oraichain",
+   "dl_date": "2026-08-08",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Unbacked issuance of native ORAI on Oraichain through what the operator calls an EVM cross-chain transfer path. The realized value left through OraiDEX pools (ATOM, OSMO, USDT), IBC transfers and deposits of about 3.9M ORAI at two exchanges. The issuing path is Oraichain's own cross-chain transfer route, not a separate escrow; a stricter reading would mark this not_a_bridge_failure. The DefiLlama date (8 Aug) matches the first movements of minted ORAI (23:37 UTC); the halt followed on 9 Aug.",
+    "sources": [
+     {
+      "url": "https://x.com/oraichain/status/2086774707882451012",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "A vulnerability in an EVM cross-chain transfer path enabled unauthorized ORAI minting."
+     },
+     {
+      "url": "https://x.com/oraichain/status/2087469990693990836",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Our next focus is ~3.9M unauthorized ORAI deposited by the attacker to @MEXC and @kucoincom before the network halt."
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\":\"Oraichain\",\"classification\":\"Bridge & Cross-Chain\",\"technique\":\"Unbacked Cross-Chain Mint\",\"amount\":1000000"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-08-08",
+    "sources": [
+     {
+      "url": "https://api.scan.orai.io/v1/txs-account/orai1vyghw3r3567y2algruuflqw2hx05vt6k945wrq",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Oraiscan API: MsgTransfer of 100000000000000 orai (100,000,000 ORAI) from the initiating address at 2026-08-08T23:37:27Z, height 118000067"
+     },
+     {
+      "url": "https://x.com/oraichain/status/2087469990693990836",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Update on Aug 8-9 incident: On-chain restoration is complete."
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 1000000,
+    "range": "0 to 1.0M USD: DefiLlama 1.0M; NOMINIS reports no realised loss. About 3.9M ORAI reached two exchanges. The initiating address moved about 923M ORAI in total between 23:37 UTC on 8 Aug and 01:07 UTC on 9 Aug (my sum of Oraiscan records, including 600M ORAI sent by IBC to one Injective address, whose receipt is unconfirmed).",
+    "sources": [
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\":\"Oraichain\",\"classification\":\"Bridge & Cross-Chain\",\"technique\":\"Unbacked Cross-Chain Mint\",\"amount\":1000000"
+     },
+     {
+      "url": "https://www.nominis.io/insights/nominis-monthly-report",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "No realised loss has been reported."
+     },
+     {
+      "url": "https://x.com/oraichain/status/2087469990693990836",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "~3.9M unauthorized ORAI deposited by the attacker to @MEXC and @kucoincom before the network halt."
+     },
+     {
+      "url": "https://api.scan.orai.io/v1/txs-account/orai1vyghw3r3567y2algruuflqw2hx05vt6k945wrq",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Oraiscan API: 18 transactions for the initiating address; outgoing ORAI of 100,000,000 and 500,000,000 (IBC), 59,748,951 (OraiDEX swaps), 59,255,027 (collateral deposit), 200,000,000 (send) and 3,900,000 (exchange deposits)"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "O",
+    "phrase": "Unauthorized native ORAI mint through an EVM cross-chain transfer path; root cause not published.",
+    "sources": [
+     {
+      "url": "https://x.com/oraichain/status/2086774707882451012",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "A vulnerability in an EVM cross-chain transfer path enabled unauthorized ORAI minting."
+     },
+     {
+      "url": "https://x.com/oraichain/status/2092534052192666008",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Vulnerable mint path patched"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "mint",
+    "share_note": "Unbacked native ORAI on Oraichain. Realized by swapping about 59.7M minted ORAI on OraiDEX (23:56:44 and 23:58:36 UTC on 8 Aug) and sending the proceeds out by IBC (3,161.08 ATOM to Cosmos Hub at 00:04:22, 5,438.20 OSMO to Osmosis at 00:05:32 UTC on 9 Aug), depositing 1.7M ORAI at MEXC and 2.2M ORAI at KuCoin, posting 59.26M ORAI as lending collateral, and sending 100M and 500M ORAI by IBC to one Injective address. Two test-size transfers (0.16 USDT, 0.26 USDC) through Oraichain's bridge to Ethereum at 01:04:45 UTC. No escrow release reported.",
+    "chains": [
+     "Oraichain"
+    ],
+    "sources": [
+     {
+      "url": "https://api.scan.orai.io/v1/txs-account/orai1vyghw3r3567y2algruuflqw2hx05vt6k945wrq",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Oraiscan API: swap executions funded with orai at 2026-08-08T23:56:44Z and swap_and_action of 43534543000000 orai at 23:58:36Z; MsgTransfer of 3161082810 ATOM-ibc units at 2026-08-09T00:04:22Z and 5438198605 OSMO-ibc units at 00:05:32Z"
+     },
+     {
+      "url": "https://x.com/oraichain/status/2087470000856813666",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Another 2.2M ORAI was traced directly from the attacker wallet to KuCoin"
+     },
+     {
+      "url": "https://x.com/oraichain/status/2087469996335411433",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We traced 1.7M ORAI directly from the attacker wallet to a MEXC deposit address across 4 transactions"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Oraichain",
+    "first_release_utc": null,
+    "last_release_utc": null,
+    "duration_min": null,
+    "release_tx_count": null,
+    "count_note": "Mint transaction(s) not identified. The initiating address had received only 49.5 ORAI (by IBC at 22:54:42 UTC on 8 Aug) in its indexed history and had signed exactly six transactions before 00:14 UTC (account sequence 6 on its exchange deposit), so the minted ORAI reached it through a path its Cosmos transaction list does not show, consistent with the EVM route. It sent 45 ORAI to another address at 23:05:34 UTC, plausibly gas for that route. First movement of minted ORAI: 100,000,000 ORAI by IBC at 23:37:27 UTC on 8 Aug; exchange deposits in six transfers 00:14:23-00:47:14 UTC on 9 Aug; last observed movement 01:07:12 UTC (200,000,000 ORAI to another address).",
+    "sources": [
+     {
+      "url": "https://api.scan.orai.io/v1/txs-account/orai1vyghw3r3567y2algruuflqw2hx05vt6k945wrq",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Oraiscan API: MsgRecvPacket of 49547186 orai to the initiating address at 2026-08-08T22:54:42Z; MsgSend 45000000 orai at 23:05:34Z; MsgSend 200000000000000 orai at 2026-08-09T01:07:12Z"
+     },
+     {
+      "url": "https://lcd.orai.io/cosmos/tx/v1beta1/txs/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "MsgSend 100000000000 orai to the MEXC deposit address, signer sequence \"6\", height 118003354"
+     },
+     {
+      "url": "https://x.com/oraichain/status/2087470000856813666",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "2M — 00:38 UTC"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2026-08-09T02:11:08Z",
+    "channel": "X (@oraichain)",
+    "note": "Time from status ID 2086274046124335398: notice of abnormal activity asking users not to transfer ORAI or transact; about 2h34m after the first large movement and 1h49m before the 04:00 UTC halt. The cause was first described on 10 Aug at 11:20:35 UTC (status 2086774707882451012).",
+    "sources": [
+     {
+      "url": "https://x.com/oraichain/status/2086274046124335398",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We’ve detected abnormal activity on the mainnet. Please do not transfer ORAI or perform any transactions on the mainnet until further notice."
+     }
+    ]
+   },
+   "first_alert": null,
+   "pause": {
+    "utc": "2026-08-09T04:00Z",
+    "basis": "stated",
+    "what": "Oraichain network halted; bridges, cross-chain routes and public interfaces restricted",
+    "by": "Oraichain team and validators",
+    "note": "About 4h23m after the first large movement of minted ORAI and 2h53m after the last observed one. Block production had resumed by 11 Aug 11:59:38 UTC (block 118,018,811, the earliest block a public node retains). On-chain restoration (burning unauthorized balances, reconciling protocol state) was reported complete on 12 Aug 09:23 UTC; on 26 Aug the mint path was patched and exchange deposits and withdrawals were still being restored.",
+    "sources": [
+     {
+      "url": "https://x.com/oraichain/status/2086774707882451012",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Since 04:00 UTC (Aug 9), the network has been halted, with bridges, cross-chain routes, and public interfaces restricted as part of containment."
+     },
+     {
+      "url": "https://x.com/oraichain/status/2087469990693990836",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Update on Aug 8-9 incident: On-chain restoration is complete."
+     },
+     {
+      "url": "https://oraichain-rpc.publicnode.com/block?height=118018811",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Tendermint RPC: height 118018811, time 2026-08-11T11:59:38.926364429Z (lowest height available 118018811)"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions a cap or delay on the transfer path. Single movements of 100M and 500M ORAI went through, and the halt was a manual network stop.",
+    "sources": [
+     {
+      "url": "https://api.scan.orai.io/v1/txs-account/orai1vyghw3r3567y2algruuflqw2hx05vt6k945wrq",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Oraiscan API: MsgTransfer of 500000000000000 orai (500,000,000 ORAI) to an Injective address at 2026-08-09T00:33:27Z"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": null,
+    "native": "none confirmed; about 3.9M ORAI at two exchanges subject to freeze and return requests",
+    "date": null,
+    "note": "12 Aug: fraud reports filed with the two exchanges, asking them to freeze linked accounts and return the ORAI for burning. 26 Aug: handled under each exchange's law-enforcement compliance process; outcome not reported. The on-chain burning of unauthorized balances during restoration removed unbacked supply; it is not a return of realized value.",
+    "sources": [
+     {
+      "url": "https://x.com/oraichain/status/2087469990693990836",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Return the confirmed unauthorized ORAI for permanent burn"
+     },
+     {
+      "url": "https://x.com/oraichain/status/2092534052192666008",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "we’re following each CEX’s compliance with law-enforcement process for the ~3.9M unauthorized ORAI deposited by the attacker before the network halt"
+     }
+    ]
+   },
+   "release_path": [],
+   "open_questions": "(1) The mint transaction(s), their times and the exact path (likely EVM-side, not in the Oraiscan account listing); the mint came before 23:37:27 UTC on 8 Aug, plausibly after 23:05:34 UTC. (2) Whether the 100M and 500M ORAI IBC transfers to Injective were received or timed out. (3) Realized loss: DefiLlama 1.0M vs NOMINIS 0; value drawn from OraiDEX pools (ATOM, OSMO, USDT) not quantified. (4) Class O: the operator has published no root cause beyond 'EVM cross-chain transfer path'; D or S readings are possible. (5) Scope: in-protocol transfer path; a stricter reading would mark it not_a_bridge_failure. (6) No third-party alert found before the operator's 02:11 UTC notice. (7) Exchange freeze outcomes and the exact restart time."
+  },
+  {
+   "event_id": "E62",
+   "dl_name": "Harmony Bridge",
+   "dl_date": "2026-08-11",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Unbacked native ONE credited on Harmony shard 0 through the in-protocol cross-shard transfer path (receipt from a source shard, credit on the destination shard) after replayed receipts were accepted. Not the Horizon bridge (DefiLlama's 2022 'Harmony Bridge' record, E14) and not bridge.harmony.one, which the operator paused. A stricter reading would treat in-protocol shard transfers as a single-chain protocol flaw (not_a_bridge_failure). The DefiLlama date (11 Aug) matches the first unbacked credit at 23:25:41 UTC; most activity and the disclosure were on 12 Aug.",
+    "sources": [
+     {
+      "url": "https://x.com/harmonyprotocol/status/2088078119269978281",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Around 2026-08-11 23:25:40 UTC, an unauthorized minting of native ONE tokens occurred on the Harmony Mainnet."
+     },
+     {
+      "url": "https://www.nominis.io/insights/nominis-monthly-report",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Harmony suffered a breach in its cross-shard receipt validation, allowing an attacker to mint unauthorised ONE tokens"
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\":\"Harmony Bridge\",\"classification\":\"Bridge & Cross-Chain\",\"technique\":\"Bridge Logic Flaw\",\"amount\":3200000"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-08-11",
+    "sources": [
+     {
+      "url": "https://x.com/harmonyprotocol/status/2088078119269978281",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The first incident activity was identified on Shard 0 at block 92,730,036 at 23:25:41 UTC."
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 3200000,
+    "range": "3.2M USD is a cash-out estimate based on the first 4B ONE wave at about 0.0008 USD (The Block; SlowMist's tracker per Rekt); no realized loss confirmed. Full issuance 3,010,000,100,000 ONE, nominally about 3.56B USD at the pre-incident price (BlockSec), not realizable.",
+    "sources": [
+     {
+      "url": "https://theblock.co/news/defi/2026-08-12-harmony-confirms-exploit-one-token-411527",
+      "type": "press",
+      "how_read": "search snippet",
+      "quote": "This puts the stolen amount at a current value of roughly $3.2 million."
+     },
+     {
+      "url": "https://alpha.rekt.news/harmony-rekt2",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "SlowMist's tracker lists the incident at $3.2 million."
+     },
+     {
+      "url": "https://x.com/harmonyprotocol/status/2088078119269978281",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "the 3,010,000,100,000 ONE figure reflects the full forged cross-shard issuance into four exploiter wallets."
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\":\"Harmony Bridge\",\"classification\":\"Bridge & Cross-Chain\",\"technique\":\"Bridge Logic Flaw\",\"amount\":3200000"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "Destination shard credited replayed cross-shard receipts (spent marker keyed on unauthenticated proof fields) without a source debit.",
+    "sources": [
+     {
+      "url": "https://x.com/harmonyprotocol/status/2088078119269978281",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "By modifying these identifiers, an attacker made processed receipts appear new."
+     },
+     {
+      "url": "https://x.com/harmonyprotocol/status/2088078119269978281",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "ApplyIncomingReceipt credited the destination shard without a corresponding debit on the source shard."
+     },
+     {
+      "url": "https://x.com/harmonyprotocol/status/2088078119269978281",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The final forensic investigation will determine if the exploit relied solely on the cross-shard receipt issue or also leveraged this quorum-verification flaw."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "mint",
+    "share_note": "All value was unbacked native ONE on shard 0: 3,010,000,100,000 ONE in six cross-shard credits to four recipient addresses (Harmony's reconstruction); the first wave was 4,000,000,000 ONE. Realized through exchange deposits (about 2.8B ONE at exchange deposit addresses by 01:42 UTC per Juiceberg), DEX pools and bridges; one recipient address made 477 successful transfers of 5B ONE each in 106 seconds. No escrow release identified.",
+    "chains": [
+     "Harmony"
+    ],
+    "sources": [
+     {
+      "url": "https://x.com/harmonyprotocol/status/2089280253701324989",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "One forged mint wallet tried 534 transfers of 5 billion ONE in 106 seconds. Of those, 477 succeeded and moved 2,385,000,000,000 ONE."
+     },
+     {
+      "url": "https://x.com/the_juice_berg/status/2087353885765620127",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "with 2.8B quickly funneled to exchanges as price crashed"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Harmony (shard 0)",
+    "first_release_utc": "2026-08-11T23:25:41Z",
+    "last_release_utc": null,
+    "duration_min": null,
+    "release_tx_count": 6,
+    "count_note": "Counted: unbacked cross-shard credits on shard 0 per Harmony's reconstruction (six transactions). Times are published for three: first activity at block 92,730,036 (23:25:41 UTC, 11 Aug; amount not given); 1,000,000,000 ONE at block 92,731,152 (00:02:59 UTC, 12 Aug); 3,000,000,000 ONE at block 92,732,898 (01:01:17 UTC). All six preceded CertiK's 08:07:08 UTC post. The patched release v2026.1.1 was deployed at 06:30 UTC and took effect as validators upgraded (53% by about 10:32 UTC). The affected blocks were later discarded by the rollback, so they cannot be read from the current chain.",
+    "sources": [
+     {
+      "url": "https://x.com/harmonyprotocol/status/2088078119269978281",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "1,000,000,000 ONE at block 92,731,152 (12 August 2026, 00:02:59 UTC)"
+     },
+     {
+      "url": "https://x.com/harmonyprotocol/status/2088078119269978281",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "3,000,000,000 ONE at block 92,732,898 (12 August 2026, 01:01:17 UTC)"
+     },
+     {
+      "url": "https://x.com/CertiKAlert/status/2087450799874224439",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "the amount of $ONE created exceeds 3 trillions from six abnormal blocks."
+     },
+     {
+      "url": "https://x.com/harmonyprotocol/status/2087487246148542527",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "As of now, 53% of our validators completed the upgrade for the emergency patch which was released only 4 hours ago."
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2026-08-12T04:26:06Z",
+    "channel": "X (@harmonyprotocol)",
+    "note": "Time from status ID 2087395174263705704 (quote of Juiceberg's alert), 2h44m after the alert and 5h00m after the first unbacked credit. Freeze list of four addresses at 05:25:28 UTC (status 2087410115200889135); incident report 14 Aug 01:39:52 UTC; rollback plan 17 Aug 09:16:44 UTC.",
+    "sources": [
+     {
+      "url": "https://x.com/harmonyprotocol/status/2087395174263705704",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We are working with our team and appropriate exchanges to stop and freeze the funds."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2026-08-12T01:42:02Z",
+    "channel": "X (@the_juice_berg)",
+    "by": "Juiceberg (on-chain analyst)",
+    "note": "Time from status ID 2087353885765620127, 2h16m after the first unbacked credit.",
+    "sources": [
+     {
+      "url": "https://x.com/the_juice_berg/status/2087353885765620127",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Harmony exploited as on-chain data reveals unauthorized 4B ONE mint (26% of supply) via empty blocks"
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2026-08-12T06:39:17Z",
+    "basis": "announcement",
+    "what": "bridge.harmony.one (Harmony's bridge to other chains) paused",
+    "by": "Harmony team",
+    "note": "Upper bound from the post time (status 2087428693933367768). The unbacked credits themselves were stopped by the patched release (deployed 06:30 UTC, effective as validators upgraded). Shard 0 was halted at block 92,753,555 (12:32:54 UTC, 12 Aug, stated) for the rollback; both shards restarted on replacement databases from heights 92,730,035 and 94,978,279, and shard-0 block 92,730,035 is timestamped 2026-08-20T13:51:41Z on the public RPC.",
+    "sources": [
+     {
+      "url": "https://x.com/harmonyprotocol/status/2087428693933367768",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Due to the incident, we have paused http://bridge.harmony.one/."
+     },
+     {
+      "url": "https://x.com/harmonyprotocol/status/2088078119269978281",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "deployed on 12 August 2026 at 06:30 UTC"
+     },
+     {
+      "url": "https://x.com/harmonyprotocol/status/2088078119269978281",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Shard 0 is currently halted at block 92,753,555 (12 August 2026, 12:32:54 UTC) to facilitate the rollback"
+     },
+     {
+      "url": "https://api.harmony.one",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getBlockByNumber: block 92730034 timestamp 2026-08-11T23:25:37Z; block 92730035 timestamp 2026-08-20T13:51:41Z"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions a cap on cross-shard credits; single credits of 1B and 3B ONE were accepted, and the full issuance was about 200 times the supply implied by Juiceberg's 26% figure.",
+    "sources": [
+     {
+      "url": "https://x.com/harmonyprotocol/status/2088078119269978281",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The confirmed first-wave mint totaled 4,000,000,000 ONE via two empty-block credits"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": null,
+    "native": "none returned; unbacked balances removed on-chain by the rollback",
+    "date": "2026-08-20 (replacement chain from block 92,730,035)",
+    "note": "The rollback to block 92,730,034 (23:25:37 UTC, 11 Aug) discarded the unbacked credits and all later shard-0 activity (141,628 blocks, 109,126 regular transactions); it does not reach value that left the chain before the halt. Exchanges were asked to freeze funds traced to four addresses; frozen amounts not disclosed.",
+    "sources": [
+     {
+      "url": "https://x.com/harmonyprotocol/status/2089280253701324989",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "All blocks after the checkpoints will be discarded, including regular transactions."
+     },
+     {
+      "url": "https://www.quillaudits.com/blog/hack-analysis/harmony-receipt-replay-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "never reached what had already left the chain"
+     },
+     {
+      "url": "https://x.com/harmonyprotocol/status/2087410115200889135",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We are asking all exchanges to block and freeze funds that traces back to these 4 wallet addresses"
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2026-08-11T23:25:41Z",
+     "chain": "Harmony (shard 0)",
+     "side": "mint",
+     "amount_native": null,
+     "asset": "ONE",
+     "usd": null,
+     "basis": "project post-mortem (first unbacked credit, block 92,730,036; amount not given)"
+    },
+    {
+     "utc": "2026-08-12T00:02:59Z",
+     "chain": "Harmony (shard 0)",
+     "side": "mint",
+     "amount_native": 1000000000,
+     "asset": "ONE",
+     "usd": null,
+     "basis": "project post-mortem (block 92,731,152)"
+    },
+    {
+     "utc": "2026-08-12T01:01:17Z",
+     "chain": "Harmony (shard 0)",
+     "side": "mint",
+     "amount_native": 3000000000,
+     "asset": "ONE",
+     "usd": null,
+     "basis": "project post-mortem (block 92,732,898)"
+    }
+   ],
+   "open_questions": "(1) Times and amounts of the other forged credits (three of six timestamped) and whether any credit came after the 06:30 UTC patch release. (2) Whether the pre-staking quorum flaw was used. (3) Realized loss: DefiLlama's 3.2M is a cash-out estimate for the first 4B ONE; exchanges' frozen amounts undisclosed. (4) Scope: in-protocol cross-shard transfer between Harmony shards; a stricter reading treats it as not_a_bridge_failure. (5) How much unbacked ONE left through bridge.harmony.one or other bridges before the 06:39 UTC pause. (6) Date of the operator's confirmation that the rollback completed."
+  },
+  {
+   "event_id": "E63",
+   "dl_name": "Maya Protocol",
+   "dl_date": "2026-08-18",
+   "scope": {
+    "value": "bridge_liquidity_or_relayer",
+    "note": "Maya Protocol (MAYAChain) is a cross-chain swap network whose pools are backed by vaults on several chains (THORChain fork). Chained accounting flaws credited one pool (ARB.LINK) with about 49.45M CACAO it did not hold; the initiating party withdrew 48.87M CACAO from the pool module and swapped 40M of it against the BTC pool, so 20.83 BTC left Maya's Bitcoin vaults as ordinary swap outbounds. No key compromise. The DefiLlama date matches.",
+    "sources": [
+     {
+      "url": "https://www.quillaudits.com/blog/hack-analysis/mayachain-slash-subsidy-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "triggered a false theft alert"
+     },
+     {
+      "url": "https://cointelegraph.com/news/maya-protocol-1-7m-exploit-network-halt",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "incorrectly credited it with 49.45 million CACAO"
+     },
+     {
+      "url": "https://midgard.mayachain.info/v2/actions?address=[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Midgard v2/actions: withdraw at height 17977971 (2026-08-18T17:03:32Z) paying out 488695025269542000 base units of MAYA.CACAO; ten swaps of 4,000,000 CACAO into BTC.BTC at heights 17977998-17978008"
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\":\"Maya Protocol\",\"classification\":\"Protocol Logic\",\"technique\":\"Withdrawal Logic Flaw\",\"amount\":1700000"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-08-18",
+    "sources": [
+     {
+      "url": "https://mayanode.mayachain.info/mayachain/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "mayanode tx: memo DONATE:ARB.LINK, consensus_height 17977941 (Midgard date 2026-08-18T17:00:38Z)"
+     },
+     {
+      "url": "https://mempool.space/block/963077",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "mempool.space API: ten outbound transactions to the recipient address confirmed in block 963077, block_time 2026-08-18T17:32:18Z"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 1700000,
+    "range": "1.34M-1.7M USD for value moved off MAYAChain (20.83 BTC; QuillAudits about 1,343,367 USD; operator's first estimate 20 BTC plus about 300K in other assets; DefiLlama 1.7M). Pool value loss about 10.9M USD including arbitrage and the CACAO price fall from 0.115 to 0.013 (Cointelegraph). NOMINIS lists 17M.",
+    "sources": [
+     {
+      "url": "https://cointelegraph.com/news/maya-protocol-1-7m-exploit-network-halt",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "about 20 Bitcoin worth $1.4 million and another $300,000 in assets"
+     },
+     {
+      "url": "https://www.quillaudits.com/blog/hack-analysis/mayachain-slash-subsidy-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "worth about $1,343,367"
+     },
+     {
+      "url": "https://x.com/vinibarbosabr/status/2089823629030613434",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "extracted ~$1.36M in hard assets to L1 and left the protocol with roughly $11M in total impact"
+     },
+     {
+      "url": "https://www.nominis.io/insights/nominis-monthly-report",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Maya Protocol (18/08/2026, $17M)"
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\":\"Maya Protocol\",\"classification\":\"Protocol Logic\",\"technique\":\"Withdrawal Logic Flaw\",\"amount\":1700000"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "O",
+    "phrase": "Accounting flaws inside the protocol (false missing-outbound detection, uncapped compensation credit) inflated one pool.",
+    "sources": [
+     {
+      "url": "https://cointelegraph.com/news/maya-protocol-1-7m-exploit-network-halt",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "six chained bugs let a 23-message transaction drain 48.87 million CACAO"
+     },
+     {
+      "url": "https://www.quillaudits.com/blog/hack-analysis/mayachain-slash-subsidy-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "triggered a false theft alert"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "Value left as swap outbounds from Maya's Bitcoin vaults: 20.82730682 BTC in ten transactions from two vault addresses. Upstream, 48,869,502.53 CACAO was withdrawn from the pool module on MAYAChain at 17:03:32 UTC; 40M CACAO of it was swapped into BTC and about 8.87M CACAO stayed with the initiating address. The initiating party's own 100 LINK deposit came back as 98.82 LINK on Arbitrum.",
+    "chains": [
+     "MAYAChain",
+     "Bitcoin"
+    ],
+    "sources": [
+     {
+      "url": "https://mempool.space/block/963077",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "mempool.space API: outputs to the recipient of 4.6921901, 3.65620546, 2.83972488, 2.25807637, 1.83619182, 1.50870624, 1.26010515, 1.06728449, 0.91565992, 0.79316239 BTC"
+     },
+     {
+      "url": "https://midgard.mayachain.info/v2/actions?address=[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Midgard v2/actions: withdraw out 48869502.5269542 MAYA.CACAO and 98.82470059 ARB.LINK"
+     },
+     {
+      "url": "https://www.quillaudits.com/blog/hack-analysis/mayachain-slash-subsidy-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "8,874,269.11 CACAO"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Bitcoin",
+    "first_release_utc": "2026-08-18T17:32:18Z",
+    "last_release_utc": "2026-08-18T17:32:18Z",
+    "duration_min": 0,
+    "release_tx_count": 10,
+    "count_note": "Counted: Bitcoin outbound transactions from Maya vaults to the recipient address, all confirmed in Bitcoin block 963,077 (17:32:18 UTC). They were scheduled at the same MAYAChain heights as the ten swaps (blocks 17,977,998-17,978,008, 17:06:08-17:07:06 UTC) and waited for the next Bitcoin block (block 963,076 was mined at 17:06:24 UTC). Upstream on MAYAChain: batched trigger transaction at 17:00:38 UTC (block 17,977,941) after two failed attempts at 16:57:35 and 16:59:23 UTC; pool deposit and 48.87M CACAO withdrawal at 17:03:32 UTC (block 17,977,971). Preparation: a 0.3 ETH swap at 01:08:15 UTC and trade-account deposits (8 ETH, 2 LINK) at 16:43 UTC.",
+    "sources": [
+     {
+      "url": "https://midgard.mayachain.info/v2/actions?address=[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Midgard v2/actions: failed actions at 2026-08-18T16:57:35Z and 16:59:23Z; donate and trade at 17:00:38Z; withdraw at 17:03:32Z; swaps 17:06:08Z-17:07:06Z"
+     },
+     {
+      "url": "https://mempool.space/api/block-height/963076",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "mempool.space API: block 963076 timestamp 2026-08-18T17:06:24Z; block 963077 timestamp 2026-08-18T17:32:18Z"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2026-08-18T19:13:05Z",
+    "channel": "X (@AaluxxMyth, Maya co-founder)",
+    "note": "Time from status ID 2089792721086996703, 2h12m after the swaps; a linked analysis followed at 19:14:02 UTC (status 2089792960833487030). First post from the official @Maya_Protocol account: 2026-08-19T15:55:24Z (status 2090105358140227765). No earlier Discord or Telegram time found.",
+    "sources": [
+     {
+      "url": "https://x.com/AaluxxMyth/status/2089792721086996703",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Will work to fix and recover in full. We carry on. @Maya_Protocol"
+     },
+     {
+      "url": "https://x.com/Maya_Protocol/status/2090105358140227765",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The exploit tested us. Our response is resilience."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2026-08-18T21:15:54Z",
+    "channel": "X (@vinibarbosabr)",
+    "by": "Vini Barbosa (security researcher)",
+    "note": "Time from status ID 2089823629030613434; this came after the co-founder's post. No earlier third-party alert found.",
+    "sources": [
+     {
+      "url": "https://x.com/vinibarbosabr/status/2089823629030613434",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "MAYAChain just suffered a sophisticated 6-bug exploit that extracted ~$1.36M in hard assets to L1"
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2026-08-18T18:01:01Z",
+    "basis": "onchain",
+    "what": "Mimir HALTCHAINGLOBAL set to 1 at MAYAChain block 17,978,570 (global halt of external-chain observation); HALTETHTRADING had been set at block 17,978,499 (17:54:13 UTC)",
+    "by": "Maya operators through Mimir (admin key or node votes; not stated)",
+    "note": "54 minutes after the swaps and 29 minutes after the Bitcoin outbounds confirmed. The automatic solvency halt did not trigger (SOLVENCYHALTBTCCHAIN 0 at block 17,980,000). HALTCHAINGLOBAL was cleared by block 18,618,355 (2026-09-30T18:31:24Z) and HALTETHTRADING by block 18,629,717 (2026-10-01T13:25:24Z), found by bisecting Mimir history (assumes no intermediate toggles).",
+    "sources": [
+     {
+      "url": "https://mayanode.mayachain.info/mayachain/mimir?height=17978570",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "mayanode mimir: HALTCHAINGLOBAL 1 at height 17978570, 0 at 17978569; block 17978570 time 2026-08-18T18:01:01.411888702Z"
+     },
+     {
+      "url": "https://mayanode.mayachain.info/mayachain/mimir?height=17978499",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "mayanode mimir: HALTETHTRADING 1 at height 17978499, 0 at 17978498; block time 2026-08-18T17:54:13.288907648Z"
+     },
+     {
+      "url": "https://cointelegraph.com/news/maya-protocol-1-7m-exploit-network-halt",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "halted its network after an attacker exploited a series of software flaws"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "yes",
+    "acted": "no",
+    "how": "Outbound delay in force (Mimir: MINTXOUTVOLUMETHRESHOLD 100,000 CACAO, TXOUTDELAYRATE 10,000 CACAO per block, MAXTXOUTOFFSET 200 blocks), but each of the ten swaps had its outbound scheduled at its own consensus height, so no delay applied. The automatic solvency halt existed and did not trigger (solvency-halt keys 0 after the event).",
+    "sources": [
+     {
+      "url": "https://mayanode.mayachain.info/mayachain/mimir?height=17977900",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "mayanode mimir at height 17977900: MINTXOUTVOLUMETHRESHOLD 1000000000000000, TXOUTDELAYRATE 100000000000000, MAXTXOUTOFFSET 200 (CACAO base units of 1e-10)"
+     },
+     {
+      "url": "https://mayanode.mayachain.info/mayachain/tx/details/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "mayanode tx/details: consensus_height 17978008, finalised_height 17978008, outbound_height 17978008 (same pattern for all ten swaps)"
+     },
+     {
+      "url": "https://mayanode.mayachain.info/mayachain/mimir?height=17980000",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "mayanode mimir at height 17980000: SOLVENCYHALTBTCCHAIN 0, STOPSOLVENCYCHECKBTC 0, HALTCHAINGLOBAL 1"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": null,
+    "native": "none reported",
+    "date": null,
+    "note": "Maya sent a bounty offer to the recipient's Bitcoin address in an OP_RETURN transaction (block 963,125, 04:21:39 UTC on 19 Aug). As of 2 Sept the initiating party still held 8,874,269.11 CACAO and the 20.82 BTC (QuillAudits). The co-founder pledged 200,000 USD to the pools (reimbursement, not recovery).",
+    "sources": [
+     {
+      "url": "https://www.quillaudits.com/blog/hack-analysis/mayachain-slash-subsidy-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "8,874,269.11 CACAO"
+     },
+     {
+      "url": "https://cointelegraph.com/news/maya-protocol-1-7m-exploit-network-halt",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "would personally donate $200,000"
+     },
+     {
+      "url": "https://mempool.space/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "mempool.space API: block 963125, block_time 2026-08-19T04:21:39Z, 546 sat output to the recipient address"
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2026-08-18T17:03:32Z",
+     "chain": "MAYAChain",
+     "side": "escrow",
+     "amount_native": 48869502.5269542,
+     "asset": "CACAO (withdrawn from the pool module after the ARB.LINK pool was inflated)",
+     "usd": null,
+     "basis": "explorer (Midgard withdraw action, block 17,977,971)"
+    },
+    {
+     "utc": "2026-08-18T17:32:18Z",
+     "chain": "Bitcoin",
+     "side": "escrow",
+     "amount_native": 4.6921901,
+     "asset": "BTC",
+     "usd": null,
+     "basis": "explorer (mempool.space block 963,077; Midgard swap outbound)"
+    },
+    {
+     "utc": "2026-08-18T17:32:18Z",
+     "chain": "Bitcoin",
+     "side": "escrow",
+     "amount_native": 3.65620546,
+     "asset": "BTC",
+     "usd": null,
+     "basis": "explorer (mempool.space block 963,077; Midgard swap outbound)"
+    },
+    {
+     "utc": "2026-08-18T17:32:18Z",
+     "chain": "Bitcoin",
+     "side": "escrow",
+     "amount_native": 2.83972488,
+     "asset": "BTC",
+     "usd": null,
+     "basis": "explorer (mempool.space block 963,077; Midgard swap outbound)"
+    },
+    {
+     "utc": "2026-08-18T17:32:18Z",
+     "chain": "Bitcoin",
+     "side": "escrow",
+     "amount_native": 2.25807637,
+     "asset": "BTC",
+     "usd": null,
+     "basis": "explorer (mempool.space block 963,077; Midgard swap outbound)"
+    },
+    {
+     "utc": "2026-08-18T17:32:18Z",
+     "chain": "Bitcoin",
+     "side": "escrow",
+     "amount_native": 1.83619182,
+     "asset": "BTC",
+     "usd": null,
+     "basis": "explorer (mempool.space block 963,077; Midgard swap outbound)"
+    },
+    {
+     "utc": "2026-08-18T17:32:18Z",
+     "chain": "Bitcoin",
+     "side": "escrow",
+     "amount_native": 1.50870624,
+     "asset": "BTC",
+     "usd": null,
+     "basis": "explorer (mempool.space block 963,077; Midgard swap outbound)"
+    },
+    {
+     "utc": "2026-08-18T17:32:18Z",
+     "chain": "Bitcoin",
+     "side": "escrow",
+     "amount_native": 1.26010515,
+     "asset": "BTC",
+     "usd": null,
+     "basis": "explorer (mempool.space block 963,077; Midgard swap outbound)"
+    },
+    {
+     "utc": "2026-08-18T17:32:18Z",
+     "chain": "Bitcoin",
+     "side": "escrow",
+     "amount_native": 1.06728449,
+     "asset": "BTC",
+     "usd": null,
+     "basis": "explorer (mempool.space block 963,077; Midgard swap outbound)"
+    },
+    {
+     "utc": "2026-08-18T17:32:18Z",
+     "chain": "Bitcoin",
+     "side": "escrow",
+     "amount_native": 0.91565992,
+     "asset": "BTC",
+     "usd": null,
+     "basis": "explorer (mempool.space block 963,077; Midgard swap outbound)"
+    },
+    {
+     "utc": "2026-08-18T17:32:18Z",
+     "chain": "Bitcoin",
+     "side": "escrow",
+     "amount_native": 0.79316239,
+     "asset": "BTC",
+     "usd": null,
+     "basis": "explorer (mempool.space block 963,077; Midgard swap outbound)"
+    }
+   ],
+   "open_questions": "(1) Why the outbound delay did not apply: each swap's outbound_height equals its consensus height although the swaps far exceeded the 100,000 CACAO threshold. (2) Who set the Mimir halts (admin key or node votes). (3) Scope: bridge_liquidity_or_relayer is chosen because value left through swap outbounds against the protocol's pools after an accounting flaw; the THORChain vault event (E47) was classed bridge_custody_or_mint. (4) The 'other assets (300K USD)' in the operator's estimate are not identified on-chain. (5) Status of the bounty offer and any recovery."
+  },
+  {
+   "event_id": "E65",
+   "dl_name": "Nomic",
+   "dl_date": "2026-09-09",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Unbacked nBTC (Nomic's bridged-BTC claim) issued on Osmosis: Nomic's IBC transfer code sent 25 valid packets without an escrow debit, and Osmosis minted the vouchers. Value was realized by exchanging the vouchers 1:1 for real BTC collateral in Osmosis's Alloyed BTC pool and moving it to Ethereum; Nomic's Bitcoin reserve was not touched. DefiLlama dates the record 2026-09-09 (Osmosis's disclosure); the unbacked issuance was on 2026-06-25, 74 days earlier.",
+    "sources": [
+     {
+      "url": "https://hackmd.io/optjLjTdTKadPNmMc60gJg/download",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "No BTC was stolen directly from Nomic's reserve."
+     },
+     {
+      "url": "https://x.com/osmosis/status/2097623097696251926",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The exploit allowed the attacker to double-spend nBTC, allowing them to send false vouchers to Osmosis."
+     },
+     {
+      "url": "https://hackmd.io/optjLjTdTKadPNmMc60gJg/download",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "It went undisclosed for 74 days until Nomic's halt prompted a check of the backing."
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\":\"Nomic\",\"classification\":\"Bridge & Cross-Chain\",\"technique\":\"Unbacked Cross-Chain Mint\",\"amount\":3150000"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-06-25",
+    "sources": [
+     {
+      "url": "https://hackmd.io/optjLjTdTKadPNmMc60gJg/download",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "nBTC supply on Osmosis went from 1.659208 BTC to 42.309811 BTC in a single block."
+     },
+     {
+      "url": "https://x.com/Rarma_/status/2097456879266037797",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Nomic block 33,137,470, 25 June 2026 21:49:59 UTC"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 3150000,
+    "range": "About 1.0M USD cashed out as ETH (671.75 ETH received on Ethereum) to 3.15M USD (DefiLlama; 40.65 BTC at September prices); the 22.65 allBTC later frozen was valued at 1,792,773 USD (HackMD).",
+    "sources": [
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\":\"Nomic\",\"classification\":\"Bridge & Cross-Chain\",\"technique\":\"Unbacked Cross-Chain Mint\",\"amount\":3150000"
+     },
+     {
+      "url": "https://x.com/Rarma_/status/2097456879266037797",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The beneficiary received 671.75412248 ETH"
+     },
+     {
+      "url": "https://hackmd.io/optjLjTdTKadPNmMc60gJg/download",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "allBTC held by the attacker | 22.650608 | $1,792,773"
+     },
+     {
+      "url": "https://protos.com/osmosis-took-74-days-to-discover-40-btc-nomic-exploit/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "minted 40.650602 BTC of nBTC on Osmosis with no BTC behind it"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "S",
+    "phrase": "Nomic's IBC transfer code emitted valid packets without an escrow debit; Osmosis honored them.",
+    "sources": [
+     {
+      "url": "https://x.com/Rarma_/status/2097456879266037797",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The block contains no transfer, coin_spent, coin_received or burn events."
+     },
+     {
+      "url": "https://hackmd.io/optjLjTdTKadPNmMc60gJg/download",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "escrow credited without being debited; only counterparty voucher supply inflated"
+     },
+     {
+      "url": "https://x.com/osmosis/status/2097623097696251926",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Osmosis and IBC were not compromised, as the bug was in a custom forwarding mechanism on Nomic."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "mint",
+    "share_note": "40.65060238 unbacked nBTC vouchers minted on Osmosis. 18.0 nBTC were exchanged 1:1 in the Alloyed BTC pool (pool 1868) for WBTC.axl and allBTC between 21:59 UTC on 25 June and 28 June and moved out through Axelar and Noble (671.75 ETH received on Ethereum); 22.65 nBTC were exchanged for allBTC on 17 July and stayed on Osmosis (frozen in September). Alloyed BTC holders bear the shortfall: 39.84 nBTC inside the pool, about 36% of its backing.",
+    "chains": [
+     "Osmosis",
+     "Nomic"
+    ],
+    "sources": [
+     {
+      "url": "https://x.com/Rarma_/status/2097456879266037797",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Against that, 18.00000000 was converted and bridged out, and 22.65060847 was converted to allBTC and left on Osmosis"
+     },
+     {
+      "url": "https://x.com/osmosis/status/2097623097696251926",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "39.84 nBTC of the minted total sits within Alloyed BTC, representing ~36% of its backing."
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Osmosis",
+    "first_release_utc": "2026-06-25T21:50:08Z",
+    "last_release_utc": "2026-06-25T21:50:08Z",
+    "duration_min": 0,
+    "release_tx_count": 6,
+    "count_note": "Counted: Osmosis relayer transactions that delivered the 25 IBC packets (sequences 9286-9310, 1.626024 nBTC each) in block 64,910,685; time from HackMD (the Nomic send block 33,137,470 is timestamped 21:49:59 UTC per Rarma). Preliminary: a probe on Nomic on 23 June (Rarma 03:01:56 UTC; HackMD 02:56) that bought nBTC and sent 0.06 BTC back to Nomic. Onward exchanges in the Alloyed BTC pool from 21:59:14 UTC on 25 June; final 22.65 nBTC converted on 17 July at 22:44:35 UTC.",
+    "sources": [
+     {
+      "url": "https://x.com/Rarma_/status/2097456879266037797",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "All 25 packets arrive on Osmosis block 64,910,685 over channel-6897, in six relayer transactions"
+     },
+     {
+      "url": "https://hackmd.io/optjLjTdTKadPNmMc60gJg/download",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "At 21:50:08 UTC on 25 June 2026 (Osmosis block 64910685)"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2026-09-09T09:48:13Z",
+    "channel": "X (@osmosis)",
+    "note": "Osmosis is the destination chain and operator of the Alloyed BTC pool; no statement from Nomic, the bridge operator, was found, and Nomic's chain had stopped on 7 Sept. Time from status ID 2097623097696251926, 74 days after the unbacked issuance.",
+    "sources": [
+     {
+      "url": "https://x.com/osmosis/status/2097623097696251926",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Recently, we became aware of an exploit on the Nomic chain."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2026-09-08T22:47:43Z",
+    "channel": "X (@Rarma_)",
+    "by": "Rarma (on-chain analyst)",
+    "note": "Time from status ID 2097456879266037797; the first public account of the unbacked nBTC found. Osmosis had already paused the Alloyed BTC pool on-chain about 27 hours earlier (see pause).",
+    "sources": [
+     {
+      "url": "https://x.com/Rarma_/status/2097456879266037797",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "allBTC on @osmosiszone is 63.97% backed."
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2026-09-07T19:35:16Z",
+    "basis": "onchain",
+    "what": "Alloyed BTC pool (pool 1868) set inactive at Osmosis block 70,112,441; IBC rate-limit quotas for nBTC set to 0% send and receive; emergency upgrade v31.1.0 froze the 22.65 allBTC held by the initiating party",
+    "by": "Osmosis moderation subDAOs and validators",
+    "note": "The release was a single block 74 days earlier, so this pause stopped further exchange of nBTC for real collateral rather than the issuance. It followed the Nomic chain stop on 7 Sept (Rarma: block 34,837,131 at 15:30:21 UTC; HackMD: 07:02 UTC). v31.1.0 was released at 21:55 UTC on 7 Sept and passed the consensus threshold at 23:15 UTC (HackMD).",
+    "sources": [
+     {
+      "url": "https://osmosis-api.polkachu.com/cosmwasm/wasm/v1/contract/[redacted]/smart/eyJpc19hY3RpdmUiOnt9fQ==",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Osmosis LCD is_active: true at height 70112440 (2026-09-07T19:35:14Z), false at height 70112441 (2026-09-07T19:35:16.769Z)"
+     },
+     {
+      "url": "https://x.com/Rarma_/status/2097456879266037797",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Osmosis paused the allBTC pool at height 70,112,441 on 7 September 19:35:16."
+     },
+     {
+      "url": "https://x.com/osmosis/status/2097623097696251926",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "moderation subDAOs froze inflows and outflows to both Nomic and Alloyed BTC on Osmosis"
+     },
+     {
+      "url": "https://hackmd.io/optjLjTdTKadPNmMc60gJg/download",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Further transfers to and from Nomic are disabled by IBC Rate Limits being set to 0 and Nomic chain remains down."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "yes",
+    "acted": "yes",
+    "how": "No IBC rate limit on nBTC on 25 June (quotas were added on 15 July), so the 40.65 nBTC inflow, about 24.5 times the prior Osmosis supply, passed in one block. The Alloyed BTC pool's static cap on nBTC's share (35% at the time; raised to 60% by Proposal 1031 in late July) let 18 nBTC be exchanged for real collateral on 25 June and then limited further exits through the pool (HackMD); the remaining 22.65 nBTC was converted into allBTC on 17 July and later frozen. On 7 Sept the nBTC quotas allowed receipts of up to 100% of channel value per 24 h, 36 h and 7 days.",
+    "sources": [
+     {
+      "url": "https://hackmd.io/optjLjTdTKadPNmMc60gJg/download",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "No IBC rate limit existed on nBTC, because supply had sat at 1-2 BTC for years and a percentage-of-supply quota was redundant at that scale."
+     },
+     {
+      "url": "https://hackmd.io/optjLjTdTKadPNmMc60gJg/download",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The 35% static alloy limit on nBTC bounded the damage."
+     },
+     {
+      "url": "https://hackmd.io/optjLjTdTKadPNmMc60gJg/download",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "nBTC IBC rate limits added, once nBTC appeared to have real usage."
+     },
+     {
+      "url": "https://osmosis-api.polkachu.com/cosmwasm/wasm/v1/contract/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "get_quotas at height 70112000: nBTC-DAY-1 max_percentage_send 50, max_percentage_recv 100, duration 86400; transmuter list_limiters: nBTC Static upper_limit 0.6"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": 1792773,
+    "native": "22.650608 allBTC frozen in the initiating party's Osmosis address",
+    "date": "2026-09-07/08 (emergency upgrade v31.1.0)",
+    "note": "Frozen by validator upgrade, not yet transferred: governance approved community-pool funding for the re-peg on 24 Sept; moving the frozen allBTC needs a further chain upgrade (12 Oct: still being tested). Osmosis proposes covering the remaining 17.19 BTC from accrued community-pool BTC (reimbursement, not recovery). The 18 BTC moved to Ethereum was not recovered.",
+    "sources": [
+     {
+      "url": "https://x.com/osmosis/status/2097623097696251926",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "performed an emergency upgrade with validators to freeze 22.65 BTC in the attacker's address."
+     },
+     {
+      "url": "https://hackmd.io/optjLjTdTKadPNmMc60gJg/download",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "allBTC held by the attacker | 22.650608 | $1,792,773"
+     },
+     {
+      "url": "https://forum.osmosis.zone/t/alloyed-btc-restore-backing-after-the-nbtc-incident/4122",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "No update, release still in progress and being tested."
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2026-06-25T21:50:08Z",
+     "chain": "Osmosis",
+     "side": "mint",
+     "amount_native": 40.65060238,
+     "asset": "nBTC (IBC voucher)",
+     "usd": null,
+     "basis": "third-party analysis (Rarma amount; HackMD time) - 25 packets in Osmosis block 64,910,685"
+    }
+   ],
+   "open_questions": "(1) The two analyses describe the Nomic-side defect differently (HackMD: unchecked sender plus self-transfer aliasing of escrow; Rarma: a double mint in the IBC delivery handler); both place it on the origin side, hence class S. (2) Nomic halt time: 07:02 (HackMD) vs 15:30:21 UTC (Rarma). (3) No statement from Nomic found. (4) Seizure of the frozen 22.65 allBTC and the re-peg are pending (12 Oct). (5) Shortfall 39.84 vs 17.19 BTC depending on whether frozen funds are counted. (6) Exact Osmosis block time of 64,910,685 not read from chain (pruned on public nodes)."
+  },
+  {
+   "event_id": "E66",
+   "dl_name": "Fetch.ai",
+   "dl_date": "2026-09-19",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Release of the full FET balance of the Ethereum-side converter (TokenConversionManagerV3) of SingularityNET's Ethereum-Cardano bridge, signed with the bridge's conversion authorizer key. DefiLlama names it 'Fetch.ai'; Fetch.ai says its own contracts were not affected and the route was the SingularityNET bridge. The same initiating party also had an NTX mint through a NuNet minter key at 20:50 UTC and unbacked AGIX, WMTx and CGV releases through the bridge's other converters on 20 Sept, 03:13-04:38 UTC; those are not part of this record. Distinct from DefiLlama's 2021-06-06 'Fetch.ai' record (exchange key compromise). The date matches.",
+    "sources": [
+     {
+      "url": "https://x.com/Fetch_ai/status/2101707839979016337",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The attack is targeting SingularityNET contracts, primarily the SingularityNET Bridge between Ethereum and Cardano chains."
+     },
+     {
+      "url": "https://cryptoslate.com/one-wallet-links-1-55-million-fetchai-theft-to-massive-408-5-million-ntx-mint/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the legitimate Ethereum-side lock-and-release component of SingularityNET's bridge"
+     },
+     {
+      "url": "https://bitquery.io/investigations/asi-bridge-counterfeit-supply",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "That contract is a converter, the bridge that moves these tokens between Cardano and Ethereum."
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\":\"Fetch.ai\",\"classification\":\"Key Compromise\",\"technique\":\"Private Key Compromised\",\"amount\":1530000"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-09-19",
+    "sources": [
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getTransactionReceipt: block 26013913, timestamp 1789849307 (2026-09-19T20:21:47Z), FET Transfer 8721530.40162591 from the converter"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 1530000,
+    "range": "1.53M-1.56M USD for 8,721,530.40 FET (PeckShield and DefiLlama 1.53M; CryptoSlate 1.55M; KuCoin 1.56M); the FET was sold for about 523 ETH (Bitquery).",
+    "sources": [
+     {
+      "url": "https://cryptoslate.com/one-wallet-links-1-55-million-fetchai-theft-to-massive-408-5-million-ntx-mint/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "removing 8,721,530 FET worth about $1.55 million at the time"
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\":\"Fetch.ai\",\"classification\":\"Key Compromise\",\"technique\":\"Private Key Compromised\",\"amount\":1530000"
+     },
+     {
+      "url": "https://www.kucoin.com/blog/ae-fetch-ai-fet-exploit-1-56m-drained-from-token-converter-after-signing-key-compromise",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Fetch.ai (FET) Exploit: $1.56M Drained From Token Converter After Signing Key Compromise"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "V",
+    "phrase": "Bridge conversion authorizer key under outside control signed a release of the converter's full balance.",
+    "sources": [
+     {
+      "url": "https://www.kucoin.com/blog/ae-fetch-ai-fet-exploit-1-56m-drained-from-token-converter-after-signing-key-compromise",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "a compromised bridge authorizer key associated with SingularityNET infrastructure"
+     },
+     {
+      "url": "https://x.com/Fetch_ai/status/2101595159054131393",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "It traces the attack from the compromised signing key to the attacker's cash-out wallets."
+     },
+     {
+      "url": "https://eth.blockscout.com/address/[redacted]?tab=contract",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "if (ecrecover(message, v, r, s) != _conversionAuthorizer)"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "100% of the converter's FET (8,721,530.40 FET; balance 0 afterwards) in one release on Ethereum. The converter holds the FET that backs FET issued on Cardano.",
+    "chains": [
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_call getConverterBalance(): 8721530.40162591 FET at block 26013912, 0 at the latest block"
+     },
+     {
+      "url": "https://bitquery.io/investigations/asi-bridge-counterfeit-supply",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "every token the contract held"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2026-09-19T20:21:47Z",
+    "last_release_utc": "2026-09-19T20:21:47Z",
+    "duration_min": 0,
+    "release_tx_count": 1,
+    "count_note": "Counted: conversionIn releases from the FET converter. One transaction (block 26,013,913), submitted by a separate caller address and paid to the recipient address. No transaction reached the converter afterwards (Blockscout listing through 2026-10-16). Ordinary releases earlier that day at 03:14, 06:47, 11:04 and 12:05 UTC.",
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/api/v2/addresses/[redacted]/transactions",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Blockscout listing: conversionIn ok 2026-09-19T20:21:47Z is the latest transaction to the converter"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2026-09-20T08:51:46Z",
+    "channel": "X (@Fetch_ai)",
+    "note": "Time from status ID 2101595159054131393 (on-chain analysis published; affected wallets and contract deactivated together with SingularityNET), 12h30m after the release. Fuller statement at 16:19:31 UTC (status 2101707839979016337). No SingularityNET statement found.",
+    "sources": [
+     {
+      "url": "https://x.com/Fetch_ai/status/2101595159054131393",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Together with @SingularityNET, we have deactivated the affected wallets and contract."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2026-09-19T23:43:40Z",
+    "channel": "X (@PeckShieldAlert)",
+    "by": "PeckShield",
+    "note": "Time from status ID 2101457227379044822, 3h22m after the release. World Mobile's notice on the WMTx issuance followed at 05:07:41 UTC on 20 Sept (status 2101538765332431188).",
+    "sources": [
+     {
+      "url": "https://x.com/PeckShieldAlert/status/2101457227379044822",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The same exploiter has exploited both @Fetch_ai & @nunet_global, totaling ~$2M in crypto losses"
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2026-09-20T08:51:46Z",
+    "basis": "announcement",
+    "what": "Affected wallets and contract deactivated on the SingularityNET bridge side; AGIX-to-FET conversions and Fetch.ai's Ethereum-side bridge contract paused (announced 16:19:31 UTC)",
+    "by": "Fetch.ai and SingularityNET",
+    "note": "Upper bound. The FET converter has no pause function and received no further transaction (it was empty). The same authorizer route kept releasing unbacked AGIX, WMTx and CGV through other converters until about 04:38 UTC on 20 Sept (Bitquery); CryptoSlate reports the authorizer and minter credentials had not been rotated about five hours after the first release.",
+    "sources": [
+     {
+      "url": "https://x.com/Fetch_ai/status/2101707839979016337",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "AGIX to FET conversions are paused until further notice. Our bridge contract on the Ethereum side has also been paused as a precaution"
+     },
+     {
+      "url": "https://cryptoslate.com/one-wallet-links-1-55-million-fetchai-theft-to-massive-408-5-million-ntx-mint/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the compromised FET bridge authorizer and NuNet minter credentials had not yet been rotated or revoked roughly five hours after the attack"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "no",
+    "acted": "n.a.",
+    "how": "Verified converter source: conversionIn (the release) checks only the authorizer signature, signature reuse and available balance. The per-transaction limits (100 FET minimum, 1,000,000 FET maximum) apply only to conversionOut (deposits); one call released 8.72M FET, 8.7 times the deposit-side maximum. Bitquery notes that the WMTx converter version kept a per-call limit, so releases there came in 503 calls.",
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/address/[redacted]?tab=contract",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "checkLimits(amount) appears in conversionOut; conversionIn has no checkLimits modifier"
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_call getConversionConfigurations(): perTxnMinAmount 100 FET, perTxnMaxAmount 1,000,000 FET at block 26013912"
+     },
+     {
+      "url": "https://cryptoslate.com/one-wallet-links-1-55-million-fetchai-theft-to-massive-408-5-million-ntx-mint/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Its 1 million FET transaction cap applied to tokens moving out of"
+     },
+     {
+      "url": "https://bitquery.io/investigations/asi-bridge-counterfeit-supply",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "has no cap on a single call"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": null,
+    "native": "none reported",
+    "date": null,
+    "note": "No return or freeze reported. PeckShield: proceeds (FET and NTX) swapped for 546.36 ETH by 23:43 UTC on 19 Sept.",
+    "sources": [
+     {
+      "url": "https://x.com/PeckShieldAlert/status/2101457227379044822",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The exploiter has swapped the stolen funds for 546.36 $ETH (~$1.44M) so far."
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2026-09-19T20:21:47Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 8721530.40162591,
+     "asset": "FET",
+     "usd": 1530000,
+     "basis": "explorer (amount); PeckShield (USD)"
+    }
+   ],
+   "open_questions": "(1) How the authorizer key came under outside control (Bitquery links funding wallets to staff of the operating companies; not confirmed by the operators). (2) SingularityNET's own statement and the time the bridge's other converters were stopped (Bitquery: releases until about 04:38 UTC on 20 Sept). (3) Whether a separate DefiLlama record covers the AGIX, WMTx and CGV releases. (4) USD 1.53M-1.56M."
+  },
+  {
+   "event_id": "E67",
+   "dl_name": "Payy Network",
+   "dl_date": "2026-09-24",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "USDC left the Ethereum rollup contract of Payy Network (a ZK rollup for private payments; the contract holds the USDC that backs L2 balances) after an invalid burn proof passed the pinned verifier and was settled by Payy's own prover. DefiLlama's 1,828,589.38 USD is the first settlement only; gross unauthorized payouts were 1,918,793.20 USDC. The date matches.",
+    "sources": [
+     {
+      "url": "https://polybase.notion.site/Payy-USDC-withdrawal-exploit-postmortem-v4-final-3ea822fadf1e8097abb4dae2bc3c18cf",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Gross unauthorized withdrawals: 1,918,793.198148 USDC across three burns and two Ethereum rollup settlements"
+     },
+     {
+      "url": "https://x.com/payy_link/status/2103123293687419136",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Today at 4:21 UTC Payy’s bridge contract on Ethereum was exploited and drained of its full balance."
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\":\"Payy Network\",\"classification\":\"Bridge & Cross-Chain\",\"technique\":\"Bridge Logic Flaw\",\"amount\":1828589.378132"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-09-24",
+    "sources": [
+     {
+      "url": "https://polybase.notion.site/Payy-USDC-withdrawal-exploit-postmortem-v4-final-3ea822fadf1e8097abb4dae2bc3c18cf",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The first invalid Payy L2 burn was recorded with zero commitments, zero burn hash, and a 1,828,589.378132 USDC withdrawal message."
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getTransactionReceipt: block 26044909, timestamp 2026-09-24T04:21:23Z, USDC Transfer 1828589.378132 from the rollup contract"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 1918793.2,
+    "range": "1.83M USD (first settlement; DefiLlama 1,828,589.38) to 1.92M USD (three burn payouts, post-mortem)",
+    "sources": [
+     {
+      "url": "https://polybase.notion.site/Payy-USDC-withdrawal-exploit-postmortem-v4-final-3ea822fadf1e8097abb4dae2bc3c18cf",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "These are three burn payouts totaling 1,918,793.198148 USDC"
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\":\"Payy Network\",\"classification\":\"Bridge & Cross-Chain\",\"technique\":\"Bridge Logic Flaw\",\"amount\":1828589.378132"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "Pinned Noir/Barretenberg verifier accepted an invalid zero-commitment burn proof; the rollup paid it from reserves.",
+    "sources": [
+     {
+      "url": "https://polybase.notion.site/Payy-USDC-withdrawal-exploit-postmortem-v4-final-3ea822fadf1e8097abb4dae2bc3c18cf",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "it appears that an attacker submitted an invalid burn proof that Payy’s deployed Noir/Barretenberg verifier accepted."
+     },
+     {
+      "url": "https://polybase.notion.site/Payy-USDC-withdrawal-exploit-postmortem-v4-final-3ea822fadf1e8097abb4dae2bc3c18cf",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The Solidity burn path trusts the proof for note validity and has no independent nonzero-burn-hash check."
+     },
+     {
+      "url": "https://x.com/payy_link/status/2103537290425532889",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "It was NOT a compromised key, social engineering or exploit of our off-chain infrastructure."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "100% from the rollup contract's USDC reserve: 1,828,589.378132 USDC at 04:21:23 UTC, 1 USDC at 04:21:47 UTC (advanced by a burn substitutor and reimbursed by the rollup at 09:30:35), and 90,202.820016 USDC at 09:30:35 UTC; about 700 USD was left in the contract (Unchained).",
+    "chains": [
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "https://polybase.notion.site/Payy-USDC-withdrawal-exploit-postmortem-v4-final-3ea822fadf1e8097abb4dae2bc3c18cf",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The unauthorized sequence was 1,828,589.378132 USDC, then 1 USDC, then 90,202.820016 USDC."
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getTransactionReceipt: block 26046439, timestamp 2026-09-24T09:30:35Z, USDC Transfer 90202.820016 from the rollup contract to the same recipient"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2026-09-24T04:21:23Z",
+    "last_release_utc": "2026-09-24T09:30:35Z",
+    "duration_min": 309.2,
+    "release_tx_count": 3,
+    "count_note": "Counted: Ethereum transactions paying unauthorized burns to the recipient address: two verifyRollup settlements by Payy's allowlisted prover (blocks 26,044,909 and 26,046,439), each also carrying ordinary user withdrawals, and one substituteBurn payout of 1 USDC at 04:21:47 UTC (block 26,044,911). The invalid L2 burn was recorded at 03:25:41 UTC (L2 height 33,195,439). Settlements came about every five hours; none followed the 09:30:35 one.",
+    "sources": [
+     {
+      "url": "https://polybase.notion.site/Payy-USDC-withdrawal-exploit-postmortem-v4-final-3ea822fadf1e8097abb4dae2bc3c18cf",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "At 04:21:47 UTC, substitutor"
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/addresses/[redacted]/transactions",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Blockscout listing: verifyRollup ok at 2026-09-24T04:21:23Z and 09:30:35Z; no later verifyRollup through 2026-10-16"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2026-09-24T14:04:02Z",
+    "channel": "X (@payy_link)",
+    "note": "Time from status ID 2103123293687419136; 9h43m after the first release and 4h33m after the second. Root-cause statement 25 Sept 17:29:06 UTC (status 2103537290425532889); post-mortem 29 Sept 21:30:01 UTC (status 2105047468639658317).",
+    "sources": [
+     {
+      "url": "https://x.com/payy_link/status/2103123293687419136",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Today at 4:21 UTC Payy’s bridge contract on Ethereum was exploited and drained of its full balance."
+     }
+    ]
+   },
+   "first_alert": null,
+   "pause": {
+    "utc": "2026-09-24T14:04:02Z",
+    "basis": "announcement",
+    "what": "All Payy Network transactions paused, including deposits, withdrawals, transfers and card transactions",
+    "by": "Payy",
+    "note": "Upper bound. RollupV1 has no pause function; settlement stopped after 09:30:35 UTC (no later verifyRollup), and the operator's burn-substitution service kept paying withdrawals until 12:09:11 UTC. Payy Wallet pause announced at 16:04:11 UTC (status 2103153530424918509). No restart found as of 2026-10-16.",
+    "sources": [
+     {
+      "url": "https://x.com/payy_link/status/2103123293687419136",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "all Payy Network transactions are paused including deposits, withdrawals, transfers and card transactions."
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/addresses/[redacted]/transactions",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Blockscout listing: last substituteBurn ok at 2026-09-24T12:09:11Z; next activity 2026-09-26"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "no",
+    "acted": "n.a.",
+    "how": "The verified RollupV1 implementation has no withdrawal cap, delay or pause; a release needs only an allowlisted prover, validator signatures and a valid aggregate proof.",
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/address/[redacted]?tab=contract",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": ") public onlyProver {"
+     },
+     {
+      "url": "https://polybase.notion.site/Payy-USDC-withdrawal-exploit-postmortem-v4-final-3ea822fadf1e8097abb4dae2bc3c18cf",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "That made the proof-soundness failure directly payable from rollup reserves."
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": null,
+    "native": "none reported",
+    "date": null,
+    "note": "At 11:50 UTC on 28 Sept the second tranche (90,202.82 USDC) still sat in the recipient address; the first tranche was sold for 683.38 ETH and 682.3 ETH went into a mixing pool on 26 Sept (post-mortem). No restitution plan announced (Spendnode, 30 Sept). Whether the issuer froze the remaining USDC is not reported.",
+    "sources": [
+     {
+      "url": "https://polybase.notion.site/Payy-USDC-withdrawal-exploit-postmortem-v4-final-3ea822fadf1e8097abb4dae2bc3c18cf",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "At the 28 September 11:50 UTC status cutoff, that wallet still held 90,202.821244 USDC"
+     },
+     {
+      "url": "https://polybase.notion.site/Payy-USDC-withdrawal-exploit-postmortem-v4-final-3ea822fadf1e8097abb4dae2bc3c18cf",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "682.3 ETH is the last directly traceable destination of this ETH flow."
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2026-09-24T04:21:23Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 1828589.378132,
+     "asset": "USDC",
+     "usd": null,
+     "basis": "explorer (receipt Transfer log); project post-mortem"
+    },
+    {
+     "utc": "2026-09-24T04:21:47Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 1,
+     "asset": "USDC (advanced by burn substitutor; reimbursed by the rollup at 09:30:35)",
+     "usd": null,
+     "basis": "project post-mortem"
+    },
+    {
+     "utc": "2026-09-24T09:30:35Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 90202.820016,
+     "asset": "USDC",
+     "usd": null,
+     "basis": "explorer (receipt Transfer log); project post-mortem"
+    }
+   ],
+   "open_questions": "(1) Pause time: only the 14:04 UTC announcement; settlement stopped after 09:30:35 and the substitution service paid until 12:09:11 UTC. (2) Why the second invalid burn was settled five hours after the first without detection. (3) Restitution plan for users. (4) Whether the remaining 90,202.82 USDC was frozen by the issuer. (5) No third-party alert found before the operator's post."
+  },
+  {
+   "event_id": "E68",
+   "dl_name": "Fake GIWA Bridge",
+   "dl_date": "2026-09-27",
+   "scope": {
+    "value": "not_a_bridge_failure",
+    "note": "Impersonation: a counterfeit 'GIWA mainnet' (an OP Stack-style chain reusing GIWA's chain ID 9134, run by unrelated operators) with its own Ethereum bridge contract; 1,335 addresses deposited about 767.65 ETH, and the bridge's own operators withdrew 766.25 ETH. GIWA (the chain under development by Upbit's operator Dunamu) had no mainnet running. The date matches.",
+    "sources": [
+     {
+      "url": "https://x.com/GIWA_by_Upbit/status/2104108336228843590",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We DO NOT have our mainnet running currently."
+     },
+     {
+      "url": "https://x.com/DYORSWAPDEX/status/2104269975745945742",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "A fake GIWA Chain 9134 network was launched together with OP Stack-style infrastructure, including a bridge and batcher."
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\":\"Fake GIWA Bridge\",\"classification\":\"Social Engineering\",\"technique\":\"Impersonation Scam\",\"amount\":2080000"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-09-27",
+    "sources": [
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getTransactionReceipt: withdrawal transaction in block 26067309, timestamp 2026-09-27T07:29:59Z"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 2080000,
+    "range": "About 2.0-2.1M USD for 766.25 ETH (Cointelegraph about 2M; DefiLlama 2.08M)",
+    "sources": [
+     {
+      "url": "https://x.com/DYORSWAPDEX/status/2104269975745945742",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Approximately 766.25 ETH was ultimately drained"
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\":\"Fake GIWA Bridge\",\"classification\":\"Social Engineering\",\"technique\":\"Impersonation Scam\",\"amount\":2080000"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "O",
+    "phrase": "Impersonation: the counterfeit network's own bridge contract was emptied by its operators.",
+    "sources": [
+     {
+      "url": "https://x.com/DYORSWAPDEX/status/2104269975745945742",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "whose operators controlled the underlying bridge infrastructure and ultimately drained the real ETH backing the network"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "other",
+    "share_note": "766.254 ETH left the impersonating bridge contract in one withdrawal by its operators, executed through a multisignature wallet contract, to one recipient address. No legitimate bridge was involved.",
+    "chains": [
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/api/v2/transactions/[redacted]/internal-transactions",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "internal call of 766.254042109579 ETH from the impersonating bridge contract to the recipient"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2026-09-27T07:29:59Z",
+    "last_release_utc": "2026-09-27T07:29:59Z",
+    "duration_min": 0,
+    "release_tx_count": 1,
+    "count_note": "Counted: withdrawals from the impersonating bridge contract. Deployment at 18:10:59 UTC on 26 Sept (block 26,063,331); first deposits at 18:18:47 UTC (three same-second deposits totaling 0.4 ETH, which DYORSWAP reads as the operators' test wallets); single withdrawal at 07:29:59 UTC on 27 Sept (block 26,067,309), 11 minutes after GIWA's warning post.",
+    "sources": [
+     {
+      "url": "https://x.com/DYORSWAPDEX/status/2104269975745945742",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Only 39 blocks after the bridge was deployed, the first three ETH deposits arrived in the same block and at the exact same second"
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getTransactionReceipt: deployment block 26063331 (2026-09-26T18:10:59Z); withdrawal block 26067309 (2026-09-27T07:29:59Z)"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2026-09-27T07:18:14Z",
+    "channel": "X (@GIWA_by_Upbit)",
+    "note": "Statement by the impersonated project, not by the counterfeit bridge's operators: no mainnet running, circulating RPC details false. Time from status ID 2104108336228843590.",
+    "sources": [
+     {
+      "url": "https://x.com/GIWA_by_Upbit/status/2104108336228843590",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Any of those posts claiming that they have GIWA mainnet RPC information are NOT TRUE."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2026-09-27T08:06:45Z",
+    "channel": "X (@DYORSWAPDEX)",
+    "by": "DYORSWAP (an application that had deployed on the counterfeit chain)",
+    "note": "Security notice confirming the counterfeit chain; time from status ID 2104120544178344112. Reconstruction published at 18:00:32 UTC (status 2104269975745945742).",
+    "sources": [
+     {
+      "url": "https://x.com/DYORSWAPDEX/status/2104120544178344112",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We have confirmed that the so-called GIWA Mainnet we previously identified was in fact a fake chain set up by scammers."
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "basis": null,
+    "what": "None: the counterfeit chain stopped operating after the withdrawal (time not given)",
+    "by": null,
+    "note": "Not applicable to an operator-controlled impersonation.",
+    "sources": [
+     {
+      "url": "https://x.com/DYORSWAPDEX/status/2104269975745945742",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "After the network stopped operating, we began reconstructing the available transaction history directly from Ethereum."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "n.a.",
+    "how": "Not applicable: the bridge contract was deployed and controlled by the impersonators.",
+    "sources": [
+     {
+      "url": "https://x.com/DYORSWAPDEX/status/2104269975745945742",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The bridge was deployed by:"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": null,
+    "native": "none reported",
+    "date": null,
+    "note": "DYORSWAP paid more than 200 ETH to affected users from its own treasury (third-party reimbursement, not recovery). Stablemark (via Cointelegraph): 177 ETH entered a mixing service and 589 ETH remained across four wallets.",
+    "sources": [
+     {
+      "url": "https://x.com/DYORSWAPDEX/status/2104269975745945742",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "DYOR has already distributed more than 200 ETH to affected users."
+     },
+     {
+      "url": "https://cointelegraph.com/news/fake-giwa-blockchain-scam-drains-2m-eth",
+      "type": "press",
+      "how_read": "search snippet",
+      "quote": "Stablemark says 177 ETH entered Tornado Cash, while 589 ETH remains across four wallets and could still be moved or frozen."
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2026-09-27T07:29:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 766.254042109579,
+     "asset": "ETH (custody of the impersonating bridge)",
+     "usd": null,
+     "basis": "explorer (Blockscout internal transaction)"
+    }
+   ],
+   "open_questions": "(1) When the counterfeit chain stopped. (2) Total third-party compensation and whether any funds were frozen. (3) Whether DefiLlama's bridgeHack flag should stay on an impersonation record."
+  },
+  {
+   "event_id": "E69",
+   "dl_name": "NEAR Intents",
+   "dl_date": "2026-10-01",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "USDT left NEAR Intents' BSC treasury contract (listed in NEAR Intents' documentation as the HOT Bridge treasury), the custody contract backing assets bridged into NEAR Intents through the Omni deposit and withdrawal infrastructure. The releases used the treasury's standard withdrawal call. The operator limits the impact to USDT on BSC. DefiLlama dates it 2026-10-01; the first large release was at 23:54:30 UTC on 30 Sept and the other four on 1 Oct.",
+    "sources": [
+     {
+      "url": "https://x.com/ilblackdragon/status/2105686871200366663",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The attacker exploited a bug in the Omni deposit/withdrawal interaction with the NEAR Intents smart contract isolated to USDT on BSC."
+     },
+     {
+      "url": "https://unchainedcrypto.com/near-intents-pledges-full-compensation-after-a-bug-lets-an-attacker-drain-3-8-million",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "lists as the HOT Bridge treasury address on BNB Chain"
+     },
+     {
+      "url": "https://t.me/s/investigations/365",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Near Intents was exploited for $3.8M+ after its BSC hot wallet saw multiple irregular outflows a few hours ago."
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\":\"NEAR Intents\",\"classification\":\"Bridge & Cross-Chain\",\"technique\":\"Bridge Logic Flaw\",\"amount\":3800000"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-09-30",
+    "sources": [
+     {
+      "url": "https://bsc.rpc.blxrbdn.com",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getLogs USDT Transfer from the treasury to the recipient: block 125000023, timestamp 2026-09-30T23:54:30Z, 800000 USDT"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 3865000,
+    "range": "3.8M USD (operator's preliminary figure) to 3.87M USD (Unchained); on-chain 3,865,000 USDT in five releases plus 21 USDT in two preliminary withdrawals",
+    "sources": [
+     {
+      "url": "https://x.com/near_intents/status/2105642219357241796",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The preliminary report indicates the total loss of approximately $3.8M."
+     },
+     {
+      "url": "https://unchainedcrypto.com/near-intents-pledges-full-compensation-after-a-bug-lets-an-attacker-drain-3-8-million",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "about 3.87 million USDT"
+     },
+     {
+      "url": "https://bsc.rpc.blxrbdn.com",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getLogs USDT Transfer from the treasury to the recipient: 800000, 1200000, 1500000, 330000, 35000"
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\":\"NEAR Intents\",\"classification\":\"Bridge & Cross-Chain\",\"technique\":\"Bridge Logic Flaw\",\"amount\":3800000"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "O",
+    "phrase": "Undisclosed flaw in the Omni deposit/withdrawal interaction with the Intents contract; the treasury honored the resulting withdrawals.",
+    "sources": [
+     {
+      "url": "https://x.com/near_intents/status/2105642219357241796",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The incident was caused by a bug in the Omni deposit and withdrawal infrastructure interaction with NEAR Intents smart contract."
+     },
+     {
+      "url": "https://x.com/near_intents/status/2105642219357241796",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The contract-side vulnerability has been patched."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "100% from the BSC treasury in USDT: 800,000; 1,200,000; 1,500,000; 330,000; 35,000 (3,865,000 USDT). No other asset or chain affected according to the operator.",
+    "chains": [
+     "BSC"
+    ],
+    "sources": [
+     {
+      "url": "https://bsc.rpc.blxrbdn.com",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getLogs: five USDT Transfers from the treasury to the recipient between 2026-09-30T23:54:30Z and 2026-10-01T06:08:26Z"
+     },
+     {
+      "url": "https://x.com/ilblackdragon/status/2105686871200366663",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "isolated to USDT on BSC"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "BSC",
+    "first_release_utc": "2026-09-30T23:54:30Z",
+    "last_release_utc": "2026-10-01T06:08:26Z",
+    "duration_min": 373.9,
+    "release_tx_count": 5,
+    "count_note": "Counted: USDT withdrawals from the treasury to the recipient address (blocks 125,000,023; 125,003,957; 125,007,511; 125,014,927; 125,049,861). Each was a call by the recipient address to the treasury's withdrawal function, the same function selector ordinary user withdrawals use. Preliminary withdrawals of 10 USDT at 18:57:07 UTC and 11 USDT at 20:05:24 UTC on 30 Sept by the same address through the same function are not counted. Dust transfers to the recipient from look-alike addresses are ignored.",
+    "sources": [
+     {
+      "url": "https://bsc.rpc.blxrbdn.com",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getTransactionByHash: from the recipient address to the treasury, input selector 0xd9e7c316, for all five releases and both preliminary withdrawals"
+     },
+     {
+      "url": "https://unchainedcrypto.com/near-intents-pledges-full-compensation-after-a-bug-lets-an-attacker-drain-3-8-million",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "between 7:54 p.m. ET on Wednesday and 2:08 a.m. on Thursday"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2026-10-01T12:53:20Z",
+    "channel": "X (@near_intents)",
+    "note": "Time from status ID 2105642219357241796; 13h00m after the first large release and 6h45m after the last. Co-founder's post at 15:50:46 UTC (status 2105686871200366663); the operator's status page showed an ongoing incident (time not found).",
+    "sources": [
+     {
+      "url": "https://x.com/near_intents/status/2105642219357241796",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Earlier today NEAR Intents services were stopped after a security incident was detected."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2026-10-01T13:02:44Z",
+    "channel": "Telegram (t.me/investigations)",
+    "by": "ZachXBT",
+    "note": "Post 365 on the investigator's channel (time from the page's datetime attribute), 9 minutes after the operator's post; no earlier third-party alert found.",
+    "sources": [
+     {
+      "url": "https://t.me/s/investigations/365",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The funds were immediately transferred to Kucoin and bridged to Bitcoin."
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2026-10-01T12:53:20Z",
+    "basis": "announcement",
+    "what": "NEAR Intents services stopped; deposits and withdrawals on 11 networks (BSC, Polygon, TON, Optimism, Avalanche, Stellar, Monad, LayerX, Adi, Scroll, Plasma) kept unavailable about 12 more hours",
+    "by": "NEAR Intents (SHIELD outlier detection, then the operator)",
+    "note": "Upper bound. On-chain, ordinary USDT withdrawals from the treasury ran every few minutes until 08:36:06 UTC, then one at 11:39:25 UTC, then transfers to a single other address from 13:27:36 UTC, which suggests processing stopped around 08:36 UTC (not stated). Core services were back within about an hour of the 12:53 UTC post (co-founder, 15:50 UTC).",
+    "sources": [
+     {
+      "url": "https://x.com/near_intents/status/2105642219357241796",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Deposits and withdrawals on the following networks will remain unavailable for an additional ~12 hours while fixes to the Omni infrastructure are completed"
+     },
+     {
+      "url": "https://x.com/ilblackdragon/status/2105686871200366663",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "SHIELD, the AI security layer on Intents, detected outlier behavior and Intents were temporarily paused."
+     },
+     {
+      "url": "https://t.me/s/investigations/365",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "has since stopped processing transactions"
+     },
+     {
+      "url": "https://bsc.rpc.blxrbdn.com",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getLogs USDT Transfer from the treasury: last ordinary withdrawals 2026-10-01T08:36:06Z and 11:39:25Z; transfers to one address from 13:27:36Z"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "yes",
+    "acted": "yes",
+    "how": "SHIELD (AI-based outlier monitoring) detected outlier behaviour and Intents were paused, after the last release (detection time not given); all five releases ran over 6 h 14 min before that. No per-transaction or per-period cap on treasury withdrawals is reported; single releases reached 1.5M USDT.",
+    "sources": [
+     {
+      "url": "https://x.com/ilblackdragon/status/2105686871200366663",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "SHIELD, the AI security layer on Intents, detected outlier behavior and Intents were temporarily paused."
+     },
+     {
+      "url": "https://bsc.rpc.blxrbdn.com",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getLogs: single USDT Transfer of 1500000 from the treasury at 2026-10-01T00:50:42Z"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": 3800000,
+    "frozen_usd": null,
+    "native": "full amount returned by the recipient (asset not stated)",
+    "date": "2026-10-02 (announced 15:52:28 UTC)",
+    "note": "Returned after a 48-hour deadline; NEAR Intents' general manager announced the full return and closed the investigation. Return transactions and asset not identified in sources read. The operator had pledged full compensation before the return.",
+    "sources": [
+     {
+      "url": "https://x.com/AlexAuroraDev/status/2106049685928677585",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The funds from the $3.8M NEAR Intents hack were sent back in full."
+     },
+     {
+      "url": "https://decrypt.co/380014/near-intents-recovers-3-8-million-after-48-hour-ultimatum",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "We've returned all the funds, we were in the wrong."
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2026-09-30T23:54:30Z",
+     "chain": "BSC",
+     "side": "escrow",
+     "amount_native": 800000,
+     "asset": "USDT",
+     "usd": null,
+     "basis": "explorer (USDT Transfer log, block 125,000,023)"
+    },
+    {
+     "utc": "2026-10-01T00:24:02Z",
+     "chain": "BSC",
+     "side": "escrow",
+     "amount_native": 1200000,
+     "asset": "USDT",
+     "usd": null,
+     "basis": "explorer (USDT Transfer log, block 125,003,957)"
+    },
+    {
+     "utc": "2026-10-01T00:50:42Z",
+     "chain": "BSC",
+     "side": "escrow",
+     "amount_native": 1500000,
+     "asset": "USDT",
+     "usd": null,
+     "basis": "explorer (USDT Transfer log, block 125,007,511)"
+    },
+    {
+     "utc": "2026-10-01T01:46:20Z",
+     "chain": "BSC",
+     "side": "escrow",
+     "amount_native": 330000,
+     "asset": "USDT",
+     "usd": null,
+     "basis": "explorer (USDT Transfer log, block 125,014,927)"
+    },
+    {
+     "utc": "2026-10-01T06:08:26Z",
+     "chain": "BSC",
+     "side": "escrow",
+     "amount_native": 35000,
+     "asset": "USDT",
+     "usd": null,
+     "basis": "explorer (USDT Transfer log, block 125,049,861)"
+    }
+   ],
+   "open_questions": "(1) Root cause beyond 'Omni deposit/withdrawal interaction with the Intents contract': the promised detailed report was not found as of 2026-10-16. Class O is chosen; S (Intents-side state authorized unbacked withdrawals) or D (deposit verification credited deposits that did not happen) are possible. (2) Pause time: SHIELD detection time not given; on-chain, ordinary treasury withdrawals continued until 08:36:06 UTC. (3) Return transactions, asset and exact time. (4) Whether the 10 and 11 USDT withdrawals on 30 Sept were tests by the initiating party."
+  }
+ ]
+}

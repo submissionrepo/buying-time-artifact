@@ -1,0 +1,11 @@
+{
+ "note": "Collection targets for E58: bridge and token contracts, blocks and endpoints. Recipient, sender and transaction fields of the original targets are withheld; see docs/collection.md.",
+ "treasury_payment_credential": "1cfb41dc0b8d13fe53600e17059dcbcda2d8647347ec25288b4f5234",
+ "treasury_address_seen": "addr1xyw0kswupwx38ljnvq8pwpvae0x69krywdr7cffg3d84ydp9nvv84g58ykxqh90xx6j8ywgjst0dkt430w9lxgdmzncsw5rzpd",
+ "night_asset": "0691b2fecca1ac4f53cb6dfb00b7013e561d1f34403b957cbb5af1fa4e49474854",
+ "price_fallback": {
+  "_note": "DefiLlama has no series under cardano:<unit> for these two tokens (checked 2026-10-16); CoinGecko lists them with the Cardano contract equal to the token's policy id (api.coingecko.com /coins/xerberus and /coins/talos, platforms.cardano), so the DefiLlama coingecko:<id> series of the same token is used.",
+  "cardano:6d06570ddd778ec7c0cca09d381eca194e90c8cffa7582879735dbde584552": "coingecko:xerberus",
+  "cardano:97bbb7db0baef89caefce61b8107ac74c7a7340166b39d906f174bec54616c6f73": "coingecko:talos"
+ }
+}

@@ -1,0 +1,214 @@
+{
+ "d_h": 6.0,
+ "margin": 1.5,
+ "failures": {
+  "E05": {
+   "o1": {
+    "test_value": 967046457.12,
+    "lower": 31766518.04663211,
+    "bucket_delayed": 111024756.47999996
+   },
+   "o2": {
+    "test_value": 516859451.75,
+    "lower": 60539172.040240884,
+    "bucket_delayed": 292042720.6600004
+   }
+  },
+  "E11": {
+   "o1": {
+    "test_value": 326207055.6060083,
+    "lower": 86794101.79065393,
+    "bucket_delayed": 119387675.10022892
+   },
+   "o2": {
+    "test_value": 93210272.60640852,
+    "lower": 0.0,
+    "bucket_delayed": 0.0
+   }
+  },
+  "E13": {
+   "o1": {
+    "test_value": 123295611.97000001,
+    "lower": 0.0,
+    "bucket_delayed": 0.0
+   },
+   "o2": {
+    "test_value": 1480437892.6000001,
+    "lower": 492875638.63021445,
+    "bucket_delayed": 786533683.3100014
+   }
+  },
+  "E14": {
+   "o1": {
+    "test_value": 65922785.54,
+    "lower": 0.0,
+    "bucket_delayed": 0.0
+   },
+   "o2": {
+    "test_value": 263381710.01000002,
+    "lower": 52599444.3395651,
+    "bucket_delayed": 189114582.83000004
+   }
+  },
+  "E15": {
+   "o1": {
+    "test_value": 58540427.96,
+    "lower": 7638129.076804725,
+    "bucket_delayed": 23517932.100000016
+   },
+   "o2": {
+    "test_value": 42857503.379999995,
+    "lower": 0.0,
+    "bucket_delayed": 7424630.929999999
+   }
+  },
+  "E16": {
+   "o1": {
+    "test_value": 57901021.01,
+    "lower": 2334.170039950558,
+    "bucket_delayed": 2711.76
+   },
+   "o2": {
+    "test_value": 62205223.17999999,
+    "lower": 102.5654549721576,
+    "bucket_delayed": 177.86
+   }
+  },
+  "E21": {
+   "o1": {
+    "test_value": 1416643.5500000003,
+    "lower": 0.0,
+    "bucket_delayed": 0.0
+   },
+   "o2": {
+    "test_value": 6274906.52,
+    "lower": 0.0,
+    "bucket_delayed": 0.0
+   }
+  },
+  "E22": {
+   "o1": {
+    "test_value": 21699234.27,
+    "lower": 0.0,
+    "bucket_delayed": 0.0
+   },
+   "o2": {
+    "test_value": 69000008.39,
+    "lower": 0.0,
+    "bucket_delayed": 0.0
+   }
+  },
+  "E24": {
+   "o1": {
+    "test_value": 3154899.4599999995,
+    "lower": 0.0,
+    "bucket_delayed": 0.0
+   },
+   "o2": {
+    "test_value": 9203869.069999998,
+    "lower": 4483613.194972672,
+    "bucket_delayed": 5551536.419999998
+   }
+  },
+  "E25": {
+   "o1": {
+    "test_value": 9220983.629999999,
+    "lower": 0.0,
+    "bucket_delayed": 0.0
+   },
+   "o2": {
+    "test_value": 7411913.62,
+    "lower": 0.0,
+    "bucket_delayed": 0.0
+   }
+  },
+  "E45": {
+   "o1": {
+    "test_value": 56054578.36,
+    "lower": 0.0,
+    "bucket_delayed": 0.0
+   },
+   "o2": {
+    "test_value": 102872038.28999999,
+    "lower": 0.0,
+    "bucket_delayed": 0.0
+   }
+  },
+  "E49": {
+   "o1": {
+    "test_value": 44982.01999999999,
+    "lower": 15663.830595984551,
+    "bucket_delayed": 36552.839999999975
+   },
+   "o2": {
+    "test_value": 14107.720000000001,
+    "lower": 0.0,
+    "bucket_delayed": 0.0
+   }
+  },
+  "E50": {
+   "o1": {
+    "test_value": 44491.31,
+    "lower": 3452.5742590241407,
+    "bucket_delayed": 37517.240000000005
+   },
+   "o2": {
+    "test_value": 7107.259999999999,
+    "lower": 6514.768955304041,
+    "bucket_delayed": 6982.36
+   }
+  },
+  "E58": {
+   "o1": {
+    "test_value": 11726.439999999999,
+    "lower": 0.0,
+    "bucket_delayed": 0.0
+   },
+   "o2": {
+    "test_value": 5942.490000000001,
+    "lower": 0.0,
+    "bucket_delayed": 0.0
+   }
+  },
+  "E60": {
+   "o1": {
+    "test_value": 758738.4500000001,
+    "lower": 273024.6309527597,
+    "bucket_delayed": 500066.7400000001
+   },
+   "o2": {
+    "test_value": 2.09,
+    "lower": 0.0,
+    "bucket_delayed": 0.0
+   }
+  },
+  "E64": {
+   "o1": {
+    "test_value": 62991530.53,
+    "lower": 6084011.187434236,
+    "bucket_delayed": 41001663.039999984
+   },
+   "o2": {
+    "test_value": 24511581.9,
+    "lower": 0.0,
+    "bucket_delayed": 0.0
+   }
+  }
+ },
+ "totals": {
+  "o1": {
+   "test_value": 1754311167.2260084,
+   "lower": 132577235.30737273,
+   "bucket_delayed": 295508875.3002289,
+   "lower_share": 0.07557224612382164,
+   "bucket_share": 0.16844724061552896
+  },
+  "o2": {
+   "test_value": 2678253530.8764086,
+   "lower": 610504485.5394034,
+   "bucket_delayed": 1280674314.3700016,
+   "lower_share": 0.22794872796812005,
+   "bucket_share": 0.4781751613899393
+  }
+ }
+}

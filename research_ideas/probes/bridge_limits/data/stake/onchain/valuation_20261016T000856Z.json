@@ -1,0 +1,106 @@
+{
+ "note": "Extract of stake/value_calc.py output: the fields make_numbers.py and prototype/gas_price.py read.",
+ "prices_used": {
+  "axelar": {
+   "llama": 0.054960212580945855,
+   "coingecko": 0.056012
+  },
+  "ethereum": {
+   "llama": 2441.3256171299313,
+   "coingecko": 2442.35
+  },
+  "chainlink": {
+   "llama": 12.45259359097295,
+   "coingecko": 12.45
+  },
+  "polygon-ecosystem-token": {
+   "llama": 0.09547554243642477,
+   "coingecko": 0.095647
+  }
+ },
+ "polygon": {
+  "validator_set_stake_POL": 3585788019.951341,
+  "validator_set_stake_usd": 342355056.26688784,
+  "escrow_usd_total_partial": 2183582257.4865994,
+  "withdrawalDelay_days_est": 0.7922222222222223
+ },
+ "chainlink": {
+  "community_LINK": 40875000.00000001,
+  "operator_LINK": 1641898.6687910852,
+  "total_usd": 529445659.87103426
+ },
+ "symbiotic": {
+  "stHYPER (Hyperlane)": {
+   "collateral": "HYPER",
+   "totalStake": 19940522.029531203,
+   "totalStake_usd": 1321215.7224965766,
+   "slasher_type": 0,
+   "veto_days": 0.0,
+   "epoch_days": 30.0
+  },
+  "LINK vault (Lombard/Solv CCIP)": {
+   "collateral": "LINK",
+   "totalStake": 790.391511879132,
+   "totalStake_usd": 9842.4242751855,
+   "slasher_type": null,
+   "veto_days": 0.0,
+   "epoch_days": 7.0
+  },
+  "Staked BARD (Lombard CCIP)": {
+   "collateral": "BARD",
+   "totalStake": 1291037.3643917108,
+   "totalStake_usd": 144160.027814933,
+   "slasher_type": 1,
+   "veto_days": 3.0,
+   "epoch_days": 10.5
+  },
+  "Staked SOLV (Solv CCIP)": {
+   "collateral": "SOLV OFT",
+   "totalStake": 0.0,
+   "totalStake_usd": 0,
+   "slasher_type": 1,
+   "veto_days": 3.0,
+   "epoch_days": 10.5
+  },
+  "rsENA (Ethena LZ DVN)": {
+   "collateral": "ENA",
+   "totalStake": 0.0,
+   "totalStake_usd": 0,
+   "slasher_type": 1,
+   "veto_days": 3.0,
+   "epoch_days": 7.0
+  },
+  "rsUSDe (Ethena LZ DVN)": {
+   "collateral": "sUSDe",
+   "totalStake": 0.0,
+   "totalStake_usd": 0,
+   "slasher_type": 1,
+   "veto_days": 3.0,
+   "epoch_days": 7.0
+  },
+  "Symbiosis SIS": {
+   "collateral": "SIS",
+   "totalStake": 853804.633648453,
+   "totalStake_usd": 14938.577778884626,
+   "slasher_type": 1,
+   "veto_days": 1.0,
+   "epoch_days": 7.0
+  },
+  "Cycle Network": {
+   "collateral": "CYC OFT",
+   "totalStake": 0.0,
+   "totalStake_usd": 0,
+   "slasher_type": 1,
+   "veto_days": 3.0,
+   "epoch_days": 7.0
+  }
+ },
+ "meta": {
+  "block": {
+   "number": 26201369,
+   "timestamp": 1792108859,
+   "utc": "2026-10-16T00:00:59Z"
+  },
+  "computed_utc": "2026-10-16T00:08:56Z"
+ }
+}

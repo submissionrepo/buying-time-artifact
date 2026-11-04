@@ -1,0 +1,11 @@
+{
+ "note": "Collection targets for E10: bridge and token contracts, blocks and endpoints. Recipient, sender and transaction fields of the original targets are withheld; see docs/collection.md.",
+ "chain": "bsc",
+ "qbridge_bsc": "0x4d8ae68fcae98bf93299548545933c0d273ba23a",
+ "qbridge_bsc_deploy_block": 12884374,
+ "handler_bsc": "0xa6b1bb565e33b54ac58b4640237fdc91d87d3b61",
+ "xeth_bsc": "0x2f422fe9ea622049d6f73f81a906b9b8cff03b7f",
+ "qxeth_market_bsc": "0xfd7a5506f434f5334c100efb765025243c39137c",
+ "qbridge_eth": "0x20e5e35ba29dc3b540a1aee781d0814d5c77bce6",
+ "qbridge_eth_impl_deploy": "0x79fc1d290aa81338f377f6271c499662d6301e65"
+}

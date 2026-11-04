@@ -1,0 +1,193 @@
+{
+ "releases": 13,
+ "all_match_by_outflow_sum": true,
+ "tokens": [
+  "MOONWENPEPE",
+  "SHIBKILLER",
+  "WONKA"
+ ],
+ "rows": [
+  {
+   "direction": "ethereum->bsc",
+   "release_utc": "2026-09-11T22:34:06Z",
+   "token": "SHIBKILLER",
+   "outflows": 3,
+   "outflow_sum_equals_signed_amount": true,
+   "recipient_receives_an_outflow": true,
+   "recipient_share": 0.92,
+   "outflow_shares": [
+    0.92,
+    0.04,
+    0.04
+   ]
+  },
+  {
+   "direction": "ethereum->bsc",
+   "release_utc": "2026-09-11T22:34:13Z",
+   "token": "MOONWENPEPE",
+   "outflows": 3,
+   "outflow_sum_equals_signed_amount": true,
+   "recipient_receives_an_outflow": true,
+   "recipient_share": 0.78,
+   "outflow_shares": [
+    0.78,
+    0.2,
+    0.02
+   ]
+  },
+  {
+   "direction": "ethereum->bsc",
+   "release_utc": "2026-09-11T22:34:13Z",
+   "token": "MOONWENPEPE",
+   "outflows": 3,
+   "outflow_sum_equals_signed_amount": true,
+   "recipient_receives_an_outflow": true,
+   "recipient_share": 0.78,
+   "outflow_shares": [
+    0.78,
+    0.2,
+    0.02
+   ]
+  },
+  {
+   "direction": "ethereum->bsc",
+   "release_utc": "2026-09-11T22:34:23Z",
+   "token": "SHIBKILLER",
+   "outflows": 3,
+   "outflow_sum_equals_signed_amount": true,
+   "recipient_receives_an_outflow": true,
+   "recipient_share": 0.92,
+   "outflow_shares": [
+    0.92,
+    0.04,
+    0.04
+   ]
+  },
+  {
+   "direction": "bsc->ethereum",
+   "release_utc": "2026-09-13T16:53:59Z",
+   "token": "WONKA",
+   "outflows": 3,
+   "outflow_sum_equals_signed_amount": true,
+   "recipient_receives_an_outflow": true,
+   "recipient_share": 0.9,
+   "outflow_shares": [
+    0.9,
+    0.08,
+    0.02
+   ]
+  },
+  {
+   "direction": "bsc->ethereum",
+   "release_utc": "2026-09-13T20:50:23Z",
+   "token": "WONKA",
+   "outflows": 3,
+   "outflow_sum_equals_signed_amount": true,
+   "recipient_receives_an_outflow": true,
+   "recipient_share": 0.9,
+   "outflow_shares": [
+    0.9,
+    0.08,
+    0.02
+   ]
+  },
+  {
+   "direction": "bsc->ethereum",
+   "release_utc": "2026-09-14T02:28:35Z",
+   "token": "WONKA",
+   "outflows": 3,
+   "outflow_sum_equals_signed_amount": true,
+   "recipient_receives_an_outflow": true,
+   "recipient_share": 0.9,
+   "outflow_shares": [
+    0.9,
+    0.08,
+    0.02
+   ]
+  },
+  {
+   "direction": "bsc->ethereum",
+   "release_utc": "2026-09-15T01:17:35Z",
+   "token": "WONKA",
+   "outflows": 3,
+   "outflow_sum_equals_signed_amount": true,
+   "recipient_receives_an_outflow": true,
+   "recipient_share": 0.9,
+   "outflow_shares": [
+    0.9,
+    0.08,
+    0.02
+   ]
+  },
+  {
+   "direction": "bsc->ethereum",
+   "release_utc": "2026-09-16T10:18:47Z",
+   "token": "WONKA",
+   "outflows": 3,
+   "outflow_sum_equals_signed_amount": true,
+   "recipient_receives_an_outflow": true,
+   "recipient_share": 0.9,
+   "outflow_shares": [
+    0.9,
+    0.08,
+    0.02
+   ]
+  },
+  {
+   "direction": "bsc->ethereum",
+   "release_utc": "2026-09-18T21:32:23Z",
+   "token": "WONKA",
+   "outflows": 3,
+   "outflow_sum_equals_signed_amount": true,
+   "recipient_receives_an_outflow": true,
+   "recipient_share": 0.9,
+   "outflow_shares": [
+    0.9,
+    0.08,
+    0.02
+   ]
+  },
+  {
+   "direction": "bsc->ethereum",
+   "release_utc": "2026-09-19T22:32:47Z",
+   "token": "WONKA",
+   "outflows": 3,
+   "outflow_sum_equals_signed_amount": true,
+   "recipient_receives_an_outflow": true,
+   "recipient_share": 0.9,
+   "outflow_shares": [
+    0.9,
+    0.08,
+    0.02
+   ]
+  },
+  {
+   "direction": "bsc->ethereum",
+   "release_utc": "2026-09-20T05:02:11Z",
+   "token": "WONKA",
+   "outflows": 3,
+   "outflow_sum_equals_signed_amount": true,
+   "recipient_receives_an_outflow": true,
+   "recipient_share": 0.9,
+   "outflow_shares": [
+    0.9,
+    0.08,
+    0.02
+   ]
+  },
+  {
+   "direction": "bsc->ethereum",
+   "release_utc": "2026-09-20T14:40:47Z",
+   "token": "WONKA",
+   "outflows": 3,
+   "outflow_sum_equals_signed_amount": true,
+   "recipient_receives_an_outflow": true,
+   "recipient_share": 0.9,
+   "outflow_shares": [
+    0.9,
+    0.08,
+    0.02
+   ]
+  }
+ ]
+}

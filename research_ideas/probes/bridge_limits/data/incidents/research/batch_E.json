@@ -1,0 +1,1315 @@
+{
+ "batch": "E",
+ "generated_utc": "2026-10-16T00:00:00Z",
+ "events": [
+  {
+   "event_id": "E33",
+   "dl_name": "NoOnes",
+   "dl_date": "2025-01-01",
+   "scope": {
+    "value": "not_a_bridge_failure",
+    "note": "Value left the hot wallets of NoOnes, a custodial P2P marketplace, on Ethereum, Tron, Solana and BSC. The CEO attributed the failure to 'our Solana bridge', a platform component that no source describes further. No source describes a bridge escrow or an unbacked bridge mint; the event resembles an exchange hot-wallet drain. DefiLlama's 'Cross-Chain Message Spoofing' label is not supported by any source read.",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/337004/noones-ceo-ray-youssef-8-million-exploit-crypto-sleuth-zachxbt-investigation",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "NoOnes said its Solana bridge was exploited on Jan. 1, draining about $8 million in hot wallets"
+     },
+     {
+      "url": "https://www.merklescience.com/blog/hack-track-noones-flow-of-funds-analysis",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Instead of leaving seven million dollars on a hot wallet at one time"
+     },
+     {
+      "url": "https://t.me/investigations/202",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The P2P marketplace Noones was likely exploited for ~$7.9M on Ethereum, Tron, Solana, & BSC on January 1-2, 2025"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2025-01-01",
+    "sources": [
+     {
+      "url": "https://cryptoslate.com/noones-acknowledges-8-million-exploit-after-zachxbt-raises-concerns/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "On Jan 1 there was an exploit of our Solana bridge."
+     },
+     {
+      "url": "https://t.me/investigations/202",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The P2P marketplace Noones was likely exploited for ~$7.9M on Ethereum, Tron, Solana, & BSC on January 1-2, 2025"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 7900000,
+    "range": "7.9M (ZachXBT, Merkle Science) to about 8M (NoOnes)",
+    "sources": [
+     {
+      "url": "https://www.merklescience.com/blog/hack-track-noones-flow-of-funds-analysis",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "$7.9 million in total"
+     },
+     {
+      "url": "https://www.theblock.co/post/337004/noones-ceo-ray-youssef-8-million-exploit-crypto-sleuth-zachxbt-investigation",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "NoOnes said its Solana bridge was exploited on Jan. 1, draining about $8 million in hot wallets"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "O",
+    "phrase": "Undisclosed failure in the platform's Solana component; hot wallets released funds",
+    "sources": [
+     {
+      "url": "https://www.merklescience.com/blog/hack-track-noones-flow-of-funds-analysis",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "the attack vector was a bridge on Solana"
+     },
+     {
+      "url": "https://www.nominis.io/insights/crypto-security-incidents-january-2025",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "involving an exploit of their Solana bridge, which had been immediately disabled by admins."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "other",
+    "share_note": "Platform hot wallets on four chains; no per-chain split published.",
+    "chains": [
+     "Ethereum",
+     "Tron",
+     "Solana",
+     "BSC"
+    ],
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/337004/noones-ceo-ray-youssef-8-million-exploit-crypto-sleuth-zachxbt-investigation",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Over the course of two days, the platform's hot wallets were slowly drained through \"hundreds of suspicious outflows,\""
+     }
+    ]
+   },
+   "outflow": {
+    "first_release_utc": null,
+    "last_release_utc": null,
+    "duration_min": null,
+    "release_tx_count": null,
+    "count_note": "Hundreds of small outflows, each under about $7,000, over about two days (January 1-2, 2025). No clock times or exact count published. Merkle Science reads the sub-$7,000 sizes as deliberate splitting, not as a platform limit.",
+    "sources": [
+     {
+      "url": "https://www.merklescience.com/blog/hack-track-noones-flow-of-funds-analysis",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "hundreds of suspicious transactions, each under a ceiling of $7000"
+     },
+     {
+      "url": "https://www.nominis.io/insights/crypto-security-incidents-january-2025",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "a series of unauthorized smaller withdrawals of about $7,000 at a time,"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2025-01-24T10:56:50Z",
+    "channel": "X post by CEO Ray Youssef",
+    "note": "Earlier, around the event, NoOnes posted only a maintenance notice (time not found). ZachXBT's Telegram post, a third party, preceded the CEO post at 2025-01-24T08:24:40Z (datetime attribute of the Telegram embed). Merkle Science also cites a video acknowledgment on 2025-02-12.",
+    "sources": [
+     {
+      "url": "https://x.com/ray_noOnes/status/1882744360812306885",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Status ID 1882744360812306885 -> 2025-01-24T10:56:49.973Z; post linked by The Block and CryptoSlate"
+     },
+     {
+      "url": "https://cryptoslate.com/noones-acknowledges-8-million-exploit-after-zachxbt-raises-concerns/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Our security teams quickly responded and the situation was immediately contained."
+     },
+     {
+      "url": "https://t.me/investigations/202",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "no official statement was made about any security incident"
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "what": "The platform's Solana bridge component disabled; SOL deposits suspended; Solana support restored 2025-02-11",
+    "by": "NoOnes",
+    "note": "Nominis says the component was disabled immediately, without a time. Solana withdrawals and deposits were restored on 2025-02-11 (Merkle Science).",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/337004/noones-ceo-ray-youssef-8-million-exploit-crypto-sleuth-zachxbt-investigation",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The company took steps to disable the security bridge, which remains offline, according to its status page."
+     },
+     {
+      "url": "https://www.merklescience.com/blog/hack-track-noones-flow-of-funds-analysis",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Solana was eventually restored on February 11, including withdrawals and deposits in the USDT/SOL pair."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions an outflow limit. Afterwards the CEO said hot-wallet float would drop from about seven days to one or two days.",
+    "sources": [
+     {
+      "url": "https://www.merklescience.com/blog/hack-track-noones-flow-of-funds-analysis",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "which is about a seven day supply - [we will] just leave a million one or two days maximum,"
+     },
+     {
+      "url": "https://www.merklescience.com/blog/hack-track-noones-flow-of-funds-analysis",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "They did not send funds in transactions greater than $7000, which we believe is a form of smurfing"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": null,
+    "date": null,
+    "note": "No return or recovery reported. The CEO said user funds were covered ('User funds SAFU'); no reimbursement figure published.",
+    "sources": [
+     {
+      "url": "https://cryptoslate.com/noones-acknowledges-8-million-exploit-after-zachxbt-raises-concerns/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "User funds SAFU and personal data SAFU."
+     }
+    ]
+   },
+   "open_questions": "What NoOnes calls its 'Solana bridge' (internal deposit-crediting service or a cross-chain component) is not documented. Hot-wallet addresses, first and last outflow times, and the count are not published; they could be read from the platform's hot wallets if identified. Time of the maintenance notice and of the disabling not found."
+  },
+  {
+   "event_id": "E34",
+   "dl_name": "ForceBridge",
+   "dl_date": "2025-06-06",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Nervos Force Bridge lock contracts on Ethereum and BSC released locked assets. Magickbase had announced the bridge's sunset on 2025-05-31, with withdrawals open from June 1 to November 30.",
+    "sources": [
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-force-bridge-hack-june-2025",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The attacker accessed privileged functions within the protocol's smart contracts to unlock and drain"
+     },
+     {
+      "url": "https://alpha.rekt.news/force-bridge-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Force Bridge's sunset window: June 1st through November 30th."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2025-06-01",
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/22608306",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Jun-01-2025 07:16:47 AM +UTC (block of Ethereum release tx 1 in onchain_refs)"
+     },
+     {
+      "url": "https://alpha.rekt.news/force-bridge-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "June 1st brought attackers who somehow gained access control privileges and drained the protocol across two chains."
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 3760000,
+    "range": "3.0M+ (The Block, early) to 3.76M (Rekt, Halborn) to 3.9M (crypto.news, DefiLlama)",
+    "sources": [
+     {
+      "url": "https://alpha.rekt.news/force-bridge-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Total stolen across both chains: $3.76 million."
+     },
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-force-bridge-hack-june-2025",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The next day, an attacker exploited the protocol to steal an estimated $3.76 million from the protocol on ETH and BSC."
+     },
+     {
+      "url": "https://crypto.news/nervos-network-suffers-major-exploit-as-3-9m-in-crypto-is-stolen-from-force-bridge/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Additional funds were later stolen on both BNB Chain and Ethereum, bringing the total to $3.9 million."
+     },
+     {
+      "url": "https://www.theblock.co/post/356535/hackers-drain-over-3-million-in-crypto-from-nervos-networks-force-cross-chain-bridge-say-security-analysts",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "about 257,800 USDT, 539.09 ETH ($1.35 million), 898,300 USDC, 60,400 DAI, and 0.79 wrapped bitcoin worth roughly $83,000."
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "V",
+    "phrase": "Privileged unlock functions called with admin-level keys, likely compromised; no code flaw reported",
+    "sources": [
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-force-bridge-hack-june-2025",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The root cause of the Force Bridge exploit was an access control issue."
+     },
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-force-bridge-hack-june-2025",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "This type of attack is typically accomplished via compromised private keys."
+     },
+     {
+      "url": "https://alpha.rekt.news/force-bridge-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Each unlock demanded admin-level access to functions that regular users can't touch."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "Ethereum lock contract about $3.13M (about 83%); BSC lock contract about $0.63M (about 17%), per Rekt.",
+    "chains": [
+     "Ethereum",
+     "BSC"
+    ],
+    "sources": [
+     {
+      "url": "https://alpha.rekt.news/force-bridge-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Total stolen on Ethereum: $3.127 million."
+     },
+     {
+      "url": "https://alpha.rekt.news/force-bridge-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Total stolen on BSC: $634k"
+     }
+    ]
+   },
+   "outflow": {
+    "first_release_utc": "2025-06-01T07:16:47Z",
+    "last_release_utc": "2025-06-01T07:52:16Z",
+    "duration_min": 35.5,
+    "release_tx_count": 4,
+    "count_note": "Successful release transactions cited by Rekt: 2 on Ethereum (07:16:47 and 07:22:59, Etherscan) and 2 on BSC (07:36:08 and 07:52:16, block timestamps read from a public BSC RPC because BscScan returned 403). Failed attempts preceded them over about six hours (Hacken via Halborn). crypto.news reports the main release at 07:36 but dates it June 2; block timestamps put all four releases on June 1.",
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/22608306",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Jun-01-2025 07:16:47 AM +UTC (block of Ethereum release tx 1)"
+     },
+     {
+      "url": "https://etherscan.io/block/22608336",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Jun-01-2025 07:22:59 AM +UTC (block of Ethereum release tx 2)"
+     },
+     {
+      "url": "https://bscscan.com/block/50679681",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getBlockByNumber(50679681).timestamp = 2025-06-01T07:36:08Z (public BSC RPC; BscScan returned 403)"
+     },
+     {
+      "url": "https://bscscan.com/block/50680326",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getBlockByNumber(50680326).timestamp = 2025-06-01T07:52:16Z (public BSC RPC; BscScan returned 403)"
+     },
+     {
+      "url": "https://crypto.news/nervos-network-suffers-major-exploit-as-3-9m-in-crypto-is-stolen-from-force-bridge/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The full-scale exploit happened at 07:36 UTC, when 874 BNB, worth roughly $572,000 at the time, was successfully drained."
+     },
+     {
+      "url": "https://alpha.rekt.news/force-bridge-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "June 1st brought attackers who somehow gained access control privileges and drained the protocol across two chains."
+     },
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-force-bridge-hack-june-2025",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Another important element of the attack was that the attacker performed their attack over six hours with multiple failed attempts."
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2025-06-02T03:12:59Z",
+    "channel": "X post by Magickbase (Nervos infrastructure provider operating Force Bridge)",
+    "note": "Same post announced the pause. Cyvers' public alert followed at 2025-06-02T06:42:22Z (status 1929428359856935185) and Hacken's at 07:45:24Z (status 1929444219757756584). About 19 h 56 min after the first release.",
+    "sources": [
+     {
+      "url": "https://x.com/magickbase/status/1929375666396418247",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Status ID 1929375666396418247 -> 2025-06-02T03:12:59.592Z; post embedded by The Block and crypto.news"
+     },
+     {
+      "url": "https://crypto.news/nervos-network-suffers-major-exploit-as-3-9m-in-crypto-is-stolen-from-force-bridge/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "We've detected abnormal activity on #ForceBridge and have paused the service as a precaution."
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2025-06-02T03:12:59Z",
+    "what": "Force Bridge service paused",
+    "by": "Magickbase",
+    "note": "Time is the X announcement; the on-chain pause time, if any, not found. The pause came after all four releases.",
+    "sources": [
+     {
+      "url": "https://crypto.news/nervos-network-suffers-major-exploit-as-3-9m-in-crypto-is-stolen-from-force-bridge/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "We've detected abnormal activity on #ForceBridge and have paused the service as a precaution."
+     },
+     {
+      "url": "https://www.theblock.co/post/356535/hackers-drain-over-3-million-in-crypto-from-nervos-networks-force-cross-chain-bridge-say-security-analysts",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "paused the bridge service and confirmed an ongoing investigation via a post on X."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions one.",
+    "sources": []
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": null,
+    "date": null,
+    "note": "No return reported; funds converted to ETH and moved through Tornado Cash and FixedFloat (The Block, Halborn).",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/356535/hackers-drain-over-3-million-in-crypto-from-nervos-networks-force-cross-chain-bridge-say-security-analysts",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "All stolen funds were converted to ETH and deposited into the crypto mixer Tornado Cash"
+     }
+    ]
+   },
+   "open_questions": "No Magickbase post-mortem found, so whether the admin key was taken or used by an insider is not established. DefiLlama date (06-06) lags the on-chain date (06-01). Whether the Nervos-side (CKB) bridge state was also affected is not reported."
+  },
+  {
+   "event_id": "E35",
+   "dl_name": "ZKSwap",
+   "dl_date": "2025-07-09",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Assets left ZKSwap's Layer 1 Ethereum contract (rollup bridge custody) through the exodus-mode exit path. The rollup had stopped normal operation in February 2025 and L2BEAT lists the project as archived.",
+    "sources": [
+     {
+      "url": "https://etherscan.io/accounts/label/zkswap-exploit",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "An exploit on ZKSwap's Layer 1 Ethereum bridge on 9 Jul 2025 with an estimated damage of $5 million."
+     },
+     {
+      "url": "https://blockaid.io/blog/how-zkswaps-5m-exploit-couldve-been-prevented-with-onchain-monitoring",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The contract stops normal rollup operations on Feb 2, 2025 and allows emergency `exit()` calls."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2025-07-09",
+    "sources": [
+     {
+      "url": "https://etherscan.io/accounts/label/zkswap-exploit",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "An exploit on ZKSwap's Layer 1 Ethereum bridge on 9 Jul 2025 with an estimated damage of $5 million."
+     },
+     {
+      "url": "https://etherscan.io/block/22881853",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Jul-09-2025 01:13:35 PM +UTC (block of the exodus-mode trigger tx in onchain_refs)"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 5000000,
+    "range": "about 5M (all sources)",
+    "sources": [
+     {
+      "url": "https://blockaid.io/blog/how-zkswaps-5m-exploit-couldve-been-prevented-with-onchain-monitoring",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "successfully extracting approximately $5 million in assets from the bridge."
+     },
+     {
+      "url": "https://etherscan.io/accounts/label/zkswap-exploit",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "An exploit on ZKSwap's Layer 1 Ethereum bridge on 9 Jul 2025 with an estimated damage of $5 million."
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "Deployed exit-proof verifier accepted any proof during exodus mode",
+    "sources": [
+     {
+      "url": "https://blockaid.io/blog/how-zkswaps-5m-exploit-couldve-been-prevented-with-onchain-monitoring",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The core vulnerability in ZKSwap's bridge was in how it handled proof verification during Exodus Mode."
+     },
+     {
+      "url": "https://blog.verichains.io/p/audit-the-deployment-not-just-the",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "includes a return true statement at the very beginning of the function."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "All value from the Ethereum L1 contract.",
+    "chains": [
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "https://etherscan.io/accounts/label/zkswap-exploit",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "An exploit on ZKSwap's Layer 1 Ethereum bridge on 9 Jul 2025 with an estimated damage of $5 million."
+     }
+    ]
+   },
+   "outflow": {
+    "first_release_utc": "2025-07-09T14:25:23Z",
+    "last_release_utc": null,
+    "duration_min": null,
+    "release_tx_count": null,
+    "count_note": "Blockaid gives the first withdrawal at 14:25:23 UTC. Exodus mode was triggered by the initiating party at 13:13:35 UTC (block 22881853) and false exit entries were recorded at 14:22:47 UTC (block 22882195); both are block times of transactions Blockaid cites. The two transactions Blockaid labels 'withdrawal' and 'cash out' examples (blocks 22882446 and 22882449, 15:13 UTC) move tokens onward from the recipient contract to three EOAs, so they are not releases. Last release and count not established; Blockaid mentions exits across 15 token IDs.",
+    "sources": [
+     {
+      "url": "https://blockaid.io/blog/how-zkswaps-5m-exploit-couldve-been-prevented-with-onchain-monitoring",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "the first actual withdrawal (`14:25:23 UTC`)"
+     },
+     {
+      "url": "https://blockaid.io/blog/how-zkswaps-5m-exploit-couldve-been-prevented-with-onchain-monitoring",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The exploiter simply call triggerExodusIfNeeded which moved to contract to Exodus Mode"
+     },
+     {
+      "url": "https://etherscan.io/block/22881853",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Jul-09-2025 01:13:35 PM +UTC"
+     },
+     {
+      "url": "https://etherscan.io/block/22882195",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Jul-09-2025 02:22:47 PM +UTC"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": null,
+    "channel": null,
+    "note": "No statement by the ZKSwap/ZKSpace team found. Public records are third-party (Etherscan label, Blockaid, Verichains).",
+    "sources": []
+   },
+   "pause": {
+    "utc": null,
+    "what": "none found",
+    "by": null,
+    "note": "The rollup had already stopped normal operation (2025-02-02 per Blockaid). No source reports a pause of exits or withdrawals during or after the event.",
+    "sources": [
+     {
+      "url": "https://blockaid.io/blog/how-zkswaps-5m-exploit-couldve-been-prevented-with-onchain-monitoring",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The contract stops normal rollup operations on Feb 2, 2025 and allows emergency `exit()` calls."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions one; L2BEAT lists only an 8-day code-upgrade delay and an unknown exit window.",
+    "sources": [
+     {
+      "url": "https://l2beat.com/scaling/projects/zkswap",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "There is a 8 days delay on code upgrades."
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": null,
+    "date": null,
+    "note": "No return or recovery reported.",
+    "sources": []
+   },
+   "open_questions": "Last release time and release count need a log scan of the L1 contract (Transfer logs and native ETH legs) on 2025-07-09. Whether the drained contract is ZKSwap 1.0 or 2.0 is not stated. Blockaid is inconsistent on whether exodus mode was active since February or entered on July 9. Verichains gives year 2024, apparently a typo."
+  },
+  {
+   "event_id": "E36",
+   "dl_name": "Kinto Bridge",
+   "dl_date": "2025-07-10",
+   "scope": {
+    "value": "not_a_bridge_failure",
+    "note": "Token-contract failure: the K token's ERC-1967 proxy on Arbitrum was upgraded through a hidden proxy-admin backdoor and minted 110,000 unbacked K, which were sold into a Uniswap v4 pool and a Morpho vault. Kinto stated its network, bridge and wallets were unaffected. No bridge verification or custody involved.",
+    "sources": [
+     {
+      "url": "https://rekt.news/just-bad-luck",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "They upgraded the implementation of the K token on Arbitrum and used it to mint fake K tokens that they dumped immediately."
+     },
+     {
+      "url": "https://ourcryptotalk.com/blog/kinto-hack-and-shutdown-explained",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The exchange, wallet, and bridge contracts remained intact."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2025-07-10",
+    "sources": [
+     {
+      "url": "https://rekt.news/just-bad-luck",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The attack came July 10th at 08:40 UTC."
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 1550000,
+    "range": "1.55M to 1.6M (577 ETH at the time)",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/369731/ethereum-layer-2-kinto-shuts-down-in-wake-of-1-6-million-july-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "siphoning 577 ETH worth $1.55 million"
+     },
+     {
+      "url": "https://rekt.news/just-bad-luck",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "But Kinto still lost $1.55 million, tanked their token by almost 95%"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "O",
+    "phrase": "Hidden proxy-admin backdoor in token contract allowed unbacked minting; no bridge path",
+    "sources": [
+     {
+      "url": "https://rekt.news/just-bad-luck",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "They upgraded the implementation of the K token on Arbitrum and used it to mint fake K tokens that they dumped immediately."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "other",
+    "share_note": "Token mint by the K token contract on Arbitrum; value taken from Uniswap v4 and Morpho liquidity, not from bridge custody.",
+    "chains": [
+     "Arbitrum"
+    ],
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/369731/ethereum-layer-2-kinto-shuts-down-in-wake-of-1-6-million-july-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "a Morpho lending vault and a Uniswap v4 liquidity pool"
+     }
+    ]
+   },
+   "outflow": {
+    "first_release_utc": "2025-07-10T08:40Z",
+    "last_release_utc": null,
+    "duration_min": null,
+    "release_tx_count": null,
+    "count_note": "Rekt gives the start time from the Kinto founder's timeline; the backdoor's public disclosure was 2025-07-09 20:17 UTC. No transaction list published.",
+    "sources": [
+     {
+      "url": "https://rekt.news/just-bad-luck",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The attack came July 10th at 08:40 UTC."
+     },
+     {
+      "url": "https://rekt.news/just-bad-luck",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "According to Ramon's timeline, the disclosure happened July 9th at 20:17 UTC."
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2025-07-10T09:50:09Z",
+    "channel": "X post by KintoXYZ",
+    "note": "Rekt calls it the team's initial response and quotes it as looking into the situation with Hypernative and SEAL 911.",
+    "sources": [
+     {
+      "url": "https://x.com/KintoXYZ/status/1943246355482185793",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Status ID 1943246355482185793 -> 2025-07-10T09:50:09.575Z; linked by Rekt as the team's initial response"
+     },
+     {
+      "url": "https://rekt.news/just-bad-luck",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "We are looking into the situation ourselves and with third parties (Hypernative, Seal 911)."
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "what": "K token trading frozen",
+    "by": "Kinto",
+    "note": "Time not given. Not a bridge pause.",
+    "sources": [
+     {
+      "url": "https://ourcryptotalk.com/blog/kinto-hack-and-shutdown-explained",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "froze $K trading"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions one.",
+    "sources": []
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": null,
+    "date": null,
+    "note": "No recovery reported. Reimbursement by operator and backers, kept separate: 'Phoenix' raise of $1M to relaunch with a new token from pre-event balances; founder pledged $55,000 for affected Morpho users (up to $1,100 per address); Kinto shut down 2025-09-30.",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/369731/ethereum-layer-2-kinto-shuts-down-in-wake-of-1-6-million-july-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "if they are ever recovered"
+     }
+    ]
+   },
+   "open_questions": "Out of scope as a bridge failure. Why DefiLlama labels it 'Kinto Bridge' is unclear; no source ties the minted tokens to a bridge path. No addresses or hashes were cited in the sources read."
+  },
+  {
+   "event_id": "E37",
+   "dl_name": "Shibarium",
+   "dl_date": "2025-09-13",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Ethereum-side Shibarium bridge contracts (Ether and ERC-20 predicates) released locked assets on the strength of false checkpoints signed by validator keys.",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/373368/shiba-inu-shibarium-preps-bridge-restart-plans-user-refunds-after-4-million-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "submitted fake data to Shibarium's Ethereum-linked contracts"
+     },
+     {
+      "url": "https://www.theblock.co/post/370536/shibarium-bridge-suffers-sophisticated-flash-loan-attack-with-2-4-million-drained",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "drain approximately 224.57 ETH and 92.6 billion SHIB,"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2025-09-12",
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/23348858",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Sep-12-2025 06:44:47 PM +UTC (block of release tx 1 in onchain_refs)"
+     },
+     {
+      "url": "https://bitcoinist.com/shiba-inu-reopens-shibarium-bridge/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "on September 12, 2025 at 18:44 UTC."
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 4100000,
+    "range": "2.4M (ETH and SHIB only, The Block 2025-09-13) to about 3M (Rekt) to 4.1M (Shib community update 2025-09-17, incl. 15 other tokens)",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/373368/shiba-inu-shibarium-preps-bridge-restart-plans-user-refunds-after-4-million-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "drained about $4.1 million in ETH, SHIB, and 15 other tokens from the bridge"
+     },
+     {
+      "url": "https://www.theblock.co/post/370536/shibarium-bridge-suffers-sophisticated-flash-loan-attack-with-2-4-million-drained",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "drain approximately 224.57 ETH and 92.6 billion SHIB,"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "V",
+    "phrase": "10 of 12 validator signing keys controlled; false checkpoint signed using flash-borrowed stake",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/370536/shibarium-bridge-suffers-sophisticated-flash-loan-attack-with-2-4-million-drained",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "seemingly gained access to 10 of 12 validator signing keys"
+     },
+     {
+      "url": "https://www.theblock.co/post/373368/shiba-inu-shibarium-preps-bridge-restart-plans-user-refunds-after-4-million-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "submitted fake data to Shibarium's Ethereum-linked contracts"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "All from Ethereum-side custody. Tx 1: 224.57 ETH from the Ether predicate and 92.6B SHIB from the ERC-20 predicate, largely used within the same transaction to repay the flash loan (Etherscan transfer list); tx 2: nine tokens (KNINE, LEASH, ROAR, TREAT, USDC, USDT, BAD, SHIFU, FUND) from the ERC-20 predicate. Custody addresses in onchain_refs.",
+    "chains": [
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/370536/shibarium-bridge-suffers-sophisticated-flash-loan-attack-with-2-4-million-drained",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "drain approximately 224.57 ETH and 92.6 billion SHIB,"
+     },
+     {
+      "url": "https://alpha.rekt.news/shibarium-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "248.9 billion KNINE ($631k) 29,167 LEASH ($490k)"
+     }
+    ]
+   },
+   "outflow": {
+    "first_release_utc": "2025-09-12T18:44:47Z",
+    "last_release_utc": "2025-09-12T18:46:11Z",
+    "duration_min": 1.4,
+    "release_tx_count": 2,
+    "count_note": "Two release transactions cited by Rekt (blocks 23348858 and 23348865). DefiLlama's 09-13 date is a day late.",
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/23348858",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Sep-12-2025 06:44:47 PM +UTC (block of release tx 1)"
+     },
+     {
+      "url": "https://etherscan.io/block/23348865",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Sep-12-2025 06:46:11 PM +UTC (block of release tx 2)"
+     },
+     {
+      "url": "https://alpha.rekt.news/shibarium-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "72.6 billion SHIB ($948k) 4.6 million BONE staking operations 216.39 WETH ($975k)"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2025-09-13T06:59:27Z",
+    "channel": "X post by Shiba Inu lead developer Kaal Dhairya",
+    "note": "Earliest project-side post found, about 12 h 15 min after the first release. PeckShield's public alert came at 2025-09-12T19:02:18Z (status 1966578130778284440); a Shibizens post at 07:28:39Z denied a protocol compromise; official Shib account post at 12:43:56Z (status 1966845298774278444).",
+    "sources": [
+     {
+      "url": "https://x.com/kaaldhairya/status/1966758608940515671",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Status ID 1966758608940515671 -> 2025-09-13T06:59:27.636Z; post linked by Rekt and The Block"
+     },
+     {
+      "url": "https://alpha.rekt.news/shibarium-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "We are currently in damage control mode and do not yet know if the breach originated from a server or a developer machine."
+     },
+     {
+      "url": "https://x.com/peckshield/status/1966578130778284440",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Status ID 1966578130778284440 -> 2025-09-12T19:02:18.289Z; linked by Rekt as the first alert"
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "what": "Heimdall checkpoint layer halted automatically after the false checkpoints; staking, unstaking and related flows paused; Ethereum bridges later restarted in phases (BONE Plasma bridge reopened around 2025-10-14)",
+    "by": "automatic (Heimdall) and Shibarium developers",
+    "note": "No clock time found for either halt. The staking pause was reported by The Block on 2025-09-13 (published 22:06 UTC). Both releases had completed before any pause.",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/373368/shiba-inu-shibarium-preps-bridge-restart-plans-user-refunds-after-4-million-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the system to automatically shut down as a safety measure"
+     },
+     {
+      "url": "https://www.theblock.co/post/370536/shibarium-bridge-suffers-sophisticated-flash-loan-attack-with-2-4-million-drained",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "paused staking and unstaking functions on the network."
+     },
+     {
+      "url": "https://bitcoinist.com/shiba-inu-reopens-shibarium-bridge/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "first step in a phased restoration of services."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "yes",
+    "acted": "yes",
+    "how": "Automatic Heimdall halt followed the false checkpoints, after both releases. No amount limit or withdrawal delay mentioned before the event.",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/373368/shiba-inu-shibarium-preps-bridge-restart-plans-user-refunds-after-4-million-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the system to automatically shut down as a safety measure"
+     },
+     {
+      "url": "https://bitcoinist.com/shiba-inu-reopens-shibarium-bridge/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "All BONE Plasma withdrawals now include a 7-day finalization delay."
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "4.6M BONE recovered from the initiating party's contract; about 248.9B KNINE blocked by a K9 Finance DAO blacklist (frozen, not returned)",
+    "date": "reported 2025-09-17 (BONE recovery, community update)",
+    "note": "The BONE had been bought with flash-borrowed funds repaid from the bridge release, then locked by the staking pause and unbonding. Rekt estimates about $1.3M frozen by blacklisting and staking mechanics. User refunds were 'in development' as of 2025-10-03.",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/373368/shiba-inu-shibarium-preps-bridge-restart-plans-user-refunds-after-4-million-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Plans to make affected users whole are in development."
+     },
+     {
+      "url": "https://alpha.rekt.news/shibarium-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "unbonding delays locked the BONE in validator jail."
+     }
+    ]
+   },
+   "open_questions": "Time of the Heimdall halt and of the staking pause, and whether Ethereum-side predicates were paused on-chain, not found. Whether the BONE recovery should count against the drained amount is a definitional choice. Post-event changes reported: withdrawal delay extended (press: from one to about 30 checkpoints, not verified on a primary page) and a 7-day delay on BONE Plasma withdrawals."
+  },
+  {
+   "event_id": "E38",
+   "dl_name": "Seedify",
+   "dl_date": "2025-09-23",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "The SFUND LayerZero OFT bridge contract on Avalanche minted unbacked SFUND after its settings were changed with a developer's private key; the tokens moved to BSC and other chains and were sold into pools. Seedify: the contract should not have minted without tokens being bridged.",
+    "sources": [
+     {
+      "url": "https://decrypt.co/341076/north-korean-hackers-drain-1-2m-from-seedify-bridge",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "This contract should not have been able to mint these tokens without any token being bridged."
+     },
+     {
+      "url": "https://crypto.news/seedifys-sfund-implodes-99-dprk-hackers-exploit-bridge-flaw/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the breach occurred at approximately 12:05 UTC when hackers used the keys to unlock the bridge contract on Avalanche"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2025-09-23",
+    "sources": [
+     {
+      "url": "https://decrypt.co/341076/north-korean-hackers-drain-1-2m-from-seedify-bridge",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Today at approximately 12:05 UTC, a DPRK state-affiliated group known for many hacks in Web3"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 1200000,
+    "range": "1.2M (Seedify founder, Decrypt, crypto.news) to 1.7M (Web3 Is Going Great; ourcryptotalk 1.2M-1.7M)",
+    "sources": [
+     {
+      "url": "https://crypto.news/seedifys-sfund-implodes-99-dprk-hackers-exploit-bridge-flaw/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "citing more than $1.2 million in stolen assets tied to 64,000 affected holders on BNB Chain."
+     },
+     {
+      "url": "https://web3isgoinggreat.com/single/seedify-bridge-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "It appears the exploiter has profited around $1.7 million from the theft."
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "V",
+    "phrase": "Developer private key used to change OFT bridge settings and mint unbacked tokens",
+    "sources": [
+     {
+      "url": "https://decrypt.co/341076/north-korean-hackers-drain-1-2m-from-seedify-bridge",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "through a bridge contract that had previously passed audit."
+     },
+     {
+      "url": "https://ourcryptotalk.com/blog/seedify-fund-sfund-exploit-bridge-hack",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "They changed contract settings to mint ~8.79M unauthorized $SFUND."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "mint",
+    "share_note": "About 8.79M SFUND minted on Avalanche (one source); value realized mainly from BSC liquidity. Decrypt instead places the bridge on BNB Chain and the drained pools on Ethereum, Arbitrum and Base; Seedify's own wording points to Avalanche.",
+    "chains": [
+     "Avalanche",
+     "BSC",
+     "Ethereum",
+     "Arbitrum",
+     "Base"
+    ],
+    "sources": [
+     {
+      "url": "https://ourcryptotalk.com/blog/seedify-fund-sfund-exploit-bridge-hack",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "They changed contract settings to mint ~8.79M unauthorized $SFUND."
+     },
+     {
+      "url": "https://crypto.news/seedifys-sfund-implodes-99-dprk-hackers-exploit-bridge-flaw/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the breach occurred at approximately 12:05 UTC when hackers used the keys to unlock the bridge contract on Avalanche"
+     }
+    ]
+   },
+   "outflow": {
+    "first_release_utc": "2025-09-23T12:05Z",
+    "last_release_utc": null,
+    "duration_min": null,
+    "release_tx_count": null,
+    "count_note": "Seedify gives the start as approximately 12:05 UTC. Mint transactions and their count not published in sources read.",
+    "sources": [
+     {
+      "url": "https://decrypt.co/341076/north-korean-hackers-drain-1-2m-from-seedify-bridge",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Today at approximately 12:05 UTC, a DPRK state-affiliated group known for many hacks in Web3"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2025-09-23T12:50:07Z",
+    "channel": "X post by Seedify founder (meta_alchemist)",
+    "note": "Earliest founder post found; linked as a source for the event by Web3 Is Going Great; its text was not read. Founder bounty post at 13:11:15Z (status 1970476051232104839). Official Seedify statement at 2025-09-23T17:15:38Z (status 1970537553515417918), which crypto.news places about three hours after the founder's first acknowledgment.",
+    "sources": [
+     {
+      "url": "https://x.com/meta_alchemist/status/1970470733017968841",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Status ID 1970470733017968841 -> 2025-09-23T12:50:06.984Z; linked by Web3 Is Going Great"
+     },
+     {
+      "url": "https://x.com/SeedifyFund/status/1970537553515417918",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Status ID 1970537553515417918 -> 2025-09-23T17:15:38.232Z; embedded by Decrypt"
+     },
+     {
+      "url": "https://crypto.news/seedifys-sfund-implodes-99-dprk-hackers-exploit-bridge-flaw/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Roughly three hours after Aydan's first acknowledgment of the breach, Seedify's official X account issued a detailed statement."
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "what": "All SFUND cross-chain bridges temporarily disabled; compromised permissions revoked; exchanges asked to halt trading",
+    "by": "Seedify",
+    "note": "Reported in Seedify's update; no clock time found (latest bound: crypto.news published 2025-09-23 20:49 UTC).",
+    "sources": [
+     {
+      "url": "https://crypto.news/seedifys-sfund-implodes-99-dprk-hackers-exploit-bridge-flaw/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "all cross-chain bridges have been temporarily disabled."
+     },
+     {
+      "url": "https://ourcryptotalk.com/blog/seedify-fund-sfund-exploit-bridge-hack",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Suspended all bridges and revoked compromised permissions."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions one.",
+    "sources": []
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "about $200K frozen at HTX (not reported as returned)",
+    "date": "2025-09-24 (CZ post)",
+    "note": "Seedify later ran a token migration ('Phoenix Raise'), reported by one source only.",
+    "sources": [
+     {
+      "url": "https://decrypt.co/341076/north-korean-hackers-drain-1-2m-from-seedify-bridge",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the rest seem to remain on-chain."
+     }
+    ]
+   },
+   "open_questions": "Avalanche OFT contract address, the settings-change and mint transactions, and their times not found; needed to measure the mint and sale window. Whether minting also occurred on other chains is unclear (Decrypt says BNB Chain bridge). DefiLlama chains BSC/Avalanche match Seedify's account."
+  },
+  {
+   "event_id": "E39",
+   "dl_name": "GriffinAI",
+   "dl_date": "2025-09-24",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Unbacked GAIN minted on BSC through the token's LayerZero OFT receive path after a counterfeit Ethereum contract was registered as trusted peer with a compromised admin key. The OFT contract is both token and bridge endpoint. Griffin said its Ethereum contract and platform were not breached.",
+    "sources": [
+     {
+      "url": "https://www.quillaudits.com/blog/hack-analysis/griffin-ai-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "triggered the minting of 5 billion legitimate $GAIN tokens on the BNB Chain."
+     },
+     {
+      "url": "https://web3isgoinggreat.com/single/griffin-ai-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "a misconfigured layer Zero (cross-chain messaging) set-up and compromised key"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2025-09-24",
+    "sources": [
+     {
+      "url": "https://bscscan.com/block/62341579",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getBlockByNumber(62341579).timestamp = 0x68d4791b = 2025-09-24T23:04:59Z (public BSC RPC; BscScan returned 403)"
+     },
+     {
+      "url": "https://alpha.rekt.news/griffinai-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "GoPlus Security spotted the bleeding first on September 24th:"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 3000000,
+    "range": "about 3M (2,955 BNB; Griffin CEO, Rekt) to 3.5M (QuillAudits); analysts 3M-4M (crypto.news)",
+    "sources": [
+     {
+      "url": "https://alpha.rekt.news/griffinai-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "147.5M $GAIN dumped for 2,955 BNB, bridged to Ethereum, swapped for 720 ETH, with 700 ETH hitting Tornado Cash."
+     },
+     {
+      "url": "https://www.quillaudits.com/blog/hack-analysis/griffin-ai-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Griffin AI lost $3.5M in a cross-chain exploit within 24 hours of its Binance Alpha launch."
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "V",
+    "phrase": "Compromised admin key registered counterfeit trusted peer; OFT minted on its messages",
+    "sources": [
+     {
+      "url": "https://alpha.rekt.news/griffinai-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Blocksec Phalcon revealed the attacker managed to get an Admin address to invoke the setPeer function - maybe via phishing."
+     },
+     {
+      "url": "https://web3isgoinggreat.com/single/griffin-ai-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "a misconfigured layer Zero (cross-chain messaging) set-up and compromised key"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "mint",
+    "share_note": "5B GAIN minted on BSC (supply 1B to 5.2985B); about 147.5M sold for about 2,955 BNB.",
+    "chains": [
+     "BSC"
+    ],
+    "sources": [
+     {
+      "url": "https://alpha.rekt.news/griffinai-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The attacker minted 5 billion GAIN tokens, bloating total supply from 1 billion to 5.2985 billion."
+     }
+    ]
+   },
+   "outflow": {
+    "first_release_utc": "2025-09-24T23:04:59Z",
+    "last_release_utc": "2025-09-24T23:04:59Z",
+    "duration_min": 0,
+    "release_tx_count": 1,
+    "count_note": "One unbacked mint transaction (block 62341579). The trusted-peer change preceded it at 22:42:35Z (block 62339788). Sales into PancakeSwap followed within about an hour; proceeds left BSC through deBridge in transactions from 00:37:15Z to 01:06:49Z on 09-25 (block timestamps of txs cited by QuillAudits/Rekt). Times read via public BSC RPC because BscScan returned 403.",
+    "sources": [
+     {
+      "url": "https://bscscan.com/block/62341579",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getBlockByNumber(62341579).timestamp = 0x68d4791b = 2025-09-24T23:04:59Z (block of the mint tx in onchain_refs; public BSC RPC)"
+     },
+     {
+      "url": "https://bscscan.com/block/62339788",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getBlockByNumber(62339788).timestamp = 0x68d473db = 2025-09-24T22:42:35Z (block of the peer-change tx; public BSC RPC)"
+     },
+     {
+      "url": "https://crypto.news/griffin-ai-price-attacker-mints-5b-gain-tokens-2025/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "dumped around 147.5 million GAIN on PancakeSwap"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2025-09-25T01:20:10Z",
+    "channel": "X post by Griffin AI",
+    "note": "About 2 h 15 min after the mint. A statement naming an 'unauthorized LayerZero peer' followed at 03:08:42Z (status 1971049192245047677). GoPlus public alert at 01:39:27Z (status 1971026729876832721).",
+    "sources": [
+     {
+      "url": "https://x.com/Griffin_AI/status/1971021877272601021",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Status ID 1971021877272601021 -> 2025-09-25T01:20:10.014Z; linked by Rekt as Griffin AI's first post"
+     },
+     {
+      "url": "https://alpha.rekt.news/griffinai-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "We are investigating the issue and will make a detailed post as soon as we have more information,"
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "what": "Compromised cross-chain connection secured; exchanges asked to halt GAIN deposits, withdrawals and trading; PancakeSwap LP shut down",
+    "by": "Griffin AI (exchanges such as KuCoin and MEXC suspended GAIN)",
+    "note": "No clock time found; reported in statements from 2025-09-25.",
+    "sources": [
+     {
+      "url": "https://www.quillaudits.com/blog/hack-analysis/griffin-ai-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "They notified all exchanges to halt $GAIN deposits, withdrawals, and trading"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions one (no OFT rate limit mentioned).",
+    "sources": []
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": null,
+    "date": null,
+    "note": "No recovery reported. Griffin planned a migration to a new token with balances restored from pre-event snapshots (operator remedy, kept separate).",
+    "sources": [
+     {
+      "url": "https://www.quillaudits.com/blog/hack-analysis/griffin-ai-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "These funds remain in the attacker's control, with no recoveries noted."
+     }
+    ]
+   },
+   "open_questions": "Class could also be read as D (destination accepted messages from a misconfigured peer); V chosen because the configuration change used a compromised admin key. Times of the halts not found. Value taken is DEX liquidity from selling minted tokens, not bridge custody."
+  }
+ ]
+}

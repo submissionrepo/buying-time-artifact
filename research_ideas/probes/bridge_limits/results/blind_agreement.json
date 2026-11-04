@@ -1,0 +1,55 @@
+{
+ "n": 57,
+ "missing": [],
+ "agree": 55,
+ "kappa": 0.9462010382255781,
+ "disagreements": [
+  {
+   "id": "E40",
+   "ours": "V",
+   "blind": "OTHER",
+   "confidence": "high",
+   "usd": 11400000.0,
+   "rationale": "One independent solver's private key leaked from a device under outside control and the solver's own inventory left with valid signatures; protocol contracts and user funds were not involved (The Block citing the forensic report)."
+  },
+  {
+   "id": "E46",
+   "ours": "S",
+   "blind": "CHECK",
+   "confidence": "high",
+   "usd": 2854486.0,
+   "rationale": "The sequencer software did not check the minter code of the sending token wallet and minted on TAC against a counterfeit deposit notice; the minted tokens were bridged back to release locked assets on TON (operator post-mortem)."
+  }
+ ],
+ "disagreement_value_share": 0.0038413050370738433,
+ "by_class_ours": {
+  "S": 6,
+  "V": 21,
+  "D": 25,
+  "O": 5
+ },
+ "by_class_blind": {
+  "S": 5,
+  "V": 20,
+  "D": 26,
+  "O": 6,
+  "?": 0
+ },
+ "verifier_share_ours": 0.26887159863530863,
+ "verifier_share_blind": 0.2725005647434031,
+ "verifier_share_blind_timed": 0.27419026814040054,
+ "keys_held_n": 8,
+ "keys_held_value_share": 0.16842956893371766,
+ "keys_held_ids": [
+  "E03",
+  "E06",
+  "E22",
+  "E23",
+  "E40",
+  "E56",
+  "E63",
+  "E64"
+ ],
+ "pause_holder_agree": 54,
+ "pause_holder_n": 57
+}

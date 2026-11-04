@@ -1,0 +1,214 @@
+{
+ "source": "forged_E25_d12_k64.json",
+ "fid": "E25",
+ "Bd": 12,
+ "k": 64,
+ "P": 12.0,
+ "n_points": 10,
+ "monitors": {
+  "record_match": {
+   "episodes": 12,
+   "alarms": 0,
+   "alarm_reasons": [],
+   "episodes_with_alarm": 0,
+   "limiters": {
+    "L0": {
+     "n": 12,
+     "detect_s": {
+      "n": 0
+     },
+     "pause_s": {
+      "n": 0
+     },
+     "released_before_pause_usd": {
+      "n": 12,
+      "min": 1843678.3155483,
+      "median": 2897208.7815759,
+      "max": 2897208.7815759
+     },
+     "released_total_usd": {
+      "n": 12,
+      "min": 1843678.3155483,
+      "median": 2897208.7815759,
+      "max": 2897208.7815759
+     },
+     "requested_usd": {
+      "n": 12,
+      "min": 5267652.330138,
+      "median": 5267652.330138,
+      "max": 5267652.330138
+     },
+     "n_cancel_legit": 0
+    },
+    "L10": {
+     "n": 12,
+     "detect_s": {
+      "n": 0
+     },
+     "pause_s": {
+      "n": 0
+     },
+     "released_before_pause_usd": {
+      "n": 12,
+      "min": 1580295.6990414,
+      "median": 2633826.165069,
+      "max": 2633826.165069
+     },
+     "released_total_usd": {
+      "n": 12,
+      "min": 1580295.6990414,
+      "median": 2633826.165069,
+      "max": 2633826.165069
+     },
+     "requested_usd": {
+      "n": 12,
+      "min": 5267652.330138,
+      "median": 5267652.330138,
+      "max": 5267652.330138
+     },
+     "n_cancel_legit": 0
+    },
+    "T0": {
+     "n": 12,
+     "detect_s": {
+      "n": 0
+     },
+     "pause_s": {
+      "n": 0
+     },
+     "released_before_pause_usd": {
+      "n": 12,
+      "min": 1843678.3155483,
+      "median": 2897208.7815759,
+      "max": 2897208.7815759
+     },
+     "released_total_usd": {
+      "n": 12,
+      "min": 1843678.3155483,
+      "median": 2897208.7815759,
+      "max": 2897208.7815759
+     },
+     "requested_usd": {
+      "n": 12,
+      "min": 5267652.330138,
+      "median": 5267652.330138,
+      "max": 5267652.330138
+     },
+     "n_cancel_legit": 0
+    }
+   }
+  },
+  "value_check": {
+   "episodes": 12,
+   "alarms": 720,
+   "alarm_reasons": [
+    "no value"
+   ],
+   "episodes_with_alarm": 12,
+   "limiters": {
+    "L0": {
+     "n": 12,
+     "detect_s": {
+      "n": 12,
+      "min": 0.15801596641540527,
+      "median": 7.563485741615295,
+      "max": 11.9477379322052
+     },
+     "pause_s": {
+      "n": 12,
+      "min": 12,
+      "median": 12.0,
+      "max": 12
+     },
+     "released_before_pause_usd": {
+      "n": 12,
+      "min": 1580295.6990414,
+      "median": 2633826.165069,
+      "max": 2633826.165069
+     },
+     "released_total_usd": {
+      "n": 12,
+      "min": 1580295.6990414,
+      "median": 2633826.165069,
+      "max": 2633826.165069
+     },
+     "requested_usd": {
+      "n": 12,
+      "min": 5267652.330138,
+      "median": 5267652.330138,
+      "max": 5267652.330138
+     },
+     "n_cancel_legit": 0
+    },
+    "L10": {
+     "n": 12,
+     "detect_s": {
+      "n": 12,
+      "min": 0.15801596641540527,
+      "median": 7.563485741615295,
+      "max": 11.9477379322052
+     },
+     "pause_s": {
+      "n": 12,
+      "min": 12,
+      "median": 12.0,
+      "max": 12
+     },
+     "released_before_pause_usd": {
+      "n": 12,
+      "min": 0.0,
+      "median": 0.0,
+      "max": 0.0
+     },
+     "released_total_usd": {
+      "n": 12,
+      "min": 0.0,
+      "median": 0.0,
+      "max": 0.0
+     },
+     "requested_usd": {
+      "n": 12,
+      "min": 5267652.330138,
+      "median": 5267652.330138,
+      "max": 5267652.330138
+     },
+     "n_cancel_legit": 0
+    },
+    "T0": {
+     "n": 12,
+     "detect_s": {
+      "n": 12,
+      "min": 0.15801596641540527,
+      "median": 7.563485741615295,
+      "max": 11.9477379322052
+     },
+     "pause_s": {
+      "n": 12,
+      "min": 12,
+      "median": 12.0,
+      "max": 12
+     },
+     "released_before_pause_usd": {
+      "n": 12,
+      "min": 1580295.6990414,
+      "median": 2633826.165069,
+      "max": 2633826.165069
+     },
+     "released_total_usd": {
+      "n": 12,
+      "min": 1580295.6990414,
+      "median": 2633826.165069,
+      "max": 2633826.165069
+     },
+     "requested_usd": {
+      "n": 12,
+      "min": 5267652.330138,
+      "median": 5267652.330138,
+      "max": 5267652.330138
+     },
+     "n_cancel_legit": 0
+    }
+   }
+  }
+ }
+}

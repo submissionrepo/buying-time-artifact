@@ -1,0 +1,1748 @@
+{
+ "batch": "I",
+ "generated_utc": "2026-10-16T01:24:44Z",
+ "events": [
+  {
+   "event_id": "E01",
+   "dl_name": "Multichain",
+   "dl_date": "2021-07-10",
+   "scope": {
+    "value": "bridge_liquidity_or_relayer",
+    "note": "Anyswap (later Multichain) V3 router: underlying MIM and USDC left the router's cross-chain liquidity pools (held by the anyToken contracts) on Ethereum, BSC and Fantom. Each release minted the router's anyToken to the recipient and redeemed it against the pool in the same transaction, signed by the router's MPC address. V1/V2 bridges were reported unaffected. DefiLlama's targetType 'CEX' does not fit. Dated correctly (releases 2021-07-10 20:13-21:04 UTC).",
+    "sources": [
+     {
+      "url": "https://rekt.news/anyswap-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Anyswap stressed that “only the new V3 cross-chain liquidity pools have been affected”"
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "function anySwapInUnderlying(bytes32 txs, address token, address to, uint amount, uint fromChainID) external onlyMPC {"
+     },
+     {
+      "url": "https://x.com/AnyswapNetwork/status/1414248253822881793",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "An exploit was detected in the new anyswap v3 prototype, all bridge funds used in v1/v2 are safe"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2021-07-10",
+    "sources": [
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC (rpc.mevblocker.io): receipt in block 12801739, block timestamp 2021-07-10T20:13:04Z (converted by me)"
+     },
+     {
+      "url": "https://www.techflowpost.com/en-US/newsletter/19686",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Anyswap announced that its Multichain Router v3 was attacked at 4:00 AM Beijing time on July 11."
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 7900000,
+    "range": "7.87M-8M USD. On-chain: 5,509,227.35 MIM and 1,536,821.77 USDC (Ethereum), 748,312.63 USDC (BSC), 112,640.88 USDC (Fantom), about 7.91M in dollar-pegged units. Rekt lists the BSC release as 749,033.37 USDC; ChainCatcher 7.87M; SoK 8M; DefiLlama 7.9M.",
+    "sources": [
+     {
+      "url": "https://rekt.news/anyswap-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The funds lost were all $ pegged stablecoins totalling approximately $7.9M."
+     },
+     {
+      "url": "https://www.chaincatcher.com/article/2063348",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "继Chainswap之后，跨链桥Anyswap遭黑客攻击并损失787万美元"
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "Anyswap 22 Jul 2021 8M"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "V",
+    "phrase": "Router MPC key reconstructed from two BSC signatures sharing a nonce; releases signed with it.",
+    "sources": [
+     {
+      "url": "https://rekt.news/anyswap-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "the attacker detected a repeated k value in two of the V3 Router’s transactions on BSC, and was able to back-calculate the private key."
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "Two transactions used the same (supposedly) random value to generate a signature which compromised the private key"
+     },
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: transaction sent by the router's MPC address 0x8b44...7a72 to the router, selector 0x0175b1c4 (anySwapInUnderlying)"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "All realized value left the anyToken liquidity pools: Ethereum 7,046,049 (89.1%; MIM 5,509,227 and USDC 1,536,822), BSC 748,313 (9.5%), Fantom 112,641 (1.4%), in dollar-pegged units. Each release minted anyToken and burned it against the pool within the same transaction, and each took the pool's entire underlying balance (pool balance zero after the release block on Ethereum and BSC; Fantom not checked).",
+    "chains": [
+     "Ethereum",
+     "BSC",
+     "Fantom"
+    ],
+    "sources": [
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC eth_call USDC.balanceOf(anyUSDC pool): 1,536,821.769400 at block 12801738, 0.000000 at block 12801739"
+     },
+     {
+      "url": "https://bscscan.com/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "BSC RPC eth_call USDC.balanceOf(anyUSDC pool): 748,312.634392 at block 9043387, 0.000000 at block 9043388"
+     },
+     {
+      "url": "https://rekt.news/anyswap-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Just over 5.5M $MIM were taken in this transaction."
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2021-07-10T20:13:04Z",
+    "last_release_utc": "2021-07-10T20:13:04Z",
+    "duration_min": 0,
+    "release_tx_count": 4,
+    "count_note": "Counted: router release transactions (LogAnySwapIn) paying the recipient, all chains. Ethereum: two releases in block 12,801,739 at 20:13:04 UTC (5,509,227.35 MIM; 1,536,821.77 USDC). BSC: one at 20:13:09 UTC (block 9,043,388; 748,312.63 USDC). Fantom: one at 21:04:48 UTC (block 11,769,327; 112,640.88 USDC). All-chain window 20:13:04-21:04:48 (51.7 min). Router logs scanned for other releases to the recipient (Ethereum blocks 12,780,000-12,840,000; BSC 9,000,000-9,130,000; Fantom 11,650,000-11,950,000): none, and no small preliminary release found. The source-transfer field of every release carried an ASCII text string instead of a transaction hash. Other chains with a V3 router were not scanned. ChainCatcher and Coinspeaker give 2:13 Beijing time, two hours earlier than the block times.",
+    "sources": [
+     {
+      "url": "https://rekt.news/anyswap-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "A further 3 transactions saw a total of ~2.4M USDC stolen."
+     },
+     {
+      "url": "https://etherscan.io/block/12801739",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC eth_getLogs (router, LogAnySwapIn to the recipient, blocks 12780000-12840000): 2 logs, both block 12801739, timestamp 2021-07-10T20:13:04Z"
+     },
+     {
+      "url": "https://bscscan.com/block/9043388",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "BSC RPC eth_getLogs (router, LogAnySwapIn to the recipient, blocks 9000000-9130000): 1 log, block 9043388, timestamp 2021-07-10T20:13:09Z"
+     },
+     {
+      "url": "https://ftmscan.com/block/11769327",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Fantom RPC (rpcapi.fantom.network) eth_getLogs: 1 log, block 11769327, timestamp 2021-07-10T21:04:48Z"
+     },
+     {
+      "url": "https://www.chaincatcher.com/article/2063348",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "链上记录还显示，本次攻击开始时间为北京时间7月11日2:13"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2021-07-11T15:40:33Z",
+    "channel": "X (@AnyswapNetwork, now @MultichainOrg)",
+    "note": "Time from status ID 1414248253822881793, about 19 h 27 min after the first release; consistent with the SoK communication-time bucket of 6-24 h. ChainCatcher (12 July) reports the announcement 'early this morning' Beijing time. A full post-mortem was published on Medium (not readable here; quoted by Rekt).",
+    "sources": [
+     {
+      "url": "https://x.com/AnyswapNetwork/status/1414248253822881793",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Remedial action already in place for all exploited funds. LPs to v3 won't take any losses."
+     },
+     {
+      "url": "https://www.chaincatcher.com/article/2063348",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "今日凌晨，跨链桥项目Anyswap发布 公告"
+     }
+    ]
+   },
+   "first_alert": null,
+   "pause": {
+    "utc": null,
+    "basis": null,
+    "what": "No pause found. The releases emptied each pool. The team rotated the router's MPC address on-chain (changeMPC) at 14:50:42 (BSC), 14:52:12 (Fantom) and 14:56:16 UTC (Ethereum) on 2021-07-11, effective 48 h later (2021-07-13 about 14:50-14:56 UTC); the post-mortem says V3 reopens after this 48 h timelock.",
+    "by": "Anyswap team",
+    "note": "Under the verified router code the old (compromised) MPC address stays authorized until the new one takes effect, so the rotation itself did not stop releases for 48 h; the empty pools did.",
+    "sources": [
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: LogChangeMPC in block 12806663 at 2021-07-11T14:56:16Z, effectiveTime 0x60eda990 = 2021-07-13T14:56:16Z (converted by me)"
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "_newMPCEffectiveTime = block.timestamp + 2*24*3600;"
+     },
+     {
+      "url": "https://rekt.news/anyswap-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "will reopen after the 48hr timelock installed by the team expires."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "no",
+    "acted": "n.a.",
+    "how": "Verified router and anyToken code: release functions callable by the MPC address with no amount cap, rate limit or delay; delays apply only to changes of the MPC address (48 h) and of the token's vault and minters. Each release took the whole pool.",
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "function anySwapInUnderlying(bytes32 txs, address token, address to, uint amount, uint fromChainID) external onlyMPC {"
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "function mint(address to, uint256 amount) external onlyAuth returns (bool) {"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "none reported",
+    "date": null,
+    "frozen_usd": null,
+    "note": "No return by the recipient found. Anyswap said it would refill the drained liquidity within 48 hours so LPs take no loss (operator reimbursement). ChainCatcher: the recipient swapped all MIM for about 5.48M DAI.",
+    "sources": [
+     {
+      "url": "https://www.chaincatcher.com/article/2063348",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Anyswap将在48小时内重新填充被盗的流动性"
+     },
+     {
+      "url": "https://www.techflowpost.com/en-US/newsletter/19686",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The team will compensate for the losses, and once liquidity is restored to the v3 cross-chain pools, users will be able to withdraw their funds."
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2021-07-10T20:13:04Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 5509227.35372,
+     "asset": "MIM",
+     "usd": null,
+     "basis": "block timestamp, Ethereum RPC"
+    },
+    {
+     "utc": "2021-07-10T20:13:04Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 1536821.7694,
+     "asset": "USDC",
+     "usd": null,
+     "basis": "block timestamp, Ethereum RPC"
+    },
+    {
+     "utc": "2021-07-10T20:13:09Z",
+     "chain": "BSC",
+     "side": "escrow",
+     "amount_native": 748312.634392,
+     "asset": "USDC",
+     "usd": null,
+     "basis": "block timestamp, BSC RPC"
+    },
+    {
+     "utc": "2021-07-10T21:04:48Z",
+     "chain": "Fantom",
+     "side": "escrow",
+     "amount_native": 112640.877101,
+     "asset": "USDC",
+     "usd": null,
+     "basis": "block timestamp, Fantom RPC"
+    }
+   ],
+   "open_questions": "(1) Release side: 'escrow' is entered because all value left the pools; the router minted anyTokens that were redeemed in the same transaction, so a 'both' reading is possible, and the SoK places the exploit location at the target-chain contract. (2) The two BSC transactions with the repeated nonce were not identified. (3) Whether the V3 router existed on other chains with exposed pools. (4) Fantom pool balance after the release not checked (archive state refused). (5) Anyswap's Medium post-mortem could not be read (403); its time and any earlier operator statement (Telegram) not found. (6) No public third-party alert found before Anyswap's post; Tayvano's thread at 2021-07-12T03:39:14Z (status 1414429115487117316) is later."
+  },
+  {
+   "event_id": "E02",
+   "dl_name": "ChainSwap Bridge",
+   "dl_date": "2021-07-11",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "ChainSwap's per-token bridge contracts released Ethereum-native tokens from custody on Ethereum and minted mapped tokens on BSC (and two BSC-native tokens on Ethereum) on forged receive authorizations; tokens of about 30 partner projects were affected. Event time 2021-07-10 19:16-19:50 UTC (DefiLlama 07-11). Separate from ChainSwap's first exploit (DefiLlama 2021-07-02, 0.8M; SoK Table 8). DefiLlama's 2021-11-07 'ChainSwap' record (E08) duplicates this event.",
+    "sources": [
+     {
+      "url": "https://rekt.news/chainswap-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "First $800,000, now $4.4 million."
+     },
+     {
+      "url": "https://forklog.com/en/hackers-drain-more-than-4m-from-defi-projects-due-to-chainswap-vulnerability/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The attacker withdrew from the Wilder Pancake Liquidity Pool on BSC and the ChainSwap bridge contract on the Ethereum blockchain more than $534 000."
+     },
+     {
+      "url": "https://maples.com/wp-content/uploads/2023/11/Update-Final-BVI-ChainSwap-BVI-Court-Injuncts-Assets-of-Unidentified-Owners-of-Crypto-Wallets.pdf",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "This happened on two occasions, approximately one week apart."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2021-07-10",
+    "sources": [
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-chainswap-hack-july-2021",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "ChainSwap was the victim of a hack causing losses of millions of dollars on July 10, 2021."
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/addresses/[redacted]/transactions",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "first receive call by the recipient address: 2021-07-10T19:16:11Z, block 12801461; last: 2021-07-10T19:50:41Z, block 12801621"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 4400000,
+    "range": "4.4M USD (Rekt, SoK, DefiLlama) to about 8M (U.Today, Coinspeaker). The 8M figures may count token quantities at pre-crash prices; realized proceeds per chain not published.",
+    "sources": [
+     {
+      "url": "https://rekt.news/chainswap-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "By the time the hacker was finished, their wallet had filled with a variety of tokens, with a total value of approximately $4.4M."
+     },
+     {
+      "url": "https://u.today/alameda-backed-chainswap-just-got-hacked-these-are-all-affected-tokens",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "has been drained of roughly $8 million"
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "Chainswap 22 Jul 2021 4.4M"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "Release contracts accepted receive signatures from unregistered signers, gated only by a per-signer quota.",
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "_decreaseAuthQuota(signatures[i].signatory, volume);"
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "There was a bug in the token cross-chain quota code."
+     },
+     {
+      "url": "https://x.com/cmichelio/status/1414035462164033541",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Hacker calls the receive function of the Factory contract"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "both",
+    "share_note": "Two independent forged-release paths, not a mint followed by redemption. Ethereum: 423 custody releases of 29 Ethereum-native tokens (e.g. 2,314,640 ROOM, 1,978,845 WILD, 31,661,825 DAFI) and 107 unbacked mints of two BSC-native tokens (30,000,000 TBC; 3,000,000 DPET). BSC: 582 unbacked mints of 14 mapped tokens (e.g. 20,000,000 WILD; 10,000,000 ROOM) and 24 custody releases (TBC, DPET). USD split by side and chain not published.",
+    "chains": [
+     "Ethereum",
+     "BSC"
+    ],
+    "sources": [
+     {
+      "url": "https://u.today/alameda-backed-chainswap-just-got-hacked-these-are-all-affected-tokens",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "ChainSwap hacker have hacked 2,314,640 $ROOM worth $550,000 from the cross-chain contract including multiple other tokens."
+     },
+     {
+      "url": "https://rekt.news/chainswap-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Taking the example of the NFT platform WilderWorld, this is one of 40 repeated transactions, each of which minted 500,000 $WILD tokens each time."
+     },
+     {
+      "url": "https://bscscan.com/address/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "BSC RPC eth_getLogs (Transfer to the recipient, blocks 9042260-9042360): 606 logs; 582 from the zero address (mints), 24 from two custody contracts (computed by me)"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2021-07-10T19:16:11Z",
+    "last_release_utc": "2021-07-10T19:50:41Z",
+    "duration_min": 34.5,
+    "release_tx_count": 1136,
+    "count_note": "Counted: successful receive calls paying the recipient, both chains. Ethereum: 604 receive calls 19:16:11-19:50:41 UTC (blocks 12,801,461-12,801,621), 530 succeeded (74 failed); the first was a single 7,872 DORA release at 19:16:11 UTC, then a burst from 19:17:06. BSC: 606 releases 19:17:15-19:21:18 UTC (blocks 9,042,270-9,042,351). On Ethereum 511 calls carried one signature and 19 carried three; each paid 0.005 ETH fee. Main chain set to Ethereum on ForkLog's Etherscan-based holdings figure; not confirmed by value. Coinspeaker and ChainCatcher give 1:16-1:50 Beijing time, two hours earlier than the block times. SoK Table 5 marks more than 1,000 transactions. Small preliminary transfers: none identified; the address made four small ETH transfers to other addresses at 16:44-17:17 UTC.",
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/api/v2/addresses/[redacted]/transactions",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "604 transactions with method 0xa653d60c/receive from the recipient address, 2021-07-10T19:16:11Z to 2021-07-10T19:50:41Z"
+     },
+     {
+      "url": "https://bscscan.com/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "BSC RPC: block 9042275, 2021-07-10T19:17:30Z, Transfer 500,000 WILD from 0x0 to the recipient (converted by me)"
+     },
+     {
+      "url": "https://forklog.com/en/hackers-drain-more-than-4m-from-defi-projects-due-to-chainswap-vulnerability/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Tokens worth more than $4.3m are held by the hackers at their addresses, according to Etherscan"
+     },
+     {
+      "url": "https://www.coinspeaker.com/aofex-insight-cross-chain-security/amp/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Chainswap at 1:16, July 11 (GMT+8) and ended at 1:50 (GMT+8)"
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "Chainswap [229] 22 Jul 2021 4.4M"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2021-07-10T21:29:47Z",
+    "channel": "X (@chain_swap)",
+    "note": "Time from status ID 1413973753097293825, about 1 h 39 min after the last Ethereum release (19:50:41 UTC). Follow-ups: 22:16:11 UTC (snapshot of ASAP holders, compensation plan; status 1413985428336693251) and 00:31:47 UTC on 07-11 (BSC mapping tokens frozen; status 1414019554603307017). SoK communication-time bucket: 4-6 h.",
+    "sources": [
+     {
+      "url": "https://x.com/chain_swap/status/1413973753097293825",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Liquidity pulled temporarily, please do not buy $ASAP we are investigating the exploit"
+     },
+     {
+      "url": "https://x.com/chain_swap/status/1413985428336693251",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "A compensation plan will be put into action for affected tokens"
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2021-07-10T21:49:10Z",
+    "channel": "X",
+    "by": "Krisma (@KRMA_0)",
+    "note": "Time from status ID 1413978628174516224 (post since deleted; text embedded by ForkLog and U.Today: 'Chainswap got exploited', listing WILD, MATTER, ROOM). It comes 19 min after ChainSwap's own post. cmichelio's analysis followed at 01:35:00 UTC on 07-11 (status 1414035462164033541). No earlier third-party alert found.",
+    "sources": [
+     {
+      "url": "https://u.today/alameda-backed-chainswap-just-got-hacked-these-are-all-affected-tokens",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Chainswap got exploited"
+     },
+     {
+      "url": "https://x.com/cmichelio/status/1414035462164033541",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Hacker calls the receive function of the Factory contract"
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2021-07-11T00:31:47Z",
+    "basis": "announcement",
+    "what": "BSC mapping-token contracts frozen to filter out the recipient addresses (balances may show 0 during filtering); ASAP liquidity pulled from DEX pools earlier (21:29:47 UTC post).",
+    "by": "ChainSwap team",
+    "note": "Upper bound from the X post (status 1414019554603307017). Releases had already ended (Ethereum 19:50:41, BSC 19:21:18 UTC); no on-chain pause of the Ethereum custody contracts was looked for.",
+    "sources": [
+     {
+      "url": "https://x.com/chain_swap/status/1414019554603307017",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The Chainswap team has frozen the BSC mapping token address to filter out the hackers addresses."
+     },
+     {
+      "url": "https://x.com/chain_swap/status/1413973753097293825",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Liquidity pulled temporarily, please do not buy $ASAP we are investigating the exploit"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "yes",
+    "acted": "yes",
+    "how": "Per-signer quota: each signer's quota refills over time up to a cap of cap() x autoQuotaRatio (factory default 1% per day). The release function checked only that a signature matched its claimed signer, not that the signer was registered, and any new address started with a full quota. The initiating party used fresh signer keys for each release and exhausted each one's quota (536 of 568 signer uses on Ethereum left the quota at zero). The quota therefore capped each transaction and drove the count above 1,000; it did not bound the total.",
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "require(signatory == signatures[i].signatory, \"unauthorized\");"
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "uint quotaCap = cap().mul(ratio).div(1e18);"
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "However, a logical code flaw allowed addresses that weren’t whitelisted to automatically increase this amount."
+     },
+     {
+      "url": "https://rekt.news/chainswap-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Dodge the sloppy auth check system using a new address as signature each tx"
+     },
+     {
+      "url": "https://etherscan.io/address/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC receipts of 530 successful receive calls: DecreaseAuthQuota logs with remaining quota 0 in 536 of 568 cases (computed by me)"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "none returned by the recipient found",
+    "date": null,
+    "frozen_usd": 1060356,
+    "note": "Tether blacklisted the recipient's Ethereum address on 2021-07-13 18:36:34 UTC while it held 1,060,356.11 USDT, and destroyed that balance on 2021-10-19 19:01:04 UTC; whether it was reissued to ChainSwap or victims was not found. ChainSwap airdropped new ASAP 1:1 to pre-hack holders and compensated affected projects (operator reimbursement). In 2023 the BVI court granted ChainSwap a worldwide freezing order against the unknown persons.",
+    "sources": [
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: USDT AddedBlackList(recipient) in block 12820418, 2021-07-13T18:36:34Z; USDT balance 1,060,356.114978 at block 12820417"
+     },
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: USDT DestroyedBlackFunds(recipient, 0xf6e2264a22 = 1,060,356.114978 USDT) in block 13449947, 2021-10-19T19:01:04Z"
+     },
+     {
+      "url": "https://rekt.news/chainswap-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "ChainSwap have arranged a full compensation plan for those affected by the attack"
+     },
+     {
+      "url": "https://maples.com/wp-content/uploads/2023/11/Update-Final-BVI-ChainSwap-BVI-Court-Injuncts-Assets-of-Unidentified-Owners-of-Crypto-Wallets.pdf",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "has granted a worldwide freezing order against persons unknown"
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2021-07-10T19:16:11Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 7872.1023,
+     "asset": "DORA",
+     "usd": null,
+     "basis": "block timestamp, Ethereum RPC; first release"
+    },
+    {
+     "utc": "2021-07-10T19:17:06Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": null,
+     "asset": "29 Ethereum-native tokens, 423 releases through 19:48:17Z",
+     "usd": null,
+     "basis": "aggregate of Ethereum receipts; first time of the burst"
+    },
+    {
+     "utc": "2021-07-10T19:17:15Z",
+     "chain": "BSC",
+     "side": "mint",
+     "amount_native": null,
+     "asset": "14 mapped tokens, 582 mints through 19:21:18Z; plus 24 custody releases of TBC and DPET",
+     "usd": null,
+     "basis": "aggregate of BSC Transfer logs; first time"
+    },
+    {
+     "utc": "2021-07-10T19:22:58Z",
+     "chain": "Ethereum",
+     "side": "mint",
+     "amount_native": 3000000,
+     "asset": "DPET (31 mints through 19:23:12Z)",
+     "usd": null,
+     "basis": "aggregate of Ethereum receipts"
+    },
+    {
+     "utc": "2021-07-10T19:48:17Z",
+     "chain": "Ethereum",
+     "side": "mint",
+     "amount_native": 30000000,
+     "asset": "TBC (76 mints through 19:50:41Z)",
+     "usd": null,
+     "basis": "aggregate of Ethereum receipts"
+    }
+   ],
+   "open_questions": "(1) Main chain by value: realized USD per chain not published; Ethereum chosen on ForkLog's Etherscan holdings figure. (2) Failure class D: the Maples court summary says the attackers 'altered the code' and the 'quota code was removed', which conflicts with the technical sources (existing code accepted unregistered signers); no key compromise reported. (3) ChainSwap's post-mortem on Medium could not be read (403). (4) Whether the 74 failed Ethereum calls were reverted attempts or front-run duplicates. (5) Whether Tether reissued the destroyed 1.06M USDT. (6) Exact time of the BSC freeze transactions and whether Ethereum custody contracts were paused."
+  },
+  {
+   "event_id": "E03",
+   "dl_name": "THORChain DEX",
+   "dl_date": "2021-07-15",
+   "scope": {
+    "value": "bridge_liquidity_or_relayer",
+    "note": "Outbound transfers from THORChain's Ethereum vaults (pooled liquidity of its cross-chain swap network, paid through the THORChain router) after the ETH observer (Bifrost) credited deposits that were never made. THORChain calls it 'ETH Router Exploit 1'. Note: batch F recorded THORChain's 2026 event (E47) as bridge_custody_or_mint; the vaults hold LP liquidity, so either label fits and the two records should use the same one.",
+    "sources": [
+     {
+      "url": "https://blog.thorchain.org/post-mortem-eth-router-exploits-1-2-and-premature-return-to-trading-incident",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The first took all the ETH from the system via an attack contract that sat in front of the Router"
+     },
+     {
+      "url": "https://blog.thorchain.org/post-mortem-eth-router-exploits-1-2-and-premature-return-to-trading-incident",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "In both cases the exploits were able to trick the Bifrost into reporting receiving assets it had not."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2021-07-15",
+    "sources": [
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: router TransferOut to an attack address in block 12833116, 2021-07-15T18:22:04Z (converted by me)"
+     },
+     {
+      "url": "https://t.me/s/thorchain/798",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "MCCN Halted - Exploit Confirmed During a live attack, the network has been halted."
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 5000000,
+    "range": "4.6M-8M USD: Telegram 16 July about 4.9M (first figure 13,000 ETH, revised to about 4,000 ETH); Rekt and SoK 5M; post-mortem 'Impact - $8m' and about 4,200 ETH siphoned. On-chain outbounds to the three attack addresses, 18:22-19:37 UTC: 2,391.7 ETH, 63,943 SUSHI, 9.22 YFI, 185,231 DODO, 1,277,325 KYL, 259,238 HEGIC, 514.5 ALCX, 13.3 AAVE.",
+    "sources": [
+     {
+      "url": "https://t.me/s/thorchain/799",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "Loss: Approx ~$4.9mm USD was taken in the exploit, far less than the intitial figures posted earlier."
+     },
+     {
+      "url": "https://blog.thorchain.org/post-mortem-eth-router-exploits-1-2-and-premature-return-to-trading-incident",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "In all they siphoned ~4200 ETH from the system, and caused a huge spike in arbitrage volumes."
+     },
+     {
+      "url": "https://rekt.news/thorchain-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "$5 million taken in various assets from the recently updated THORChain Bifrost bridge code."
+     },
+     {
+      "url": "https://x.com/THORChain/status/1415813696857591813",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "At this stage the estimate is around ~4000 ETH worth of assets (ETH/ERC20) was taken, not 13k ETH."
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "ETH observer read the outer call value (200) instead of the router deposit (0) and credited a deposit never made.",
+    "sources": [
+     {
+      "url": "https://thearchitect.notion.site/THORChain-Incident-07-15-7d205f91924e44a5b6499b6df5f6c210",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The bifrost ultimately read the msg.value, with is 200, and not the final deposit amount, which was 0"
+     },
+     {
+      "url": "https://blog.thorchain.org/post-mortem-eth-router-exploits-1-2-and-premature-return-to-trading-incident",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The Bifrost read the msg.value instead of the emitted deposit event."
+     },
+     {
+      "url": "https://rekt.news/thorchain-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "A transaction was sent with call value of 0 and deposit amount of 0."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "100% from THORChain's Ethereum vaults (ETH and ERC-20 pool assets) via router transferOut, signed by about 40 vault addresses. Swaps of the credited ETH into ERC-20s, then a forced refund of ETH with a bad memo, per the post-mortem.",
+    "chains": [
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "https://blog.thorchain.org/post-mortem-eth-router-exploits-1-2-and-premature-return-to-trading-incident",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "They then finally were able to siphon out the ETH by forcing a refund (using a deliberately bad memo)."
+     },
+     {
+      "url": "https://thearchitect.notion.site/THORChain-Incident-07-15-7d205f91924e44a5b6499b6df5f6c210",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The 2,500 ETH was used in a looped fashion, triggering the exploit again each time this ETH was refunded."
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2021-07-15T18:22:04Z",
+    "last_release_utc": "2021-07-15T19:37:16Z",
+    "duration_min": 75.2,
+    "release_tx_count": 280,
+    "count_note": "Counted: router TransferOut events to the three attack addresses named by THORChain (wallet, Tornado-funded address, a third recipient) between 18:22:04 and 19:37:16 UTC (blocks 12,833,116-12,833,455). Not counted: an earlier 243.93 USDT outbound to the third recipient at 14:48:34 UTC (block 12,832,131; possible preliminary), and two trailing 0.4168 SUSHI outbounds at 23:19:57 and 23:45:58 UTC. Router outbounds to all recipients stop after 19:43:52 UTC (three stragglers) and resume 2021-07-16T12:28:08Z. Attack contract deployed about 13:46 UTC; wallet funded 16:49 UTC (community timeline). SoK: 100-1000 transactions; SoK suggests a cap on the number of transfers.",
+    "sources": [
+     {
+      "url": "https://etherscan.io/address/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC eth_getLogs (router TransferOut to the three addresses, blocks 12826000-12842000): 283 logs; 280 between 2021-07-15T18:22:04Z and 19:37:16Z (computed by me)"
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "This attack was performed using multiple transfers, thus, a limit could have been set to limit the number of transfers"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2021-07-15T21:25:06Z",
+    "channel": "Telegram (THORChain Announcements, t.me/thorchain, post 798)",
+    "note": "Post time from the channel's web preview; the post was later edited ('updated with new values', the first figure being 13,000 ETH). About 3 h after the first release and 1 h 48 min after the last main release. First X post found: 23:21:04 UTC (status 1415813696857591813). SoK communication-time bucket 4-6 h.",
+    "sources": [
+     {
+      "url": "https://t.me/s/thorchain/798",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "Without any admin/dev intervention the community identified & halted THORChain within an hour."
+     },
+     {
+      "url": "https://x.com/THORChain/status/1415813696857591813",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "At this stage the estimate is around ~4000 ETH worth of assets (ETH/ERC20) was taken, not 13k ETH."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2021-07-15T22:23:54Z",
+    "channel": "X",
+    "by": "RBNews",
+    "note": "Status ID 1415799308302143493, quoted by THORChain's 23:21 UTC post; it relays the 13,000 ETH figure and the halt. After the operator's Telegram post; no earlier third-party public alert found (THORChain says a community developer discovered the issue).",
+    "sources": [
+     {
+      "url": "https://x.com/THORChain/status/1415813696857591813",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The network has been halted while the developers investigate the extent of the exploit and how to patch the vulnerability."
+     },
+     {
+      "url": "https://t.me/s/thorchain/799",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "The issue was discovered by a community dev and anonymous nodes voluntarily used make halt command to stop their nodes."
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2021-07-15T21:25:06Z",
+    "basis": "announcement",
+    "what": "THORChain network halted: node operators ran the halt command and the network stopped once more than 1/3 of nodes had halted; ETH outbound signing stopped with about 700 ETH in pending outbounds.",
+    "by": "THORChain node operators (decentralized halt)",
+    "note": "Upper bound from the Telegram announcement. On Ethereum, router outbounds to all recipients, frequent until 19:43:52 UTC, stop apart from three stragglers (20:32:59, 23:19:57, 23:45:58) and resume 2021-07-16T12:28:08Z, so the halt probably took effect shortly after 19:44 UTC. Dev update 99 dates the trading pause to 16 July (likely a UTC+10 date).",
+    "sources": [
+     {
+      "url": "https://t.me/s/thorchain/799",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "Once more than 1/3rd nodes had been halted, the network itself was halted."
+     },
+     {
+      "url": "https://blog.thorchain.org/post-mortem-eth-router-exploits-1-2-and-premature-return-to-trading-incident",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The network was rapidly halted by nodes to limit the impact. Around 700 ETH was retained in pending outbounds."
+     },
+     {
+      "url": "https://blog.thorchain.org/weekly-dev-update-99",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "Exploit of the bifrost was detected and trading was paused on the 16th of July."
+     },
+     {
+      "url": "https://etherscan.io/address/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC eth_getLogs (router TransferOut, all recipients, blocks 12832000-12845000): 605 logs; none between 2021-07-15T23:45:58Z and 2021-07-16T12:28:08Z (computed by me)"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "no",
+    "acted": "n.a.",
+    "how": "No outbound delay or cap at the time: THORNode's 'Delay Outbound Transactions' change (per-outbound delay of value / TxOutDelayRate blocks, at most MaxTxOutOffset = 1 h) was opened 2021-07-28 and merged 2021-09-02, and the post-mortem lists outbound throttling and an automatic solvency checker as fixes. Outflow stopped only through the node-run halt.",
+    "sources": [
+     {
+      "url": "https://gitlab.com/thorchain/thornode/-/merge_requests/1844",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "this change delays outbound transactions, giving the community time to analyze and halt if there is a malicious attacker."
+     },
+     {
+      "url": "https://gitlab.com/api/v4/projects/thorchain%2Fthornode/merge_requests/1844",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "\"title\":\"[feature] Delay Outbound Transactions\", created_at 2021-07-28T18:54:18Z, merged_at 2021-09-02T01:15:42Z"
+     },
+     {
+      "url": "https://blog.thorchain.org/post-mortem-eth-router-exploits-1-2-and-premature-return-to-trading-incident",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Outbound Throttling — the txOut queue is throttled to artificially delay the settlement of transactions when there are sudden spikes."
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "none reported",
+    "date": null,
+    "frozen_usd": null,
+    "note": "THORChain asked the initiating party to return funds for a bounty; no return found. The treasury covered LP losses (operator reimbursement). About 700 ETH held in pending outbounds was purged before signing (value that did not leave, not a return).",
+    "sources": [
+     {
+      "url": "https://t.me/s/thorchain/798",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "we request the attacker get in contact with the team to discuss return of funds and a bounty commensurate with the discovery."
+     },
+     {
+      "url": "https://blog.thorchain.org/post-mortem-eth-router-exploits-1-2-and-premature-return-to-trading-incident",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The THORChain treasury will cover all losses to LPs."
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2021-07-15T18:22:04Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 109.49391807,
+     "asset": "SUSHI",
+     "usd": null,
+     "basis": "block timestamp, Ethereum RPC; first release"
+    },
+    {
+     "utc": "2021-07-15T18:57:37Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 600.2168,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "block timestamp, Ethereum RPC; largest ETH release"
+    },
+    {
+     "utc": "2021-07-15T19:00:22Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 600.1332,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "block timestamp, Ethereum RPC"
+    },
+    {
+     "utc": "2021-07-15T19:37:16Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 6.576e-05,
+     "asset": "YFI",
+     "usd": null,
+     "basis": "block timestamp, Ethereum RPC; last release of the main sequence"
+    }
+   ],
+   "open_questions": "(1) Class D vs S: the flaw was in THORChain's off-chain observer (D under this brief); batch A coded a similar observer flaw (E06, pNetwork) as S. (2) Exact halt time on THORChain (block height not found); on-chain outbounds suggest shortly after 19:44 UTC. (3) The USD loss: 4.9M (Telegram) vs 8M (post-mortem); ETH outbounds include refunds of credited deposits, so outbound totals overstate net loss. (4) Whether the 14:48 UTC USDT outbound was a preliminary test. (5) Scope label to be aligned with E47."
+  },
+  {
+   "event_id": "E04",
+   "dl_name": "THORChain DEX",
+   "dl_date": "2021-07-22",
+   "scope": {
+    "value": "bridge_liquidity_or_relayer",
+    "note": "Outbound refunds from a THORChain Ethereum vault (pooled ERC-20 liquidity) via the router after the ETH observer accepted a deposit event created through a fake router and vault. THORChain calls it 'ETH Router Exploit 2'. Same scope caveat as E03 (E47 used bridge_custody_or_mint). Dated correctly (releases 21:41-21:42 UTC on 22 July).",
+    "sources": [
+     {
+      "url": "https://blog.thorchain.org/post-mortem-eth-router-exploits-1-2-and-premature-return-to-trading-incident",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "the second took all the economically significant ERC20s via an attack contract that sat behind the router."
+     },
+     {
+      "url": "https://rekt.news/thorchain-rekt2/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The observation of an attack began on the 22.07.2021 - 21:42 GMT"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2021-07-22",
+    "sources": [
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: block 12878663, 2021-07-22T21:41:14Z, transferOut from vault 0xf56c...e370, 966.625299 ALCX to the attack wallet (converted by me)"
+     },
+     {
+      "url": "https://www.coindesk.com/markets/2021/07/23/blockchain-protocol-thorchain-suffers-8m-hack",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Thorchain has been hit by another exploit, this time costing around $8 million, Thorchain confirmed to CoinDesk on Thursday."
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 8000000,
+    "range": "about 8M USD (THORChain post-mortem, CoinDesk, Rekt, SoK, DefiLlama). On-chain: 1,672,794.01 USDC, 990,137.46 USDT, 20,866,664.53 XRUNE, 56,104.01 SUSHI, 966.63 ALCX, 6.914 YFI, matching the post-mortem's list.",
+    "sources": [
+     {
+      "url": "https://blog.thorchain.org/post-mortem-eth-router-exploits-1-2-and-premature-return-to-trading-incident",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Impact (~$8M USD)"
+     },
+     {
+      "url": "https://x.com/THORChain/status/1418360743523618825",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "THORChain has suffered a sophisticated attack on the ETH Router, around $8m."
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "ETH observer accepted a deposit event created through a fake router and vault, then refunded real assets.",
+    "sources": [
+     {
+      "url": "https://blog.thorchain.org/post-mortem-eth-router-exploits-1-2-and-premature-return-to-trading-incident",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The attacker passes returnVaultAssets() with a small amount of ETH, but the router is defined as an Asgard vault."
+     },
+     {
+      "url": "https://blog.thorchain.org/post-mortem-eth-router-exploits-1-2-and-premature-return-to-trading-incident",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The Bifrost intercepts as a normal deposit and refunds to an attacker due to a bad memo definition."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "100% from one THORChain Ethereum vault (0xf56c...e370) via router transferOut; six assets, one release each.",
+    "chains": [
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "https://rekt.news/thorchain-rekt2/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Vault: [redacted]"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2021-07-22T21:41:14Z",
+    "last_release_utc": "2021-07-22T21:42:27Z",
+    "duration_min": 1.2,
+    "release_tx_count": 6,
+    "count_note": "Counted: router TransferOut events to the attack wallet carrying the six assets (blocks 12,878,663-12,878,671). Trigger calls (returnVaultAssets through the attack contract) in block 12,878,653 at 21:39:40 UTC, 94 s before the first release; the six transactions THORChain lists as 'Transaction 1-6' are read-only calls to the attack contract in that block. Preliminary transfers: deposits of 0.01 ETH (13:13:31) and 0.1 ETH (18:28:45) with a 0.0928 ETH outbound at 18:29:23 UTC; a 200 USDC deposit at 19:16:05 with a 145.83 USDC outbound at 19:16:49 UTC. No router TransferOut to anyone after 21:42:27 UTC (checked to Ethereum block 13,400,000).",
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/api/v2/addresses/[redacted]/token-transfers",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "2021-07-22T21:41:14Z to 21:42:27Z: six transfers from 0xC145990E84 (router) to the attack wallet, method 0x574da717"
+     },
+     {
+      "url": "https://etherscan.io/address/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC eth_getLogs (router TransferOut, blocks 12878672-13400000): 0 logs (computed by me)"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2021-07-23T00:02:07Z",
+    "channel": "X (@THORChain)",
+    "note": "Time from status ID 1418360743523618825, 2 h 20 min after the last release. Rekt says THORChain first believed it had lost about 800k to a whitehat; that statement was not found. No Telegram announcement between 16 and 30 July.",
+    "sources": [
+     {
+      "url": "https://x.com/THORChain/status/1418360743523618825",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "ETH will be halted until it can be peer-reviewed with audit partners, as a priority."
+     },
+     {
+      "url": "https://rekt.news/thorchain-rekt2/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "THORChain initially believed they had lost just $800k to a whitehat hacker."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2021-07-22T22:33:44Z",
+    "channel": "X",
+    "by": "defiXBT",
+    "note": "Time from status ID 1418338501255335937, 51 min after the last release; it links a message from the initiating party.",
+    "sources": [
+     {
+      "url": "https://x.com/defixbt/status/1418338501255335937",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "$RUNE hacked. message from hacker below"
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2021-07-23T00:02:07Z",
+    "basis": "announcement",
+    "what": "ETH chain halted (THORChain: 'ETH will be halted until it can be peer-reviewed'); trading halted by Mimir.",
+    "by": "THORChain (Mimir admin) and node operators",
+    "note": "Upper bound from the X post. On Ethereum, no router outbound to any recipient after the last release at 21:42:27 UTC through block 13,400,000 (about October 2021). Dev update 100 lists Mimir haltTrading at THORChain heights 1,480,200, re-enabled at 1,482,145 and halted again at 1,482,401 in the week of 18-25 July without tying them to this exploit; clock times not retrieved.",
+    "sources": [
+     {
+      "url": "https://x.com/THORChain/status/1418360743523618825",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "ETH will be halted until it can be peer-reviewed with audit partners, as a priority."
+     },
+     {
+      "url": "https://blog.thorchain.org/weekly-dev-update-100",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "Originally halted on blockheight #1480200"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "no",
+    "acted": "n.a.",
+    "how": "THORChain's scheduled outbound delay did not exist on 22 July 2021: the 'Delay Outbound Transactions' change was opened on 28 July and merged on 2 September 2021, and the post-mortem lists outbound throttling as a fix. The six releases (largest 1,672,794 USDC) left 94-167 s after the trigger calls and within 73 s of each other.",
+    "sources": [
+     {
+      "url": "https://gitlab.com/thorchain/thornode/-/merge_requests/1844",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "this change delays outbound transactions, giving the community time to analyze and halt if there is a malicious attacker."
+     },
+     {
+      "url": "https://gitlab.com/api/v4/projects/thorchain%2Fthornode/merge_requests/1844",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "\"title\":\"[feature] Delay Outbound Transactions\", created_at 2021-07-28T18:54:18Z, merged_at 2021-09-02T01:15:42Z"
+     },
+     {
+      "url": "https://blog.thorchain.org/post-mortem-eth-router-exploits-1-2-and-premature-return-to-trading-incident",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Outbound Throttling — the txOut queue is throttled to artificially delay the settlement of transactions when there are sudden spikes."
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "none reported",
+    "date": null,
+    "frozen_usd": null,
+    "note": "The initiating party asked for a 10% bounty; THORChain offered it if they reached out; no return found. The treasury subsidised ERC-20 LPs (operator reimbursement). The attack wallet moved about 2,028 ETH out on 24 July.",
+    "sources": [
+     {
+      "url": "https://x.com/THORChain/status/1418360746329608195",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The whitehat requested a 10% bounty - which will be awarded if they reach out"
+     },
+     {
+      "url": "https://x.com/THORChain/status/1418360743523618825",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "LPs in the ERC-20 pools will be subsidised."
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2021-07-22T21:41:14Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 966.6252995,
+     "asset": "ALCX",
+     "usd": null,
+     "basis": "block timestamp, Ethereum RPC / Blockscout"
+    },
+    {
+     "utc": "2021-07-22T21:41:27Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 1672794.010957,
+     "asset": "USDC",
+     "usd": null,
+     "basis": "block timestamp, Ethereum RPC / Blockscout"
+    },
+    {
+     "utc": "2021-07-22T21:41:27Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 20866664.53340375,
+     "asset": "XRUNE",
+     "usd": null,
+     "basis": "block timestamp, Ethereum RPC / Blockscout"
+    },
+    {
+     "utc": "2021-07-22T21:42:05Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 6.91401821,
+     "asset": "YFI",
+     "usd": null,
+     "basis": "block timestamp, Ethereum RPC / Blockscout"
+    },
+    {
+     "utc": "2021-07-22T21:42:05Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 56104.00742203,
+     "asset": "SUSHI",
+     "usd": null,
+     "basis": "block timestamp, Ethereum RPC / Blockscout"
+    },
+    {
+     "utc": "2021-07-22T21:42:27Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 990137.464342,
+     "asset": "USDT",
+     "usd": null,
+     "basis": "block timestamp, Ethereum RPC / Blockscout"
+    }
+   ],
+   "open_questions": "(1) Clock time of the Mimir halt (THORChain heights not mapped to time). (2) Why the outflow stopped after six releases (THORChain: the initiating party 'deliberately limited their impact'). (3) Content and time of the message from the initiating party. (4) Class D vs S as in E03. (5) Scope label to be aligned with E47."
+  },
+  {
+   "event_id": "E08",
+   "dl_name": "ChainSwap",
+   "dl_date": "2021-11-07",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Duplicate of E02 (ChainSwap, 2021-07-10): same amount (4.4M), same chains (Ethereum, BSC). The date 2021-11-07 matches press dated '11/07/2021' in day-first format (U.Today shows 'Sun, 11/07/2021 - 8:21', published 2021-07-11T08:21Z). The Maples summary of ChainSwap's BVI case describes two exploits about a week apart in July 2021 and none later. No ChainSwap event in November 2021 found. Fields below repeat E02; count the event once.",
+    "sources": [
+     {
+      "url": "https://u.today/alameda-backed-chainswap-just-got-hacked-these-are-all-affected-tokens",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Sun, 11/07/2021 - 8:21"
+     },
+     {
+      "url": "https://maples.com/wp-content/uploads/2023/11/Update-Final-BVI-ChainSwap-BVI-Court-Injuncts-Assets-of-Unidentified-Owners-of-Crypto-Wallets.pdf",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "This happened on two occasions, approximately one week apart."
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\": \"ChainSwap\", \"classification\": \"Access Control\", \"technique\": \"Caller Impersonation\", \"amount\": 4400000"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2021-07-10",
+    "sources": [
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-chainswap-hack-july-2021",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "ChainSwap was the victim of a hack causing losses of millions of dollars on July 10, 2021."
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 4400000,
+    "range": "same as E02",
+    "sources": [
+     {
+      "url": "https://rekt.news/chainswap-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "First $800,000, now $4.4 million."
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "Same event as E02: receive signatures from unregistered signers accepted, gated only by a per-signer quota.",
+    "sources": [
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "There was a bug in the token cross-chain quota code."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "both",
+    "share_note": "Same releases as E02; do not count twice.",
+    "chains": [
+     "Ethereum",
+     "BSC"
+    ],
+    "sources": [
+     {
+      "url": "https://forklog.com/en/hackers-drain-more-than-4m-from-defi-projects-due-to-chainswap-vulnerability/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The attacker withdrew from the Wilder Pancake Liquidity Pool on BSC and the ChainSwap bridge contract on the Ethereum blockchain more than $534 000."
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2021-07-10T19:16:11Z",
+    "last_release_utc": "2021-07-10T19:50:41Z",
+    "duration_min": 34.5,
+    "release_tx_count": 1136,
+    "count_note": "Same releases as E02 (see its count_note).",
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/api/v2/addresses/[redacted]/transactions",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "first receive call by the recipient address: 2021-07-10T19:16:11Z, block 12801461; last: 2021-07-10T19:50:41Z, block 12801621"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2021-07-10T21:29:47Z",
+    "channel": "X (@chain_swap)",
+    "note": "Time from status ID 1413973753097293825, about 1 h 39 min after the last Ethereum release (19:50:41 UTC). Follow-ups: 22:16:11 UTC (snapshot of ASAP holders, compensation plan; status 1413985428336693251) and 00:31:47 UTC on 07-11 (BSC mapping tokens frozen; status 1414019554603307017). SoK communication-time bucket: 4-6 h.",
+    "sources": [
+     {
+      "url": "https://x.com/chain_swap/status/1413973753097293825",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Liquidity pulled temporarily, please do not buy $ASAP we are investigating the exploit"
+     },
+     {
+      "url": "https://x.com/chain_swap/status/1413985428336693251",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "A compensation plan will be put into action for affected tokens"
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2021-07-10T21:49:10Z",
+    "channel": "X",
+    "by": "Krisma (@KRMA_0)",
+    "note": "Time from status ID 1413978628174516224 (post since deleted; text embedded by ForkLog and U.Today: 'Chainswap got exploited', listing WILD, MATTER, ROOM). It comes 19 min after ChainSwap's own post. cmichelio's analysis followed at 01:35:00 UTC on 07-11 (status 1414035462164033541). No earlier third-party alert found.",
+    "sources": [
+     {
+      "url": "https://u.today/alameda-backed-chainswap-just-got-hacked-these-are-all-affected-tokens",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Chainswap got exploited"
+     },
+     {
+      "url": "https://x.com/cmichelio/status/1414035462164033541",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Hacker calls the receive function of the Factory contract"
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2021-07-11T00:31:47Z",
+    "basis": "announcement",
+    "what": "BSC mapping-token contracts frozen to filter out the recipient addresses (balances may show 0 during filtering); ASAP liquidity pulled from DEX pools earlier (21:29:47 UTC post).",
+    "by": "ChainSwap team",
+    "note": "Upper bound from the X post (status 1414019554603307017). Releases had already ended (Ethereum 19:50:41, BSC 19:21:18 UTC); no on-chain pause of the Ethereum custody contracts was looked for.",
+    "sources": [
+     {
+      "url": "https://x.com/chain_swap/status/1414019554603307017",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The Chainswap team has frozen the BSC mapping token address to filter out the hackers addresses."
+     },
+     {
+      "url": "https://x.com/chain_swap/status/1413973753097293825",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Liquidity pulled temporarily, please do not buy $ASAP we are investigating the exploit"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "yes",
+    "acted": "yes",
+    "how": "Per-signer quota: each signer's quota refills over time up to a cap of cap() x autoQuotaRatio (factory default 1% per day). The release function checked only that a signature matched its claimed signer, not that the signer was registered, and any new address started with a full quota. The initiating party used fresh signer keys for each release and exhausted each one's quota (536 of 568 signer uses on Ethereum left the quota at zero). The quota therefore capped each transaction and drove the count above 1,000; it did not bound the total.",
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "require(signatory == signatures[i].signatory, \"unauthorized\");"
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "uint quotaCap = cap().mul(ratio).div(1e18);"
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "However, a logical code flaw allowed addresses that weren’t whitelisted to automatically increase this amount."
+     },
+     {
+      "url": "https://rekt.news/chainswap-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Dodge the sloppy auth check system using a new address as signature each tx"
+     },
+     {
+      "url": "https://etherscan.io/address/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC receipts of 530 successful receive calls: DecreaseAuthQuota logs with remaining quota 0 in 536 of 568 cases (computed by me)"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "same as E02",
+    "date": null,
+    "frozen_usd": null,
+    "note": "See E02 (1,060,356 USDT frozen by Tether is recorded there only, to avoid double counting).",
+    "sources": []
+   },
+   "release_path": [],
+   "open_questions": "DefiLlama labels this record 'Access Control / Caller Impersonation' while E02 is 'Bridge Logic Flaw'; both describe the July 10 forged-signer releases. Recommend dropping E08 or merging it into E02."
+  },
+  {
+   "event_id": "E09",
+   "dl_name": "Multichain",
+   "dl_date": "2022-01-18",
+   "scope": {
+    "value": "approval_outflow",
+    "note": "WETH left user wallets through standing approvals granted to Multichain's AnyswapV4Router: the router's anySwapOutUnderlyingWithPermit accepted a counterfeit token whose underlying was WETH, WETH's permit is a no-op fallback, and the router then pulled approved WETH to the counterfeit token. No bridge custody or mint involved. Several addresses (including at least one self-declared whitehat) took part after Multichain's 17 January disclosure. DefiLlama marks it bridgeHack=false.",
+    "sources": [
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "Multichain dapp requested from all of its users a practically infinite approval sum to save gas fees"
+     },
+     {
+      "url": "https://journalducoin.com/defi/hack-multichain-hacker-coeur/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Dans les faits, la vulnérabilité affectait la fonction anySwapOutUnderlyingWithPermit."
+     },
+     {
+      "url": "https://dedaub.com/blog/phantom-functions-and-the-billion-dollar-no-op",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The announcement was followed by attacks and a flashbots war."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2022-01-18",
+    "sources": [
+     {
+      "url": "https://journalducoin.com/defi/hack-multichain-hacker-coeur/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Ainsi, le 18 janvier, l’entreprise Peckshield spécialisée dans l’analyse de blockchain a été alertée d’une vulnérabilité en cours d’exploitation sur Multichain"
+     },
+     {
+      "url": "https://www.theblock.co/post/130561/cross-chain-protocol-multichain-bug-gets-exploited-for-1-34-million",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "January 18, 2022, 4:45AM EST"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 3000000,
+    "range": "1.34M USD (PeckShield, early, one address; DefiLlama 1.4M) to over 3M (several addresses; SoK, Journal du Coin). Journal du Coin's ETH figures (269 + 50 + 62 + 528 = 909 ETH) imply about 2.7M at its 3,000 USD/ETH (my computation).",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/130561/cross-chain-protocol-multichain-bug-gets-exploited-for-1-34-million",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Cross-chain protocol Multichain bug gets exploited for $1.34 million"
+     },
+     {
+      "url": "https://journalducoin.com/defi/hack-multichain-hacker-coeur/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Au total, ce sont plus de 3 millions de dollars qui auraient été dérobés par plusieurs adresses différentes sur Ethereum."
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "Multichain #1 [223] 22 Jan 2022 3M"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "O",
+    "phrase": "Approval outflow: router permit path accepted a counterfeit token and WETH's no-op permit.",
+    "sources": [
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "The attacker could bypass the signature verification in the ERC-20 permit() function, by supplying a token contract that didn’t have the permit() function implemented."
+     },
+     {
+      "url": "https://dedaub.com/blog/phantom-functions-and-the-billion-dollar-no-op",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Close to 5000 different accounts had given infinite approval for WETH to the vulnerable contracts (on Ethereum)."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "other",
+    "share_note": "Value left user wallets holding WETH approvals to the router; nothing left bridge custody or pools. Ethereum only in the sources read.",
+    "chains": [
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "A fake token contract was understood by the bridge as a Multichain token."
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": null,
+    "last_release_utc": null,
+    "duration_min": null,
+    "release_tx_count": null,
+    "count_note": "Not determined. Exploitation followed Multichain's public disclosure on 17 January and was under way by 18 January (The Block, 04:45 EST; samczsun: 'exploiting this literally right now'); several addresses competed through Flashbots. The release transactions were not enumerated (router log scan for 16-22 January not completed).",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/130561/cross-chain-protocol-multichain-bug-gets-exploited-for-1-34-million",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Someone is exploiting this literally *right now*. If you haven't revoked approvals yet"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": null,
+    "channel": "X (@MultichainOrg) and Medium",
+    "note": "Multichain disclosed a critical vulnerability affecting six tokens (WETH, PERI, OMT, WBNB, MATIC, AVAX) on 17 January 2022, before the outflow, and later confirmed exploitation; times of both posts not found. Dedaub had disclosed the flaw to Multichain on 10 January.",
+    "sources": [
+     {
+      "url": "https://journalducoin.com/defi/hack-multichain-hacker-coeur/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Le 17 janvier dernier, le protocole Multichain a averti les utilisateurs de la présence d’une faille critique sur le protocole."
+     },
+     {
+      "url": "https://dedaub.com/blog/phantom-functions-and-the-billion-dollar-no-op",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "On Jan. 10 we made a major vulnerability disclosure to the Multichain project"
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": null,
+    "channel": "X",
+    "by": "samczsun (Paradigm); PeckShield",
+    "note": "samczsun's post that the flaw was being exploited and PeckShield's alert (funds to one address) are reported by The Block on 18 January; post times not found.",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/130561/cross-chain-protocol-multichain-bug-gets-exploited-for-1-34-million",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Someone is exploiting this literally *right now*. If you haven't revoked approvals yet"
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "basis": null,
+    "what": "No pause found; Multichain fixed the contracts but existing approvals stayed exposed until users revoked them.",
+    "by": "users (revocation); Multichain",
+    "note": "An approval outflow cannot be stopped at the bridge; it ends as approvals are revoked.",
+    "sources": [
+     {
+      "url": "https://dedaub.com/blog/phantom-functions-and-the-billion-dollar-no-op",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "any WETH these accounts ** ever ** acquire is vulnerable, until approvals are revoked"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions one; the outflow ran through users' standing (often unlimited) WETH approvals to the router.",
+    "sources": [
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "Multichain dapp requested from all of its users a practically infinite approval sum to save gas fees"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "319 ETH returned by one participating address (269 ETH to an affected user, 50 ETH to Multichain); it kept 62 ETH (about 186,000 USD) as a bounty; 528 ETH stayed with other addresses",
+    "date": "by 2022-01-24",
+    "frozen_usd": null,
+    "note": "Returned voluntarily after an on-chain message offering 80%; USD value not stated (about 0.96M at the source's implied 3,000 USD/ETH, my computation).",
+    "sources": [
+     {
+      "url": "https://journalducoin.com/defi/hack-multichain-hacker-coeur/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "269 ETH à un utilisateur ayant été impacté par l’attaque"
+     },
+     {
+      "url": "https://journalducoin.com/defi/hack-multichain-hacker-coeur/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "50 ETH au protocole Multichain."
+     },
+     {
+      "url": "https://journalducoin.com/defi/hack-multichain-hacker-coeur/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Malheureusement, 528 ETH reste pour le moment entre les mains d’autres adresses ayant participé à l’attaque"
+     }
+    ]
+   },
+   "release_path": [],
+   "open_questions": "(1) Release transactions, first/last times and count not enumerated (router LogAnySwapOut scan with counterfeit tokens, 16-22 Jan 2022, unfinished); whether the exploited router is the same Ethereum contract as E01's (0x6b7a...1522, verified name AnyswapV4Router) not confirmed. (2) Times of Multichain's 17 January disclosure and exploitation confirmation. (3) Exposure on other chains (WBNB, WAVAX, WMATIC). (4) Multichain's post-mortem on Medium could not be read (403); Rekt's page returned HTTP 500."
+  },
+  {
+   "event_id": "E12",
+   "dl_name": "Meter",
+   "dl_date": "2022-02-06",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Meter Passport (a ChainBridge fork): a deposit of the wrapped native token was recorded without the token being received, and the bridge released value on the other side; Hundred Finance lost a further 3.3M through the depressed local price of bridged BNB on Meter. DefiLlama's 7.7M combines both; the bridge loss is about 4.4M. Event 2022-02-05 per an earlier compilation (began about 14:00 UTC); DefiLlama 02-06; SoK Table 5 misdates it to July 2021.",
+    "sources": [
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-meter-io-hack-february-2022",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "drain $4.4 million from the bridge and cause Hundred Finance, which relied on the bridge, to lose an additional $3.3 million in assets."
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "Meter February 2022 7.70"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2022-02-05",
+    "sources": [
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-meter-io-hack-february-2022",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "In February 2022, the Meter.io cross-chain bridge was the victim of an attack."
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 4400000,
+    "range": "4.3M-4.4M USD from the bridge (Halborn; SoK Table 5); 7.7M including Hundred Finance's 3.3M (DefiLlama, SoK Table 8).",
+    "sources": [
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-meter-io-hack-february-2022",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "drain $4.4 million from the bridge"
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "Meter [228] 22 Jul 2021 4.4M"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "S",
+    "phrase": "Origin-side deposit path recorded a wrapped-native deposit without receiving the tokens.",
+    "sources": [
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-meter-io-hack-february-2022",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The other deposit function does not fulfill this assumption or check that msg.value equals the amount specified within the calldata."
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "The handler (called from the deposit() function) had a faulty condition to check for wrapped assets which assumed tokens were already transferred by the bridge."
+     }
+    ]
+   },
+   "release_side": {
+    "value": null,
+    "share_note": "Not determined. The SoK places the exploit location at the target-chain contract (mint); Halborn says value was drained 'from the bridge' and that bridged BNB on Meter lost value, consistent with both escrow releases and unbacked mints. Per-side and per-chain shares not found.",
+    "chains": [],
+    "sources": [
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-meter-io-hack-february-2022",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Hundred Finance was affected by the attack because the local price of BNB.bsc was depreciated due to the hack."
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": null,
+    "first_release_utc": null,
+    "last_release_utc": null,
+    "duration_min": null,
+    "release_tx_count": null,
+    "count_note": "Not determined. SoK: 1-10 transactions. an earlier compilation (from Halborn) says the event began about 06:00 PT (about 14:00 UTC) on 2022-02-05; release transactions not identified.",
+    "sources": [
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "Meter [228] 22 Jul 2021 4.4M"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": null,
+    "channel": null,
+    "note": "Not found. SoK communication-time bucket: 2-4 h.",
+    "sources": []
+   },
+   "first_alert": null,
+   "pause": {
+    "utc": null,
+    "basis": null,
+    "what": "Bridge halted; reopened 2022-02-08 (citing Halborn; not verified here).",
+    "by": "Meter team",
+    "note": "Halt time not found.",
+    "sources": []
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source read mentions one.",
+    "sources": []
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "none found",
+    "date": null,
+    "frozen_usd": null,
+    "note": "Hundred Finance: two of four loans taken against the depressed bridged BNB were repaid (Halborn); not a return of bridge outflow.",
+    "sources": [
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-meter-io-hack-february-2022",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Two of the four opportunistic loans were repaid"
+     }
+    ]
+   },
+   "release_path": [],
+   "open_questions": "Most fields remain open (time limit): release transactions, chains and times (Rekt meter-rekt and Meter's post-mortem not read); release side (escrow vs mint shares); first statement and halt times; whether any limit existed; returns. Seeds: an earlier compilation gives $4.3-4.4M, start about 06:00 PT 2022-02-05, bridge halted and reopened 2022-02-08."
+  }
+ ]
+}

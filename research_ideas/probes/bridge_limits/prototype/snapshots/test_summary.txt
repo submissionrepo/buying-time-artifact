@@ -1,0 +1,94 @@
+No files changed, compilation skipped
+
+Ran 1 test for test/OutflowLimiter.t.sol:SlidingWindowCapTest
+[PASS] test_slidingWindow() (gas: 418709)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 1.65ms (531.40µs CPU time)
+
+Ran 11 tests for test/Gas.t.sol:GasBench
+[PASS] test_limiterCancel() (gas: 40613)
+[PASS] test_limiterExecuteEscrow() (gas: 70922)
+[PASS] test_limiterExecuteMint() (gas: 134488)
+[PASS] test_limiterExecuteSkippingCancelled() (gas: 170225)
+[PASS] test_limiterPause() (gas: 40347)
+[PASS] test_limiterQueue() (gas: 115709)
+[PASS] test_plainRelease() (gas: 53144)
+[PASS] test_tokenTransfer() (gas: 47108)
+[PASS] test_windowRelease() (gas: 86416)
+[PASS] test_windowReleaseExpiringOne() (gas: 87955)
+[PASS] test_windowReleaseExpiringThree() (gas: 87797)
+Suite result: ok. 11 passed; 0 failed; 0 skipped; finished in 20.51ms (8.93ms CPU time)
+
+Ran 5 tests for test/TunedGas.t.sol:TunedGasBench
+[PASS] test_tunedExecuteFour() (gas: 104125)
+[PASS] test_tunedExecuteFourAsset() (gas: 110726)
+[PASS] test_tunedExecuteOne() (gas: 87272)
+[PASS] test_tunedQueue() (gas: 119641)
+[PASS] test_tunedTighten() (gas: 93110)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 21.41ms (4.92ms CPU time)
+
+Ran 17 tests for test/OutflowLimiter.t.sol:OutflowLimiterTest
+[PASS] testFuzz_onlyPauserCancels(address) (runs: 1000, μ: 160006, ~: 160006)
+[PASS] testFuzz_refill(uint256,uint256,uint256,uint256) (runs: 1000, μ: 397326, ~: 398225)
+[PASS] test_burstFromFullBucketMeetsBound() (gas: 70571885)
+[PASS] test_cancelledRequestsAreSkipped() (gas: 519741)
+[PASS] test_events() (gas: 422130)
+[PASS] test_fifo() (gas: 638804)
+[PASS] test_holdIsEnforced() (gas: 266553)
+[PASS] test_inflowsDoNotRefill() (gas: 622616)
+[PASS] test_mintPathSharesTheBucket() (gas: 538356)
+[PASS] test_onlyPauserCancels() (gas: 347820)
+[PASS] test_pauseStopsExecution() (gas: 434646)
+[PASS] test_pauserCancelsQueuedRequest() (gas: 285475)
+[PASS] test_pauserIsIndependent() (gas: 710251)
+[PASS] test_refillArithmetic() (gas: 278139)
+[PASS] test_requestChecks() (gas: 126774)
+[PASS] test_valueWeighting() (gas: 668591)
+[PASS] test_weightsFixedAndOnlyRise() (gas: 561652)
+Suite result: ok. 17 passed; 0 failed; 0 skipped; finished in 10.20s (12.64s CPU time)
+
+Ran 12 tests for test/TunedLimiter.t.sol:TunedLimiterTest
+[PASS] testFuzz_seriesBound(uint256) (runs: 1000, μ: 23924589, ~: 23971328)
+[PASS] test_constructorRejectsDependentPauser() (gas: 1044512)
+[PASS] test_holdAndPause() (gas: 311844)
+[PASS] test_looseningWaitsForTheDelay() (gas: 256433)
+[PASS] test_mixedProposalTightensNowAndLoosensLater() (gas: 244348)
+[PASS] test_onlyTunerProposes() (gas: 61369)
+[PASS] test_pauserCancelsPendingLoosening() (gas: 218303)
+[PASS] test_perAssetBucketLimitsOnlyItsAsset() (gas: 796648)
+[PASS] test_rejectsRequestAboveCapacity() (gas: 279194)
+[PASS] test_removingAnAssetLimitIsALoosening() (gas: 217790)
+[PASS] test_tighteningDropsUnexecutableHead() (gas: 480797)
+[PASS] test_tighteningTakesEffectAtOnce() (gas: 101108)
+Suite result: ok. 12 passed; 0 failed; 0 skipped; finished in 10.20s (10.22s CPU time)
+
+Ran 2 tests for test/Bound.invariant.t.sol:BoundInvariantTest
+[PASS]
+BoundInvariantTest invariants:
+[PASS] invariant_bucketAtMostCapacity
+[PASS] invariant_releasesWithinBound
+ BoundInvariantTest invariants (runs: 256, calls: 25600, reverts: 3090)
+
+╭----------+------------+-------+---------+----------╮
+| Contract | Selector   | Calls | Reverts | Discards |
++====================================================+
+| Handler  | burst      | 3161  | 0       | 0        |
+|----------+------------+-------+---------+----------|
+| Handler  | cancel     | 3165  | 393     | 0        |
+|----------+------------+-------+---------+----------|
+| Handler  | executeAll | 3209  | 2697    | 0        |
+|----------+------------+-------+---------+----------|
+| Handler  | pause      | 3179  | 0       | 0        |
+|----------+------------+-------+---------+----------|
+| Handler  | request    | 3346  | 0       | 0        |
+|----------+------------+-------+---------+----------|
+| Handler  | run        | 3204  | 0       | 0        |
+|----------+------------+-------+---------+----------|
+| Handler  | unpause    | 3175  | 0       | 0        |
+|----------+------------+-------+---------+----------|
+| Handler  | wait       | 3161  | 0       | 0        |
+╰----------+------------+-------+---------+----------╯
+
+[PASS] test_seededScheduleWithinBound() (gas: 329311555)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 23.60s (24.90s CPU time)
+
+Ran 6 test suites in 23.61s (44.05s CPU time): 48 tests passed, 0 failed, 0 skipped (48 total tests)

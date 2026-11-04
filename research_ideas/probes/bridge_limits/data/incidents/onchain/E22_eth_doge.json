@@ -1,0 +1,29 @@
+{
+ "target": "E22_eth_doge",
+ "config": {
+  "event_id": "E22",
+  "leg": "Ethereum escrow of the Dogechain bridge",
+  "chain": "ethereum",
+  "window_utc": [
+   "2023-07-06T16:00:00",
+   "2023-07-07T06:00:00"
+  ]
+ },
+ "blocks": [
+  17635848,
+  17640009
+ ],
+ "n_candidate_rows": 6,
+ "rows": [
+  {
+   "selected": true,
+   "ts": 1688673935,
+   "block": 17637063,
+   "kind": "erc20",
+   "symbol": "USDC",
+   "amount": 666470.0,
+   "usd": 666470.0
+  }
+ ],
+ "pauses": []
+}

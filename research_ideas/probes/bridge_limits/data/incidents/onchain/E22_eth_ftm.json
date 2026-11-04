@@ -1,0 +1,147 @@
+{
+ "target": "E22_eth_ftm",
+ "config": {
+  "event_id": "E22",
+  "leg": "Ethereum escrow of the Fantom bridge",
+  "chain": "ethereum",
+  "window_utc": [
+   "2023-07-06T17:00:00",
+   "2023-07-07T06:00:00"
+  ],
+  "min_usd": 500000
+ },
+ "blocks": [
+  17636147,
+  17640009
+ ],
+ "n_candidate_rows": 39,
+ "rows": [
+  {
+   "selected": true,
+   "ts": 1688667035,
+   "block": 17636491,
+   "kind": "erc20",
+   "symbol": "USDC",
+   "amount": 2.0,
+   "usd": 1.99616
+  },
+  {
+   "selected": true,
+   "ts": 1688667035,
+   "block": 17636491,
+   "kind": "erc20",
+   "symbol": "USDC",
+   "amount": 27653471.0,
+   "usd": 27600376.33568
+  },
+  {
+   "selected": true,
+   "ts": 1688667251,
+   "block": 17636508,
+   "kind": "erc20",
+   "symbol": "USDC",
+   "amount": 30138618.0,
+   "usd": 30080751.853439998
+  },
+  {
+   "selected": true,
+   "ts": 1688668391,
+   "block": 17636602,
+   "kind": "erc20",
+   "symbol": "WBTC",
+   "amount": 1023.8,
+   "usd": 30962783.4
+  },
+  {
+   "selected": true,
+   "ts": 1688668871,
+   "block": 17636642,
+   "kind": "erc20",
+   "symbol": "WETH",
+   "amount": 7214.000000000001,
+   "usd": 13602285.56
+  },
+  {
+   "selected": true,
+   "ts": 1688670167,
+   "block": 17636750,
+   "kind": "erc20",
+   "symbol": "DAI",
+   "amount": 4177590.0,
+   "usd": 4176975.89427
+  },
+  {
+   "selected": true,
+   "ts": 1688670479,
+   "block": 17636776,
+   "kind": "erc20",
+   "symbol": "LINK",
+   "amount": 491657.0,
+   "usd": 3028607.12
+  },
+  {
+   "selected": true,
+   "ts": 1688670719,
+   "block": 17636796,
+   "kind": "erc20",
+   "symbol": "UNIDX",
+   "amount": 910654.0,
+   "usd": 3660829.0799999996
+  },
+  {
+   "selected": true,
+   "ts": 1688671067,
+   "block": 17636825,
+   "kind": "erc20",
+   "symbol": "USDT",
+   "amount": 1492821.0,
+   "usd": 1490239.912491
+  },
+  {
+   "selected": true,
+   "ts": 1688671271,
+   "block": 17636841,
+   "kind": "erc20",
+   "symbol": "WOO",
+   "amount": 9674426.0,
+   "usd": 2166887.609906
+  },
+  {
+   "selected": true,
+   "ts": 1688671391,
+   "block": 17636851,
+   "kind": "erc20",
+   "symbol": "ICE",
+   "amount": 1296991.0,
+   "usd": 1919546.68
+  },
+  {
+   "selected": true,
+   "ts": 1688671499,
+   "block": 17636860,
+   "kind": "erc20",
+   "symbol": "CRV",
+   "amount": 1361886.0,
+   "usd": 1016107.230258
+  },
+  {
+   "selected": true,
+   "ts": 1688671667,
+   "block": 17636874,
+   "kind": "erc20",
+   "symbol": "YFI",
+   "amount": 134.48,
+   "usd": 932944.2416
+  },
+  {
+   "selected": true,
+   "ts": 1688672267,
+   "block": 17636924,
+   "kind": "erc20",
+   "symbol": "TUSD",
+   "amount": 502401.0,
+   "usd": 503405.802
+  }
+ ],
+ "pauses": []
+}

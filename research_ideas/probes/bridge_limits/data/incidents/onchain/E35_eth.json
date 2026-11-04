@@ -1,0 +1,488 @@
+{
+ "target": "E35_eth",
+ "config": {
+  "event_id": "E35",
+  "leg": "Ethereum escrow (rollup L1 contract)",
+  "chain": "ethereum",
+  "window_utc": [
+   "2025-07-09T13:00:00",
+   "2025-07-10T06:00:00"
+  ]
+ },
+ "blocks": [
+  22881786,
+  22886849
+ ],
+ "n_candidate_rows": 87,
+ "rows": [
+  {
+   "selected": true,
+   "ts": 1752071123,
+   "block": 22882207,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752071123,
+   "block": 22882207,
+   "kind": "erc20",
+   "symbol": "WBTC",
+   "amount": 29.99,
+   "usd": 3278566.78
+  },
+  {
+   "selected": true,
+   "ts": 1752071183,
+   "block": 22882212,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752071183,
+   "block": 22882212,
+   "kind": "erc20",
+   "symbol": "USDT",
+   "amount": 265044.0,
+   "usd": 265044.0
+  },
+  {
+   "selected": true,
+   "ts": 1752071255,
+   "block": 22882218,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752071255,
+   "block": 22882218,
+   "kind": "erc20",
+   "symbol": "AAVE",
+   "amount": 608.0,
+   "usd": 182679.68
+  },
+  {
+   "selected": true,
+   "ts": 1752071399,
+   "block": 22882230,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752071399,
+   "block": 22882230,
+   "kind": "erc20",
+   "symbol": "USDC",
+   "amount": 86796.0,
+   "usd": 86783.32778400001
+  },
+  {
+   "selected": true,
+   "ts": 1752071615,
+   "block": 22882248,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752071615,
+   "block": 22882248,
+   "kind": "erc20",
+   "symbol": "BUSD",
+   "amount": 4056.9999999999995,
+   "usd": 4056.9999999999995
+  },
+  {
+   "selected": true,
+   "ts": 1752071819,
+   "block": 22882264,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752071819,
+   "block": 22882264,
+   "kind": "erc20",
+   "symbol": "TRIBE",
+   "amount": 179876.0,
+   "usd": 69854.8446
+  },
+  {
+   "selected": true,
+   "ts": 1752071879,
+   "block": 22882269,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752071939,
+   "block": 22882274,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752071939,
+   "block": 22882274,
+   "kind": "erc20",
+   "symbol": "DAI",
+   "amount": 0.02287,
+   "usd": 0.022874791843865018
+  },
+  {
+   "selected": true,
+   "ts": 1752071987,
+   "block": 22882278,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752071987,
+   "block": 22882278,
+   "kind": "erc20",
+   "symbol": "OKB",
+   "amount": 0.00029,
+   "usd": 0.014036
+  },
+  {
+   "selected": true,
+   "ts": 1752072023,
+   "block": 22882281,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752072023,
+   "block": 22882281,
+   "kind": "erc20",
+   "symbol": "GT",
+   "amount": 82.9,
+   "usd": 1306.5040000000001
+  },
+  {
+   "selected": true,
+   "ts": 1752072059,
+   "block": 22882284,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752072059,
+   "block": 22882284,
+   "kind": "erc20",
+   "symbol": "UNI",
+   "amount": 110.0,
+   "usd": 899.8
+  },
+  {
+   "selected": true,
+   "ts": 1752072095,
+   "block": 22882287,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752072095,
+   "block": 22882287,
+   "kind": "erc20",
+   "symbol": "SHIB",
+   "amount": 64265764.0,
+   "usd": 779.54371732
+  },
+  {
+   "selected": true,
+   "ts": 1752072215,
+   "block": 22882297,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752072215,
+   "block": 22882297,
+   "kind": "erc20",
+   "symbol": "gZKS",
+   "amount": 7298643.621817,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752072239,
+   "block": 22882299,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752072239,
+   "block": 22882299,
+   "kind": "erc20",
+   "symbol": "XDEX",
+   "amount": 70224.39743597506,
+   "usd": 560.1070885951065
+  },
+  {
+   "selected": true,
+   "ts": 1752072299,
+   "block": 22882304,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752072299,
+   "block": 22882304,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 3788228.2518168758,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752072371,
+   "block": 22882310,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752072371,
+   "block": 22882310,
+   "kind": "erc20",
+   "symbol": "SHIB",
+   "amount": 0.4324473788146271,
+   "usd": 5.245586705021427e-06
+  },
+  {
+   "selected": true,
+   "ts": 1752072395,
+   "block": 22882312,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752072395,
+   "block": 22882312,
+   "kind": "erc20",
+   "symbol": "UNI",
+   "amount": 0.9305465249791712,
+   "usd": 7.61187057432962
+  },
+  {
+   "selected": true,
+   "ts": 1752072419,
+   "block": 22882314,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752072419,
+   "block": 22882314,
+   "kind": "erc20",
+   "symbol": "GT",
+   "amount": 0.08366913262016606,
+   "usd": 1.3186255300938172
+  },
+  {
+   "selected": true,
+   "ts": 1752072443,
+   "block": 22882316,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752072443,
+   "block": 22882316,
+   "kind": "erc20",
+   "symbol": "OKB",
+   "amount": 29.298574757291945,
+   "usd": 1418.0510182529301
+  },
+  {
+   "selected": true,
+   "ts": 1752072479,
+   "block": 22882319,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752072479,
+   "block": 22882319,
+   "kind": "erc20",
+   "symbol": "DAI",
+   "amount": 2287.3245647286176,
+   "usd": 2287.803817119645
+  },
+  {
+   "selected": true,
+   "ts": 1752072503,
+   "block": 22882321,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752072503,
+   "block": 22882321,
+   "kind": "erc20",
+   "symbol": "BUSD",
+   "amount": 0.5365307141856829,
+   "usd": 0.5365307141856829
+  },
+  {
+   "selected": true,
+   "ts": 1752072539,
+   "block": 22882324,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752072539,
+   "block": 22882324,
+   "kind": "erc20",
+   "symbol": "TRIBE",
+   "amount": 0.007186616737625976,
+   "usd": 0.0027909226100570473
+  },
+  {
+   "selected": true,
+   "ts": 1752072575,
+   "block": 22882327,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752072575,
+   "block": 22882327,
+   "kind": "erc20",
+   "symbol": "USDC",
+   "amount": 0.815421,
+   "usd": 0.815301948534
+  },
+  {
+   "selected": true,
+   "ts": 1752072599,
+   "block": 22882329,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752072599,
+   "block": 22882329,
+   "kind": "erc20",
+   "symbol": "AAVE",
+   "amount": 0.630632806629553,
+   "usd": 189.4799330799155
+  },
+  {
+   "selected": true,
+   "ts": 1752072623,
+   "block": 22882331,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752072623,
+   "block": 22882331,
+   "kind": "erc20",
+   "symbol": "WBTC",
+   "amount": 0.00136703,
+   "usd": 149.44645366
+  },
+  {
+   "selected": true,
+   "ts": 1752072647,
+   "block": 22882333,
+   "kind": "erc20",
+   "symbol": "ZKS",
+   "amount": 1000.0,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1752072647,
+   "block": 22882333,
+   "kind": "erc20",
+   "symbol": "USDT",
+   "amount": 0.680955,
+   "usd": 0.680955
+  },
+  {
+   "selected": true,
+   "ts": 1752071879,
+   "block": 22882269,
+   "kind": "native",
+   "symbol": "ETH",
+   "amount": 362.36559,
+   "usd": 965164.3726209
+  }
+ ],
+ "pauses": []
+}

@@ -1,0 +1,10 @@
+# Python 3.11 (tested with 3.11.5). Versions are the ones the artifact was assembled with.
+numpy==2.4.6
+pandas==3.0.3
+scipy==1.17.1
+matplotlib==3.11.0
+# imported by the CCIP helpers (ccip/ccip_common.py); network access only at level 3
+requests==2.34.2
+# testbed only (prototype/testbed)
+websockets==16.0
+pycryptodome==3.23.0

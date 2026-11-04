@@ -1,0 +1,738 @@
+{
+ "batch": "G",
+ "generated_utc": "2026-10-16T01:10:00Z",
+ "events": [
+  {
+   "event_id": "E64",
+   "dl_name": "Liquid Network",
+   "dl_date": "2026-09-06",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Unbacked L-BTC created on the Liquid sidechain through a node-software validation flaw (range-proof verification cache) was redeemed through the standard federation peg-out via SideSwap's peg-out authorization (PAK) entry; the BTC left the federation's Bitcoin peg reserve. No keys were reported compromised.",
+    "sources": [
+     {
+      "url": "https://blog.liquid.net/liquid-network-security-incident-assessment/",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Federation signers release 3,996.02 BTC on Bitcoin mainnet; SideSwap forwards 3,995.99999857 BTC onward in the same..."
+     },
+     {
+      "url": "https://t.me/s/liquid/97",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "On September 6, 2026 at 15:53:10 UTC (Liquid block 4,050,336), a vulnerability in the open-source Elements software…"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-09-06",
+    "sources": [
+     {
+      "url": "https://blog.liquid.net/liquid-network-security-incident-assessment/",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "This produced a withdrawal of approximately 4,000 BTC, confirmed in Bitcoin block 965,783."
+     },
+     {
+      "url": "https://mempool.space/block/965783",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "mempool.space API: release transaction confirmed in block_height 965783, block_time 1788704936 (2026-09-06T14:28:56Z)"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 320000000,
+    "range": "about 320M USD; 3,996.02 BTC released by the federation in one peg-out (the recipient address then held 3,998.5 BTC, including 2.497 BTC SideSwap paid from its own inventory for a 2.5 L-BTC test peg-out); reported as about 95% of a reserve of about 4,200-4,205 BTC",
+    "sources": [
+     {
+      "url": "https://theblock.co/news/defi/2026-09-06-liquid-network-pauses-after-purported-white-hat-hackers-withdraw-320-million-in-bitcoin-413626",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Liquid Network pauses after purported 'white-hat' hackers withdraw $320 million in bitcoin"
+     },
+     {
+      "url": "https://blog.liquid.net/liquid-network-security-incident-assessment/",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Federation signers release 3,996.02 BTC on Bitcoin mainnet; SideSwap forwards 3,995.99999857 BTC onward in the same..."
+     },
+     {
+      "url": "https://www.bit.com/knowledge-hub/liquid-network-hack-2026",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The withdrawal removed close to 95% of the wallet's roughly 4,200 BTC in a single transaction."
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "S",
+    "phrase": "Sidechain range-proof cache flaw admitted unbacked L-BTC; federation honored its peg-out burn.",
+    "sources": [
+     {
+      "url": "https://blog.liquid.net/liquid-network-security-incident-assessment/",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Attacker exploits Bug B; approximately 4,000 unbacked LBTC are created in the original, later-reorganized Liquid..."
+     },
+     {
+      "url": "https://blog.liquid.net/liquid-network-security-incident-assessment/",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "It allows the functionary node’s HSM to verify that a peg-out destination belongs to a registered PAK entry..."
+     },
+     {
+      "url": "https://t.me/s/liquid/97",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "On September 6, 2026 at 15:53:10 UTC (Liquid block 4,050,336), a vulnerability in the open-source Elements software…"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "All realized value left the federation's Bitcoin peg reserve (3,996.02 BTC in one peg-out). The about 4,000 unbacked L-BTC were created on Liquid and burned in the peg-out; the Liquid chain was later reorganized onto a corrected chain. A 2.5 L-BTC test peg-out was paid from SideSwap's own inventory, not from the reserve.",
+    "chains": [
+     "Liquid",
+     "Bitcoin"
+    ],
+    "sources": [
+     {
+      "url": "https://blog.liquid.net/liquid-network-security-incident-assessment/",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Attacker tests the exit with a smaller 2.5 LBTC peg-out; SideSwap pays 2.49749857 BTC from its own inventory..."
+     },
+     {
+      "url": "https://blog.liquid.net/liquid-network-security-incident-assessment/",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Block production resumes on the corrected Liquid chain with replacement block 4,050,336, directly following the..."
+     }
+    ]
+   },
+   "outflow": {
+    "first_release_utc": "2026-09-06T14:28:56Z",
+    "last_release_utc": "2026-09-06T14:28:56Z",
+    "duration_min": 0,
+    "release_tx_count": 1,
+    "count_note": "Counted: federation peg-out transactions on Bitcoin carrying the unbacked redemption. One transaction (Bitcoin block 965,783) paid 3,996.01834922 BTC to SideSwap's allowlisted address, forwarded in the same block to the recipient address. Unbacked issuance on Liquid at 13:53:10 UTC (assessment; the original block 4,050,336 was later reorganized away; the 8 Sept Telegram report said 15:53:10 UTC, but the canonical block 4,050,335 is timestamped 13:52:10 UTC on the Blockstream explorer); a test peg-out of 2.5 L-BTC at about 14:00 UTC; the 4,000 L-BTC peg-out request at 14:05 UTC; release at 14:28:56 UTC, about 36 minutes after issuance. Other users' small peg-outs (4.14 BTC at 16:01:28 and 1.02 BTC at 16:48:45 UTC) were still signed before the halt.",
+    "sources": [
+     {
+      "url": "https://blog.liquid.net/liquid-network-security-incident-assessment/",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "This produced a withdrawal of approximately 4,000 BTC, confirmed in Bitcoin block 965,783."
+     },
+     {
+      "url": "https://defiprime.com/liquid-network-peg-out-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "At 14:28:56 UTC, in Bitcoin block 965,783, eleven or more of the fifteen functionary hardware modules signed"
+     },
+     {
+      "url": "https://defiprime.com/liquid-network-peg-out-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "at 14:05 UTC a customer sent 4,000 L-BTC to the SideSwap peg-out service."
+     },
+     {
+      "url": "https://defiprime.com/liquid-network-peg-out-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The federation processed another peg-out batch at 16:01:28 UTC, paying 4.14 BTC"
+     },
+     {
+      "url": "https://mempool.space/block/965783",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "mempool.space API: 83 inputs from the federation peg address, output of 3996.01834922 BTC, block_time 1788704936"
+     },
+     {
+      "url": "https://blockstream.info/liquid/block-height/4050335",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Blockstream Liquid API: height 4050335, timestamp 1788702730 (2026-09-06T13:52:10Z); next canonical block timestamp 1788987910 (2026-09-09T21:05:10Z)"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2026-09-06T20:25:20Z",
+    "channel": "X (@Liquid_BTC)",
+    "note": "Time from status ID 2096696272447218108, linked by The Block and Decrypt; the assessment timeline lists the public disclosure at 20:25 UTC. Blockstream's internal monitoring flagged a block-production stall at 14:10 UTC. Earlier third-party posts: Ledger CTO at 19:42:39 UTC (status ID 2096685528267592008) and a mempool.space alert at 19:58:35 UTC (DeFiPrime).",
+    "sources": [
+     {
+      "url": "https://x.com/Liquid_BTC/status/2096696272447218108",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Status ID 2096696272447218108 (linked from The Block article) decodes to 2026-09-06T20:25:20.741Z"
+     },
+     {
+      "url": "https://blog.liquid.net/liquid-network-security-incident-assessment/",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Liquid publicly discloses the incident, confirming that bridge nodes have been disabled and the sidechain is..."
+     },
+     {
+      "url": "https://blog.liquid.net/liquid-network-security-incident-assessment/",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Blockstream's monitoring reports a Liquid block-production stall internally."
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2026-09-06T18:26Z",
+    "what": "Liquid bridge (peg) nodes halted, pausing peg operations and the sidechain; SideSwap suspended peg services; exchanges paused L-BTC deposits and withdrawals",
+    "by": "Blockstream, coordinating the Liquid Federation's bridge nodes",
+    "note": "About 3 h 57 min after the release; per DeFiPrime the functionaries kept signing withdrawals for more than two hours after the reserve dropped. Block production restarted 2026-09-09T21:05:10Z on a corrected chain; user activity resumed 2026-09-10; peg-outs remained suspended in the 17 Sept and 28 Sept updates (no resumption found as of 2026-10-16).",
+    "sources": [
+     {
+      "url": "https://blog.liquid.net/liquid-network-security-incident-assessment/",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Blockstream coordinates the halting of Liquid bridge nodes; network paused."
+     },
+     {
+      "url": "https://defiprime.com/liquid-network-peg-out-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "For more than two hours after 95% of the reserve had gone, the watchmen kept signing withdrawals against what was left."
+     },
+     {
+      "url": "https://t.me/s/liquid/102",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "…peg-outs will resume only after full 1:1 BTC backing for LBTC has been confirmed…"
+     },
+     {
+      "url": "https://www.kucoin.com/news/flash/liquid-network-updates-peg-out-recovery-steps-after-security-incident",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Liquid did not specify when peg-out operations will resume."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "no",
+    "acted": "n.a.",
+    "how": "Only allowlisted-destination (PAK) checks; no size, velocity or delay control on peg-outs was reported.",
+    "sources": [
+     {
+      "url": "https://blog.liquid.net/liquid-network-security-incident-assessment/",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "SideSwap applied no size limit, velocity control, or wallet-history check to peg-out orders."
+     },
+     {
+      "url": "https://blog.liquid.net/liquid-network-security-incident-assessment/",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "SideSwap stated that a delayed, manually reviewed forwarding process would have kept the released BTC recoverable."
+     },
+     {
+      "url": "https://defiprime.com/liquid-network-peg-out-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "will only sign if the transaction outputs are going back to the federation or to a whitelisted address,"
+     },
+     {
+      "url": "https://nehanarula.org/2026/09/07/liquid-hack.html",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "should have had size, velocity, and origin checks on pegouts"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": 265000000,
+    "native": "3,400 BTC",
+    "date": "2026-09-07",
+    "note": "Returned voluntarily to the federation peg wallet at 16:09:25 UTC (Bitcoin block 965,950; the Telegram report mislabels it as a Liquid block) after Blockstream sent a signed on-chain message that bridge nodes were patched. About 598.5 BTC stayed at the recipient address (later updates: about 600-602 BTC under recovery). USD value about 263-265M (press). SideSwap returned its 4 BTC fee (Narula). No operator reimbursement of users reported.",
+    "sources": [
+     {
+      "url": "https://t.me/s/liquid/97",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "On September 7 at 16:09:25 UTC (Liquid block 965,950), the exploiters returned 3,400 BTC to the Liquid Federation peg wallet."
+     },
+     {
+      "url": "https://www.bit.com/knowledge-hub/liquid-network-hack-2026",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "worth roughly $265 million at the time."
+     },
+     {
+      "url": "https://mempool.space/block/965950",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "mempool.space API: block_height 965950, block_time 2026-09-07T16:09:25Z, output 3400.0 BTC to the federation peg address, 598.49955894 BTC change"
+     }
+    ]
+   },
+   "open_questions": "Exact time each functionary stopped signing (assessment gives 18:26 UTC for the coordinated halt). Whether the 3.99601658 BTC output in the same batch was a further order by the same party (DeFiPrime calls it consistent with a 4 L-BTC order). Recovery of the remaining about 600 BTC. Whether peg-outs have resumed after 28 Sept and with what new limits.",
+   "onchain_refs": [
+    {
+     "chain": "Bitcoin",
+     "role": "federation peg address (all 83 inputs of the release transaction; also receiver of the 3,400 BTC return)",
+     "value": "bc1qdlld6antmv4xug242ed83q7k4rqw50cwfns38szx4qu2f4jwaxxsuhwxxr"
+    }
+   ]
+  },
+  {
+   "event_id": "E59",
+   "dl_name": "AFX Bridge",
+   "dl_date": "2026-07-22",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "USDC left AFX's custody bridge contract on Arbitrum (deposit path to the AFX layer-one perpetuals chain) after a withdrawal carried enough validator signatures; Arbitrum's native bridge was not involved.",
+    "sources": [
+     {
+      "url": "https://forklog.com/en/afx-trade-halts-bridge-operations-after-24-15m-usdc-withdrawal/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The withdrawal was approved by five validator signatures using hot keys."
+     },
+     {
+      "url": "https://forklog.com/en/afx-trade-halts-bridge-operations-after-24-15m-usdc-withdrawal/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the transaction in question originated from a third party protocol."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-07-22",
+    "sources": [
+     {
+      "url": "https://rekt.news/afx-trade-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Blockaid detected an exploit at 2026-07-22 21:30 UTC targeting AFX."
+     },
+     {
+      "url": "https://arbiscan.io/block/486658838",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Arbitrum RPC: release transaction in block 486658838, block timestamp 2026-07-22T21:30:25Z, USDC Transfer 24,150,000 from the bridge contract"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 24150000,
+    "range": "24.15M USDC (one release); later swapped for about 12,467 ETH",
+    "sources": [
+     {
+      "url": "https://rekt.news/afx-trade-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Approximately 24.15M USDC has been drained thus far."
+     },
+     {
+      "url": "https://unchainedcrypto.com/arbitrum-based-afx-trade-drained-of-24-million/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "roughly $24.15 million"
+     },
+     {
+      "url": "https://arbiscan.io/block/486658838",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Arbitrum RPC: Transfer log value 0x15f6dc2bdc00 (24,150,000.000000 USDC, 6 decimals) from the bridge contract"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "V",
+    "phrase": "Five of seven validator hot keys (7,142 of 10,000 votes) signed the withdrawal.",
+    "sources": [
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-afxbridge-hack-july-2026",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "gain access to the private keys of five of the protocol's seven validators"
+     },
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-afxbridge-hack-july-2026",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "worked as designed, verifying the transaction's signatures (which were legitimate)"
+     },
+     {
+      "url": "https://rekt.news/afx-trade-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Five hot-validator signatures, representing 7,142 of 10,000 units of voting power, cleared a threshold of 6,667"
+     },
+     {
+      "url": "https://forklog.com/en/afx-trade-halts-bridge-operations-after-24-15m-usdc-withdrawal/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The withdrawal was approved by five validator signatures using hot keys."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "100% released from the USDC custody contract on Arbitrum; then moved to Ethereum through a third-party router and swapped for ETH.",
+    "chains": [
+     "Arbitrum",
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "https://rekt.news/afx-trade-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "200-second dispute window sat between the withdrawal request and its finalization"
+     },
+     {
+      "url": "https://forklog.com/en/afx-trade-halts-bridge-operations-after-24-15m-usdc-withdrawal/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the contract validated the request and released the funds."
+     }
+    ]
+   },
+   "outflow": {
+    "first_release_utc": "2026-07-22T21:30:25Z",
+    "last_release_utc": "2026-07-22T21:30:25Z",
+    "duration_min": 0,
+    "release_tx_count": 1,
+    "count_note": "Counted: release (finalize) transactions moving USDC out of the bridge contract. One withdrawal-creation transaction at 21:26:55 UTC (Arbitrum block 486,657,995) and one batched finalize transaction at 21:30:25 UTC (block 486,658,838) that transferred 24,150,000 USDC; 210 s between request and release. The bridge contract emitted no further events from block 486,658,938 through block 488,000,000 (2026-07-26T18:45Z) on the public Arbitrum RPC.",
+    "sources": [
+     {
+      "url": "https://rekt.news/afx-trade-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "200-second dispute window sat between the withdrawal request and its finalization"
+     },
+     {
+      "url": "https://arbiscan.io/block/486657995",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Arbitrum RPC: withdrawal-creation transaction in block 486657995, block timestamp 2026-07-22T21:26:55Z"
+     },
+     {
+      "url": "https://arbiscan.io/block/486658838",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Arbitrum RPC: finalize transaction in block 486658838, block timestamp 2026-07-22T21:30:25Z, one USDC Transfer from the bridge contract"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2026-07-23T03:04:34Z",
+    "channel": "X (@AFX_XYZ)",
+    "note": "Time from status ID 2080126901205770734 (Rekt: about 3 hours after Blockaid's post). Earlier third-party posts: Blockaid alert (detection 21:30 UTC) and Arbitrum co-founder Steven Goldfeder at 23:23:17 UTC on 07-22 (status ID 2080071210847674709). Second AFX post at 03:57:10 UTC (status ID 2080140138257207723).",
+    "sources": [
+     {
+      "url": "https://x.com/AFX_XYZ/status/2080126901205770734",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Status ID 2080126901205770734 (linked from Rekt and ForkLog) decodes to 2026-07-23T03:04:34.793Z"
+     },
+     {
+      "url": "https://rekt.news/afx-trade-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "AFX Trade didn't respond until 3 hours after Blockaid’s initial post."
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "what": "Bridge operations suspended",
+    "by": "AFX team",
+    "note": "AFX said it suspended bridge operations upon detection; no time given. No pause event from the bridge contract was found on Arbitrum through 2026-07-26T18:45Z, so the suspension appears to have been off-chain (operator/validator services). Rekt says the suspension came after the funds had already crossed two networks.",
+    "sources": [
+     {
+      "url": "https://forklog.com/en/afx-trade-halts-bridge-operations-after-24-15m-usdc-withdrawal/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Upon detecting the incident, we immediately suspended bridge operations."
+     },
+     {
+      "url": "https://rekt.news/afx-trade-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "By the time AFX Trade suspended the bridge, the money had already crossed two networks"
+     },
+     {
+      "url": "https://arbiscan.io/block/488000000",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Arbitrum RPC eth_getLogs for the bridge contract, blocks 486,900,001 to 488,000,000: no logs returned"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "yes",
+    "acted": "no",
+    "how": "200-second dispute window between withdrawal request and finalization elapsed unchallenged; release followed 210 s after request.",
+    "sources": [
+     {
+      "url": "https://unchainedcrypto.com/arbitrum-based-afx-trade-drained-of-24-million/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "After a 200-second dispute window, the contract released the funds as designed."
+     },
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-afxbridge-hack-july-2026",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "allowing for malicious transactions to be identified and blocked before they could be executed on-chain."
+     },
+     {
+      "url": "https://rekt.news/afx-trade-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "did not stop the outcome."
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "none reported",
+    "date": null,
+    "note": "AFX's head of growth offered a 70/30 settlement (return 70%, keep 30%) on 2026-07-23; Rekt (07-27) says it went unanswered. AFX announced a 'goodwill plan' for affected users for 3 Aug 2026; its terms were not found.",
+    "sources": [
+     {
+      "url": "https://forklog.com/en/afx-trade-halts-bridge-operations-after-24-15m-usdc-withdrawal/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "This offer is time-limited."
+     },
+     {
+      "url": "https://rekt.news/afx-trade-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "has gone unanswered"
+     },
+     {
+      "url": "https://www.htx.com/zh-tc/news/afx-trade-promises-to-present-goodwill-plan-on-august-3-foll-3kQQoDJa/",
+      "type": "press",
+      "how_read": "search snippet",
+      "quote": "AFX Trade Promises to Present \"Goodwill Plan\" on August 3 Following $24 Million Loss Incident"
+     }
+    ]
+   },
+   "open_questions": "Time of the off-chain suspension. Who was entitled to dispute within the 200-second window, and whether the two further contract events referencing the same withdrawal at 21:30:26 and 21:30:50 UTC (event signature not decoded) were late dispute or vote submissions. How the validator hot keys came under outside control (reports mention social engineering of a developer from 9 July; not confirmed by AFX). Terms of the 3 Aug goodwill plan."
+  },
+  {
+   "event_id": "E58",
+   "dl_name": "Wanchain",
+   "dl_date": "2026-07-21",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "NIGHT left the Cardano-side treasury (escrow) of Wanchain's Cardano-BNB Chain bridge; the release validator accepted reused signatures. Midnight's own chain and Cardano consensus were not involved.",
+    "sources": [
+     {
+      "url": "https://crypto.news/wanchain-cardano-bridge-exploit-drains-515m-night-worth-9m/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The incident is isolated to the Wanchain Cardano–BNB bridge and does not involve the Midnight Network itself."
+     },
+     {
+      "url": "https://startupfortune.com/a-missing-separator-in-wanchains-bridge-code-turned-a-150-transaction-into-a-13-million-theft/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "drained about 515 million NIGHT from the Cardano-side bridge reserve"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-07-20",
+    "sources": [
+     {
+      "url": "https://www.cryptotimes.io/insights/wanchain-night-bridge-exploit-signature-flaw/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "in four transactions between 14:46 and 14:55 UTC on July 20, 2026"
+     },
+     {
+      "url": "https://cardanoscan.io/block/13702781",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Koios tx_info: block_height 13702781, tx_timestamp 1784558810 (2026-07-20T14:46:50Z), 203001692.164714 NIGHT out of the treasury script"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 10000000,
+    "range": "9M-13M USD for 515.2M NIGHT (515,206,545 NIGHT on-chain); price basis differs across sources",
+    "sources": [
+     {
+      "url": "https://crypto.news/wanchain-cardano-bridge-exploit-drains-515m-night-worth-9m/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "roughly $9 million to $10 million"
+     },
+     {
+      "url": "https://www.cryptotimes.io/insights/wanchain-night-bridge-exploit-signature-flaw/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Roughly $9 million to $13 million, depending on the valuation time."
+     },
+     {
+      "url": "https://cardanoscan.io/block/13702814",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Koios tx_info: four treasury outflows of 203,001,692.16; 129,633,878.02; 120,430,264.32; 62,140,710.92 NIGHT to one address"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "Release validator's signed message lacked field delimiters, so valid signatures were reused.",
+    "sources": [
+     {
+      "url": "https://crypto.news/wanchain-cardano-bridge-exploit-drains-515m-night-worth-9m/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "without adding clear separators or recording the length of each field"
+     },
+     {
+      "url": "https://coingape.com/wanchain-cardano-bridge-breached-in-13m-hack-515m-night-tokens-drained/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "root cause seems to be a non-injective signed-message encoding in the TreasuryCheck validator."
+     },
+     {
+      "url": "https://startupfortune.com/a-missing-separator-in-wanchains-bridge-code-turned-a-150-transaction-into-a-13-million-theft/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "joining 14 variable-length fields with no separators and no length markers"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "100% from the Cardano-side treasury script; it reportedly held about 527M NIGHT before and about 12M after (about 97.8% reduction). Other assets in the treasury were reportedly not withdrawn.",
+    "chains": [
+     "Cardano"
+    ],
+    "sources": [
+     {
+      "url": "https://www.cryptotimes.io/insights/wanchain-night-bridge-exploit-signature-flaw/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "in four transactions between 14:46 and 14:55 UTC on July 20, 2026"
+     },
+     {
+      "url": "https://crypto.news/wanchain-cardano-bridge-exploit-drains-515m-night-worth-9m/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Wanchain's Cardano bridge treasury"
+     }
+    ]
+   },
+   "outflow": {
+    "first_release_utc": "2026-07-20T14:46:50Z",
+    "last_release_utc": "2026-07-20T14:55:05Z",
+    "duration_min": 8.25,
+    "release_tx_count": 4,
+    "count_note": "Counted: large NIGHT outflows from the treasury payment credential to the recipient address (Cardano blocks 13,702,781; 13,702,797; 13,702,805; 13,702,814 at 14:46:50, 14:51:25, 14:53:18, 14:55:05 UTC). The same recipient also received eight small releases of 1,978-7,866 NIGHT each between 12:30 and 14:49 UTC, consistent with ordinary signed transfers (sources mention a legitimate transfer of about 150 USD whose signature was reused); not counted. A further 14,113 NIGHT release to a different address at 16:29:14 UTC suggests the bridge was still processing releases about 1.5 h later.",
+    "sources": [
+     {
+      "url": "https://startupfortune.com/a-missing-separator-in-wanchains-bridge-code-turned-a-150-transaction-into-a-13-million-theft/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The withdrawal window ran between roughly 14:46 and 14:55 UTC on July 20, 2026."
+     },
+     {
+      "url": "https://startupfortune.com/a-missing-separator-in-wanchains-bridge-code-turned-a-150-transaction-into-a-13-million-theft/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Four transactions did the work."
+     },
+     {
+      "url": "https://cardanoscan.io/block/13702814",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Koios credential_txs/tx_info: treasury NIGHT outflows at 14:46:50, 14:51:25, 14:53:18 and 14:55:05 UTC on 2026-07-20"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2026-07-21T05:51:34Z",
+    "channel": "X (@wanchain_org)",
+    "note": "Time from status ID 2079444149066244340 ('Security notice regarding the Cardano ↔ BNB Chain Bridge'), about 15 h after the last large release. Earlier posts by others: Midnight Foundation at 20:43:28 UTC on 07-20 (status ID 2079306216564539796) and 00:57:52 UTC on 07-21 (status ID 2079370237334413522); BlockSec Phalcon at 05:47:25 UTC on 07-21 (status ID 2079443108027421183).",
+    "sources": [
+     {
+      "url": "https://x.com/wanchain_org/status/2079444149066244340",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Status ID 2079444149066244340 (embedded in CoinGape) decodes to 2026-07-21T05:51:33.998Z"
+     },
+     {
+      "url": "https://coingape.com/wanchain-cardano-bridge-breached-in-13m-hack-515m-night-tokens-drained/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Security notice regarding the Cardano ↔ BNB Chain Bridge."
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "what": "Cardano-BNB Chain bridge taken offline",
+    "by": "Wanchain",
+    "note": "No time given in any source. On-chain, the treasury credential shows a release to another address at 16:29:14 UTC on 07-20 and only deposits or internal transactions afterward; no transactions from 2026-07-20T21:21Z until 2026-08-14. Restoration of the bridge not found.",
+    "sources": [
+     {
+      "url": "https://coingape.com/wanchain-cardano-bridge-breached-in-13m-hack-515m-night-tokens-drained/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "has taken the bridge offline and is investigating"
+     },
+     {
+      "url": "https://coinmarketcap.com/cmc-ai/wanchain/latest-updates/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "took the bridge offline"
+     },
+     {
+      "url": "https://cardanoscan.io/block/13703098",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Koios tx_info: treasury release of 14,113.099681 NIGHT to a different address at 2026-07-20T16:29:14Z"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions one; reports note monitoring did not stop the sequence after the first large withdrawal.",
+    "sources": [
+     {
+      "url": "https://www.cryptotimes.io/insights/wanchain-night-bridge-exploit-signature-flaw/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "in four transactions between 14:46 and 14:55 UTC on July 20, 2026"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "none reported",
+    "date": null,
+    "note": "On 31 July (UTC+8) Wanchain offered a settlement: return 90% by 20:00 UTC+8 on 6 Aug, keep 10%. No return found in press; the treasury script received no large NIGHT inflow through 2026-10-10 (Koios). Exchanges reportedly froze or monitored linked NIGHT flows; amounts undisclosed.",
+    "sources": [
+     {
+      "url": "https://www.kucoin.com/news/flash/wanchain-offers-white-hat-settlement-for-cardano-bridge-hack",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "If returned on time, Wanchain will recognize the action as white-hat behavior and refrain from filing a civil lawsuit."
+     },
+     {
+      "url": "https://coinmarketcap.com/cmc-ai/wanchain/latest-updates/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "hinges on whether the attacker complied by the deadline"
+     }
+    ]
+   },
+   "open_questions": "Time the bridge was taken offline (on-chain releases continued until at least 16:29 UTC). Whether the eight small transfers to the same recipient before and during the window were all backed by BNB Chain burns. Whether any NIGHT was returned or frozen after the 6 Aug deadline. No Wanchain post-mortem found."
+  }
+ ]
+}

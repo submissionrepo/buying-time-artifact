@@ -1,0 +1,9 @@
+{
+ "note": "Collection targets for E59: bridge and token contracts, blocks and endpoints. Recipient, sender and transaction fields of the original targets are withheld; see docs/collection.md.",
+ "chain": "arbitrum",
+ "bridge": "0xcb3b9a3e5668afe84dc7a864b36b845dce062e67",
+ "failure_block": 486658838,
+ "failure_request_block": 486657995,
+ "usdc_native": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+ "usdc_bridged": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+}

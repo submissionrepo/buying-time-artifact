@@ -1,0 +1,38 @@
+{
+ "target": "E13_eth",
+ "config": {
+  "event_id": "E13",
+  "leg": "Ethereum escrow",
+  "chain": "ethereum",
+  "window_utc": [
+   "2022-03-23T13:00:00",
+   "2022-03-23T14:00:00"
+  ]
+ },
+ "blocks": [
+  14442702,
+  14442970
+ ],
+ "n_candidate_rows": 25,
+ "rows": [
+  {
+   "selected": true,
+   "ts": 1648042264,
+   "block": 14442840,
+   "kind": "erc20",
+   "symbol": "USDC",
+   "amount": 25500000.0,
+   "usd": 25528866.47160459
+  },
+  {
+   "selected": true,
+   "ts": 1648042149,
+   "block": 14442835,
+   "kind": "native",
+   "symbol": "ETH",
+   "amount": 173600.0,
+   "usd": 514673941.1147833
+  }
+ ],
+ "pauses": []
+}

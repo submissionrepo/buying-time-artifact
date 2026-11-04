@@ -1,0 +1,173 @@
+{
+ "rule": "Rank token lanes by USD value sent between 2026-01-15 and 2026-10-15 (CCIP API v2 global crawl; DefiLlama daily prices). Take the top 15 with at most 3 lanes per token, then add the largest USDC lane, the largest LINK lane and the lane with the longest record of a binding limit.",
+ "pseudonyms": "Lanes, chains and tokens are pseudonyms (lane-NN, chain-NNN, token-NNN); the paper names no lane. Level 3 re-derives the lanes from the public crawl by the rule above.",
+ "window_utc": [
+  "2026-01-15T05:19:05Z",
+  "2026-10-15T15:58:28Z"
+ ],
+ "share_of_window_value": 0.5387489670105805,
+ "lanes": [
+  {
+   "lane": "lane-01",
+   "src": "chain-043",
+   "dst": "chain-047",
+   "token": "token-152",
+   "why": "top-15 by USD value (max 3 lanes per token)",
+   "usd_window": 1652976883.0,
+   "n_window": 891
+  },
+  {
+   "lane": "lane-02",
+   "src": "chain-047",
+   "dst": "chain-043",
+   "token": "token-152",
+   "why": "top-15 by USD value (max 3 lanes per token)",
+   "usd_window": 1201084012.0,
+   "n_window": 697
+  },
+  {
+   "lane": "lane-03",
+   "src": "chain-045",
+   "dst": "chain-047",
+   "token": "token-209",
+   "why": "top-15 by USD value (max 3 lanes per token)",
+   "usd_window": 778949777.0,
+   "n_window": 1563
+  },
+  {
+   "lane": "lane-04",
+   "src": "chain-047",
+   "dst": "chain-045",
+   "token": "token-209",
+   "why": "top-15 by USD value (max 3 lanes per token)",
+   "usd_window": 626785204.0,
+   "n_window": 1075
+  },
+  {
+   "lane": "lane-05",
+   "src": "chain-047",
+   "dst": "chain-062",
+   "token": "token-209",
+   "why": "top-15 by USD value (max 3 lanes per token)",
+   "usd_window": 400003454.0,
+   "n_window": 695
+  },
+  {
+   "lane": "lane-06",
+   "src": "chain-045",
+   "dst": "chain-047",
+   "token": "token-089",
+   "why": "top-15 by USD value (max 3 lanes per token)",
+   "usd_window": 293609090.0,
+   "n_window": 1095
+  },
+  {
+   "lane": "lane-07",
+   "src": "chain-047",
+   "dst": "chain-004",
+   "token": "token-152",
+   "why": "top-15 by USD value (max 3 lanes per token)",
+   "usd_window": 291451533.0,
+   "n_window": 227
+  },
+  {
+   "lane": "lane-08",
+   "src": "chain-047",
+   "dst": "chain-062",
+   "token": "token-038",
+   "why": "top-15 by USD value (max 3 lanes per token)",
+   "usd_window": 286021668.0,
+   "n_window": 885
+  },
+  {
+   "lane": "lane-09",
+   "src": "chain-062",
+   "dst": "chain-047",
+   "token": "token-038",
+   "why": "top-15 by USD value (max 3 lanes per token)",
+   "usd_window": 265060872.0,
+   "n_window": 922
+  },
+  {
+   "lane": "lane-10",
+   "src": "chain-047",
+   "dst": "chain-043",
+   "token": "token-274",
+   "why": "top-15 by USD value (max 3 lanes per token)",
+   "usd_window": 256860551.0,
+   "n_window": 1228
+  },
+  {
+   "lane": "lane-11",
+   "src": "chain-043",
+   "dst": "chain-047",
+   "token": "token-274",
+   "why": "top-15 by USD value (max 3 lanes per token)",
+   "usd_window": 222986058.0,
+   "n_window": 1245
+  },
+  {
+   "lane": "lane-12",
+   "src": "chain-047",
+   "dst": "chain-032",
+   "token": "token-087",
+   "why": "top-15 by USD value (max 3 lanes per token)",
+   "usd_window": 207562742.0,
+   "n_window": 325
+  },
+  {
+   "lane": "lane-13",
+   "src": "chain-040",
+   "dst": "chain-062",
+   "token": "token-266",
+   "why": "top-15 by USD value (max 3 lanes per token)",
+   "usd_window": 199861570.0,
+   "n_window": 1106
+  },
+  {
+   "lane": "lane-14",
+   "src": "chain-062",
+   "dst": "chain-040",
+   "token": "token-266",
+   "why": "top-15 by USD value (max 3 lanes per token)",
+   "usd_window": 192699750.0,
+   "n_window": 1328
+  },
+  {
+   "lane": "lane-15",
+   "src": "chain-062",
+   "dst": "chain-043",
+   "token": "token-274",
+   "why": "top-15 by USD value (max 3 lanes per token)",
+   "usd_window": 150523634.0,
+   "n_window": 337
+  },
+  {
+   "lane": "lane-16",
+   "src": "chain-040",
+   "dst": "chain-047",
+   "token": "token-250",
+   "why": "largest USDC lane (CCIP USDC transfers settle through CCTP)",
+   "usd_window": 141323983.0,
+   "n_window": 1246
+  },
+  {
+   "lane": "lane-17",
+   "src": "chain-047",
+   "dst": "chain-040",
+   "token": "token-114",
+   "why": "largest LINK lane",
+   "usd_window": 2346637.0,
+   "n_window": 532
+  },
+  {
+   "lane": "lane-18",
+   "src": "chain-047",
+   "dst": "chain-066",
+   "token": "token-274",
+   "why": "the lane with the longest record of a binding limit",
+   "usd_window": 87489562.0,
+   "n_window": 664
+  }
+ ]
+}

@@ -1,0 +1,724 @@
+{
+ "_note": "Collection targets of incidents/02_onchain_timing.py, 03_onchain_bsc_tokenhub.py and 04_onchain_inflows.py: bridge custody and protocol contracts, block windows and event topics. The recipient addresses of the original targets are withheld; for those targets `selected_releases` lists the releases they received as [block, symbol, amount], which 02_onchain_timing.py matches instead. The two inflow targets (E23_inflow, E47_inflow) consist of recipient addresses and cannot be rebuilt from the artifact.",
+ "E13_eth": {
+  "event_id": "E13",
+  "leg": "Ethereum escrow",
+  "chain": "ethereum",
+  "window_utc": [
+   "2022-03-23T13:00:00",
+   "2022-03-23T14:00:00"
+  ],
+  "custody": [
+   "0x1A2a1c938CE3eC39b6D47113c7955bAa9DD454F2"
+  ],
+  "native": "trace",
+  "basis": "Ronin bridge v1 escrow and recipient as in XChainWatcher ronin-bridge/data/attacks.csv",
+  "selected_releases": [
+   [
+    14442840,
+    "USDC",
+    25500000.0
+   ],
+   [
+    14442835,
+    "ETH",
+    173600.0
+   ]
+  ]
+ },
+ "E30_eth": {
+  "event_id": "E30",
+  "leg": "Ethereum escrow",
+  "chain": "ethereum",
+  "window_utc": [
+   "2024-08-06T09:00:00",
+   "2024-08-06T11:00:00"
+  ],
+  "custody": [
+   "0x64192819Ac13Ef72bF6b5AE239AC672B43a9AF08"
+  ],
+  "min_usd": 500000,
+  "native": "trace",
+  "pause_logs": [
+   {
+    "label": "Paused",
+    "address": "0x64192819Ac13Ef72bF6b5AE239AC672B43a9AF08",
+    "topic0": "0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258",
+    "until_utc": "2024-08-06T13:00:00"
+   }
+  ],
+  "basis": "Ronin bridge v2 mainchain gateway (explorer label)"
+ },
+ "E11_eth": {
+  "event_id": "E11",
+  "leg": "Ethereum escrow (redemptions of the unbacked Solana mint)",
+  "chain": "ethereum",
+  "window_utc": [
+   "2022-02-02T18:00:00",
+   "2022-02-02T20:30:00"
+  ],
+  "custody": [
+   "0x3ee18B2214AFF97000D974cf647E7C347E8fa585"
+  ],
+  "native": "trace",
+  "basis": "Wormhole token bridge on Ethereum; recipient labelled by explorers and in press",
+  "selected_releases": [
+   [
+    14128237,
+    "WETH",
+    80000.0
+   ],
+   [
+    14128223,
+    "ETH",
+    10000.0
+   ],
+   [
+    14128261,
+    "ETH",
+    3750.0
+   ]
+  ]
+ },
+ "E14_eth": {
+  "event_id": "E14",
+  "leg": "Ethereum escrow",
+  "chain": "ethereum",
+  "window_utc": [
+   "2022-06-23T10:30:00",
+   "2022-06-23T12:30:00"
+  ],
+  "custody": [
+   "0x2dCCDB493827E15a5dC8f8b72147E6c4A5620857",
+   "0xF9Fb1c508Ff49F78b60d3A96dea99Fa5d7F3A8A6"
+  ],
+  "native": "trace",
+  "basis": "Horizon ERC20 manager and ETH manager; recipient as reported in press",
+  "selected_releases": [
+   [
+    15012652,
+    "USDC",
+    41200000.0
+   ],
+   [
+    15012654,
+    "WBTC",
+    592.0
+   ],
+   [
+    15012671,
+    "USDT",
+    9981000.0
+   ],
+   [
+    15012677,
+    "DAI",
+    6070000.0
+   ],
+   [
+    15012696,
+    "AAG",
+    84620000.0
+   ],
+   [
+    15012699,
+    "FXS",
+    110000.0
+   ],
+   [
+    15012701,
+    "SUSHI",
+    415000.0
+   ],
+   [
+    15012703,
+    "AAVE",
+    990.0
+   ],
+   [
+    15012706,
+    "WETH",
+    43.0
+   ],
+   [
+    15012721,
+    "FRAX",
+    5620000.0
+   ],
+   [
+    15012646,
+    "ETH",
+    13100.000000000002
+   ]
+  ]
+ },
+ "E05_eth": {
+  "event_id": "E05",
+  "leg": "Ethereum escrow",
+  "chain": "ethereum",
+  "window_utc": [
+   "2021-08-10T09:00:00",
+   "2021-08-10T11:30:00"
+  ],
+  "custody": [
+   "0x250e76987d838a75310c34bf422ea9f1AC4Cc906"
+  ],
+  "native": "trace",
+  "basis": "Poly Network LockProxy on Ethereum; recipient published by Poly Network",
+  "selected_releases": [
+   [
+    12996694,
+    "USDC",
+    96389444.229984
+   ],
+   [
+    12996698,
+    "WBTC",
+    1032.12483694
+   ],
+   [
+    12996704,
+    "DAI",
+    673227.9415331132
+   ],
+   [
+    12996706,
+    "UNI",
+    43023.75136539644
+   ],
+   [
+    12996730,
+    "SHIB",
+    259737345149.51978
+   ],
+   [
+    12996736,
+    "renBTC",
+    14.47265047
+   ],
+   [
+    12996766,
+    "USDT",
+    33431197.734821
+   ],
+   [
+    12996839,
+    "WETH",
+    26109.060672756732
+   ],
+   [
+    12996843,
+    "FEI",
+    616082.5899889603
+   ],
+   [
+    12996671,
+    "ETH",
+    2857.4863468458902
+   ]
+  ]
+ },
+ "E22_eth_ftm": {
+  "event_id": "E22",
+  "leg": "Ethereum escrow of the Fantom bridge",
+  "chain": "ethereum",
+  "window_utc": [
+   "2023-07-06T17:00:00",
+   "2023-07-07T06:00:00"
+  ],
+  "custody": [
+   "0xC564EE9f21Ed8A2d8E7e76c085740d5e4c5FaFbE"
+  ],
+  "min_usd": 500000,
+  "native": "trace",
+  "basis": "Multichain Fantom bridge MPC address on Ethereum (explorer label)",
+  "expand_to_recipients": true
+ },
+ "E24_eth": {
+  "event_id": "E24",
+  "leg": "Ethereum escrow",
+  "chain": "ethereum",
+  "window_utc": [
+   "2023-11-22T09:30:00",
+   "2023-11-22T11:00:00"
+  ],
+  "custody": [
+   "0xA929022c9107643515F5c777cE9a910F0D1e490C"
+  ],
+  "min_usd": 100000,
+  "native": "trace",
+  "basis": "HECO bridge on Ethereum (explorer label)",
+  "expand_to_recipients": true,
+  "price_alias": {
+   "0x0316eb71485b0ab14103307bf65a021042c6d380": "coingecko:bitcoin"
+  },
+  "notes": "HBTC has no DefiLlama price; valued at the BTC price (peg assumption)."
+ },
+ "E25_eth": {
+  "event_id": "E25",
+  "leg": "Ethereum escrow",
+  "chain": "ethereum",
+  "window_utc": [
+   "2023-12-31T20:30:00",
+   "2024-01-01T00:00:00"
+  ],
+  "custody": [
+   "0x1Bf68A9d1EaEe7826b3593C20a0ca93293cb489a"
+  ],
+  "min_usd": 100000,
+  "native": "trace",
+  "basis": "Orbit bridge ETH vault (explorer label)",
+  "expand_to_recipients": true
+ },
+ "E15_eth": {
+  "event_id": "E15",
+  "leg": "Ethereum escrow",
+  "chain": "ethereum",
+  "window_utc": [
+   "2022-08-01T21:00:00",
+   "2022-08-03T00:00:00"
+  ],
+  "custody": [
+   "0x88A69B4E698A4B090DF6CF5Bd7B2D47325Ad30A3"
+  ],
+  "classify": {
+   "type": "replica_selector",
+   "replica": "0x5D94309E5a0090b165FA4181519701637B6DAEBA",
+   "unauthorized_selectors": [
+    "0x928bc4b2"
+   ],
+   "authorized_selectors": [
+    "0x6188af0e"
+   ],
+   "replicas": [
+    "0x5D94309E5a0090b165FA4181519701637B6DAEBA",
+    "0x049b51e531fd8f90da6d92ea83dc4125002f20ef",
+    "0x5bae47bf29f4e9b1e275c0b427b84c4daa30033a",
+    "0xb92336759618f55bd0f8313bd843604592e27bd8"
+   ],
+   "replicas_note": "Replica proxies for several remote domains plus the shared implementation, read from traces of the 68 transactions the single-Replica run left unclassified (2026-10-16)"
+  },
+  "native": "none",
+  "basis": "Nomad BridgeRouter (escrow) and the Ethereum Replicas; process(bytes) without proof counts as unauthorized"
+ },
+ "E16_bsc": {
+  "event_id": "E16",
+  "leg": "BSC Token Hub (destination-side release)",
+  "chain": "bsc",
+  "hub": "0x0000000000000000000000000000000000001004",
+  "topic0": "0x471eb9cc1ffe55ffadf15b32595415eb9d80f22e761d24bd6dffc607e1284d59",
+  "topic0_note": "transferInSuccess(address,address,uint256); data words = (bep20Addr, refundAddr, amount); bep20Addr 0 = BNB",
+  "amount_wei": 1000000000000000000000000,
+  "block_from": 21955000,
+  "block_to": 21962150,
+  "halt_search_from": 21962140,
+  "halt_search_to": 21962155,
+  "bnb_usd": 293.33537373814215,
+  "bnb_usd_note": "DefiLlama coins API, coingecko:binancecoin at 1665080806 (first release), searchWidth 6h; 289.21 at the second release",
+  "basis": "BSC Token Hub system contract; the two 1,000,000 BNB transferInSuccess logs to one recipient found by scanning blocks 21,955,000-21,962,150 on 2026-10-16"
+ },
+ "E22_eth_movr": {
+  "event_id": "E22",
+  "chain": "ethereum",
+  "window_utc": [
+   "2023-07-06T16:00:00",
+   "2023-07-07T06:00:00"
+  ],
+  "native": "trace",
+  "leg": "Ethereum escrow of the Moonriver bridge",
+  "custody": [
+   "0x10c6b61dbf44a083aec3780acf769c77be747e23"
+  ],
+  "basis": "Multichain Moonriver bridge MPC address on Ethereum and the recipient, both from research batch_D onchain_refs (Etherscan labels)",
+  "selected_releases": [
+   [
+    17636967,
+    "USDC",
+    4830466.0
+   ],
+   [
+    17636975,
+    "USDT",
+    1042195.0
+   ],
+   [
+    17636987,
+    "DAI",
+    780080.0
+   ],
+   [
+    17637000,
+    "WBTC",
+    6.122
+   ]
+  ]
+ },
+ "E22_eth_doge": {
+  "event_id": "E22",
+  "chain": "ethereum",
+  "window_utc": [
+   "2023-07-06T16:00:00",
+   "2023-07-07T06:00:00"
+  ],
+  "native": "trace",
+  "leg": "Ethereum escrow of the Dogechain bridge",
+  "custody": [
+   "0x55f089d5f6aedfdacbd5e3acb0e8f31fbab44088"
+  ],
+  "basis": "Multichain Dogechain bridge MPC address on Ethereum and the recipient, both from research batch_D onchain_refs (Etherscan labels)",
+  "selected_releases": [
+   [
+    17637063,
+    "USDC",
+    666470.0
+   ]
+  ]
+ },
+ "E22_eth_ftm_tests": {
+  "event_id": "E22",
+  "chain": "ethereum",
+  "leg": "Ethereum escrow of the Fantom bridge, early window (preliminary transfers)",
+  "window_utc": [
+   "2023-07-06T16:00:00",
+   "2023-07-06T18:05:00"
+  ],
+  "native": "trace",
+  "custody": [
+   "0xC564EE9f21Ed8A2d8E7e76c085740d5e4c5FaFbE"
+  ],
+  "basis": "Same custody as E22_eth_ftm; recipients from research batch_D onchain_refs; checks for transfers before the first large release",
+  "selected_releases": [
+   [
+    17635954,
+    "USDC",
+    2.0
+   ]
+  ]
+ },
+ "E35_eth": {
+  "event_id": "E35",
+  "leg": "Ethereum escrow (rollup L1 contract)",
+  "chain": "ethereum",
+  "window_utc": [
+   "2025-07-09T13:00:00",
+   "2025-07-10T06:00:00"
+  ],
+  "custody": [
+   "0x8eca806aecc86ce90da803b080ca4e3a9b8097ad"
+  ],
+  "native": "trace",
+  "basis": "ZKSwap L1 contract and the initiating, intermediate and recipient addresses labelled on Etherscan (research batch_E onchain_refs, from Blockaid)",
+  "selected_releases": [
+   [
+    22882207,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882207,
+    "WBTC",
+    29.99
+   ],
+   [
+    22882212,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882212,
+    "USDT",
+    265044.0
+   ],
+   [
+    22882218,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882218,
+    "AAVE",
+    608.0
+   ],
+   [
+    22882230,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882230,
+    "USDC",
+    86796.0
+   ],
+   [
+    22882248,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882248,
+    "BUSD",
+    4056.9999999999995
+   ],
+   [
+    22882264,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882264,
+    "TRIBE",
+    179876.0
+   ],
+   [
+    22882269,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882274,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882274,
+    "DAI",
+    0.02287
+   ],
+   [
+    22882278,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882278,
+    "OKB",
+    0.00029
+   ],
+   [
+    22882281,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882281,
+    "GT",
+    82.9
+   ],
+   [
+    22882284,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882284,
+    "UNI",
+    110.0
+   ],
+   [
+    22882287,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882287,
+    "SHIB",
+    64265764.0
+   ],
+   [
+    22882297,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882297,
+    "gZKS",
+    7298643.621817
+   ],
+   [
+    22882299,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882299,
+    "XDEX",
+    70224.39743597506
+   ],
+   [
+    22882304,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882304,
+    "ZKS",
+    3788228.2518168758
+   ],
+   [
+    22882310,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882310,
+    "SHIB",
+    0.4324473788146271
+   ],
+   [
+    22882312,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882312,
+    "UNI",
+    0.9305465249791712
+   ],
+   [
+    22882314,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882314,
+    "GT",
+    0.08366913262016606
+   ],
+   [
+    22882316,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882316,
+    "OKB",
+    29.298574757291945
+   ],
+   [
+    22882319,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882319,
+    "DAI",
+    2287.3245647286176
+   ],
+   [
+    22882321,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882321,
+    "BUSD",
+    0.5365307141856829
+   ],
+   [
+    22882324,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882324,
+    "TRIBE",
+    0.007186616737625976
+   ],
+   [
+    22882327,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882327,
+    "USDC",
+    0.815421
+   ],
+   [
+    22882329,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882329,
+    "AAVE",
+    0.630632806629553
+   ],
+   [
+    22882331,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882331,
+    "WBTC",
+    0.00136703
+   ],
+   [
+    22882333,
+    "ZKS",
+    1000.0
+   ],
+   [
+    22882333,
+    "USDT",
+    0.680955
+   ],
+   [
+    22882269,
+    "ETH",
+    362.36559
+   ]
+  ]
+ },
+ "E23_inflow": {
+  "mode": "inflow",
+  "event_id": "E23",
+  "leg": "Releases from Mixin deposit addresses and hot wallets, read as inflows to the recipients",
+  "window_utc": [
+   "2023-09-22T23:30:00",
+   "2023-09-23T12:00:00"
+  ],
+  "legs": [
+   {
+    "chain": "ethereum",
+    "tokens_only": [
+     "0xdac17f958d2ee523a2206206994597c13d831ec7"
+    ],
+    "native": true,
+    "trace_step": 500
+   },
+   {
+    "chain": "bitcoin"
+   }
+  ],
+  "basis": "ETH, USDT and BTC recipient addresses from research batch_D onchain_refs (Etherscan, Blockscout, Rekt); USDT only on the token side so that swap proceeds are not counted",
+  "withheld": "recipient addresses withheld; this target cannot be rebuilt from the artifact"
+ },
+ "E47_inflow": {
+  "mode": "inflow",
+  "event_id": "E47",
+  "leg": "Releases from one THORChain vault, read as inflows to the recipient addresses",
+  "window_utc": [
+   "2026-05-15T06:00:00",
+   "2026-05-15T11:00:00"
+  ],
+  "legs": [
+   {
+    "chain": "ethereum",
+    "native": true,
+    "trace_step": 500,
+    "exclude_tokens": [
+     "0x2b764a5a8e4f3b88f5a6d189c1898947fb0bb93c"
+    ],
+    "exclude_tokens_note": "unpriced look-alike token with symbol ETH emitting a Transfer from the vault address"
+   },
+   {
+    "chain": "bitcoin"
+   }
+  ],
+  "basis": "Recipient addresses per chain from research batch_F onchain_refs (Rekt, QuillAudits); senders inspected before selection",
+  "note": "Base leg (one release of 55,912 USDC at 07:29:23 UTC, research batch_F) not re-read: public Base RPCs refused eth_getLogs on 2026-10-16. BSC and Avalanche legs not measured (public RPC limits). Dogecoin, Litecoin, Bitcoin Cash, XRP and TRON legs not measured.",
+  "withheld": "recipient addresses withheld; this target cannot be rebuilt from the artifact"
+ }
+}

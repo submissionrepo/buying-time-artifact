@@ -1,0 +1,14 @@
+id,failure,rule_in_force,prediction,outcome
+E55,Taiko (2026),"ether quota of 1,000 a day, 999 used before",at most 297 ether by the last release (41.7 an hour),278 ether (94%); assets without a quota in full
+E30,Ronin (2024),"review above 4,000 ether or 2M USDC; daily cap","at most 4,397 ether and 2.48M USDC","3,996 ether (91%), 2.00M USDC (80%)"
+E31,Poly Network Neo (2024),a fifth of the backing in the releasing contract,at most that contract's balance,ended when it was empty
+E15,Nomad (2022),30-minute window on new message roots,a hold in a skipped stage holds nothing,root accepted at initialization
+E47,THORChain (2026),halt of the verifiers' signing,a halt there misses key-signed releases,key-signed releases went on
+E17,QANplatform (2022),cap per transaction for each signer,a cap the failing key controls is absent,cap set to the maximum
+E02,ChainSwap (2021),quota per signer,a cap per message does not bound the total,"1,136 releases in 35 minutes"
+E63,Maya Protocol (2026),delay for large outbound transfers,a delay by size holds nothing below it,no outbound was delayed
+E59,AFX Trade (2026),200-second dispute window,a cliff holds nothing after its deadline,elapsed unchallenged
+E53,Aztec 2.0 (2026),escape window of 48 minutes in 16 hours,an open window without a cap holds nothing,all releases in an open window
+E69,NEAR Intents (2026),outlier monitor that pauses,an alarm alone saves what is left,paused after the last release
+E37,Shibarium (2025),halt on inconsistent checkpoints,an alarm alone saves what is left,halted after both releases
+E65,Nomic on Osmosis (2026),static cap on a pool's share,a cap whose room returns lets all out,18 of 40.65 on day one; the rest later

@@ -1,0 +1,9 @@
+row,section_page,name,date_in_paper,amount_in_paper,date_from_refs,our_id,class,note
+1,§3.1.1 p.10,PolyNetwork bridge,none given,none given,Aug 2021 (refs [19][20] BlockSec 2021),E05,,
+2,§3.2.1 p.14,Polygon/Matic Ethereum-Plasma bridge,none given,"none (""detected and patched ... before any harm could be done"")",Oct 2021 (ref [21] Immunefi 2021),none,below 1M,zero released; bug-bounty disclosure; not in DL
+3,§3.3.1 p.16,Meter bridge,none given,none given,Feb 2022 (ref [23] ChainSafe 2022),E12,,
+4,§4.1.1 p.20,Wormhole bridge,none given,"about 120,000 Ether ... about $323 million USD",Feb 2022 (ref [24]),E11,,
+5,§5.1.1 p.22,pNetwork pBTC-on-BSC,none given,none given,Sep 2021 (ref [25] pNetwork 2021),E06,,
+6,§5.2.1 p.24,Short-term 51% attack on the source chain,n/a,"n/a (""This exploit has not yet been executed (on Ethereum)."")",n/a,none,unclear,hypothetical; no incident
+7,§6.1.1 p.27,Multichain (formerly AnySwap),none given,"none (finders awarded a $1,000,000 USD bounty)",Jan 2022 (ref [31] Dedaub 2022),E09,in universe left out,our reason: user WETH approvals
+8,§6.2.1 p.31,Polygon Bridge Zap (Zapper),none given,"none (""no significant loss of funds from the bridge"")",Jun 2021 (ref [33] Zapper post-mortem 2021),none,below 1M,zero loss after whitehat rescue; user-approval contract of an aggregator; not in DL

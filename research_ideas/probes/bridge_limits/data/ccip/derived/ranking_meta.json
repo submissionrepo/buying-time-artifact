@@ -1,0 +1,21 @@
+{
+ "window_utc": [
+  "2026-01-15T05:19:05+00:00",
+  "2026-10-15T15:58:28+00:00"
+ ],
+ "n_token_lanes": 2720,
+ "total_usd_rank_value": 13471203518.534946,
+ "n_transfers_global": 568444,
+ "n_transfers_unpriced": 15477,
+ "coin_of": {
+  "token-152": "price-01",
+  "token-209": "price-02",
+  "token-089": "price-03",
+  "token-038": "price-04",
+  "token-274": "price-05",
+  "token-087": "price-06",
+  "token-266": "price-07",
+  "token-250": "price-08",
+  "token-114": "price-09"
+ }
+}

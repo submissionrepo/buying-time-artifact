@@ -1,0 +1,36 @@
+row,name,date,loss_musd,chains,subtype,our_id,class,note
+1,Poly Network,Aug-10-2021,600,Ethereum,V1 Unchecked intermediary permission,E05,,
+2,Plasma,Oct-05-2021,850,Polygon,V2 Misused proof permission,none,below 1M,zero released: paper p.314 says no loss; bug-bounty disclosure; not in DL
+3,Binance Bridge,Oct-06-2022,566,Bnb,V2 Misused proof permission,E16,,
+4,Multichain,Jan-18-2022,3,Ethereum,V3 Problematic approval permission,E09,in universe left out,our reason: user WETH approvals
+5,LI.FI,May-20-2022,0.6,Ethereum,V3 Problematic approval permission,none,below 1M,DL LI.FI 2022-03-21 600000 Token Approval Abuse bridgeHack=False; paper month differs
+6,Rubic,Dec-25-2022,1.4,Ethereum,V3 Problematic approval permission,E20,in universe left out,our reason: user token approvals
+7,Socket Protocol,Jan-16-2024,3.3,Ethereum,V3 Problematic approval permission,E26,in universe left out,our reason: user token approvals
+8,ChainSwap,Jul-10-2021,8,Ethereum,V4 Invalid signature permission,E02,,amount 8M vs ours 4.4M
+9,Wormhole,Feb-02-2022,320,"Solana, Ethereum",V4 Invalid signature permission,E11,,
+10,Multichain,Feb-15-2023,0.1,Ethereum,V4 Invalid signature permission,none,below 1M,DL Multichain 2023-02-15 130000 bridgeHack=True
+11,Ronin Network,Mar-29-2022,625,Ethereum,V5 Leaked key permission,E13,,paper uses disclosure date; ours 2022-03-23
+12,WonderHero,Apr-07-2022,0.3,Bnb,V5 Leaked key permission,none,below 1M,DL WonderHero 2022-04-07 320000 Hot Wallet Key bridgeHack=False
+13,Horizon Bridge,Jun-24-2022,100,"Ethereum, Bnb",V5 Leaked key permission,E14,,
+14,QAN Platform Bridge,Oct-11-2022,2,"Ethereum, Bnb",V5 Leaked key permission,E17,,
+15,Rubic,Nov-02-2022,1.2,Ethereum,V5 Leaked key permission,E18,,
+16,pNetwork,Nov-04-2022,108,Bnb,V5 Leaked key permission,E19,in universe left out,our reason: operator's own unbacked mint (pGALA)
+17,Poly Network,Jul-01-2023,10.2,Ethereum,V5 Leaked key permission,E21,,
+18,Multichain,Jul-06-2023,126,Ethereum et al.,V5 Leaked key permission,E22,,
+19,Heco Bridge,Nov-22-2023,86.28,Ethereum,V5 Leaked key permission,E24,,
+20,Orbit Bridge,Dec-31-2023,82,Ethereum,V5 Leaked key permission,E25,,
+21,Polkabridge,Nov-22-2021,0.6,Ethereum,V6 Incorrect balance logic,none,below 1M,not in DL
+22,Poolz Finance,Mar-15-2023,0.6,"Ethereum, Bnb, Polygon",V6 Incorrect balance logic,none,below 1M,DL Poolz Network 2023-03-15 390000 Arithmetic Error bridgeHack=False; appendix p.316 dates it May-15-2023
+23,Nomad,Aug-02-2022,190,"Ethereum, Moonbeam",V7 Inaccurate initialization logic,E15,,
+24,Allbridge,Apr-01-2023,0.57,Bnb,V7 Inaccurate initialization logic,none,below 1M,DL Allbridge Core 2023-04-02 573000 bridgeHack=True
+25,Hypr OP Stack Bridge,Dec-13-2023,0.22,Ethereum,V7 Inaccurate initialization logic,none,below 1M,not in DL
+26,Qubit,Jan-27-2022,80,"Ethereum, Bnb",V8 Incorrect event emission,E10,,
+27,Meter.io,Feb-05-2022,4.2,"Ethereum, Bnb, Moonriver",V8 Incorrect event emission,E12,,
+28,Omni,Sep-16-2022,4.2,Ethereum PoW,V8 Incorrect event emission,none,below 1M,not in DL; replay on the EthereumPoW fork (paper p.316) releasing about 200 ETHW
+29,THORChain,Jun-29-2021,0.35,THORChain,V9 Fake event emission,none,below 1M,DL THORChain DEX 2021-06-29 350000 bridgeHack=True
+30,THORChain,Jul-16-2021,8,THORChain,V9 Fake event emission,E03,,amount 8M vs ours 5M; date 1 day later
+31,THORChain,Jul-23-2021,8,THORChain,V9 Fake event emission,E04,,
+32,pNetwork,Sep-19-2021,13,Bnb,V9 Fake event emission,E06,,
+33,Cennznet,May-08-2022,0.4,Ethereum,V9 Fake event emission,none,below 1M,not in DL
+34,EVODeFi,Mar-22-2022,0.3,Bnb,V10 Front-end phishing,none,below 1M,not in DL for 2022
+35,Celer cBridge,Aug-17-2022,0.2,Ethereum,V10 Front-end phishing,none,below 1M,DL Celer cBridge 2022-08-18 240000 DNS Hijack bridgeHack=True

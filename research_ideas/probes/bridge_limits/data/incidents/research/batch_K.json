@@ -1,0 +1,2233 @@
+{
+ "batch": "K",
+ "generated_utc": "2026-10-16T01:12:29Z",
+ "events": [
+  {
+   "event_id": "E29",
+   "dl_name": "LiFi Finance",
+   "dl_date": "2024-07-16",
+   "scope": {
+    "value": "approval_outflow",
+    "note": "Stablecoins left 153 user wallets that had granted infinite token approvals to the LI.FI aggregator contract (diamond); a facet added that morning forwarded caller-supplied call data without its whitelist check, so the contract spent standing approvals. No bridge escrow, liquidity pool or mint was involved. LI.FI names Ethereum and Arbitrum; DefiLlama's chain list (zkSync Era, Linea, Metis) does not match the on-chain record or LI.FI's report. Not a duplicate of DefiLlama's separate 2022-03-21 'LI.FI' record (an earlier approval outflow of about 0.6M).",
+    "sources": [
+     {
+      "url": "https://li.fi/knowledge-hub/incident-report-16th-july",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "the vulnerability was limited to infinite approvals and did not affect finite approvals"
+     },
+     {
+      "url": "https://li.fi/knowledge-hub/incident-report-16th-july",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "In all other facets of the LI.FI contract, these calls are validated against a whitelist of approved contract addresses and functions."
+     },
+     {
+      "url": "https://forklog.com/en/li-fi-reveals-details-of-11-6-million-hack/amp",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The attack occurred on the Ethereum and Arbitrum networks, affecting 153 wallets."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2024-07-16",
+    "sources": [
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC (rpc.mevblocker.io): block 20318954, timestamp 2024-07-16T12:04:47Z, USDT Transfer of 5,383.52 to the recipient address (converted by me)"
+     },
+     {
+      "url": "https://x.com/CyversAlerts/status/1813189059449102352",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "More than $8M have been drained so far from users and mostly stablecoins!"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 11600000,
+    "range": "8M-11.75M USD. LI.FI: about 11.6M from 153 wallets. On-chain sum (mine) of stablecoins moved through the flaw: about 11.75M, of which 9.70M on Ethereum and 0.16M on Arbitrum to the main recipient address, 1.80M USDC to a second address, and about 0.09M to two further addresses. QuillAudits 9.7M (main recipient on Ethereum: 6,335,889 USDT, 3,191,914 USDC, 169,533 DAI) matches DefiLlama's 9.73M. Early estimates: 8M (Cyvers, PeckShield, Decurity), 8.7M held by the recipient (CertiK), 9M (The Block), 11M (CoinDesk update).",
+    "sources": [
+     {
+      "url": "https://li.fi/knowledge-hub/incident-report-16th-july",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The total amount stolen is estimated to be around $11.6 million."
+     },
+     {
+      "url": "https://www.quillaudits.com/blog/hack-analysis/lifi-protocol-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The exploit led to the loss of approximately $9.7 Million in various stablecoins and other assets at the time of writing."
+     },
+     {
+      "url": "https://x.com/CertiKAlert/status/1813189183533383713",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The wallet is currently holding $8.7m worth of assets"
+     },
+     {
+      "url": "https://coindesk.com/business/2024/07/16/defi-protocol-lifi-struck-by-8m-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Initially the amount was tallied at $8 million"
+     },
+     {
+      "url": "https://etherscan.io/address/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC eth_getLogs, Transfer to the recipient address on 2024-07-16: 139 transfers in 14 transactions, USDT 6,335,888.62 + USDC 3,191,913.58 + DAI 169,533.15 (summed by me)"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "O",
+    "phrase": "Aggregator facet made unvalidated calls with user approvals; value left user wallets, not bridge custody.",
+    "sources": [
+     {
+      "url": "https://x.com/DecurityHQ/status/1813195945477087718",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The root cause is a possibility of an arbitrary call with user controlled data via `depositToGasZipERC20()` in GasZipFacet"
+     },
+     {
+      "url": "https://li.fi/knowledge-hub/incident-report-16th-july",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "caused by an individual human error in overseeing the deployment process, in the case of the new facet, this validation check was missing."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "other",
+    "share_note": "All value came from user wallets via approvals. Ethereum about 98.6% (about 11.59M of 11.75M summed on-chain), Arbitrum about 1.4% (163,038 USDC and USDC.e in one transaction). By recipient: main recipient address 9.86M (both chains), second address 1.80M USDC (one Ethereum transaction at 12:20:11 UTC, swapped to ETH at 18:17:59 UTC), an MEV-bot contract 84,697 (USDC and USDT, swapped in the same transactions) and a fourth address 2,431.",
+    "chains": [
+     "Ethereum",
+     "Arbitrum"
+    ],
+    "sources": [
+     {
+      "url": "https://li.fi/knowledge-hub/incident-report-16th-july",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "impacting 153 wallets"
+     },
+     {
+      "url": "https://arbiscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Arbitrum RPC: block 232810993, 2024-07-16T12:50:23Z, 14 USDC/USDC.e transfers to the recipient address totalling 163,038.30 (summed by me)"
+     },
+     {
+      "url": "https://www.quillaudits.com/blog/hack-analysis/lifi-protocol-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Example attack transaction hashes: [redacted] , [redacted]"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2024-07-16T12:04:47Z",
+    "last_release_utc": "2024-07-16T12:50:47Z",
+    "duration_min": 46.0,
+    "release_tx_count": 20,
+    "count_note": "Counted on Ethereum and Arbitrum: transactions in which the LI.FI contract moved user tokens under approvals (identified by the contract's AssetSwapped events naming a token contract as the call target). Ethereum 19: 14 by the main recipient from 12:04:47 to 12:39:59 UTC (the first moved 5,383.52 USDT, 108 s before a 2,276,295.88 USDT transfer; the largest, at 12:09:11, moved 4.69M in 10 transfers), one 1,804,301.34 USDC transfer to a second address at 12:20:11, two by an MEV-bot contract at 12:11:47 (84,561.22 USDC) and 12:13:35 (135.54 USDT), and two by a fourth address at 12:50:11 and 12:50:47 (1,325.41 USDC, 1,105.19 USDT). Arbitrum 1: 12:50:23 UTC, 14 transfers, 163,038.30. The facet had been added to the contract at 10:03:23 UTC (Ethereum) and 10:10:55 UTC (Arbitrum), about two hours before the first release. BlockSec counts 'nearly one hundred transactions', apparently individual transfers (139 on Ethereum to the main recipient).",
+    "sources": [
+     {
+      "url": "https://blocksec.com/blog/illicit-fund-flow-case-study-lifi-attack-metasleuth",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "the attacker initiated nearly one hundred transactions exploiting the arbitrary call vulnerability"
+     },
+     {
+      "url": "https://etherscan.io/address/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC eth_getLogs (diamond, AssetSwapped topic 0x7bfdfdb5…, blocks 20315348-20322521): 144 events with USDC/USDT/DAI as call target in 19 transactions, 12:04:47Z to 12:50:47Z (converted by me)"
+     },
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: DiamondCut log in block 20318349 (2024-07-16T10:03:23Z), action Add, facet 0xf28a3523…, 5 selectors (decoded by me)"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2024-07-16T13:41:20Z",
+    "channel": "X (@lifiprotocol)",
+    "note": "Time from status ID 1813207291778215955 (linked by CryptoPotato; created_at in the X syndication record). Earliest LI.FI post found; about 61 min after the last release and 49 min after the on-chain removal of the facet. A spokesman's email statement (CoinDesk update at 19:41 UTC) said the facet was disabled. The post-mortem was published 2024-07-18.",
+    "sources": [
+     {
+      "url": "https://x.com/lifiprotocol/status/1813207291778215955",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Please do not interact with any LI.FI powered applications for now! We're investigating a potential exploit."
+     },
+     {
+      "url": "https://coindesk.com/business/2024/07/16/defi-protocol-lifi-struck-by-8m-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "A smart contract exploit earlier today has been contained and the affected smart contract facet disabled,"
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2024-07-16T12:28:53Z",
+    "by": "Cyvers (@CyversAlerts)",
+    "channel": "X",
+    "note": "Time from status ID 1813189059449102352, during the outflow (24 min after the first release). Next: CertiK at 12:29:23 UTC (status 1813189183533383713), Decurity at 12:56:15 UTC (status 1813195945477087718), PeckShield at 13:12:22 UTC (status 1813200000438137250).",
+    "sources": [
+     {
+      "url": "https://x.com/CyversAlerts/status/1813189059449102352",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Our system has raised suspicious transactions involving your"
+     },
+     {
+      "url": "https://x.com/CertiKAlert/status/1813189183533383713",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Our alerting system has flagged multiple suspicious transactions involving EOA [redacted]"
+     },
+     {
+      "url": "https://x.com/peckshield/status/1813200000438137250",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": ".@lifiprotocol has been drained of ~$8M. Do NOT interact with any LI[.]FI powered applications."
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2024-07-16T12:52:23Z",
+    "basis": "onchain",
+    "what": "The five selectors of the vulnerable facet removed from the LI.FI contract (diamondCut, action Remove): Ethereum block 20,319,191 at 12:52:23 UTC, Arbitrum block 232,812,784 at 12:57:50 UTC",
+    "by": "LI.FI (the diamond's owner contract; same sender that had added the facet)",
+    "note": "About 47.6 min after the first release on Ethereum and 1.6 min after the last; on Arbitrum 7.5 min after the single release. LI.FI says it disabled the facet on all chains and asked users not to use LI.FI-powered apps; QuillAudits reports LI.FI tweeted full operation again at 10:56:27 UTC on 17 July. The disable preceded LI.FI's first public post.",
+    "sources": [
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: DiamondCut log in block 20319191 (2024-07-16T12:52:23Z), facet 0x0, action 2 (Remove), selectors 0xba956b9a 0xb78e6e40 0x3c36bac1 0x3d86ea87 0x867372e4 (decoded by me)"
+     },
+     {
+      "url": "https://arbiscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Arbitrum RPC: DiamondCut log in block 232812784 (2024-07-16T12:57:50Z), action 2 (Remove), same 5 selectors (decoded by me)"
+     },
+     {
+      "url": "https://li.fi/knowledge-hub/incident-report-16th-july",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "successfully disabling the vulnerable facet across all chains"
+     },
+     {
+      "url": "https://www.quillaudits.com/blog/hack-analysis/lifi-protocol-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "On UTC 10:56:27, 17th July, LiFi Protocol tweeted that they are fully operational again."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No rate or volume limit on the aggregator contract is mentioned. Exposure per wallet was bounded only by the wallet's approval: finite approvals (LI.FI's default) were not affected, infinite approvals were drained.",
+    "sources": [
+     {
+      "url": "https://li.fi/knowledge-hub/incident-report-16th-july",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "the default setting within the LI.FI API, SDK, and widget"
+     },
+     {
+      "url": "https://li.fi/knowledge-hub/incident-report-16th-july",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "the vulnerability was limited to infinite approvals and did not affect finite approvals"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "none reported",
+    "date": null,
+    "note": "No return or seizure found. BlockSec (22 Oct 2024): nearly all funds from the main recipient went through Tornado Cash over about three months. The 1.80M USDC taken by the second address was swapped to ETH on Uniswap V2 at 18:17:59 UTC the same day. LI.FI said it was evaluating options to compensate affected users; no completed reimbursement found.",
+    "sources": [
+     {
+      "url": "https://blocksec.com/blog/illicit-fund-flow-case-study-lifi-attack-metasleuth",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "nearly all of the illicit funds have been transferred to Tornado Cash"
+     },
+     {
+      "url": "https://li.fi/knowledge-hub/incident-report-16th-july",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "evaluating options to fully compensate affected users"
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2024-07-16T12:04:47Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 5383.52,
+     "asset": "USDT",
+     "usd": null,
+     "basis": "block timestamp via public RPC; Transfer logs summed by me"
+    },
+    {
+     "utc": "2024-07-16T12:06:35Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 2276295.88,
+     "asset": "USDT",
+     "usd": null,
+     "basis": "block timestamp via public RPC; Transfer logs summed by me"
+    },
+    {
+     "utc": "2024-07-16T12:09:11Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 4686181.48,
+     "asset": "USD stablecoins: USDT and USDC (10 transfers)",
+     "usd": null,
+     "basis": "block timestamp via public RPC; Transfer logs summed by me"
+    },
+    {
+     "utc": "2024-07-16T12:10:35Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 864636.31,
+     "asset": "USD stablecoins: DAI, USDC, USDT (9 transfers)",
+     "usd": null,
+     "basis": "block timestamp via public RPC; Transfer logs summed by me"
+    },
+    {
+     "utc": "2024-07-16T12:11:35Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 416995.87,
+     "asset": "USD stablecoins: USDT and USDC (8 transfers)",
+     "usd": null,
+     "basis": "block timestamp via public RPC; Transfer logs summed by me"
+    },
+    {
+     "utc": "2024-07-16T12:11:47Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 84561.22,
+     "asset": "USDC (MEV-bot contract)",
+     "usd": null,
+     "basis": "block timestamp via public RPC; Transfer logs summed by me"
+    },
+    {
+     "utc": "2024-07-16T12:12:47Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 294620.04,
+     "asset": "USD stablecoins: USDT and USDC (9 transfers)",
+     "usd": null,
+     "basis": "block timestamp via public RPC; Transfer logs summed by me"
+    },
+    {
+     "utc": "2024-07-16T12:13:35Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 135.54,
+     "asset": "USDT (MEV-bot contract)",
+     "usd": null,
+     "basis": "block timestamp via public RPC; Transfer logs summed by me"
+    },
+    {
+     "utc": "2024-07-16T12:16:47Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 160662.49,
+     "asset": "USD stablecoins: USDC (8 transfers)",
+     "usd": null,
+     "basis": "block timestamp via public RPC; Transfer logs summed by me"
+    },
+    {
+     "utc": "2024-07-16T12:20:11Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 1804301.34,
+     "asset": "USDC (second address)",
+     "usd": null,
+     "basis": "block timestamp via public RPC; Transfer logs summed by me"
+    },
+    {
+     "utc": "2024-07-16T12:21:23Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 153711.33,
+     "asset": "USD stablecoins: USDT and USDC (9 transfers)",
+     "usd": null,
+     "basis": "block timestamp via public RPC; Transfer logs summed by me"
+    },
+    {
+     "utc": "2024-07-16T12:22:35Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 101699.79,
+     "asset": "USD stablecoins: USDC and USDT (7 transfers)",
+     "usd": null,
+     "basis": "block timestamp via public RPC; Transfer logs summed by me"
+    },
+    {
+     "utc": "2024-07-16T12:32:11Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 150526.32,
+     "asset": "USD stablecoins: USDT and USDC (9 transfers)",
+     "usd": null,
+     "basis": "block timestamp via public RPC; Transfer logs summed by me"
+    },
+    {
+     "utc": "2024-07-16T12:34:47Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 121924.76,
+     "asset": "USD stablecoins: USDT and USDC (10 transfers)",
+     "usd": null,
+     "basis": "block timestamp via public RPC; Transfer logs summed by me"
+    },
+    {
+     "utc": "2024-07-16T12:36:35Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 182618.6,
+     "asset": "USD stablecoins: USDC and USDT (19 transfers)",
+     "usd": null,
+     "basis": "block timestamp via public RPC; Transfer logs summed by me"
+    },
+    {
+     "utc": "2024-07-16T12:38:47Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 151343.49,
+     "asset": "USD stablecoins: USDT and USDC (17 transfers)",
+     "usd": null,
+     "basis": "block timestamp via public RPC; Transfer logs summed by me"
+    },
+    {
+     "utc": "2024-07-16T12:39:59Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 130735.47,
+     "asset": "USD stablecoins: USDC and USDT (22 transfers)",
+     "usd": null,
+     "basis": "block timestamp via public RPC; Transfer logs summed by me"
+    },
+    {
+     "utc": "2024-07-16T12:50:11Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 1325.41,
+     "asset": "USDC (fourth address)",
+     "usd": null,
+     "basis": "block timestamp via public RPC; Transfer logs summed by me"
+    },
+    {
+     "utc": "2024-07-16T12:50:23Z",
+     "chain": "Arbitrum",
+     "side": "other",
+     "amount_native": 163038.3,
+     "asset": "USD stablecoins: USDC and USDC.e (14 transfers)",
+     "usd": null,
+     "basis": "block timestamp via public RPC; Transfer logs summed by me"
+    },
+    {
+     "utc": "2024-07-16T12:50:47Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 1105.19,
+     "asset": "USDT (fourth address)",
+     "usd": null,
+     "basis": "block timestamp via public RPC; Transfer logs summed by me"
+    }
+   ],
+   "open_questions": "(1) Whether the second address (1.80M USDC) and the two smaller users of the flaw are linked to the main recipient; LI.FI's 11.6M total appears to include the 1.80M. (2) Whether LI.FI posted on another channel before 13:41 UTC. (3) Whether affected users were reimbursed. (4) Basis of DefiLlama's chain list (zkSync Era, Linea, Metis): no transfers were checked on those chains; LI.FI's report names only Ethereum and Arbitrum. (5) Classification: O because the outflow was from approvals, not from bridge custody; DefiLlama labels it 'Token Approval Abuse'."
+  },
+  {
+   "event_id": "E31",
+   "dl_name": "PolyNetwork",
+   "dl_date": "2024-08-12",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "A distinct event occurred: Poly Network's Neo N3 route (used by Flamingo Finance's f- and p-assets) was exploited on 11 Aug 2024 UTC (12 Aug in Asian time zones). The Neo N3 cross-chain manager contract (CCMC; Flamingo writes 'CMCC') executed each inbound message ten times and released Neo N3 assets from the bridge's pre-allocated supply; the initiating party bridged them back and drained the Ethereum-side lock proxy, with further requests to BSC and another Poly-connected chain. Not a duplicate of DefiLlama's 2023-07-02 'Poly Network' record (E21, also 5M; key-based forgery) or of the 2021-08-10 record (E05). Poly Network made no public statement; it had suspended new deployments in April 2024 and terminated all services on 30 Sep 2024.",
+    "sources": [
+     {
+      "url": "https://medium.com/flamingo-finance/poly-network-bridge-exploit-and-the-asset-support-initiative-c80c636255bb",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "On August 12, 2024, a smart contract exploit occurred on the Poly Network CMCC contract."
+     },
+     {
+      "url": "https://neonewstoday.com/general/poly-network-exploit-causes-pause-on-flamingo-finance-cross-chain-features/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Poly Network has not made a statement about the current incident"
+     },
+     {
+      "url": "https://neonewstoday.com/development/poly-network-announces-complete-termination-of-all-services/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Poly Bridge cross-chain and other services will be shut down effective Sep 30, 2024."
+     },
+     {
+      "url": "https://mainnet1.neo.coz.io:443",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Neo N3 getapplicationlog 0x8cc6a68a…18d1 (block 5,844,307, 2024-08-11T17:22:14Z): 10 CrossChainUnlockEvent from contract 'CCMC' 0x5ba6c543…fab9 and 10 UnlockEvent from 'Proxy' for one 0.1 WETH deposit (read by me)"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2024-08-11",
+    "sources": [
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: first release from the lock proxy in block 20506953, timestamp 2024-08-11T17:46:59Z, 40 XWETH (converted by me)"
+     },
+     {
+      "url": "https://cryptonews.com/news/flamingo-finance-shares-post-mortem-for-5m-poly-network-exploit-and-recovery-efforts/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The incident, which occurred on August 12, 2024, resulted in the theft of approximately $5 million in assets"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 4500000,
+    "range": "2.8M-5M USD. Flamingo: about 4-5M in total; the party then held about 2.9M in ETH, WETH and WBTC plus 0.2M in BNB. Cryptonews: about 5M; Neo News Today (Sep): over 3M. On-chain (my computation, DefiLlama coin prices at 2024-08-11T20:00Z): Ethereum releases 590 WETH, 1,168,460 USDT, 17.6 WBTC = about 3.75M gross, about 2.84M net of the party's own deposits (135.1 WETH, 310,000 USDT, 4.31 WBTC). Nominal unbacked Neo N3 claims released (nine tenths of 1,351 fWETH, 3.1M fUSDT, 43.1 fWBTC, 2,210 fBNB, 330,000 pONT): about 9.3M.",
+    "sources": [
+     {
+      "url": "https://medium.com/flamingo-finance/poly-network-bridge-exploit-and-the-asset-support-initiative-c80c636255bb",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The hacker exploited the Poly Network CMCC contract for around $4–5 million USD in total."
+     },
+     {
+      "url": "https://neonewstoday.com/general/poly-network-exploit-causes-pause-on-flamingo-finance-cross-chain-features/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the hacker currently has approximately US $2.9 million in ETH, wETH, and wBTC, and $200,000 in BNB"
+     },
+     {
+      "url": "https://etherscan.io/address/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC eth_getLogs (lock proxy, blocks 20501655-20523148): 26 UnlockEvent to the recipient, 590 XWETH, 1,168,460 XUSDT, 17.6 XWBTC; 16 LockEvent from the same party, 135.1 XWETH, 310,000 XUSDT, 4.31 XWBTC (summed by me)"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "Neo N3 cross-chain manager executed each valid inbound message ten times; the excess claims were redeemed against the lock proxies.",
+    "sources": [
+     {
+      "url": "https://mainnet1.neo.coz.io:443",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Neo N3 getnep17transfers: the recipient contract received ten equal transfers per inbound message in 20 transactions, 17:22:14Z-21:56:31Z (e.g. 10 x 0.1 fWETH for the 0.1 WETH lock at 16:56:23Z on Ethereum)"
+     },
+     {
+      "url": "https://medium.com/flamingo-finance/poly-network-bridge-exploit-and-the-asset-support-initiative-c80c636255bb",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "On August 12, 2024, a smart contract exploit occurred on the Poly Network CMCC contract."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "both",
+    "share_note": "Unbacked release on Neo N3 (pre-allocated f- and p-asset supply held by the bridge Proxy): 20 inbound messages from the party's own deposits (16 from Ethereum, 3 from BSC worth 221 BNB, 1 of 33,000 ONT from another Poly-connected chain) each paid out ten times. Redemption against escrow: Ethereum lock proxy 590 WETH, 1,168,460 USDT, 17.6 WBTC (its balances fell from 455.30 XWETH, 858,462.94 XUSDT and 13.37 XWBTC to 0.40, 0.94 and 0.07); requested but not read on chain: 526.9 fBNB to BSC and 363,000 pONT to the other chain. The rest of the f-assets was sold into Flamingo pools on Neo N3. Flamingo: the party took about 20-25% of all cross-chain asset funds, the amount held in the bridge's hot wallets; cross-chain f- and p-assets traded at about 75-80% of their underlying afterwards.",
+    "chains": [
+     "Neo N3",
+     "Ethereum",
+     "BSC"
+    ],
+    "sources": [
+     {
+      "url": "https://medium.com/flamingo-finance/poly-network-bridge-exploit-and-the-asset-support-initiative-c80c636255bb",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "the hacker was able to take what was available in the hot wallet (~20–25% of funds)"
+     },
+     {
+      "url": "https://etherscan.io/token/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC balanceOf(lock proxy) for 'CROSS FLAMINCOME Wrapped Ether': 455.304542 at block 20501655, 0.404542 at block 20523148 (read by me)"
+     },
+     {
+      "url": "https://mainnet1.neo.coz.io:443",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Neo N3 Proxy LockEvent in 0xf7a64424…2e33: toChainId 6, native asset, toAddress 0xb46c916c…299b, 20 BNB (decoded by me)"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2024-08-11T17:46:59Z",
+    "last_release_utc": "2024-08-11T23:55:59Z",
+    "duration_min": 369.0,
+    "release_tx_count": 26,
+    "count_note": "Counted: Ethereum lock-proxy UnlockEvents paying the recipient (16 WETH, 6 USDT, 4 WBTC), each relayed by the recipient itself through the token wrappers. Preliminary: the party wrapped 9 ETH at 16:37:11 and locked 0.1 WETH toward Neo N3 at 16:56:23 UTC; the first tenfold payout on Neo N3 followed at 17:22:14 UTC. Neo N3 tenfold payouts: 20 transactions, 17:22:14-21:56:31 UTC (blocks 5,844,307-5,845,317). Two outbound requests from Neo N3 (269.4 fWETH at 18:49:39 and 130 fWETH at 18:57:49 UTC) were never executed on Ethereum; afterwards WETH left in pieces of at most 30. Three small releases to other addresses (0.01 WBTC at 22:22:35, 0.0001 WBTC at 00:20:59, 2 USDT at 04:45:59 on 12 Aug) look like ordinary users and are not counted. BSC and the third chain were not read.",
+    "sources": [
+     {
+      "url": "https://etherscan.io/address/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: UnlockEvent to the recipient from 2024-08-11T17:46:59Z (block 20506953) to 2024-08-11T23:55:59Z (block 20508793) (converted by me)"
+     },
+     {
+      "url": "https://eth.drpc.org",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "trace_filter fromAddress = recipient, blocks 20506500-20509000: 51 top-level transactions, none reverted; WETH deposit of 9 ETH at 16:37:11Z (read by me)"
+     },
+     {
+      "url": "https://mainnet1.neo.coz.io:443",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Neo N3 getnep17transfers for the recipient account: outbound locks of 269.4 fWETH (18:49:39Z) and 130 fWETH (18:57:49Z) with no matching Ethereum release (read by me)"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2024-08-12T21:04:20Z",
+    "channel": "X (@FlamingoFinance)",
+    "note": "Time from status ID 1823103247269367920 (linked by Neo News Today; created_at in the X syndication record). Flamingo, the application whose assets used the route, says it announced on Discord and X 'later that day'. No statement by Poly Network, the bridge operator, was found; Flamingo's post-mortem followed on 20 Aug. About 27 h after the last Ethereum release.",
+    "sources": [
+     {
+      "url": "https://x.com/FlamingoFinance/status/1823103247269367920",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "A smart contract exploit occurred on the PolyNetwork CMCC contract earlier today."
+     },
+     {
+      "url": "https://medium.com/flamingo-finance/poly-network-bridge-exploit-and-the-asset-support-initiative-c80c636255bb",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "We announced this on our discord and on X later that day."
+     }
+    ]
+   },
+   "first_alert": null,
+   "pause": {
+    "utc": "2024-08-12T21:04:20Z",
+    "basis": "announcement",
+    "what": "Cross-chain bridge on Neo N3 stopped; Poly Network suspended its Neo N3 cross-chain services",
+    "by": "Poly Network (suspension), announced by Flamingo",
+    "note": "Upper bound from Flamingo's post. On chain, the Ethereum lock proxy was drained to near zero by 23:55:59 UTC on 11 Aug, which ended releases there; the last Neo N3-origin message executed on Ethereum was at 04:45:59 UTC and the Neo N3 Proxy last accepted a deposit at 06:43:49 UTC on 12 Aug. No pause event on the Ethereum cross-chain manager through 14 Aug 00:00 UTC. Poly terminated all services on 30 Sep 2024.",
+    "sources": [
+     {
+      "url": "https://x.com/FlamingoFinance/status/1823103247269367920",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Because of the incident, the cross-chain bridge on Flamingo has been stopped."
+     },
+     {
+      "url": "https://neonewstoday.com/general/poly-network-exploit-causes-pause-on-flamingo-finance-cross-chain-features/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Poly Network has temporarily suspended its cross-chain services in response to an exploit"
+     },
+     {
+      "url": "https://mainnet1.neo.coz.io:443",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Neo N3 getnep17transfers for the Proxy: last transfer 2024-08-12T06:43:49Z, none until 2024-09-19 (read by me)"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "yes",
+    "acted": "yes",
+    "how": "Hot/cold split: the lock proxies held only a hot portion of the backing (about 20-25% per Flamingo); the outflow ended when the Ethereum lock proxy was empty. Per-transaction caps, lock-up delays and daily limits announced by Poly in Dec 2023 were described as planned; no evidence they were in force.",
+    "sources": [
+     {
+      "url": "https://medium.com/flamingo-finance/poly-network-bridge-exploit-and-the-asset-support-initiative-c80c636255bb",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Luckily, the hacker could not take everything."
+     },
+     {
+      "url": "https://polynetwork.medium.com/poly-bridge-cross-chain-security-reinforcement-solution-86b8c9abecbc",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "Set the maximum cross-chain amount for each token per transaction"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": null,
+    "native": "none returned; eight addresses frozen on Neo N3 (amount not stated)",
+    "date": null,
+    "note": "The Neo Council froze eight addresses of the party, four of which appear to be exchange deposit addresses. A bounty was offered in an Ethereum message; no response by 20 Aug. Flamingo's Asset Support Initiative (40M FLOCKS over two years, covering 50% of holders' de-peg losses) is reimbursement by the application, not recovery.",
+    "sources": [
+     {
+      "url": "https://neonewstoday.com/general/poly-network-exploit-causes-pause-on-flamingo-finance-cross-chain-features/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Eight addresses belonging to the attacker have been frozen by the Neo Council"
+     },
+     {
+      "url": "https://medium.com/flamingo-finance/poly-network-bridge-exploit-and-the-asset-support-initiative-c80c636255bb",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "A bounty has been offered via a message on the Ethereum network. The hacker has not responded to the message."
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2024-08-11T17:22:14Z",
+     "chain": "Neo N3",
+     "side": "mint",
+     "amount_native": 1.0,
+     "asset": "fWETH released from the Neo N3 Proxy's pre-allocated supply (ten times the deposit; nine tenths unbacked)",
+     "usd": null,
+     "basis": "getnep17transfers and application log, Neo N3 block 5844307 (neo-go RPC)"
+    },
+    {
+     "utc": "2024-08-11T17:42:53Z",
+     "chain": "Neo N3",
+     "side": "mint",
+     "amount_native": 50.0,
+     "asset": "fWETH released from the Neo N3 Proxy's pre-allocated supply (ten times the deposit; nine tenths unbacked)",
+     "usd": null,
+     "basis": "getnep17transfers and application log, Neo N3 block 5844384 (neo-go RPC)"
+    },
+    {
+     "utc": "2024-08-11T17:46:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 40.0,
+     "asset": "WETH (via XWETH wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20506953, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T18:06:20Z",
+     "chain": "Neo N3",
+     "side": "mint",
+     "amount_native": 200.0,
+     "asset": "fWETH released from the Neo N3 Proxy's pre-allocated supply (ten times the deposit; nine tenths unbacked)",
+     "usd": null,
+     "basis": "getnep17transfers and application log, Neo N3 block 5844471 (neo-go RPC)"
+    },
+    {
+     "utc": "2024-08-11T18:12:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 125.0,
+     "asset": "WETH (via XWETH wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20507082, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T18:19:05Z",
+     "chain": "Neo N3",
+     "side": "mint",
+     "amount_native": 100000.0,
+     "asset": "fUSDT released from the Neo N3 Proxy's pre-allocated supply (ten times the deposit; nine tenths unbacked)",
+     "usd": null,
+     "basis": "getnep17transfers and application log, Neo N3 block 5844518 (neo-go RPC)"
+    },
+    {
+     "utc": "2024-08-11T18:23:23Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 100000.0,
+     "asset": "USDT (via XUSDT wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20507134, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T18:25:29Z",
+     "chain": "Neo N3",
+     "side": "mint",
+     "amount_native": 2.1,
+     "asset": "fWBTC released from the Neo N3 Proxy's pre-allocated supply (ten times the deposit; nine tenths unbacked)",
+     "usd": null,
+     "basis": "getnep17transfers and application log, Neo N3 block 5844542 (neo-go RPC)"
+    },
+    {
+     "utc": "2024-08-11T18:29:23Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 2.1,
+     "asset": "WBTC (via XWBTC wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20507164, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T18:44:21Z",
+     "chain": "Neo N3",
+     "side": "mint",
+     "amount_native": 400.0,
+     "asset": "fWETH released from the Neo N3 Proxy's pre-allocated supply (ten times the deposit; nine tenths unbacked)",
+     "usd": null,
+     "basis": "getnep17transfers and application log, Neo N3 block 5844612 (neo-go RPC)"
+    },
+    {
+     "utc": "2024-08-11T18:44:54Z",
+     "chain": "Neo N3",
+     "side": "mint",
+     "amount_native": 1000000.0,
+     "asset": "fUSDT released from the Neo N3 Proxy's pre-allocated supply (ten times the deposit; nine tenths unbacked)",
+     "usd": null,
+     "basis": "getnep17transfers and application log, Neo N3 block 5844614 (neo-go RPC)"
+    },
+    {
+     "utc": "2024-08-11T18:48:47Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 86.0,
+     "asset": "WETH (via XWETH wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20507261, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T18:58:47Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 480000.0,
+     "asset": "USDT (via XUSDT wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20507311, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T19:03:46Z",
+     "chain": "Neo N3",
+     "side": "mint",
+     "amount_native": 21.0,
+     "asset": "fWBTC released from the Neo N3 Proxy's pre-allocated supply (ten times the deposit; nine tenths unbacked)",
+     "usd": null,
+     "basis": "getnep17transfers and application log, Neo N3 block 5844684 (neo-go RPC)"
+    },
+    {
+     "utc": "2024-08-11T19:06:11Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 350000.0,
+     "asset": "USDT (via XUSDT wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20507348, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T19:12:11Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 13.0,
+     "asset": "WBTC (via XWBTC wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20507378, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T19:28:59Z",
+     "chain": "Neo N3",
+     "side": "mint",
+     "amount_native": 100.0,
+     "asset": "fWETH released from the Neo N3 Proxy's pre-allocated supply (ten times the deposit; nine tenths unbacked)",
+     "usd": null,
+     "basis": "getnep17transfers and application log, Neo N3 block 5844778 (neo-go RPC)"
+    },
+    {
+     "utc": "2024-08-11T19:36:23Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 20.0,
+     "asset": "WETH (via XWETH wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20507499, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T19:52:47Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 30.0,
+     "asset": "WETH (via XWETH wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20507581, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T19:55:23Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 30.0,
+     "asset": "WETH (via XWETH wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20507593, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T19:57:11Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 20.0,
+     "asset": "WETH (via XWETH wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20507602, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T20:20:37Z",
+     "chain": "Neo N3",
+     "side": "mint",
+     "amount_native": 200.0,
+     "asset": "fWETH released from the Neo N3 Proxy's pre-allocated supply (ten times the deposit; nine tenths unbacked)",
+     "usd": null,
+     "basis": "getnep17transfers and application log, Neo N3 block 5844966 (neo-go RPC)"
+    },
+    {
+     "utc": "2024-08-11T20:22:33Z",
+     "chain": "Neo N3",
+     "side": "mint",
+     "amount_native": 210.0,
+     "asset": "fBNB released from the Neo N3 Proxy's pre-allocated supply (ten times the deposit; nine tenths unbacked)",
+     "usd": null,
+     "basis": "getnep17transfers and application log, Neo N3 block 5844973 (neo-go RPC)"
+    },
+    {
+     "utc": "2024-08-11T20:23:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 30.0,
+     "asset": "WETH (via XWETH wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20507736, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T20:26:11Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 30.0,
+     "asset": "WETH (via XWETH wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20507747, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T20:28:35Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 30.0,
+     "asset": "WETH (via XWETH wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20507759, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T20:30:11Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 30.0,
+     "asset": "WETH (via XWETH wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20507767, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T20:31:23Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 30.0,
+     "asset": "WETH (via XWETH wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20507773, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T20:33:23Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 29.0,
+     "asset": "WETH (via XWETH wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20507783, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T20:36:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 20.0,
+     "asset": "WETH (via XWETH wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20507801, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T20:52:35Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 1.5,
+     "asset": "WBTC (via XWBTC wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20507878, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T20:58:44Z",
+     "chain": "Neo N3",
+     "side": "mint",
+     "amount_native": 200.0,
+     "asset": "fWETH released from the Neo N3 Proxy's pre-allocated supply (ten times the deposit; nine tenths unbacked)",
+     "usd": null,
+     "basis": "getnep17transfers and application log, Neo N3 block 5845105 (neo-go RPC)"
+    },
+    {
+     "utc": "2024-08-11T20:59:17Z",
+     "chain": "Neo N3",
+     "side": "mint",
+     "amount_native": 10.0,
+     "asset": "fWBTC released from the Neo N3 Proxy's pre-allocated supply (ten times the deposit; nine tenths unbacked)",
+     "usd": null,
+     "basis": "getnep17transfers and application log, Neo N3 block 5845107 (neo-go RPC)"
+    },
+    {
+     "utc": "2024-08-11T21:05:14Z",
+     "chain": "Neo N3",
+     "side": "mint",
+     "amount_native": 1000000.0,
+     "asset": "fUSDT released from the Neo N3 Proxy's pre-allocated supply (ten times the deposit; nine tenths unbacked)",
+     "usd": null,
+     "basis": "getnep17transfers and application log, Neo N3 block 5845129 (neo-go RPC)"
+    },
+    {
+     "utc": "2024-08-11T21:14:15Z",
+     "chain": "Neo N3",
+     "side": "mint",
+     "amount_native": 330000.0,
+     "asset": "pONT released from the Neo N3 Proxy's pre-allocated supply (ten times the deposit; nine tenths unbacked)",
+     "usd": null,
+     "basis": "getnep17transfers and application log, Neo N3 block 5845160 (neo-go RPC)"
+    },
+    {
+     "utc": "2024-08-11T21:21:49Z",
+     "chain": "Neo N3",
+     "side": "mint",
+     "amount_native": 1000.0,
+     "asset": "fBNB released from the Neo N3 Proxy's pre-allocated supply (ten times the deposit; nine tenths unbacked)",
+     "usd": null,
+     "basis": "getnep17transfers and application log, Neo N3 block 5845188 (neo-go RPC)"
+    },
+    {
+     "utc": "2024-08-11T21:25:47Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 20.0,
+     "asset": "WETH (via XWETH wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20508043, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T21:30:35Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 130000.0,
+     "asset": "USDT (via XUSDT wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20508067, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T21:38:33Z",
+     "chain": "Neo N3",
+     "side": "mint",
+     "amount_native": 1000.0,
+     "asset": "fBNB released from the Neo N3 Proxy's pre-allocated supply (ten times the deposit; nine tenths unbacked)",
+     "usd": null,
+     "basis": "getnep17transfers and application log, Neo N3 block 5845250 (neo-go RPC)"
+    },
+    {
+     "utc": "2024-08-11T21:46:47Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 100000.0,
+     "asset": "USDT (via XUSDT wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20508148, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T21:48:47Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 1.0,
+     "asset": "WBTC (via XWBTC wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20508158, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T21:49:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 20.0,
+     "asset": "WETH (via XWETH wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20508164, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-08-11T21:50:05Z",
+     "chain": "Neo N3",
+     "side": "mint",
+     "amount_native": 200.0,
+     "asset": "fWETH released from the Neo N3 Proxy's pre-allocated supply (ten times the deposit; nine tenths unbacked)",
+     "usd": null,
+     "basis": "getnep17transfers and application log, Neo N3 block 5845293 (neo-go RPC)"
+    },
+    {
+     "utc": "2024-08-11T21:50:22Z",
+     "chain": "Neo N3",
+     "side": "mint",
+     "amount_native": 10.0,
+     "asset": "fWBTC released from the Neo N3 Proxy's pre-allocated supply (ten times the deposit; nine tenths unbacked)",
+     "usd": null,
+     "basis": "getnep17transfers and application log, Neo N3 block 5845294 (neo-go RPC)"
+    },
+    {
+     "utc": "2024-08-11T21:56:31Z",
+     "chain": "Neo N3",
+     "side": "mint",
+     "amount_native": 1000000.0,
+     "asset": "fUSDT released from the Neo N3 Proxy's pre-allocated supply (ten times the deposit; nine tenths unbacked)",
+     "usd": null,
+     "basis": "getnep17transfers and application log, Neo N3 block 5845317 (neo-go RPC)"
+    },
+    {
+     "utc": "2024-08-11T23:55:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 8460.0,
+     "asset": "USDT (via XUSDT wrapper)",
+     "usd": null,
+     "basis": "UnlockEvent of the lock proxy, block 20508793, timestamp via public RPC"
+    }
+   ],
+   "open_questions": "(1) Why the CCMC executed each message ten times (replay check, re-entrancy through the recipient contract or another flaw); no technical post-mortem from Poly Network found. (2) BSC and third-chain releases (526.9 fBNB and 363,000 pONT requested) were not read on chain; Flamingo puts the BNB held at about 0.2M. (3) Why the 269.4 and 130 fWETH requests were never executed on Ethereum (no proof produced, relayer or Poly-chain control, or the party's choice). (4) Time of the Neo Council freeze and value frozen. (5) Whether any third party alerted before Flamingo; none found. (6) Value extracted from Flamingo pools by selling f-assets on Neo N3 is not separated in public figures."
+  },
+  {
+   "event_id": "E32",
+   "dl_name": "Fegex",
+   "dl_date": "2024-12-29",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "FEG (Feed Every Gorilla; DefiLlama lists it as 'Fegex') released FEG tokens from its own SmartBridge custody contract on Ethereum, Base and BSC after its relayer accepted cross-chain messages, carried over Wormhole, from an unauthorized source contract. The released FEG was sold into FEG/ETH and FEG/BNB pools (token price down about 99%). Wormhole's own contracts were not affected. DefiLlama's 1.07M matches the first public report (Docryt).",
+    "sources": [
+     {
+      "url": "https://www.certik.com/resources/blog/feg-bridge-exploit-technical-analysis",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "an error in the FEG cross-chain message verification process, which is unrelated to the Wormhole protocol"
+     },
+     {
+      "url": "https://x.com/0xDocryt/status/1873260103358660907",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Total profit is over 1,070,000$. Protocol paused by team"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2024-12-29",
+    "sources": [
+     {
+      "url": "https://www.certik.com/resources/blog/feg-bridge-exploit-technical-analysis",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "On December 29, 2024 at 5:00 AM UTC, the FEG token bridge system was exploited"
+     },
+     {
+      "url": "https://bscscan.com/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "BSC RPC (bsc-dataseed.bnbchain.org): block 45290116, timestamp 2024-12-29T05:51:22Z, 45,715,693,242.63 FEG from the SmartBridge (converted by me)"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 1070000,
+    "range": "0.9M-1.3M USD (Phalcon: over 0.9M; Docryt/DefiLlama: over 1.07M; CertiK: about 1M; Halborn: 1.3M). Proceeds per CertiK and Cyvers: 96.3 ETH (Ethereum), 73.3 ETH (Base), 712 BNB (BSC); at 2024-12-29T05:51Z prices (ETH 3,382, BNB 712; DefiLlama coins API) about 1.08M (my computation).",
+    "sources": [
+     {
+      "url": "https://x.com/Phalcon_xyz/status/1873634026444968034",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "resulting in losses exceeding $900K"
+     },
+     {
+      "url": "https://www.certik.com/resources/blog/feg-bridge-exploit-technical-analysis",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The total profit for the attacker is approximately $1 million USD."
+     },
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-feed-every-gorilla-feg-hack-december-2024",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "the attacker stole approximately $1.3 million in assets from the project’s bridge contract"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "Bridge relayer accepted messages from an unauthorized source that whitelisted the party and registered withdrawals.",
+    "sources": [
+     {
+      "url": "https://www.certik.com/resources/blog/feg-bridge-exploit-technical-analysis",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "the relayer updates the whitelist to include the \"sourceAddress\" without verifying if the address can be trusted."
+     },
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-feed-every-gorilla-feg-hack-december-2024",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "this relayer doesn’t validate that the source address of a Wormhole bridge message is authorized to trigger a withdrawal registration"
+     },
+     {
+      "url": "https://x.com/peckshield/status/1873786831868756036",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "the hacker creates a fake deposit message"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "All value left the SmartBridge's FEG holdings, one withdrawal per chain, then was sold for native tokens. By proceeds at release-time prices (my computation): BSC about 47% (712 BNB), Ethereum about 30% (96.3 ETH), Base about 23% (73.3 ETH). FEG released: 45,715,693,242.6 (BSC), 57,532,022,461.5 (Ethereum), 95,809,472,542.1 (Base).",
+    "chains": [
+     "BSC",
+     "Ethereum",
+     "Base"
+    ],
+    "sources": [
+     {
+      "url": "https://www.certik.com/resources/blog/feg-bridge-exploit-technical-analysis",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Purpose: malicious message, set withdrawable token amount to 45,715,693,242 FEG Tokens."
+     },
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: block 21506154, 2024-12-29T05:51:35Z, FEG Transfer 57,532,022,461.47 from the SmartBridge to the party's contract (converted by me)"
+     },
+     {
+      "url": "https://basescan.org/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Base RPC: block 24331067, 2024-12-29T05:51:21Z, FEG Transfer 95,809,472,542.07 from the SmartBridge (converted by me)"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "BSC",
+    "first_release_utc": "2024-12-29T05:51:22Z",
+    "last_release_utc": "2024-12-29T05:51:22Z",
+    "duration_min": 0,
+    "release_tx_count": 3,
+    "count_note": "Counted: SmartBridge withdrawals, one per chain: Base 05:51:21 (block 24,331,067), BSC 05:51:22 (block 45,290,116), Ethereum 05:51:35 UTC (block 21,506,154); each swapped part of the FEG in the same transaction. The two forged messages were published on Base at 05:02:03 and 05:02:57 UTC, delivered on BSC at 05:02:07 and 05:03:10 UTC and registered by the Ethereum SmartBridge at 05:02:11 and 05:03:11 UTC; withdrawals followed about 49 minutes later. Cyvers says the party's contract was deployed about 19 h before its 10:57 UTC alert.",
+    "sources": [
+     {
+      "url": "https://www.certik.com/resources/blog/feg-bridge-exploit-technical-analysis",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The attacker published two messages from the source chain (Base) to the destination Chain (BSC)."
+     },
+     {
+      "url": "https://basescan.org/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Base RPC: Message_01 in block 24329588 at 2024-12-29T05:02:03Z; Message_02 in block 24329615 at 05:02:57Z (converted by me)"
+     },
+     {
+      "url": "https://etherscan.io/address/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC eth_getLogs (SmartBridge, 2024-12-28 12:00Z to 12-30 00:00Z): two events at 05:02:11Z and 05:03:11Z naming the admin address and the party's contract (read by me)"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2024-12-29T07:12:50Z",
+    "channel": "X (@FEGtoken)",
+    "note": "Time from status ID 1873265905867866294 ('Update on Irregular Transactions and Investigation'; exchanges asked to halt trading, SmartDeFi protocol suspended). Its title suggests an earlier team communication, not found; a third party reported 'Protocol paused by team' at 06:49:46 UTC. About 81 min after the releases. FEG's Telegram announcement channel has no post between 26 and 31 Dec.",
+    "sources": [
+     {
+      "url": "https://x.com/FEGtoken/status/1873265905867866294",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "FEGrox is actively investigating the irregular transactions and has engaged PeckShield for additional support in uncovering the root cause."
+     },
+     {
+      "url": "https://www.bitget.com/news/detail/12560604457798",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "SmartDeFi protocol has been suspended as a preventive measure"
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2024-12-29T06:49:46Z",
+    "by": "Docryt (@0xDocryt, independent analyst)",
+    "channel": "X",
+    "note": "Time from status ID 1873260103358660907, about 58 min after the releases. Later: Cyvers 10:57:47 UTC (status 1873322518594900130), Phalcon 2024-12-30T07:35:36Z, PeckShield 2024-12-30T17:42:48Z.",
+    "sources": [
+     {
+      "url": "https://x.com/0xDocryt/status/1873260103358660907",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Looks like @FEGtoken has been hacked. Price has dropped by 99%."
+     },
+     {
+      "url": "https://x.com/CyversAlerts/status/1873322518594900130",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The attacker deployed a malicious contract approximately 19 hours ago."
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2024-12-29T06:49:46Z",
+    "basis": "announcement",
+    "what": "FEG's SmartDeFi protocol (token trading) suspended; exchanges asked to halt trading; the bridge was later disabled on chain",
+    "by": "FEG team",
+    "note": "Upper bound from the first public report of the pause (Docryt, third party); FEG's own post at 07:12:50 UTC. On Ethereum the last FEG token transfer was at 06:09:59 UTC (block 21,506,245) and none followed through 30 Dec 00:00 UTC, consistent with a halt between 06:10 and 06:49 UTC; no pause event was emitted by the SmartBridge or the token. The on-chain disabling of the bridge is mentioned in FEG's 3 Jan 2025 update without a time. Trading reopened on 19 Jan 2025.",
+    "sources": [
+     {
+      "url": "https://x.com/0xDocryt/status/1873260103358660907",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Protocol paused by team"
+     },
+     {
+      "url": "https://t.me/s/fegtoken/624",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "His work in disabling the bridge on-chain to prevent further issues has been critical in stabilizing the ecosystem"
+     },
+     {
+      "url": "https://etherscan.io/token/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC eth_getLogs (FEG token, blocks 21506154-21511572): last Transfer in block 21506245 at 2024-12-29T06:09:59Z (read by me)"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions a cap, delay or rate limit; the only gate was the relayer's source whitelist, which the first message altered. Each chain's release was one withdrawal of tens of billions of FEG.",
+    "sources": [
+     {
+      "url": "https://www.certik.com/resources/blog/feg-bridge-exploit-technical-analysis",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The first message and transactions adds the attack contract to the FEG relayer's whitelist."
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": null,
+    "native": "none reported",
+    "date": null,
+    "note": "Proceeds went to Tornado Cash (CertiK). On 31 Dec 2024 FEG offered a 20% bounty in on-chain messages on all three chains; no return found. FEG's later 'recovering the backing' refers to its own token reserves, not recovery from the party.",
+    "sources": [
+     {
+      "url": "https://t.me/s/fegtoken/623",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "We'd like to offer a white hat bounty of 20% for funds being returned to our deployer"
+     },
+     {
+      "url": "https://www.certik.com/resources/blog/feg-bridge-exploit-technical-analysis",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Those tokens have been sent to TornadoCash."
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2024-12-29T05:51:21Z",
+     "chain": "Base",
+     "side": "escrow",
+     "amount_native": 95809472542.07,
+     "asset": "FEG",
+     "usd": null,
+     "basis": "SmartBridge Transfer log, block 24,331,067, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-12-29T05:51:22Z",
+     "chain": "BSC",
+     "side": "escrow",
+     "amount_native": 45715693242.63,
+     "asset": "FEG",
+     "usd": null,
+     "basis": "SmartBridge Transfer log, block 45,290,116, timestamp via public RPC"
+    },
+    {
+     "utc": "2024-12-29T05:51:35Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 57532022461.47,
+     "asset": "FEG",
+     "usd": null,
+     "basis": "SmartBridge Transfer log, block 21,506,154, timestamp via public RPC"
+    }
+   ],
+   "open_questions": "(1) Exact pause time and mechanism (SmartDeFi suspension; the bridge's on-chain disabling is undated). (2) FEG's first communication before the 07:12 UTC 'Update' post. (3) How the Ethereum and Base withdrawals were authorized (CertiK details only the Base-to-BSC messages; the Ethereum SmartBridge registered the same two messages at 05:02-05:03 UTC). (4) CertiK notes the relayer was funded from an address linked to an FEG deployer; nothing further is established. (5) Base and BSC token-transfer stops were not read on chain (public RPC limits)."
+  },
+  {
+   "event_id": "E40",
+   "dl_name": "Garden",
+   "dl_date": "2025-10-30",
+   "scope": {
+    "value": "bridge_liquidity_or_relayer",
+    "note": "Outflow from the wallets of one of Garden's largest independent solvers (its own inventory used to fill cross-chain BTC swaps), on several chains. Garden says its protocol contracts and user funds were not affected. Not a duplicate of DefiLlama's separate 2026-07-26 'Garden' record (about 0.45M, a different solver's off-chain database).",
+    "sources": [
+     {
+      "url": "https://x.com/gardenfi/status/1983949462507811095",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "the impact is limited to the solver’s own inventory — user funds and garden protocol are not at risk."
+     },
+     {
+      "url": "https://www.theblock.co/post/387636/garden-finance-shares-forensic-findings-security-breach-limited-to-solver-layer",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "drained approximately $11.4 million in crypto assets belonging to the solver across multiple blockchain networks"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2025-10-30",
+    "sources": [
+     {
+      "url": "https://basescan.org/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Base RPC: block 37518970, 2025-10-30T12:28:07Z, 13.31799677 cbBTC from the solver address to the recipient address (converted by me)"
+     },
+     {
+      "url": "https://t.me/s/investigations/282",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Garden Finance was likely exploited for $10.8M+ on multiple chains."
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 11400000,
+    "range": "10.8M-11.4M USD (ZachXBT 10.8M+; Garden's forensic summary 11.4M; DefiLlama 11.4M). EVM legs read on chain (native units): Base 13.318 cbBTC, 106,952 USDC, 0.25 ETH; Ethereum 333,466 USDC, 491,778 USDT, 0.057 WBTC, 1.597 cbBTC, 42,131 SEED, 4.9 ETH; Arbitrum 294,306 USDC, 10,201 USDT0, 2.99 IBTC, 1.81 WBTC, 208,136 SEED. Solana and Bitcoin legs not decoded.",
+    "sources": [
+     {
+      "url": "https://t.me/s/investigations/282",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Garden Finance was likely exploited for $10.8M+ on multiple chains."
+     },
+     {
+      "url": "https://www.theblock.co/post/387636/garden-finance-shares-forensic-findings-security-breach-limited-to-solver-layer",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "drained approximately $11.4 million in crypto assets belonging to the solver across multiple blockchain networks"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "V",
+    "phrase": "Solver's private key leaked from a compromised device; transfers out of its inventory carried valid signatures.",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/387636/garden-finance-shares-forensic-findings-security-breach-limited-to-solver-layer",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "The incident originated from a leaked private key on a compromised device."
+     },
+     {
+      "url": "https://www.theblock.co/post/387636/garden-finance-shares-forensic-findings-security-breach-limited-to-solver-layer",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "indicated suspicious access"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "other",
+    "share_note": "Value left the solver's own wallets (working capital for fills), not an escrow backing claims and not a mint. Per-chain USD shares not published; of the EVM legs read, Base carried the most (13.318 cbBTC). Solana activity at the recipient address starts at 12:28:06 UTC (not decoded).",
+    "chains": [
+     "Base",
+     "Ethereum",
+     "Arbitrum",
+     "Solana"
+    ],
+    "sources": [
+     {
+      "url": "https://x.com/gardenfi/status/1983949462507811095",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "we’ve detected a compromise involving one of garden’s solvers."
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": null,
+    "first_release_utc": "2025-10-30T12:28:07Z",
+    "last_release_utc": "2025-10-30T12:32:17Z",
+    "duration_min": 4.17,
+    "release_tx_count": 14,
+    "count_note": "Main chain unknown (Solana and Bitcoin legs not decoded); first and last times are across the EVM chains read, both on Base. Counted: direct transfers from the solver address to the recipient address: Base 3 (12:28:07 cbBTC, 12:28:53 USDC, 12:32:17 ETH), Ethereum 6 (12:28:35 USDC to 12:31:47 ETH), Arbitrum 5 (12:28:40 to 12:30:58 UTC). The solver's routine fills through a multicall contract continued in between (e.g. 12:29:59 UTC on Ethereum). Not counted: a direct 2.27 IBTC transfer from the solver to another address at 12:48:11 UTC on Ethereum (purpose unknown). The Solana recipient address shows 17 transactions from 12:28:06 to 12:32:13 UTC.",
+    "sources": [
+     {
+      "url": "https://base.drpc.org",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Base RPC: solver nonce 10035 -> 10038 between 12:20 and 13:00 UTC; three transactions to the recipient at 12:28:07Z, 12:28:53Z, 12:32:17Z (read by me)"
+     },
+     {
+      "url": "https://eth.drpc.org",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "trace_filter from the solver, blocks 23690000-23690700: transfers to the recipient 12:28:35Z-12:31:23Z and 4.9 ETH at 12:31:47Z (read by me)"
+     },
+     {
+      "url": "https://api.mainnet-beta.solana.com",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "getSignaturesForAddress for the Solana recipient: earliest signature at 2025-10-30T12:28:06Z (read by me)"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2025-10-30T17:29:46Z",
+    "channel": "X (@gardenfi)",
+    "note": "Time from status ID 1983949462507811095 (linked by Coin Republic); about 5 h after the outflow and 4 h after ZachXBT's alert. A team member posted at 17:40:49 UTC (status 1983952241578184907). Before that, a team-linked address had sent the recipient an on-chain message offering a 10% bounty (time not read).",
+    "sources": [
+     {
+      "url": "https://x.com/gardenfi/status/1983949462507811095",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "we’ve detected a compromise involving one of garden’s solvers."
+     },
+     {
+      "url": "https://www.thecoinrepublic.com/2025/10/31/garden-finance-goes-offline-after-11-million-exploit-as-zachxbt-links-exploit-to-team/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "a compromise involving one of garden's solvers."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2025-10-30T13:33:08Z",
+    "by": "ZachXBT",
+    "channel": "Telegram (t.me/investigations)",
+    "note": "About 61 min after the outflow; names the EVM and Solana recipient addresses and says freezeable assets were swapped quickly.",
+    "sources": [
+     {
+      "url": "https://t.me/s/investigations/282",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "All freezeable assets were quickly swapped."
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2025-10-30T17:29:46Z",
+    "basis": "announcement",
+    "what": "Garden app taken offline",
+    "by": "Garden",
+    "note": "Upper bound from Garden's first post. The outflow had ended about 5 h earlier; the compromised solver's EVM balances were emptied within minutes (e.g. its Ethereum ETH balance fell from 5.0 to about 0).",
+    "sources": [
+     {
+      "url": "https://x.com/gardenfi/status/1983949462507811095",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "the app is temporarily offline while we complete a full investigation."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions a limit; exposure was the solver's whole inventory, moved by the key holder in about four minutes on the EVM chains read.",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/387636/garden-finance-shares-forensic-findings-security-breach-limited-to-solver-layer",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "drained approximately $11.4 million in crypto assets belonging to the solver across multiple blockchain networks"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": null,
+    "native": "none reported",
+    "date": null,
+    "note": "A 10% on-chain bounty was offered on behalf of the solver; no return reported. ZachXBT: freezeable assets were swapped quickly.",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/387636/garden-finance-shares-forensic-findings-security-breach-limited-to-solver-layer",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "issued an on-chain whitehat bounty on behalf of the solver"
+     },
+     {
+      "url": "https://t.me/s/investigations/282",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "offering a 10% whitehat bounty"
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2025-10-30T12:28:07Z",
+     "chain": "Base",
+     "side": "other",
+     "amount_native": 13.31799677,
+     "asset": "cbBTC",
+     "usd": null,
+     "basis": "transaction receipt, block 37,518,970, public RPC"
+    },
+    {
+     "utc": "2025-10-30T12:28:35Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 333466.307703,
+     "asset": "USDC",
+     "usd": null,
+     "basis": "Transfer log, block 23,690,203, public RPC"
+    },
+    {
+     "utc": "2025-10-30T12:28:40Z",
+     "chain": "Arbitrum",
+     "side": "other",
+     "amount_native": 294306.406684,
+     "asset": "USDC",
+     "usd": null,
+     "basis": "Transfer log, block 394,976,040, public RPC"
+    },
+    {
+     "utc": "2025-10-30T12:28:53Z",
+     "chain": "Base",
+     "side": "other",
+     "amount_native": 106952.029897,
+     "asset": "USDC",
+     "usd": null,
+     "basis": "transaction receipt, block 37,518,993, public RPC"
+    },
+    {
+     "utc": "2025-10-30T12:29:23Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 491778.42297,
+     "asset": "USDT",
+     "usd": null,
+     "basis": "Transfer log, block 23,690,207, public RPC"
+    },
+    {
+     "utc": "2025-10-30T12:29:28Z",
+     "chain": "Arbitrum",
+     "side": "other",
+     "amount_native": 10201.283254,
+     "asset": "USDT0",
+     "usd": null,
+     "basis": "Transfer log, block 394,976,232, public RPC"
+    },
+    {
+     "utc": "2025-10-30T12:30:20Z",
+     "chain": "Arbitrum",
+     "side": "other",
+     "amount_native": 2.99249053,
+     "asset": "IBTC",
+     "usd": null,
+     "basis": "Transfer log, block 394,976,440, public RPC"
+    },
+    {
+     "utc": "2025-10-30T12:30:31Z",
+     "chain": "Arbitrum",
+     "side": "other",
+     "amount_native": 1.80856638,
+     "asset": "WBTC",
+     "usd": null,
+     "basis": "Transfer log, block 394,976,483, public RPC"
+    },
+    {
+     "utc": "2025-10-30T12:30:47Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 1.59717338,
+     "asset": "cbBTC",
+     "usd": null,
+     "basis": "Transfer log, block 23,690,214, public RPC"
+    },
+    {
+     "utc": "2025-10-30T12:30:47Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 0.05727843,
+     "asset": "WBTC",
+     "usd": null,
+     "basis": "Transfer log, block 23,690,214, public RPC"
+    },
+    {
+     "utc": "2025-10-30T12:30:58Z",
+     "chain": "Arbitrum",
+     "side": "other",
+     "amount_native": 208136.21,
+     "asset": "SEED",
+     "usd": null,
+     "basis": "Transfer log, block 394,976,592, public RPC"
+    },
+    {
+     "utc": "2025-10-30T12:31:23Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 42131.35,
+     "asset": "SEED",
+     "usd": null,
+     "basis": "Transfer log, block 23,690,217, public RPC"
+    },
+    {
+     "utc": "2025-10-30T12:31:47Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 4.9,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "trace_filter, block 23,690,219, public RPC"
+    },
+    {
+     "utc": "2025-10-30T12:32:17Z",
+     "chain": "Base",
+     "side": "other",
+     "amount_native": 0.25015226,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "transaction, block 37,519,095, public RPC"
+    }
+   ],
+   "open_questions": "(1) Solana and Bitcoin legs not decoded, so the main chain and the split of the 10.8-11.4M are unknown; the EVM legs read sum to roughly a third of the total at market prices (not computed exactly). (2) Whether the 2.27 IBTC transfer to another address at 12:48:11 UTC on Ethereum was part of the outflow. (3) Time of the on-chain bounty message and of the app going offline. (4) Classification: V because the solver's key signed the transfers; O is defensible since the solver is a liquidity provider, not a bridge verifier. (5) Web search budget was exhausted during this batch; no independent post-mortem with per-chain figures was retrieved."
+  },
+  {
+   "event_id": "E41",
+   "dl_name": "CrossCurve",
+   "dl_date": "2026-02-01",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "CrossCurve's PortalV2 bridge contract unlocked tokens after its Axelar receiver contract accepted spoofed cross-chain messages through the express-execution path; Axelar's core network was not reported affected. Ethereum first, then Arbitrum (Cantina, via search snippet).",
+    "sources": [
+     {
+      "url": "https://forklog.com/en/crosscurve-bridge-hacked-for-3-million/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "bypassing gateway validation and triggering unlock on PortalV2."
+     },
+     {
+      "url": "https://cantina.xyz/blog/crosscurve-bridge-hack-axelar-expressexecute",
+      "type": "third-party analysis",
+      "how_read": "search snippet",
+      "quote": "The first part of the attack happened on Ethereum Mainnet, followed by the same exploit targeting PortalV2 on Arbitrum"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-02-01",
+    "sources": [
+     {
+      "url": "https://forklog.com/en/crosscurve-bridge-hacked-for-3-million/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "On February 1, the team behind the cross-chain liquidity protocol CrossCurve reported a security breach."
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 3000000,
+    "range": "about 3M USD (Defimon Alerts; Arkham: pool balance from 3M to nearly zero); BlockSec gives a token figure of 999,787,453 EYWA released (search snippet).",
+    "sources": [
+     {
+      "url": "https://forklog.com/en/crosscurve-bridge-hacked-for-3-million/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the pool’s balance plummeted from $3 million to nearly zero."
+     },
+     {
+      "url": "https://forklog.com/en/crosscurve-bridge-hacked-for-3-million/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "has been exploited for around 3 million on several networks."
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "Receiver's express-execution path accepted spoofed messages without gateway validation; PortalV2 unlocked tokens.",
+    "sources": [
+     {
+      "url": "https://forklog.com/en/crosscurve-bridge-hacked-for-3-million/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "invoked the expressExecute function by sending spoofed cross-chain messages."
+     },
+     {
+      "url": "https://forklog.com/en/crosscurve-bridge-hacked-for-3-million/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "hackers bypassed the gateway verification in a smart contract named ReceiverAxelar."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "Releases from PortalV2 holdings on Ethereum and then Arbitrum (assets reported include EYWA and USDT0); per-chain shares not found.",
+    "chains": [
+     "Ethereum",
+     "Arbitrum"
+    ],
+    "sources": [
+     {
+      "url": "https://cantina.xyz/blog/crosscurve-bridge-hack-axelar-expressexecute",
+      "type": "third-party analysis",
+      "how_read": "search snippet",
+      "quote": "extracting many tokens including $EYWA and $USDT0"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": null,
+    "first_release_utc": null,
+    "last_release_utc": null,
+    "duration_min": null,
+    "release_tx_count": null,
+    "count_note": "Not read on chain. A search snippet of Cantina's analysis places the start at about 18:38 UTC on 1 Feb 2026 on Ethereum, followed by Arbitrum; transaction hashes and the PortalV2 addresses were not retrieved (web search budget exhausted; Cantina page returned 404 on direct fetch).",
+    "sources": [
+     {
+      "url": "https://cantina.xyz/blog/crosscurve-bridge-hack-axelar-expressexecute",
+      "type": "third-party analysis",
+      "how_read": "search snippet",
+      "quote": "exploited on February 1, 2026, at about 06:38 PM UTC"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": null,
+    "channel": "X (CrossCurve)",
+    "note": "CrossCurve's statement asking users to pause interactions was reported on 1 Feb; its time was not found.",
+    "sources": [
+     {
+      "url": "https://forklog.com/en/crosscurve-bridge-hacked-for-3-million/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Please pause all interactions with CrossCurve while the investigation is ongoing."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": null,
+    "by": "Defimon Alerts",
+    "channel": "X",
+    "note": "Named by Forklog as reporting the exploit; time not found.",
+    "sources": [
+     {
+      "url": "https://forklog.com/en/crosscurve-bridge-hacked-for-3-million/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "has been exploited for around 3 million on several networks."
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "basis": null,
+    "what": "Backend taken offline; router contracts on all networks being paused",
+    "by": "CrossCurve",
+    "note": "Reported by Cantina (search snippet); no time found.",
+    "sources": [
+     {
+      "url": "https://cantina.xyz/blog/crosscurve-bridge-hack-axelar-expressexecute",
+      "type": "third-party analysis",
+      "how_read": "search snippet",
+      "quote": "router contracts in all networks began to be put on pause"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source read mentions a cap, delay or rate limit; Arkham reports the pool balance fell to nearly zero.",
+    "sources": [
+     {
+      "url": "https://forklog.com/en/crosscurve-bridge-hacked-for-3-million/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the pool’s balance plummeted from $3 million to nearly zero."
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": null,
+    "native": "not found",
+    "date": null,
+    "note": "No source read reports a return, freeze or bounty outcome.",
+    "sources": []
+   },
+   "release_path": [],
+   "open_questions": "Release transactions, block times, per-chain amounts and contract addresses not retrieved (web search budget exhausted during the batch; Cantina's page 404 on direct fetch; BlockSec and Halborn analyses not read). Time of CrossCurve's first statement and of the router pauses. Any bounty, return or freeze. Whether a rate limit existed in PortalV2."
+  },
+  {
+   "event_id": "E42",
+   "dl_name": "IoTeX",
+   "dl_date": "2026-02-21",
+   "scope": {
+    "value": null,
+    "note": "Not researched: the web search budget was exhausted before this event was reached. DefiLlama classifies it as 'Key Compromise' / 'Validator Key Compromised', 4.4M on Ethereum (bridgeHack true); the affected component (likely IoTeX's bridge) is not verified.",
+    "sources": [
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\": \"IoTeX\", \"classification\": \"Key Compromise\", \"technique\": \"Validator Key Compromised\", \"amount\": 4400000"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": null,
+    "sources": []
+   },
+   "amount_usd": {
+    "value": null,
+    "range": "DefiLlama 4.4M (unverified)",
+    "sources": [
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"amount\": 4400000, \"chain\": [\"Ethereum\"]"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": null,
+    "phrase": null,
+    "sources": []
+   },
+   "release_side": {
+    "value": null,
+    "share_note": null,
+    "chains": [],
+    "sources": []
+   },
+   "outflow": {
+    "main_chain": null,
+    "first_release_utc": null,
+    "last_release_utc": null,
+    "duration_min": null,
+    "release_tx_count": null,
+    "count_note": "Not researched.",
+    "sources": []
+   },
+   "first_ack": {
+    "utc": null,
+    "channel": null,
+    "note": "Not researched.",
+    "sources": []
+   },
+   "first_alert": null,
+   "pause": {
+    "utc": null,
+    "basis": null,
+    "what": null,
+    "by": null,
+    "note": "Not researched.",
+    "sources": []
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "Not researched.",
+    "sources": []
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": null,
+    "native": null,
+    "date": null,
+    "note": "Not researched.",
+    "sources": []
+   },
+   "release_path": [],
+   "open_questions": "Everything beyond the DefiLlama record: event date and times, the affected component (bridge custody or mint), which keys were compromised, amounts per chain, first acknowledgment, pause, limits, returns. To be researched in a follow-up."
+  },
+  {
+   "event_id": "E43",
+   "dl_name": "FOOM Cash",
+   "dl_date": "2026-03-02",
+   "scope": {
+    "value": null,
+    "note": "Not determined: the web search budget was exhausted before this event was reached. DefiLlama classifies it under 'Bridge & Cross-Chain' with technique 'Forged Proof' but flags bridgeHack false, on Ethereum and Base; whether any bridge was involved is not established.",
+    "sources": [
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\": \"FOOM Cash\", \"classification\": \"Bridge & Cross-Chain\", \"technique\": \"Forged Proof\", \"amount\": 2260000, \"chain\": [\"Ethereum\", \"Base\"], \"bridgeHack\": false"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": null,
+    "sources": []
+   },
+   "amount_usd": {
+    "value": null,
+    "range": "DefiLlama 2.26M (unverified)",
+    "sources": [
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"amount\": 2260000"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": null,
+    "phrase": null,
+    "sources": []
+   },
+   "release_side": {
+    "value": null,
+    "share_note": null,
+    "chains": [],
+    "sources": []
+   },
+   "outflow": {
+    "main_chain": null,
+    "first_release_utc": null,
+    "last_release_utc": null,
+    "duration_min": null,
+    "release_tx_count": null,
+    "count_note": "Not researched.",
+    "sources": []
+   },
+   "first_ack": {
+    "utc": null,
+    "channel": null,
+    "note": "Not researched.",
+    "sources": []
+   },
+   "first_alert": null,
+   "pause": {
+    "utc": null,
+    "basis": null,
+    "what": null,
+    "by": null,
+    "note": "Not researched.",
+    "sources": []
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "Not researched.",
+    "sources": []
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": null,
+    "native": null,
+    "date": null,
+    "note": "Not researched.",
+    "sources": []
+   },
+   "release_path": [],
+   "open_questions": "Whether a bridge was involved at all (DefiLlama's bridgeHack flag is false; 'Forged Proof' may refer to a proof verifier outside any bridge). Event times, amounts per chain, acknowledgment, pause, returns. To be researched in a follow-up."
+  },
+  {
+   "event_id": "E44",
+   "dl_name": "Hyperbridge",
+   "dl_date": "2026-04-12",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "A forged cross-chain message passed Hyperbridge's proof verification (Merkle Mountain Range proof); the Token Gateway minted about 1 billion bridged DOT on Ethereum and escrowed assets were drained from Token Gateway. Base, Arbitrum and BNB Chain were also affected (Decrypt; the team first named only Ethereum). Native DOT on Polkadot was reported unaffected.",
+    "sources": [
+     {
+      "url": "https://decrypt.co/364588/polkadot-ethereum-bridge-hack-losses-10x-worse-team-admits",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "allowing the culprit to mint assets and drain escrowed assets on Token Gateway"
+     },
+     {
+      "url": "https://decrypt.co/364588/polkadot-ethereum-bridge-hack-losses-10x-worse-team-admits",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "About an hour later, a forged cross-chain message bypassed MMR proof verification"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": null,
+    "sources": []
+   },
+   "amount_usd": {
+    "value": 2500000,
+    "range": "Realized: 0.237M first estimate (proceeds of the minted DOT capped by pool liquidity at 108.2 ETH per Cointelegraph) to 2.5M revised (Hyperbridge, incl. about 245 ETH, about 0.561M, taken from a related Token Gateway contract hours before the mint); Verichains about 0.242M. Nominal: about 1 billion bridged DOT minted (Decrypt); a Hypernative analysis headline (not read) puts it at about 1.2B.",
+    "sources": [
+     {
+      "url": "https://decrypt.co/364588/polkadot-ethereum-bridge-hack-losses-10x-worse-team-admits",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the revised total realized loss is approximately $2.5 million."
+     },
+     {
+      "url": "https://decrypt.co/364588/polkadot-ethereum-bridge-hack-losses-10x-worse-team-admits",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Our initial public estimate of the realized loss was approximately $237,000."
+     },
+     {
+      "url": "https://cointelegraph.com/news/hacker-steals-237k-1b-bridged-dot-hyperbridge",
+      "type": "press",
+      "how_read": "search snippet",
+      "quote": "capped the proceeds at 108.2 Ether (ETH), worth around $237,000"
+     },
+     {
+      "url": "https://decrypt.co/364588/polkadot-ethereum-bridge-hack-losses-10x-worse-team-admits",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "1 billion bridged DOT"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "Forged message passed MMR proof verification (missing bounds check); Token Gateway minted and released on it.",
+    "sources": [
+     {
+      "url": "https://decrypt.co/364588/polkadot-ethereum-bridge-hack-losses-10x-worse-team-admits",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "a forged cross-chain message bypassed MMR proof verification"
+     },
+     {
+      "url": "https://blog.verichains.io/p/how-a-missing-bounds-check-led-to",
+      "type": "third-party analysis",
+      "how_read": "search snippet",
+      "quote": "How a Missing Bounds Check Led to $237K Exploit on Hyperbridge"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "both",
+    "share_note": "Unbacked mint of about 1 billion bridged DOT on Ethereum, realized by sale into thin pools (about 108.2 ETH); plus escrowed assets drained from Token Gateway (about 245 ETH from a related contract hours earlier). Base, Arbitrum and BNB Chain also affected; per-chain shares not found.",
+    "chains": [
+     "Ethereum",
+     "Base",
+     "Arbitrum",
+     "BSC"
+    ],
+    "sources": [
+     {
+      "url": "https://decrypt.co/364588/polkadot-ethereum-bridge-hack-losses-10x-worse-team-admits",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "allowing the culprit to mint assets and drain escrowed assets on Token Gateway"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": null,
+    "last_release_utc": null,
+    "duration_min": null,
+    "release_tx_count": null,
+    "count_note": "Not read on chain. Sequence per Hyperbridge (via Decrypt): about 245 ETH taken from a related Token Gateway contract hours before the mint; about an hour later a forged message passed proof verification and the mint followed. Search snippets date the event 13 April 2026 (DefiLlama 12 April). Transaction hashes not retrieved.",
+    "sources": [
+     {
+      "url": "https://decrypt.co/364588/polkadot-ethereum-bridge-hack-losses-10x-worse-team-admits",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "About an hour later, a forged cross-chain message bypassed MMR proof verification"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": null,
+    "channel": null,
+    "note": "Hyperbridge's post-mortem was published Thursday 16 April 2026 (Decrypt); time of its first statement not found.",
+    "sources": []
+   },
+   "first_alert": {
+    "utc": null,
+    "by": "CertiK (named in search snippets)",
+    "channel": "X",
+    "note": "Time not found.",
+    "sources": []
+   },
+   "pause": {
+    "utc": null,
+    "basis": null,
+    "what": "Bridging paused on the four affected chains",
+    "by": "Hyperbridge",
+    "note": "No time found; still paused at the time of the Decrypt report.",
+    "sources": [
+     {
+      "url": "https://decrypt.co/364588/polkadot-ethereum-bridge-hack-losses-10x-worse-team-admits",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Bridging functionality on the four affected blockchains remains paused."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source read mentions a mint cap or rate limit; realized proceeds of the mint were limited by pool liquidity, not by a bridge rule.",
+    "sources": [
+     {
+      "url": "https://cointelegraph.com/news/hacker-steals-237k-1b-bridged-dot-hyperbridge",
+      "type": "press",
+      "how_read": "search snippet",
+      "quote": "capped the proceeds at 108.2 Ether (ETH), worth around $237,000"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": null,
+    "native": "none recovered",
+    "date": null,
+    "note": "Funds traced to a Binance deposit address; Binance compliance and law enforcement engaged. Hyperbridge committed to a BRIDGE token allocation to cover any residual loss (reimbursement, not recovery).",
+    "sources": [
+     {
+      "url": "https://decrypt.co/364588/polkadot-ethereum-bridge-hack-losses-10x-worse-team-admits",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the realistic timeline for meaningful recovery in a case of this type is measured in months."
+     },
+     {
+      "url": "https://decrypt.co/364588/polkadot-ethereum-bridge-hack-losses-10x-worse-team-admits",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "structured BRIDGE token allocation to cover the residual loss."
+     }
+    ]
+   },
+   "release_path": [],
+   "open_questions": "Exact event date (13 April per press snippets vs DefiLlama 12 April) and block times of the mint, the sales and the 245 ETH drain; transaction hashes and addresses; per-chain split across Ethereum, Base, Arbitrum and BNB Chain; time of the first statement and of the pause. Web search budget was exhausted; Hyperbridge's post-mortem, Hypernative and Verichains analyses were not read directly."
+  }
+ ]
+}

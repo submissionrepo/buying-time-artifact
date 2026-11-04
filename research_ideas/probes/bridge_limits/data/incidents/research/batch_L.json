@@ -1,0 +1,3296 @@
+{
+ "batch": "L",
+ "generated_utc": "2026-10-16T01:08:45Z",
+ "events": [
+  {
+   "event_id": "E49",
+   "dl_name": "Gravity Bridge",
+   "dl_date": "2026-05-30",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "USDC, USDT, WETH and PAXG left the Ethereum-side Gravity contract (escrow backing Gravity-chain vouchers) in four batch executions carrying valid validator-set signatures. Rekt and QuillAudits trace the outflow to a token-mapping registration on the Gravity chain (Cosmos side) that tied tokens issued elsewhere by the initiating party to the four escrowed ERC-20 contracts, not to compromised keys; DefiLlama's 'Validator Key Compromised' label follows the first public alerts. DefiLlama's date matches the release date in UTC.",
+    "sources": [
+     {
+      "url": "https://rekt.news/gravity-bridge-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "signed the withdrawal batches legitimately"
+     },
+     {
+      "url": "https://quillaudits.com/blog/hack-analysis/gravity-bridge-demon-mapping-poisoning",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "On-chain evidence confirms this Ethereum key was not part of valset 2912 and carried no meaningful weight"
+     },
+     {
+      "url": "https://x.com/SpecterAnalyst/status/2060613063816941820",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "It appears the Gravity Bridge contract key may have been compromised, resulting in the theft of $5.4M."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-05-30",
+    "sources": [
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getBlockByNumber: release blocks 25,205,201-25,205,217, timestamps 2026-05-30T02:27:59Z to 02:31:11Z"
+     },
+     {
+      "url": "https://quillaudits.com/blog/hack-analysis/gravity-bridge-demon-mapping-poisoning",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "On May 30, 2026, Gravity Bridge lost $5.4M across four assets USDC, USDT, WETH, and PAXG."
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 5400000,
+    "range": "about 5.34M-5.40M USD: 4,349,701.31 USDC, 434,072.40 USDT, 274.35 WETH (553K USD per PeckShield, 495K per Rekt) and 14.16 PAXG (64K USD); DefiLlama 5.4M",
+    "sources": [
+     {
+      "url": "https://x.com/PeckShieldAlert/status/2060636956984594521",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The @gravity_bridge has been drained of ~$5.4M, including $4.3M $USDC, 274 $ETH (~$553K),"
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Transfer logs from the Gravity contract to the recipient: 4,349,701.311883 USDC; 14.163836 PAXG; 274.345940 WETH; 434,072.402068 USDT"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "S",
+    "phrase": "Gravity chain registered a fabricated denomination as the voucher for four escrowed ERC-20s; validators then signed the withdrawal batches.",
+    "sources": [
+     {
+      "url": "https://quillaudits.com/blog/hack-analysis/gravity-bridge-demon-mapping-poisoning",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "passing a fabricated _cosmosDenom argument each time."
+     },
+     {
+      "url": "https://rekt.news/gravity-bridge-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "verified the signatures"
+     },
+     {
+      "url": "https://quillaudits.com/blog/hack-analysis/gravity-bridge-demon-mapping-poisoning",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "could not be fully determined"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "100% from the Ethereum-side Gravity contract. Each release emptied that token's balance in the contract (USDC 4,349,751.31 before, 0 after; USDT 434,122.40 to 0; WETH 274.37 to 0; PAXG 14.18 to 0); the small differences went to the two relayer addresses as batch fees. Other tokens held by the contract were not released.",
+    "chains": [
+     "Ethereum",
+     "Gravity Bridge chain"
+    ],
+    "sources": [
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "balanceOf(Gravity contract) at blocks 25,205,200 and 25,205,217: USDC 4,349,751.31 to 0; USDT 434,122.40 to 0; WETH 274.37 to 0; PAXG 14.18 to 0"
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Verified source 'Gravity' (0.8.10): functions updateValset, submitBatch, submitLogicCall, sendToCosmos, deployERC20"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2026-05-30T02:27:59Z",
+    "last_release_utc": "2026-05-30T02:31:11Z",
+    "duration_min": 3.2,
+    "release_tx_count": 4,
+    "count_note": "Counted: batch executions on Ethereum paying the recipient address (batch nonces 41572-41575, one token each, submitted by two third-party relayer addresses that collected the batch fees). Preparation: a Gravity-chain validator registered on May 29 with 80 GRAV (Rekt, QuillAudits) and four ERC-20 deployment calls to the Ethereum contract at 01:52:35-01:53:23 UTC, about 35 minutes before the first release. The contract kept executing ordinary batches afterwards (batch 41578 at 10:11:35 UTC); no batch executed on Ethereum after that until 2026-09-23T18:46:35Z.",
+    "sources": [
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "TransactionBatchExecutedEvent: nonce 41572 (USDC) block 25,205,201 02:27:59Z; 41575 (PAXG) 02:29:11Z; 41574 (WETH) 02:30:11Z; 41573 (USDT) 02:31:11Z"
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "ERC20DeployedEvent in blocks 25,205,025-25,205,029 (2026-05-30T01:52:35Z-01:53:23Z), sender is the deployment address in onchain_refs"
+     },
+     {
+      "url": "https://rekt.news/gravity-bridge-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "MsgBatchSendToEthClaim"
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Gravity contract logs: last TransactionBatchExecutedEvent before the halt nonce 41578 at 2026-05-30T10:11:35Z; next batch nonce 41640 at 2026-09-23T18:46:35Z"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2026-05-30T13:29:00Z",
+    "channel": "X (@gravity_bridge)",
+    "note": "Status ID 2060715098809970741 (linked from Cointelegraph); about 11 h after the first release. Second post at 14:58:46 UTC (status ID 2060737691348807698) said the bridge was halted. Rekt: the first post came almost 7 hours after Specter's alert. No Gravity Bridge post-mortem found as of 2026-10-16.",
+    "sources": [
+     {
+      "url": "https://x.com/gravity_bridge/status/2060715098809970741",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "There was an unfortunate incident on Gravity."
+     },
+     {
+      "url": "https://rekt.news/gravity-bridge-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "almost 7 hours"
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2026-05-30T06:43:33Z",
+    "channel": "X (@SpecterAnalyst)",
+    "by": "Specter (on-chain analyst)",
+    "note": "Status ID 2060613063816941820, about 4 h 15 min after the first release; it named the two recipient addresses. PeckShield followed at 08:18:29 UTC (status ID 2060636956984594521).",
+    "sources": [
+     {
+      "url": "https://x.com/SpecterAnalyst/status/2060613063816941820",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "bridge contract key may have been compromised"
+     },
+     {
+      "url": "https://x.com/PeckShieldAlert/status/2060636956984594521",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The @gravity_bridge has been drained of ~$5.4M"
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2026-05-30T14:58:46Z",
+    "basis": "announcement",
+    "what": "Gravity chain validators and orchestrators halted, which stops batch signing; the Ethereum contract has no pause function",
+    "by": "Gravity Bridge validators, at the team's request",
+    "note": "The 13:29 UTC post asked validators to halt; the 14:58:46 UTC post said the bridge was halted (upper bound). The halt height was not read: public Gravity-chain nodes are pruned before late September 2026. On Ethereum the last batch before the halt executed at 10:11:35 UTC (an ordinary batch); releases resumed after a validator-set update at 2026-09-23T18:28:23Z (valset 2944), first batch 18:46:35 UTC; Gravity chain software v1.14.2 and v1.14.3 were published on 2026-09-22.",
+    "sources": [
+     {
+      "url": "https://x.com/gravity_bridge/status/2060737691348807698",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Thanks to the swift action of validators, the bridge is currently halted while investigations continue."
+     },
+     {
+      "url": "https://x.com/gravity_bridge/status/2060715098809970741",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Validators should halt their validators and orchestrators while this incident is being investigated."
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "ValsetUpdatedEvent nonce 2944 at 2026-09-23T18:28:23Z (block 26,041,961); first later batch execution 18:46:35Z (block 26,042,052)"
+     },
+     {
+      "url": "https://api.github.com/repos/Gravity-Bridge/Gravity-Bridge/releases",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "v1.14.2 2026-09-22T03:10:24Z; v1.14.3 2026-09-22T12:45:05Z"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "no",
+    "acted": "n.a.",
+    "how": "The verified Ethereum contract has no cap, rate limit, delay or pause; releases need only validator-set signatures. Current Gravity-chain module parameters show a bridge on/off switch and an address blacklist but no amount limits. Each of the four releases took that token's entire escrow balance.",
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Verified source 'Gravity' (0.8.10): no function or modifier containing limit, pause, delay or cap"
+     },
+     {
+      "url": "https://gravity-api.polkachu.com/gravity/v1beta/params",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"bridge_active\":true,\"ethereum_blacklist\":[...],\"min_chain_fee_basis_points\":\"20\""
+     },
+     {
+      "url": "https://www.zealynx.io/newsletter/gravity-bridge-key-compromise",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "No on-chain rate limit that treats a withdrawal of a large share of TVL as anomalous by default."
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": null,
+    "native": "none reported",
+    "date": null,
+    "note": "No return or freeze reported. Part of the value moved through ChangeNow and Binance-linked addresses and toward Tornado Cash; at PeckShield's report the recipient still held about 2,102 ETH (4.23M USD).",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/amp/post/403108/cosmos-based-gravity-bridge-drained-of-5-4-million-in-suspected-key-compromise-researchers-say",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The attacker took USDC, ether, tether and PAXG tokens before laundering a portion through ChangeNow and Binance."
+     },
+     {
+      "url": "https://quillaudits.com/blog/hack-analysis/gravity-bridge-demon-mapping-poisoning",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "At the time of writing, however, the majority of the funds remain held in the attacker's EOA"
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2026-05-30T02:27:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 4349701.311883,
+     "asset": "USDC",
+     "usd": 4300000,
+     "basis": "onchain: block 25,205,201 timestamp (public RPC); usd per PeckShield"
+    },
+    {
+     "utc": "2026-05-30T02:29:11Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 14.163836,
+     "asset": "PAXG",
+     "usd": 64000,
+     "basis": "onchain: block 25,205,207; usd per PeckShield"
+    },
+    {
+     "utc": "2026-05-30T02:30:11Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 274.34594,
+     "asset": "WETH",
+     "usd": 553000,
+     "basis": "onchain: block 25,205,212; usd per PeckShield (Rekt: 495K)"
+    },
+    {
+     "utc": "2026-05-30T02:31:11Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 434072.402068,
+     "asset": "USDT",
+     "usd": 434000,
+     "basis": "onchain: block 25,205,217; usd per PeckShield"
+    }
+   ],
+   "open_questions": "(1) Classification: S follows Rekt and QuillAudits (a token-mapping registration on the Gravity chain; validator signatures valid). DefiLlama and the first alerts read it as a key compromise (V); a D reading is also possible because the Ethereum contract accepted any denomination string and the Gravity module did not run its existing collision check. QuillAudits says the token-contract mismatch could not be fully determined; no Gravity Bridge post-mortem found. (2) Halt height and time on the Gravity chain (public nodes pruned). (3) Rekt dates the outflow May 29 (probably US time); block times are 02:27-02:31 UTC on May 30. (4) Times of the four deployment claims and two batch claims on the Gravity chain not read. (5) Whether any of the value was frozen at Binance or ChangeNow.",
+   "onchain_refs": [
+    {
+     "chain": "Ethereum",
+     "role": "Gravity bridge contract (escrow)",
+     "value": "0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906"
+    }
+   ]
+  },
+  {
+   "event_id": "E50",
+   "dl_name": "Syscoin Bridge",
+   "dl_date": "2026-06-07",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "5,000,000,000 native SYS left the SyscoinVaultManager on Syscoin NEVM through the SPV relay, against a UTXO-chain burn that Syscoin Core recorded as a burn of the initiating party's own custom asset. The vault holds a pre-allocated native SYS supply for the UTXO-NEVM bridge (about 9.95B SYS, against about 0.92B SYS circulating per CoinGecko), so the release was unbacked issuance. Syscoin reported no compromised keys.",
+    "sources": [
+     {
+      "url": "https://syscoin.org/news/technical-postmortem-syscoin-bridge-incident-recovery-and-remediation",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "SyscoinVaultManager special-cases 123456 as native SYS, so it released native SYS."
+     },
+     {
+      "url": "https://rpc.syscoin.org",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getBalance(vault) at blocks 934,685 / 934,686: 9,947,044,094.74 SYS / 4,947,044,094.74 SYS"
+     },
+     {
+      "url": "https://coinstats.app/news/19dfeeaf8f209820530b796a06f24ec9ac946eed59c24f6889da7350ea89ee55_Syscoin-recovers-5-billion-SYS-tokens-after-bridge-exploit-burns-them-permanently",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The 5 billion minted tokens exceeded Syscoin’s legitimate circulating supply of roughly 891 million SYS by over 5 times"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-06-07",
+    "sources": [
+     {
+      "url": "https://rpc.syscoin.org",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "relayTx receipt: NEVM block 934,686, block timestamp 2026-06-07T08:19:43Z, status 1"
+     },
+     {
+      "url": "https://syscoin.org/news/technical-postmortem-syscoin-bridge-incident-recovery-and-remediation",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "On 7th of June 2026, Syscoin identified and responded to a bridge exploit."
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 8560000,
+    "range": "8.4M-10M USD, notional: 5B SYS at 0.00168-0.00200 USD (CoinGecko daily prices around 7 June); Rekt 8.56M at the 7 June close; Halborn and DefiLlama 10M. 5B SYS was about 5.5 times the circulating supply, so realizable value was far lower.",
+    "sources": [
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-syscoin-bridge-hack-june-2026",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "were worth an estimated $10 million"
+     },
+     {
+      "url": "https://rekt.news/syscoin-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "At the moment of mint, the 5 billion unauthorized tokens were worth approximately $8.56 million"
+     },
+     {
+      "url": "https://api.coingecko.com/api/v3/coins/syscoin/history",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "SYS price 2026-06-06: 0.00196 USD; 2026-06-07: 0.00168 USD; market cap 2026-06-07: 1.50M USD"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "NEVM relay read a burn with duplicated asset commitments as a SYS burn; Syscoin Core recorded it as a custom-asset burn.",
+    "sources": [
+     {
+      "url": "https://syscoin.org/news/technical-postmortem-syscoin-bridge-incident-recovery-and-remediation",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "a cross-layer interpretation mismatch between Syscoin Core and the NEVM relay."
+     },
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-syscoin-bridge-hack-june-2026",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The bridge relay process accepted an invalid proof, allowing the attacker to withdraw approximately 5 billion SYS"
+     },
+     {
+      "url": "https://explorer.syscoin.org/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Verified source 'SyscoinRelay' (0.8.20) includes function parseFirstAssetCommitmentInTx"
+     },
+     {
+      "url": "https://blockbook.syscoin.org/api/v2/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "tokenType SPTAssetAllocationBurnToNEVM; asset input: assetGuid 4, valueStr 5000000000"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "mint",
+    "share_note": "One release of 5B native SYS from the NEVM vault's pre-allocated supply (50.3% of its 9.947B SYS balance). Four minutes later the recipient re-locked the 5B SYS in the vault and received 5B SYSX on the UTXO chain, converted it to native UTXO SYS at 08:37:05 UTC and split it across two addresses (about 4B and 1B) by 11:53:08 UTC; the vault's balance returned to 9.947B SYS, leaving the 5B units outstanding on the UTXO side until the June return.",
+    "chains": [
+     "Syscoin NEVM",
+     "Syscoin UTXO"
+    ],
+    "sources": [
+     {
+      "url": "https://rpc.syscoin.org",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "vault balance at blocks 934,685 / 934,686 / 934,688: 9,947,044,094.74 / 4,947,044,094.74 / 9,947,044,094.74 SYS"
+     },
+     {
+      "url": "https://blockbook.syscoin.org/api/v2/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "block 2,252,193, blockTime 2026-06-07T08:37:05Z, tokenType SPTAssetAllocationBurnToSyscoin, 5,000,000,000 SYSX in, 5,000,000,000 SYS out"
+     },
+     {
+      "url": "https://blockbook.syscoin.org/api/v2/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "block 2,252,270, 2026-06-07T11:53:08Z: outputs 999,990,000 and 3,999,999,999.9999514 SYS"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Syscoin NEVM",
+    "first_release_utc": "2026-06-07T08:19:43Z",
+    "last_release_utc": "2026-06-07T08:19:43Z",
+    "duration_min": 0,
+    "release_tx_count": 1,
+    "count_note": "Counted: TokenUnfreeze releases from the NEVM vault (one, relayed by the recipient address itself). The UTXO burn it relied on was confirmed at 07:03:44 UTC (UTXO block 2,252,148), 76 minutes earlier. Preparatory bridge transfers by the same NEVM address: 2,000 SYS to the UTXO chain on 06-06 at 11:42:50 UTC; 1,000 units of one custom asset at 00:28:38 UTC and 5B units of a second custom asset at 01:47:22 UTC on 06-07 (the post-mortem mentions a 1,000-unit probe). The vault recorded no further bridge transfers after the 08:23:48 UTC re-lock through 2026-10-16 (two later attempts in July failed).",
+    "sources": [
+     {
+      "url": "https://rpc.syscoin.org",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "vault logs: TokenUnfreeze(assetGuid 123456, amount 5e17 in 8-decimal units) at block 934,686, 2026-06-07T08:19:43Z; TokenFreeze of the same amount by the same address at block 934,688, 08:23:48Z"
+     },
+     {
+      "url": "https://blockbook.syscoin.org/api/v2/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "blockHeight 2252148, blockTime 2026-06-07T07:03:44Z"
+     },
+     {
+      "url": "https://explorer.syscoin.org/api/v2/addresses/[redacted]/transactions",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "freezeBurn by the initiating address at 2026-06-06T11:42:50Z, 2026-06-07T00:28:38Z, 01:47:22Z (ok), 08:23:48Z (ok); freezeBurn by others 2026-07-24 and 2026-07-28 (error)"
+     },
+     {
+      "url": "https://syscoin.org/news/technical-postmortem-syscoin-bridge-incident-recovery-and-remediation",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The relay emitted a native TokenUnfreeze(assetGuid=123456) for 5 billion SYS."
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2026-06-07T22:26:18Z",
+    "channel": "X (@syscoin)",
+    "note": "Status ID 2063749418365665413, a 'preliminary update' that already reported the bridge paused; about 14 h after the release and 3 h after the on-chain pause. Earlier statements on Discord or Telegram were not checked.",
+    "sources": [
+     {
+      "url": "https://x.com/syscoin/status/2063749418365665413",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We want to provide the community with a preliminary update regarding the recent Syscoin bridge incident"
+     },
+     {
+      "url": "https://www.kucoin.com/news/flash/syscoin-cross-chain-bridge-hacked-affecting-5-billion-sys-tokens",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "A fix has been identified, and users are advised not to interact with the bridge until it is restored."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2026-06-08T02:43:37Z",
+    "channel": "X (@hupzy_agent)",
+    "by": "Hupzy (Spot On Chain)",
+    "note": "Status ID 2063814173088514518; after Syscoin's own statement. Rekt says no one raised the alarm before Syscoin did.",
+    "sources": [
+     {
+      "url": "https://x.com/hupzy_agent/status/2063814173088514518",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "~5B unauthorized $SYS minted through a UTXO validation flaw."
+     },
+     {
+      "url": "https://rekt.news/syscoin-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Nobody sounded the alarm before Syscoin did."
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2026-06-07T19:26:22Z",
+    "basis": "onchain",
+    "what": "setPaused(true) on the NEVM SyscoinVaultManager, which blocks releases (processTransaction) and new locks (freezeBurn)",
+    "by": "vault owner address",
+    "note": "About 11 h 07 min after the release. setPaused emits no event; read from the vault's transaction list and its paused() state (false at block 934,941, true at 934,942). Ownership was renounced on 2026-08-25T17:34:19Z with the vault still paused, so it cannot be unpaused; the June 15 post-mortem says the bridge stays closed until further notice.",
+    "sources": [
+     {
+      "url": "https://explorer.syscoin.org/api/v2/addresses/[redacted]/transactions",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "2026-06-07T19:26:22.000000Z 934942 setPaused ... ok"
+     },
+     {
+      "url": "https://rpc.syscoin.org",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_call paused(): 0 at block 934,941, 1 at block 934,942 and at latest; owner() at latest = zero address"
+     },
+     {
+      "url": "https://explorer.syscoin.org/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "function setPaused(bool _paused) external onlyOwner { paused = _paused; }"
+     },
+     {
+      "url": "https://rekt.news/syscoin-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The bridge was paused within hours."
+     },
+     {
+      "url": "https://syscoin.org/news/technical-postmortem-syscoin-bridge-incident-recovery-and-remediation",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "until further notice"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "no",
+    "acted": "n.a.",
+    "how": "The verified vault and relay contracts contain only an owner-controlled pause flag; no per-transaction cap, rate limit or delay. One release took 50.3% of the vault's native SYS.",
+    "sources": [
+     {
+      "url": "https://explorer.syscoin.org/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "require(!paused, \"Bridge is paused\");"
+     },
+     {
+      "url": "https://explorer.syscoin.org/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Verified source 'SyscoinRelay': no identifier containing limit, pause, delay or cap"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": 8560000,
+    "frozen_usd": null,
+    "native": "4,999,999,999.9998 SYS returned to the Syscoin recovery address on 2026-06-10 (two transactions); 5,000,000,000 SYS burned to an OP_RETURN output on 2026-06-15",
+    "date": "2026-06-10",
+    "note": "Returned by the recipient addresses at 07:14:48 UTC (about 1B SYS) and 07:19:34 UTC (about 4B SYS) on June 10, then burned at 2026-06-15T15:02:29Z. USD shown at the event-time valuation of the same 5B SYS (Rekt); at the CoinGecko 2026-06-10 daily price (0.00159 USD) it is about 7.95M (my computation). Bounty terms not public; no exchange freeze reported.",
+    "sources": [
+     {
+      "url": "https://syscoin.org/news/technical-postmortem-syscoin-bridge-incident-recovery-and-remediation",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The returned funds were then burned to a standard OP_RETURN."
+     },
+     {
+      "url": "https://blockbook.syscoin.org/api/v2/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "block 2,253,855, 2026-06-10T07:14:48Z: 999,999,999.9997957 SYS to the recovery address"
+     },
+     {
+      "url": "https://blockbook.syscoin.org/api/v2/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "block 2,253,857, 2026-06-10T07:19:34Z: 3,999,999,999.99976 SYS to the recovery address"
+     },
+     {
+      "url": "https://blockbook.syscoin.org/api/v2/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "block 2,256,887, 2026-06-15T15:02:29Z: OP_RETURN (burn hacked funds) 5,000,000,000 SYS"
+     },
+     {
+      "url": "https://api.coingecko.com/api/v3/coins/syscoin/history",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "SYS price 2026-06-10: 0.00159 USD"
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2026-06-07T08:19:43Z",
+     "chain": "Syscoin NEVM",
+     "side": "mint",
+     "amount_native": 5000000000,
+     "asset": "SYS (native)",
+     "usd": 8560000,
+     "basis": "onchain: NEVM block 934,686 timestamp (public RPC); usd per Rekt's 7 June valuation"
+    }
+   ],
+   "open_questions": "(1) D vs S: the relay parsed only the first asset commitment, while Core accepted duplicate commitments on one output; Syscoin plans a consensus-level fix as well, so an S reading (origin chain recorded an ambiguous burn) is defensible. (2) Rekt and Halborn describe a mint on the UTXO side; chain data show the release from the NEVM vault and a re-lock to the UTXO side four minutes later. (3) Whether any SYS reached exchanges before the return; bounty terms. (4) Whether the vault will be replaced, given that it is paused with no owner."
+  },
+  {
+   "event_id": "E51",
+   "dl_name": "Axelar Secret IBC Bridge",
+   "dl_date": "2026-06-10",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Unbacked mint of Secret-side wrapped tokens (saTokens) by Secret's ics20-for-axelar contract on IBC packets that came over a channel to a single-validator test chain, then redemption over the legitimate Axelar channel, which released the Axelar-side ICS-20 escrow for the Secret connection. Same event as DefiLlama's 'Secret Network' record dated 2026-06-19 (E54), which carries the disclosure date.",
+    "sources": [
+     {
+      "url": "https://commonprefix.com/blog/secret-network-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "did not verify the source channel of inbound IBC packets before minting"
+     },
+     {
+      "url": "https://www.theblock.co/post/405459/secret-networks-axelar-bridge-drained-for-4-67-million-in-infinite-mint-exploit-that-went-unnoticed-for-seven-days",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "without checking which channel an inbound transfer actually came from"
+     },
+     {
+      "url": "https://forum.scrt.network/t/security-incident-axelar-secret-ibc-bridge-exploit-june-10-2026/7995",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "~18 minutes later, the attacker pushed the full amounts back out to a single Axelar wallet."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-06-10",
+    "sources": [
+     {
+      "url": "https://axelar-lcd.publicnode.com",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "cosmos/tx/v1beta1/txs: escrow-release transactions at heights 29,841,802 / 29,841,827 / 29,841,882, timestamps 2026-06-10T19:34:29Z / 19:35:12Z / 19:36:45Z"
+     },
+     {
+      "url": "https://rest.lavenderfive.com:443/secretnetwork",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "first and last mint transactions: heights 25,688,675 and 25,688,740, timestamps 2026-06-10T19:14:05Z and 19:20:09Z"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 4670000,
+    "range": "4.67M USD (Axelar, Common Prefix, Secret, DefiLlama). Released from the escrow: 1,121,270.05 USDT, 638,198.65 USDC, 893.47 WETH, 16.536 WBTC, 174,536.48 DAI, 170.76 WBNB, 17.656 wstETH.",
+    "sources": [
+     {
+      "url": "https://commonprefix.com/blog/secret-network-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Approximately $4.67M worth of tokens were drained."
+     },
+     {
+      "url": "https://axelar-lcd.publicnode.com",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "transfer events from the escrow account: 1121270052077uusdt, 638198653186uusdc, 893468984499992898220weth-wei, 1653605943wbtc-satoshi, 174536475913879828858734dai-wei, 170764596037299501022wbnb-wei, 17656075443871714570wsteth-wei"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "Secret-side contract minted on IBC packets without checking the source channel; Axelar's escrow then honored the redemptions.",
+    "sources": [
+     {
+      "url": "https://forum.scrt.network/t/security-incident-axelar-secret-ibc-bridge-exploit-june-10-2026/7995",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "The two removed functions included an implicit authentication of the source of tokens."
+     },
+     {
+      "url": "https://commonprefix.com/blog/secret-network-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "did not verify the source channel of inbound IBC packets before minting"
+     },
+     {
+      "url": "https://www.theblock.co/post/405459/secret-networks-axelar-bridge-drained-for-4-67-million-in-infinite-mint-exploit-that-went-unnoticed-for-seven-days",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Neither Axelar nor IBC was compromised"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "both",
+    "share_note": "Unbacked mint of seven saTokens on Secret (seven transactions, 19:14:05-19:20:09 UTC), then redemption that released the Axelar-side escrow for the Secret connection in three Axelar transactions (19:34:29-19:36:45 UTC), all to one Axelar address. Most value then moved via Osmosis and Axelar to Ethereum and BSC (onward transfers 19:38-19:56 UTC) and was swapped to about 2,350 ETH.",
+    "chains": [
+     "Secret",
+     "Axelar",
+     "Osmosis",
+     "Ethereum",
+     "BSC"
+    ],
+    "sources": [
+     {
+      "url": "https://forum.scrt.network/t/security-incident-axelar-secret-ibc-bridge-exploit-june-10-2026/7995",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "~18 minutes later, the attacker pushed the full amounts back out to a single Axelar wallet."
+     },
+     {
+      "url": "https://commonprefix.com/blog/secret-network-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Team discovered that the IBC escrow account on Axelar for the `secret-snip` connection had been drained."
+     },
+     {
+      "url": "https://axelar-lcd.publicnode.com",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "all seven escrow transfers have recipient = the Axelar recipient address in onchain_refs"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Axelar",
+    "first_release_utc": "2026-06-10T19:34:29Z",
+    "last_release_utc": "2026-06-10T19:36:45Z",
+    "duration_min": 2.27,
+    "release_tx_count": 3,
+    "count_note": "Counted: Axelar transactions releasing the ICS-20 escrow to the recipient address (3 transactions carrying 7 receive-packet messages: USDT, USDC and WETH at 19:34:29; WBTC at 19:35:12; DAI, WBNB and wstETH at 19:36:45 UTC). Also documented: 7 unbacked mints on Secret, 19:14:05-19:20:09 UTC (first and last read from a Secret node). Light clients and test channels were set up from 06:50 UTC; the live channel to the test chain opened 19:01-19:05 UTC (Common Prefix). The shortfall was found on June 17 at 15:39 UTC when a routine transfer failed.",
+    "sources": [
+     {
+      "url": "https://forum.scrt.network/t/security-incident-axelar-secret-ibc-bridge-exploit-june-10-2026/7995",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "The Secret team was informed about the incident by the Axelar team on June 17."
+     },
+     {
+      "url": "https://axelar-lcd.publicnode.com",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "release transactions: MsgUpdateClient + 3 MsgRecvPacket (19:34:29Z); MsgUpdateClient + 1 MsgRecvPacket (19:35:12Z); MsgUpdateClient + 3 MsgRecvPacket (19:36:45Z)"
+     },
+     {
+      "url": "https://rekt.news/secret-network-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "spendable balance 803200wbtc-satoshi is smaller than 1000000wbtc-satoshi: insufficient funds."
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2026-06-19T13:40:44Z",
+    "channel": "X (@axelar)",
+    "note": "Status ID 2067965810174214451; nine days after the release and two days after detection. Secret's forum post is also dated June 19; Common Prefix's analysis was posted on X at 23:11:23 UTC June 19 (status ID 2068109418550489480). Common Prefix (Axelar's lead developer, per ForkLog) told the Secret team privately in a shared Telegram channel at 18:28 UTC on June 17. Axelar's second post (status ID 2068349929601262010, 2026-06-20T15:07:05Z) addressed responsibility.",
+    "sources": [
+     {
+      "url": "https://x.com/axelar/status/2067965810174214451",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We have identified an incident affecting assets bridged over IBC to Secret Network from the Axelar chain"
+     },
+     {
+      "url": "https://commonprefix.com/blog/secret-network-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "We first notified the Secret team about the incident in a shared Telegram channel."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2026-06-19T15:24:58Z",
+    "channel": "X (@f12sec)",
+    "by": "F12 (security account)",
+    "note": "Status ID 2067992040181322190; after Axelar's statement. No public alert before the operators' disclosure was found; Rekt names none.",
+    "sources": [
+     {
+      "url": "https://x.com/f12sec/status/2067992040181322190",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "~$4.67M drained via the Axelar-Secret IBC bridge (Secret-side ICS-20)"
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2026-06-17T20:45Z",
+    "basis": "stated",
+    "what": "Secret and Secret-SNIP connections on Axelar disabled",
+    "by": "Axelar Emergency Committee",
+    "note": "Seven days after the release. The only on-chain deactivation found is a DeactivateChainRequest for 'secret' and 'secret-snip' sent by the committee multisig at 2026-06-18T17:47:53Z (Axelar height 30,238,948); both chains were still deactivated on 2026-10-16. Squid removed Secret from its frontend at 20:00 UTC on June 17.",
+    "sources": [
+     {
+      "url": "https://commonprefix.com/blog/secret-network-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Axelar Emergency Committee paused the Secret↔Axelar connections."
+     },
+     {
+      "url": "https://axelar-lcd.publicnode.com",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "tx query message.action=DeactivateChainRequest: height 30238948, 2026-06-18T17:47:53Z, chains [secret, secret-snip]; chain_state/secret: \"activated\": false"
+     },
+     {
+      "url": "https://forum.scrt.network/t/security-incident-axelar-secret-ibc-bridge-exploit-june-10-2026/7995",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "Bridging through Axelar has been disabled, the Axelar connection has been paused."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source describes a rate limit, cap or delay on the connection, and Secret says no monitoring, anomaly-detection or emergency pause mechanism was triggered. The contract's removed channel-balance check would have capped mints at what the channel had escrowed (Common Prefix). Axelar credits per-chain 'firewalling' with confining the loss to this connection; the escrow released its full reserve in 2 min 16 s.",
+    "sources": [
+     {
+      "url": "https://forum.scrt.network/t/security-incident-axelar-secret-ibc-bridge-exploit-june-10-2026/7995",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "No effective monitoring, anomaly-detection, or emergency pause mechanisms were triggered"
+     },
+     {
+      "url": "https://commonprefix.com/blog/secret-network-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "which would have capped any release at the amount that channel had genuinely escrowed"
+     },
+     {
+      "url": "https://commonprefix.com/blog/secret-network-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "We detected the incident through our firewalling functionality, which prevented contamination to other chains."
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": null,
+    "native": "none returned",
+    "date": null,
+    "note": "About 0.64M-0.77M USD stayed in the recipient's Axelar account; on 2026-10-16 it still held 239,324.49 USDC, 6.201 WBTC, 64.04 WBNB and 248.85 AXL (unmoved, not frozen). Axelar declined Secret's freeze request. Axelar proposal 490, a non-binding signal to freeze these funds and later re-custody them for users, passed on 2026-07-05; no binding freeze found. About 2,350 ETH went to KuCoin, ChangeNOW and HitBTC deposit addresses.",
+    "sources": [
+     {
+      "url": "https://forum.scrt.network/t/security-incident-axelar-secret-ibc-bridge-exploit-june-10-2026/7995",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "decided not to pursue"
+     },
+     {
+      "url": "https://axelar-lcd.publicnode.com/cosmos/gov/v1/proposals/490",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "This is a non-binding signaling (text) proposal. It carries no automatic on-chain action."
+     },
+     {
+      "url": "https://axelar-lcd.publicnode.com/cosmos/bank/v1beta1/balances/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "uaxl 248851051, uusdc 239324494945, wbnb-wei 64036723513987312884, wbtc-satoshi 620102229 (read 2026-10-16)"
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2026-06-10T19:14:05Z",
+     "chain": "Secret",
+     "side": "mint",
+     "amount_native": 1121270.052077,
+     "asset": "saUSDT",
+     "usd": null,
+     "basis": "onchain: Secret node, height 25,688,675"
+    },
+    {
+     "utc": "2026-06-10T19:15:07Z",
+     "chain": "Secret",
+     "side": "mint",
+     "amount_native": 638198.653186,
+     "asset": "saUSDC",
+     "usd": null,
+     "basis": "Secret forum timeline"
+    },
+    {
+     "utc": "2026-06-10T19:16:14Z",
+     "chain": "Secret",
+     "side": "mint",
+     "amount_native": 893.468984,
+     "asset": "saWETH",
+     "usd": null,
+     "basis": "Secret forum timeline"
+    },
+    {
+     "utc": "2026-06-10T19:17:05Z",
+     "chain": "Secret",
+     "side": "mint",
+     "amount_native": 16.536059,
+     "asset": "saWBTC",
+     "usd": null,
+     "basis": "Secret forum timeline"
+    },
+    {
+     "utc": "2026-06-10T19:18:06Z",
+     "chain": "Secret",
+     "side": "mint",
+     "amount_native": 174536.475914,
+     "asset": "saDAI",
+     "usd": null,
+     "basis": "Secret forum timeline"
+    },
+    {
+     "utc": "2026-06-10T19:19:02Z",
+     "chain": "Secret",
+     "side": "mint",
+     "amount_native": 170.764596,
+     "asset": "saWBNB",
+     "usd": null,
+     "basis": "Secret forum timeline"
+    },
+    {
+     "utc": "2026-06-10T19:20:09Z",
+     "chain": "Secret",
+     "side": "mint",
+     "amount_native": 17.656075,
+     "asset": "sawstETH",
+     "usd": null,
+     "basis": "onchain: Secret node, height 25,688,740"
+    },
+    {
+     "utc": "2026-06-10T19:34:29Z",
+     "chain": "Axelar",
+     "side": "escrow",
+     "amount_native": 1121270.052077,
+     "asset": "USDT (Axelar uusdt)",
+     "usd": null,
+     "basis": "onchain: Axelar height 29,841,802"
+    },
+    {
+     "utc": "2026-06-10T19:34:29Z",
+     "chain": "Axelar",
+     "side": "escrow",
+     "amount_native": 638198.653186,
+     "asset": "USDC (Axelar uusdc)",
+     "usd": null,
+     "basis": "onchain: Axelar height 29,841,802"
+    },
+    {
+     "utc": "2026-06-10T19:34:29Z",
+     "chain": "Axelar",
+     "side": "escrow",
+     "amount_native": 893.468984,
+     "asset": "WETH (Axelar weth-wei)",
+     "usd": null,
+     "basis": "onchain: Axelar height 29,841,802"
+    },
+    {
+     "utc": "2026-06-10T19:35:12Z",
+     "chain": "Axelar",
+     "side": "escrow",
+     "amount_native": 16.53605943,
+     "asset": "WBTC (Axelar wbtc-satoshi)",
+     "usd": null,
+     "basis": "onchain: Axelar height 29,841,827"
+    },
+    {
+     "utc": "2026-06-10T19:36:45Z",
+     "chain": "Axelar",
+     "side": "escrow",
+     "amount_native": 174536.475914,
+     "asset": "DAI (Axelar dai-wei)",
+     "usd": null,
+     "basis": "onchain: Axelar height 29,841,882"
+    },
+    {
+     "utc": "2026-06-10T19:36:45Z",
+     "chain": "Axelar",
+     "side": "escrow",
+     "amount_native": 170.764596,
+     "asset": "WBNB (Axelar wbnb-wei)",
+     "usd": null,
+     "basis": "onchain: Axelar height 29,841,882"
+    },
+    {
+     "utc": "2026-06-10T19:36:45Z",
+     "chain": "Axelar",
+     "side": "escrow",
+     "amount_native": 17.656075,
+     "asset": "wstETH (Axelar wsteth-wei)",
+     "usd": null,
+     "basis": "onchain: Axelar height 29,841,882"
+    }
+   ],
+   "open_questions": "(1) Whether the 20:45 UTC June 17 pause (Common Prefix) was a different action from the on-chain chain deactivation at 17:47:53 UTC June 18 (for example at the relayer level). (2) USD value per asset at release time not published. (3) Axelar and Secret dispute responsibility for the contract; this does not change the classification. (4) Whether Axelar's own transfer rate limits applied to the onward transfers (not checked)."
+  },
+  {
+   "event_id": "E52",
+   "dl_name": "Aztec Connect",
+   "dl_date": "2026-06-14",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "ETH and tokens left the deprecated Aztec Connect rollup contract on Ethereum (custody backing balances on the Aztec Connect rollup) through rollup submissions whose verified proof and L1 settlement covered different rows. Not a duplicate of DefiLlama's 'Aztec Bridge' (E53, June 17), which concerns the older Aztec 2.0 contract, a different verifier path and a different initiating address.",
+    "sources": [
+     {
+      "url": "https://aztec-labs.com/blog/aztec-connect-incident.html",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Incident identified; investigation and this disclosure followed."
+     },
+     {
+      "url": "https://rekt.news/aztec-connect-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "settlement boundary bypass"
+     },
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-aztec-connect-hack-june-2026",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "numRealTxs and _numTxs could differ."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-06-14",
+    "sources": [
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getTransactionReceipt: block 25,315,715, block timestamp 2026-06-14T12:26:23Z, status 1"
+     },
+     {
+      "url": "https://x.com/CertiKAlert/status/2066156825666543871",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We have detected a suspicious transaction that drained @aztecnetwork Router contract of ~$2.19M"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 2190000,
+    "range": "2.1M-2.28M USD (Aztec Labs and CertiK about 2.19M; DefiLlama 2.1M; Rekt's June 24 article 2.28M): 908.99 ETH, 270,513.05 DAI, 167.89 wstETH, 4,873.86 yvDAI, 16.57 yvWETH, 9,273.73 LUSD, 359.05 yvLUSD",
+    "sources": [
+     {
+      "url": "https://x.com/CertiKAlert/status/2066156825666543871",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We have detected a suspicious transaction that drained @aztecnetwork Router contract of ~$2.19M"
+     },
+     {
+      "url": "https://x.com/AztecLabs_/status/2066175340926345555",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We are investigating a potential exploit affecting Aztec Connect.  ~$2.1m was transferred"
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "trace_transaction and Transfer logs: 908.9867 ETH, 270,513.054 DAI, 167.890 wstETH, 4,873.857 yvDAI, 16.570 yvWETH, 9,273.734 LUSD, 359.047 yvLUSD from the contract to the initiating address"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "L1 rollup contract accepted a proof whose rows settlement never processed, crediting deposits that never happened.",
+    "sources": [
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-aztec-connect-hack-june-2026",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "numRealTxs and _numTxs could differ."
+     },
+     {
+      "url": "https://aztec-labs.com/blog/aztec-connect-incident.html",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The proof system (including the trusted setup) was not compromised in the incident."
+     },
+     {
+      "url": "https://cointelegraph.com/news/aztec-exploited-21-million-previous-hack-slowmist",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "false rollup proof"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "One transaction emptied the contract's ETH, DAI, wstETH and LUSD balances (ETH 908.99 before, 0 after) and its Yearn vault-token balances. A second address withdrew about 88K USD of leftover wrapped DeFi positions from the same contract on June 15 (token releases 04:02:11-04:15:47 UTC); Aztec Labs says those positions had no redeemable underlying when checked.",
+    "chains": [
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "contract balances at blocks 25,315,714 / 25,315,715: ETH 908.987 / 0; DAI 270,513.05 / 0; wstETH 167.89 / 0; LUSD 9,273.73 / 0"
+     },
+     {
+      "url": "https://aztec-labs.com/blog/aztec-connect-incident.html",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "This does not affect any active products."
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2026-06-14T12:26:23Z",
+    "last_release_utc": "2026-06-14T12:26:23Z",
+    "duration_min": 0,
+    "release_tx_count": 1,
+    "count_note": "Counted: transactions by the initiating address releasing value from the contract (one atomic transaction with 14 rollup submissions, rollupId 13277-13290, seven of them withdrawals). The address was funded through a mixer at 09:26 UTC; five contracts were deployed 12:16-12:26 UTC. Not counted: 14 rollup submissions by a second address on June 15, 04:00:47-05:17:23 UTC (rollupId 13291-13304), with token releases 04:02:11-04:15:47 UTC of about 88K USD.",
+    "sources": [
+     {
+      "url": "https://aztec-labs.com/blog/aztec-connect-incident.html",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Incident identified; investigation and this disclosure followed."
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "contract logs June 14-15: one transaction from the first address (12:26:23Z); 14 transactions from the second address, 2026-06-15T04:00:47Z to 05:17:23Z"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2026-06-14T15:06:03Z",
+    "channel": "X (@AztecLabs_)",
+    "note": "Status ID 2066175340926345555; about 2 h 40 min after the release. Aztec Labs' timeline puts internal identification at 12:30 UTC. The Aztec Foundation posted at 15:08:26 UTC (status ID 2066175938887619055); the incident blog post is dated June 15.",
+    "sources": [
+     {
+      "url": "https://x.com/AztecLabs_/status/2066175340926345555",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We are investigating a potential exploit affecting Aztec Connect."
+     },
+     {
+      "url": "https://aztec-labs.com/blog/aztec-connect-incident.html",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Incident identified; investigation and this disclosure followed."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2026-06-14T13:52:29Z",
+    "channel": "X (@CertiKAlert)",
+    "by": "CertiK",
+    "note": "Status ID 2066156825666543871, 86 minutes after the release; CertiK's mechanism post followed at 15:00:36 UTC (status ID 2066173967434682716). Aztec Labs says Blockaid separately flagged a set-up step (time not given).",
+    "sources": [
+     {
+      "url": "https://x.com/CertiKAlert/status/2066156825666543871",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We have detected a suspicious transaction that drained @aztecnetwork Router contract of ~$2.19M"
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "basis": null,
+    "what": "None possible: the contract is immutable and its admin and upgrade roles were renounced in April 2024",
+    "by": null,
+    "note": "No party could stop releases; the same path was used again by a second address about 15.6 h later (June 15).",
+    "sources": [
+     {
+      "url": "https://aztec-labs.com/blog/aztec-connect-incident.html",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Aztec Labs holds no control over these contracts."
+     },
+     {
+      "url": "https://aztec-labs.com/blog/aztec-connect-incident.html",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "revoked all administrative roles and renounced all upgrade authority onchain after a year of notice to users."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source describes a withdrawal cap or delay on the path used; one transaction released the contract's full ETH, DAI, wstETH and LUSD balances, and the contract could not be paused.",
+    "sources": [
+     {
+      "url": "https://rekt.news/aztec-connect-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "cannot be paused or upgraded"
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "contract balances at blocks 25,315,714 / 25,315,715: ETH 908.987 / 0; DAI 270,513.05 / 0"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": null,
+    "native": "none reported",
+    "date": null,
+    "note": "No return, freeze or compensation reported; SlowMist reported the first address's funds still in place on June 15.",
+    "sources": [
+     {
+      "url": "https://aztec-labs.com/blog/aztec-connect-incident.html",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Aztec Labs holds no control over these contracts."
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2026-06-14T12:26:23Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 908.9867073,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: block 25,315,715 (trace)"
+    },
+    {
+     "utc": "2026-06-14T12:26:23Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 270513.054158,
+     "asset": "DAI",
+     "usd": null,
+     "basis": "onchain: block 25,315,715"
+    },
+    {
+     "utc": "2026-06-14T12:26:23Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 167.890393,
+     "asset": "wstETH",
+     "usd": null,
+     "basis": "onchain: block 25,315,715"
+    },
+    {
+     "utc": "2026-06-14T12:26:23Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 4873.856656,
+     "asset": "yvDAI",
+     "usd": null,
+     "basis": "onchain: block 25,315,715"
+    },
+    {
+     "utc": "2026-06-14T12:26:23Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 16.569551,
+     "asset": "yvWETH",
+     "usd": null,
+     "basis": "onchain: block 25,315,715"
+    },
+    {
+     "utc": "2026-06-14T12:26:23Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 9273.734321,
+     "asset": "LUSD",
+     "usd": null,
+     "basis": "onchain: block 25,315,715"
+    },
+    {
+     "utc": "2026-06-14T12:26:23Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 359.047485,
+     "asset": "yvLUSD",
+     "usd": null,
+     "basis": "onchain: block 25,315,715"
+    }
+   ],
+   "open_questions": "(1) Whether the June 15 releases by a second address (same contract, same flaw, about 88K USD of positions with little redeemable value) belong to this event. (2) USD per asset at release time not published. (3) Amount: about 2.19M (Aztec Labs, CertiK) vs 2.28M (Rekt's later article)."
+  },
+  {
+   "event_id": "E53",
+   "dl_name": "Aztec Bridge",
+   "dl_date": "2026-06-17",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "ETH, DAI and renBTC left the deprecated Aztec 2.0 rollup contract on Ethereum (the 2021 'Private Rollup Bridge' payments product) through its escape-hatch withdrawal path. A separate event from E52 (Aztec Connect, June 14): different contract, different verifier and a different initiating address; Aztec Labs refers to the Aztec Connect case as a separate incident.",
+    "sources": [
+     {
+      "url": "https://www.aztec-labs.com/blog/aztec-2-incident.html",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "the deployed escape-hatch circuit accepted a withdrawal that was not backed by any real deposit."
+     },
+     {
+      "url": "https://x.com/Phalcon_xyz/status/2067501141701857291",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": ".@aztecnetwork was attacked again."
+     },
+     {
+      "url": "https://x.com/AztecLabs_/status/2067511785637163354",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We are investigating a potential exploit affecting a deprecated Aztec payments product from 2021."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-06-17",
+    "sources": [
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "release blocks 25,339,094 / 25,339,169 / 25,339,172, timestamps 2026-06-17T18:34:47Z / 18:49:47Z / 18:50:23Z"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 2197000,
+    "range": "2.0M-2.2M USD (Aztec Labs about 2.2M; Rekt 2.197M; PeckShield 2.165M; CertiK 2.15M; DefiLlama 2.0M): 1,158 ETH (about 2.04M), 150,000 DAI, 0.4696 renBTC (at most about 7K)",
+    "sources": [
+     {
+      "url": "https://www.aztec-labs.com/blog/aztec-2-incident.html",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "zero ETH, zero renBTC, and a few dollars of DAI dust."
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "outflows from the contract: 1,158.0 ETH (block 25,339,094), 150,000.0 DAI (25,339,169), 0.46963295 renBTC (25,339,172)"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "Escape-hatch verifier accepted a withdrawal proof not backed by any deposit (unsound circuit behind a still-registered key).",
+    "sources": [
+     {
+      "url": "https://www.aztec-labs.com/blog/aztec-2-incident.html",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The exploit targeted an unsound verification key behind the contract's escape-hatch verifier."
+     },
+     {
+      "url": "https://www.aztec-labs.com/blog/aztec-2-incident.html",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The exact mechanism is not provable from onchain data alone."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "Three releases took 1,158 of 1,158.76 ETH, 150,000 of 150,095.70 DAI and all 0.4696 renBTC held by the contract. A second address swept the remaining 0.76 ETH on June 18 at 08:16:47 UTC through an operator account left registered during the 2024 decommissioning.",
+    "chains": [
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "contract ETH balance at blocks 25,339,093 / 25,339,172: 1,158.7598 / 0.7598; DAI 150,095.70 / 95.70"
+     },
+     {
+      "url": "https://www.aztec-labs.com/blog/aztec-2-incident.html",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "a default Anvil/Hardhat developer test account"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2026-06-17T18:34:47Z",
+    "last_release_utc": "2026-06-17T18:50:23Z",
+    "duration_min": 15.6,
+    "release_tx_count": 3,
+    "count_note": "Counted: escape-hatch withdrawals by the initiating address (blocks 25,339,094; 25,339,169; 25,339,172). The address was funded from an exchange at about 18:21 UTC. Not counted: the 0.76 ETH sweep by a different address on June 18 at 08:16:47 UTC (block 25,343,196).",
+    "sources": [
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "three transactions from the initiating address to the contract, same method selector, status 1, 18:34:47Z / 18:49:47Z / 18:50:23Z"
+     },
+     {
+      "url": "https://alpha.rekt.news/aztec-bridge-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The contract was immutable."
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2026-06-18T07:36:36Z",
+    "channel": "X (@AztecLabs_)",
+    "note": "Status ID 2067511785637163354; about 13 h after the first release. The Aztec Foundation posted at 07:37:20 UTC (status ID 2067511967237939636).",
+    "sources": [
+     {
+      "url": "https://x.com/AztecLabs_/status/2067511785637163354",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We are investigating a potential exploit affecting a deprecated Aztec payments product from 2021."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2026-06-18T04:29:25Z",
+    "channel": "X (@thisvishalsingh)",
+    "by": "X account @thisvishalsingh",
+    "note": "Status ID 2067464678771744843, about 9 h 55 min after the first release (Rekt says about three hours, which does not match the status ID). Later: SlowMist's Cos 06:05:28, CertiK 06:40:21, BlockSec Phalcon 06:54:19, PeckShield 06:59:28 UTC.",
+    "sources": [
+     {
+      "url": "https://x.com/thisvishalsingh/status/2067464678771744843",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "~$2M ETH just drained from the Private Rollup Bridge."
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "basis": null,
+    "what": "None possible: the contract is immutable and Aztec Labs renounced administrative control in April 2024",
+    "by": null,
+    "note": "The escape-hatch path is permissionless; nothing stopped the second address's sweep the next morning.",
+    "sources": [
+     {
+      "url": "https://www.aztec-labs.com/blog/aztec-2-incident.html",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Aztec Labs holds no control over this contract."
+     },
+     {
+      "url": "https://alpha.rekt.news/aztec-bridge-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The contract was immutable."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "yes",
+    "acted": "no",
+    "how": "The escape hatch is callable only in blocks 4,560-4,799 of every 4,800-block period (about 48 minutes in every 16 hours; bounds read from the contract). All three releases fell inside the window open 18:07:59-18:55:59 UTC; there is no amount cap, and nearly the whole ETH and DAI balance left.",
+    "sources": [
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_call escapeBlockLowerBound() = 4560, escapeBlockUpperBound() = 4800; getEscapeHatchStatus() open with 107 blocks left before the first release and 29 before the last"
+     },
+     {
+      "url": "https://alpha.rekt.news/aztec-bridge-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The contract was immutable."
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": null,
+    "native": "none reported",
+    "date": null,
+    "note": "Aztec Labs engaged Groom Lake to block funds across exchanges; no freeze or return reported. About 300 ETH and 56 ETH sat in two holding addresses (Rekt).",
+    "sources": [
+     {
+      "url": "https://www.aztec-labs.com/blog/aztec-2-incident.html",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "We are working with our incident response provider, Groom Lake, to block funds across exchanges."
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2026-06-17T18:34:47Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 1158.0,
+     "asset": "ETH",
+     "usd": 2040000,
+     "basis": "onchain: block 25,339,094; usd per Aztec Labs"
+    },
+    {
+     "utc": "2026-06-17T18:49:47Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 150000.0,
+     "asset": "DAI",
+     "usd": 150000,
+     "basis": "onchain: block 25,339,169; usd per Aztec Labs"
+    },
+    {
+     "utc": "2026-06-17T18:50:23Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 0.46963295,
+     "asset": "renBTC",
+     "usd": null,
+     "basis": "onchain: block 25,339,172 (Aztec Labs: at most about 7K USD)"
+    }
+   ],
+   "open_questions": "(1) Aztec Labs calls root-mismatch its leading hypothesis; Phalcon's first note pointed to a different gap. (2) Whether the escape-hatch window shaped timing (the address was funded about 13 minutes after the window opened). (3) DefiLlama's 2.0M is below the 2.15M-2.2M estimates."
+  },
+  {
+   "event_id": "E54",
+   "dl_name": "Secret Network",
+   "dl_date": "2026-06-19",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Duplicate of E51 (DefiLlama 'Axelar Secret IBC Bridge', 2026-06-10): same contract, same 4.67M USD, same releases. DefiLlama's 2026-06-19 date is the disclosure date (Axelar's X statement and Secret's forum post); the outflow happened on 2026-06-10. Fields below repeat E51 for completeness; count the event once.",
+    "sources": [
+     {
+      "url": "https://x.com/axelar/status/2067965810174214451",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We have identified an incident affecting assets bridged over IBC to Secret Network from the Axelar chain"
+     },
+     {
+      "url": "https://forum.scrt.network/t/security-incident-axelar-secret-ibc-bridge-exploit-june-10-2026/7995",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "The Secret team was informed about the incident by the Axelar team on June 17."
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\": \"Secret Network\", \"technique\": \"Unbacked Cross-Chain Mint\", \"amount\": 4670000"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-06-10",
+    "sources": [
+     {
+      "url": "https://axelar-lcd.publicnode.com",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "cosmos/tx/v1beta1/txs: escrow-release transactions at heights 29,841,802 / 29,841,827 / 29,841,882, timestamps 2026-06-10T19:34:29Z / 19:35:12Z / 19:36:45Z"
+     },
+     {
+      "url": "https://rest.lavenderfive.com:443/secretnetwork",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "first and last mint transactions: heights 25,688,675 and 25,688,740, timestamps 2026-06-10T19:14:05Z and 19:20:09Z"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 4670000,
+    "range": "4.67M USD (Axelar, Common Prefix, Secret, DefiLlama). Released from the escrow: 1,121,270.05 USDT, 638,198.65 USDC, 893.47 WETH, 16.536 WBTC, 174,536.48 DAI, 170.76 WBNB, 17.656 wstETH.",
+    "sources": [
+     {
+      "url": "https://commonprefix.com/blog/secret-network-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Approximately $4.67M worth of tokens were drained."
+     },
+     {
+      "url": "https://axelar-lcd.publicnode.com",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "transfer events from the escrow account: 1121270052077uusdt, 638198653186uusdc, 893468984499992898220weth-wei, 1653605943wbtc-satoshi, 174536475913879828858734dai-wei, 170764596037299501022wbnb-wei, 17656075443871714570wsteth-wei"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "Secret-side contract minted on IBC packets without checking the source channel; Axelar's escrow then honored the redemptions.",
+    "sources": [
+     {
+      "url": "https://forum.scrt.network/t/security-incident-axelar-secret-ibc-bridge-exploit-june-10-2026/7995",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "The two removed functions included an implicit authentication of the source of tokens."
+     },
+     {
+      "url": "https://commonprefix.com/blog/secret-network-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "did not verify the source channel of inbound IBC packets before minting"
+     },
+     {
+      "url": "https://www.theblock.co/post/405459/secret-networks-axelar-bridge-drained-for-4-67-million-in-infinite-mint-exploit-that-went-unnoticed-for-seven-days",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Neither Axelar nor IBC was compromised"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "both",
+    "share_note": "Unbacked mint of seven saTokens on Secret (seven transactions, 19:14:05-19:20:09 UTC), then redemption that released the Axelar-side escrow for the Secret connection in three Axelar transactions (19:34:29-19:36:45 UTC), all to one Axelar address. Most value then moved via Osmosis and Axelar to Ethereum and BSC (onward transfers 19:38-19:56 UTC) and was swapped to about 2,350 ETH.",
+    "chains": [
+     "Secret",
+     "Axelar",
+     "Osmosis",
+     "Ethereum",
+     "BSC"
+    ],
+    "sources": [
+     {
+      "url": "https://forum.scrt.network/t/security-incident-axelar-secret-ibc-bridge-exploit-june-10-2026/7995",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "~18 minutes later, the attacker pushed the full amounts back out to a single Axelar wallet."
+     },
+     {
+      "url": "https://commonprefix.com/blog/secret-network-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Team discovered that the IBC escrow account on Axelar for the `secret-snip` connection had been drained."
+     },
+     {
+      "url": "https://axelar-lcd.publicnode.com",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "all seven escrow transfers have recipient = the Axelar recipient address in onchain_refs"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Axelar",
+    "first_release_utc": "2026-06-10T19:34:29Z",
+    "last_release_utc": "2026-06-10T19:36:45Z",
+    "duration_min": 2.27,
+    "release_tx_count": 3,
+    "count_note": "Counted: Axelar transactions releasing the ICS-20 escrow to the recipient address (3 transactions carrying 7 receive-packet messages: USDT, USDC and WETH at 19:34:29; WBTC at 19:35:12; DAI, WBNB and wstETH at 19:36:45 UTC). Also documented: 7 unbacked mints on Secret, 19:14:05-19:20:09 UTC (first and last read from a Secret node). Light clients and test channels were set up from 06:50 UTC; the live channel to the test chain opened 19:01-19:05 UTC (Common Prefix). The shortfall was found on June 17 at 15:39 UTC when a routine transfer failed.",
+    "sources": [
+     {
+      "url": "https://forum.scrt.network/t/security-incident-axelar-secret-ibc-bridge-exploit-june-10-2026/7995",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "The Secret team was informed about the incident by the Axelar team on June 17."
+     },
+     {
+      "url": "https://axelar-lcd.publicnode.com",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "release transactions: MsgUpdateClient + 3 MsgRecvPacket (19:34:29Z); MsgUpdateClient + 1 MsgRecvPacket (19:35:12Z); MsgUpdateClient + 3 MsgRecvPacket (19:36:45Z)"
+     },
+     {
+      "url": "https://rekt.news/secret-network-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "spendable balance 803200wbtc-satoshi is smaller than 1000000wbtc-satoshi: insufficient funds."
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2026-06-19T13:40:44Z",
+    "channel": "X (@axelar)",
+    "note": "Status ID 2067965810174214451; nine days after the release and two days after detection. Secret's forum post is also dated June 19; Common Prefix's analysis was posted on X at 23:11:23 UTC June 19 (status ID 2068109418550489480). Common Prefix (Axelar's lead developer, per ForkLog) told the Secret team privately in a shared Telegram channel at 18:28 UTC on June 17. Axelar's second post (status ID 2068349929601262010, 2026-06-20T15:07:05Z) addressed responsibility.",
+    "sources": [
+     {
+      "url": "https://x.com/axelar/status/2067965810174214451",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We have identified an incident affecting assets bridged over IBC to Secret Network from the Axelar chain"
+     },
+     {
+      "url": "https://commonprefix.com/blog/secret-network-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "We first notified the Secret team about the incident in a shared Telegram channel."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2026-06-19T15:24:58Z",
+    "channel": "X (@f12sec)",
+    "by": "F12 (security account)",
+    "note": "Status ID 2067992040181322190; after Axelar's statement. No public alert before the operators' disclosure was found; Rekt names none.",
+    "sources": [
+     {
+      "url": "https://x.com/f12sec/status/2067992040181322190",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "~$4.67M drained via the Axelar-Secret IBC bridge (Secret-side ICS-20)"
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2026-06-17T20:45Z",
+    "basis": "stated",
+    "what": "Secret and Secret-SNIP connections on Axelar disabled",
+    "by": "Axelar Emergency Committee",
+    "note": "Seven days after the release. The only on-chain deactivation found is a DeactivateChainRequest for 'secret' and 'secret-snip' sent by the committee multisig at 2026-06-18T17:47:53Z (Axelar height 30,238,948); both chains were still deactivated on 2026-10-16. Squid removed Secret from its frontend at 20:00 UTC on June 17.",
+    "sources": [
+     {
+      "url": "https://commonprefix.com/blog/secret-network-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Axelar Emergency Committee paused the Secret↔Axelar connections."
+     },
+     {
+      "url": "https://axelar-lcd.publicnode.com",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "tx query message.action=DeactivateChainRequest: height 30238948, 2026-06-18T17:47:53Z, chains [secret, secret-snip]; chain_state/secret: \"activated\": false"
+     },
+     {
+      "url": "https://forum.scrt.network/t/security-incident-axelar-secret-ibc-bridge-exploit-june-10-2026/7995",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "Bridging through Axelar has been disabled, the Axelar connection has been paused."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source describes a rate limit, cap or delay on the connection, and Secret says no monitoring, anomaly-detection or emergency pause mechanism was triggered. The contract's removed channel-balance check would have capped mints at what the channel had escrowed (Common Prefix). Axelar credits per-chain 'firewalling' with confining the loss to this connection; the escrow released its full reserve in 2 min 16 s.",
+    "sources": [
+     {
+      "url": "https://forum.scrt.network/t/security-incident-axelar-secret-ibc-bridge-exploit-june-10-2026/7995",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "No effective monitoring, anomaly-detection, or emergency pause mechanisms were triggered"
+     },
+     {
+      "url": "https://commonprefix.com/blog/secret-network-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "which would have capped any release at the amount that channel had genuinely escrowed"
+     },
+     {
+      "url": "https://commonprefix.com/blog/secret-network-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "We detected the incident through our firewalling functionality, which prevented contamination to other chains."
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": null,
+    "native": "none returned",
+    "date": null,
+    "note": "About 0.64M-0.77M USD stayed in the recipient's Axelar account; on 2026-10-16 it still held 239,324.49 USDC, 6.201 WBTC, 64.04 WBNB and 248.85 AXL (unmoved, not frozen). Axelar declined Secret's freeze request. Axelar proposal 490, a non-binding signal to freeze these funds and later re-custody them for users, passed on 2026-07-05; no binding freeze found. About 2,350 ETH went to KuCoin, ChangeNOW and HitBTC deposit addresses.",
+    "sources": [
+     {
+      "url": "https://forum.scrt.network/t/security-incident-axelar-secret-ibc-bridge-exploit-june-10-2026/7995",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "decided not to pursue"
+     },
+     {
+      "url": "https://axelar-lcd.publicnode.com/cosmos/gov/v1/proposals/490",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "This is a non-binding signaling (text) proposal. It carries no automatic on-chain action."
+     },
+     {
+      "url": "https://axelar-lcd.publicnode.com/cosmos/bank/v1beta1/balances/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "uaxl 248851051, uusdc 239324494945, wbnb-wei 64036723513987312884, wbtc-satoshi 620102229 (read 2026-10-16)"
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2026-06-10T19:14:05Z",
+     "chain": "Secret",
+     "side": "mint",
+     "amount_native": 1121270.052077,
+     "asset": "saUSDT",
+     "usd": null,
+     "basis": "onchain: Secret node, height 25,688,675"
+    },
+    {
+     "utc": "2026-06-10T19:15:07Z",
+     "chain": "Secret",
+     "side": "mint",
+     "amount_native": 638198.653186,
+     "asset": "saUSDC",
+     "usd": null,
+     "basis": "Secret forum timeline"
+    },
+    {
+     "utc": "2026-06-10T19:16:14Z",
+     "chain": "Secret",
+     "side": "mint",
+     "amount_native": 893.468984,
+     "asset": "saWETH",
+     "usd": null,
+     "basis": "Secret forum timeline"
+    },
+    {
+     "utc": "2026-06-10T19:17:05Z",
+     "chain": "Secret",
+     "side": "mint",
+     "amount_native": 16.536059,
+     "asset": "saWBTC",
+     "usd": null,
+     "basis": "Secret forum timeline"
+    },
+    {
+     "utc": "2026-06-10T19:18:06Z",
+     "chain": "Secret",
+     "side": "mint",
+     "amount_native": 174536.475914,
+     "asset": "saDAI",
+     "usd": null,
+     "basis": "Secret forum timeline"
+    },
+    {
+     "utc": "2026-06-10T19:19:02Z",
+     "chain": "Secret",
+     "side": "mint",
+     "amount_native": 170.764596,
+     "asset": "saWBNB",
+     "usd": null,
+     "basis": "Secret forum timeline"
+    },
+    {
+     "utc": "2026-06-10T19:20:09Z",
+     "chain": "Secret",
+     "side": "mint",
+     "amount_native": 17.656075,
+     "asset": "sawstETH",
+     "usd": null,
+     "basis": "onchain: Secret node, height 25,688,740"
+    },
+    {
+     "utc": "2026-06-10T19:34:29Z",
+     "chain": "Axelar",
+     "side": "escrow",
+     "amount_native": 1121270.052077,
+     "asset": "USDT (Axelar uusdt)",
+     "usd": null,
+     "basis": "onchain: Axelar height 29,841,802"
+    },
+    {
+     "utc": "2026-06-10T19:34:29Z",
+     "chain": "Axelar",
+     "side": "escrow",
+     "amount_native": 638198.653186,
+     "asset": "USDC (Axelar uusdc)",
+     "usd": null,
+     "basis": "onchain: Axelar height 29,841,802"
+    },
+    {
+     "utc": "2026-06-10T19:34:29Z",
+     "chain": "Axelar",
+     "side": "escrow",
+     "amount_native": 893.468984,
+     "asset": "WETH (Axelar weth-wei)",
+     "usd": null,
+     "basis": "onchain: Axelar height 29,841,802"
+    },
+    {
+     "utc": "2026-06-10T19:35:12Z",
+     "chain": "Axelar",
+     "side": "escrow",
+     "amount_native": 16.53605943,
+     "asset": "WBTC (Axelar wbtc-satoshi)",
+     "usd": null,
+     "basis": "onchain: Axelar height 29,841,827"
+    },
+    {
+     "utc": "2026-06-10T19:36:45Z",
+     "chain": "Axelar",
+     "side": "escrow",
+     "amount_native": 174536.475914,
+     "asset": "DAI (Axelar dai-wei)",
+     "usd": null,
+     "basis": "onchain: Axelar height 29,841,882"
+    },
+    {
+     "utc": "2026-06-10T19:36:45Z",
+     "chain": "Axelar",
+     "side": "escrow",
+     "amount_native": 170.764596,
+     "asset": "WBNB (Axelar wbnb-wei)",
+     "usd": null,
+     "basis": "onchain: Axelar height 29,841,882"
+    },
+    {
+     "utc": "2026-06-10T19:36:45Z",
+     "chain": "Axelar",
+     "side": "escrow",
+     "amount_native": 17.656075,
+     "asset": "wstETH (Axelar wsteth-wei)",
+     "usd": null,
+     "basis": "onchain: Axelar height 29,841,882"
+    }
+   ],
+   "open_questions": "Duplicate of E51; see E51 for open questions. (1) Whether the 20:45 UTC June 17 pause (Common Prefix) was a different action from the on-chain chain deactivation at 17:47:53 UTC June 18 (for example at the relayer level). (2) USD value per asset at release time not published. (3) Axelar and Secret dispute responsibility for the contract; this does not change the classification. (4) Whether Axelar's own transfer rate limits applied to the onward transfers (not checked)."
+  },
+  {
+   "event_id": "E55",
+   "dl_name": "Taiko Bridge",
+   "dl_date": "2026-06-21",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Tokens left Taiko's Ethereum-side ERC20Vault and ETH left the Ethereum-side Bridge (custody backing assets bridged to Taiko L2) on messages proven with a prover instance the initiating party had registered. The losses were L1 custody outflows; Taiko L2 consensus was not involved beyond the proofs.",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/405486",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "unauthorized asset releases from the ERC20 vault"
+     },
+     {
+      "url": "https://blocksec.com/blog/web3-security-taiko-secondfi-exploits",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The root cause of this incident is a combination of an operational failure and a contract-level vulnerability."
+     },
+     {
+      "url": "https://x.com/taikoxyz/status/2068857506718515320",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We have confirmed a compromise of Taiko's chain state verification mechanism."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-06-21",
+    "sources": [
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "first release block 25,368,853 at 2026-06-21T22:07:23Z; last release block 25,370,061 at 2026-06-22T02:10:35Z"
+     },
+     {
+      "url": "https://www.quillaudits.com/blog/hack-analysis/taiko-leaked-sgx-enclave-key",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "conservative withdrawal quotas"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 1700000,
+    "range": "1.0M (Blockaid's first estimate) to 1.7M USD (PeckShield, Taiko). On-chain: 277.97 ETH, 675,761.24 USDC, 138,139.56 USDT, 156,832.01 crvUSD, 126,160.97 CRV, 20.70 WETH, 0.426 WBTC, 0.531 weETH, 2,140,403 iZi, 1,990,000 TAIKO (about 169,702 USD per The Block).",
+    "sources": [
+     {
+      "url": "https://x.com/blockaid_/status/2068832205250412661",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "ERC20 Vault on Ethereum (~$1M+)"
+     },
+     {
+      "url": "https://www.theblock.co/post/405486",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "unauthorized asset releases from the ERC20 vault"
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "ERC20Vault Transfer logs to the initiating address (10) and Bridge ETH transfers to the second recipient (25), blocks 25,368,853-25,370,061"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "V",
+    "phrase": "A leaked enclave signing key let the initiating party register its own SGX prover; L1 then accepted messages that prover attested.",
+    "sources": [
+     {
+      "url": "https://blocksec.com/blog/web3-security-taiko-secondfi-exploits",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The root cause of this incident is a combination of an operational failure and a contract-level vulnerability."
+     },
+     {
+      "url": "https://blocksec.com/blog/web3-security-taiko-secondfi-exploits",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "did not check the application enclave's `localEnclaveReport.attributes`."
+     },
+     {
+      "url": "https://thedefiant.io/news/hacks/taiko-bridge-exploit-sgx-signing-key-github-1-7m",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "accidentally committed to Taiko's public raiko GitHub repository."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "ERC20Vault: 10 token releases (22:07:23-22:28:11 UTC) emptied the vault's USDT, WETH, WBTC, crvUSD, CRV, iZi and weETH balances and nearly all its USDC (670,761 before, 6,786 after, with deposits in between), and took 1.99M of 110.5M TAIKO. Bridge: 25 ETH releases totalling 277.97 ETH out of about 1,285 ETH held.",
+    "chains": [
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "ERC20Vault balanceOf at blocks 25,368,852 / 25,370,100: USDC 670,761.24 / 6,785.50; USDT 138,139.56 / 0; TAIKO 110,488,518 / 108,498,740; crvUSD, CRV, iZi, weETH, WBTC, WETH to 0"
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Bridge ETH balance at blocks 25,367,937 / 25,370,100: 1,285.40 / 991.52"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2026-06-21T22:07:23Z",
+    "last_release_utc": "2026-06-22T02:10:35Z",
+    "duration_min": 243.2,
+    "release_tx_count": 35,
+    "count_note": "Counted: release transactions to the two recipient addresses on Ethereum: 10 from the ERC20Vault (8 through retries of messages left pending earlier, 2 through new messages) and 25 ETH releases from the Bridge. Earlier, at 19:03:59 UTC, one transaction registered the prover instance and processed ten messages; one of them consumed 999 ETH of the daily ETH quota without moving ETH (left for retry). An 18 ETH release at 23:57:35 UTC to another address, sent by a different account through a different entry point, is not counted (nature unknown). The last release came 24 s after the last L2 batch proposal recorded on L1 (02:10:11 UTC), in line with Taiko's statement that proposers halted block production.",
+    "sources": [
+     {
+      "url": "https://eth.drpc.org",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "trace_transaction (19:03:59Z, block 25,367,938): ten processMessage calls; consumeQuota(ETH) amounts 999.0 and nine 0.0; no ETH value transfers"
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "first token releases call retryMessage (selector 0x0432873c); ETH releases call processMessage (0x2035065e); all sent by the initiating address"
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "L1 inbox events: last proposal event block 25,370,059 (2026-06-22T02:10:11Z), last proof event block 25,370,060 (02:10:23Z)"
+     },
+     {
+      "url": "https://www.theblock.co/post/405486",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "pause affected systems where possible"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2026-06-22T00:44:01Z",
+    "channel": "X (@taikoxyz)",
+    "note": "Status ID 2068857506718515320 ('Security Notice'); a '1/2' version followed at 00:49:14 UTC (status ID 2068858818352865626). About 2 h 37 min after the first release. An update at about 06:08 UTC said L1 Bridge and ERC20Vault withdrawals were fully stopped.",
+    "sources": [
+     {
+      "url": "https://x.com/taikoxyz/status/2068857506718515320",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We have confirmed a compromise of Taiko's chain state verification mechanism."
+     },
+     {
+      "url": "https://decrypt.co/371769/ethereum-layer-2-taiko-withdraw-bridge-funds-security-breach",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "We strongly advise all users to withdraw their funds from all bridges deployed on Taiko immediately."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2026-06-21T23:03:29Z",
+    "channel": "X (@blockaid_)",
+    "by": "Blockaid",
+    "note": "Status ID 2068832205250412661, 56 minutes after the first release while ETH releases were still running. PeckShield followed at 01:25:52 UTC on June 22 (status ID 2068868035805638670); BlockSec Phalcon's analysis at 05:09:56 UTC (status ID 2068924424238321854).",
+    "sources": [
+     {
+      "url": "https://x.com/blockaid_/status/2068832205250412661",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "ERC20 Vault on Ethereum (~$1M+)"
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2026-06-22T05:40:11Z",
+    "basis": "onchain",
+    "what": "Paused events on the L1 Bridge and the ERC20Vault in one transaction",
+    "by": "Taiko DAO controller contract (the account in both Paused events), through an executor contract",
+    "note": "About 7.5 h after the first release and 3.5 h after the last. The outflow had already ended at 02:10:35 UTC, when L2 batch proposals on L1 stopped (last proposal event 02:10:11 UTC); Taiko said all proposers halted block production. The bridge reopened about 11 days later (July 2) under conservative withdrawal quotas.",
+    "sources": [
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Paused(address) logs from the Bridge and the ERC20Vault, block 25,371,104, 2026-06-22T05:40:11Z"
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/addresses/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "ERC1967Proxy, implementation 'TaikoDAOController', ENS controller.taiko.eth"
+     },
+     {
+      "url": "https://www.kucoin.com/blog/taiko-bridge-hack-recovery",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "By July 2, the bridge reopened under conservative withdrawal quotas."
+     },
+     {
+      "url": "https://tangem.com/en/news/security/30675-taiko-reopens-bridge-after-1-7m-exploit-users-reimbursed/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "After 11 days, the bridge was reopened."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "yes",
+    "acted": "yes",
+    "how": "A QuotaManager with a 24-hour period and linear refill was wired into the Bridge (ETH) and ERC20Vault (tokens) implementations in force on 2026-06-21. Quotas: ETH 1,000; TAIKO 2,000,000; USDC and USDT 4,000,000; WETH 1,000; none for WBTC, crvUSD, CRV, iZi or weETH. The 999 ETH consumed at 19:03:59 UTC left ETH releases limited to the refill (about 41.7 ETH per hour): 130 ETH at 22:18:23 UTC, then 24 releases of 1.1-38.3 ETH, 277.97 ETH in all out of about 1,285 ETH held. The TAIKO quota capped that asset at 1.99M of 110.5M held. For the other tokens the quota exceeded the vault balance or was absent, and those balances left in full.",
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "if (!_consumeEtherQuota(_message.value)) revert B_OUT_OF_ETH_QUOTA();"
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "IQuotaManager(quotaManager).consumeQuota(_token, _amount);"
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "if (_name == LibStrings.B_QUOTA_MANAGER) {"
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "QuotaManager at block 25,368,852: quotaPeriod 86400; ETH quota 1000, available 128.22; TAIKO 2,000,000; USDC 4,000,000; USDT 4,000,000; WETH 1,000; WBTC unlimited"
+     },
+     {
+      "url": "https://www.quillaudits.com/blog/hack-analysis/taiko-leaked-sgx-enclave-key",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "conservative withdrawal quotas"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": null,
+    "native": "none reported",
+    "date": null,
+    "note": "No recovery reported. Taiko replenished the bridge and reimbursed users from its treasury (operator reimbursement). The 1.99M TAIKO went to an MEXC deposit address before exchanges were asked to suspend TAIKO deposits; whether it was frozen is not reported. Part of the value moved to Tornado Cash (QuillAudits).",
+    "sources": [
+     {
+      "url": "https://www.kucoin.com/blog/taiko-bridge-hack-recovery",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "with the protocol absorbing the loss from treasury reserves."
+     },
+     {
+      "url": "https://tangem.com/en/news/security/30675-taiko-reopens-bridge-after-1-7m-exploit-users-reimbursed/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "all affected users were fully reimbursed"
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2026-06-21T22:07:23Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 649761.236201,
+     "asset": "USDC",
+     "usd": null,
+     "basis": "onchain: ERC20Vault Transfer log, block timestamp (public RPC)"
+    },
+    {
+     "utc": "2026-06-21T22:07:23Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 156832.011092,
+     "asset": "crvUSD",
+     "usd": null,
+     "basis": "onchain: ERC20Vault Transfer log, block timestamp (public RPC)"
+    },
+    {
+     "utc": "2026-06-21T22:07:35Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 138139.564343,
+     "asset": "USDT",
+     "usd": null,
+     "basis": "onchain: ERC20Vault Transfer log, block timestamp (public RPC)"
+    },
+    {
+     "utc": "2026-06-21T22:07:35Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 20.70482,
+     "asset": "WETH",
+     "usd": null,
+     "basis": "onchain: ERC20Vault Transfer log, block timestamp (public RPC)"
+    },
+    {
+     "utc": "2026-06-21T22:07:47Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 126160.973069,
+     "asset": "CRV",
+     "usd": null,
+     "basis": "onchain: ERC20Vault Transfer log, block timestamp (public RPC)"
+    },
+    {
+     "utc": "2026-06-21T22:07:47Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 0.426344,
+     "asset": "WBTC",
+     "usd": null,
+     "basis": "onchain: ERC20Vault Transfer log, block timestamp (public RPC)"
+    },
+    {
+     "utc": "2026-06-21T22:07:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 2140403.026072,
+     "asset": "iZi",
+     "usd": null,
+     "basis": "onchain: ERC20Vault Transfer log, block timestamp (public RPC)"
+    },
+    {
+     "utc": "2026-06-21T22:07:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 0.530999,
+     "asset": "weETH",
+     "usd": null,
+     "basis": "onchain: ERC20Vault Transfer log, block timestamp (public RPC)"
+    },
+    {
+     "utc": "2026-06-21T22:18:23Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 130.0,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-21T22:18:47Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 26000.0,
+     "asset": "USDC",
+     "usd": null,
+     "basis": "onchain: ERC20Vault Transfer log, block timestamp (public RPC)"
+    },
+    {
+     "utc": "2026-06-21T22:28:11Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 1990000.0,
+     "asset": "TAIKO",
+     "usd": 169702,
+     "basis": "onchain: ERC20Vault Transfer log, block timestamp (public RPC); usd per The Block"
+    },
+    {
+     "utc": "2026-06-21T23:08:35Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 38.305556,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-21T23:34:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 18.472222,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-22T00:05:11Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 4.111111,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-22T00:07:23Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 1.111111,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-22T00:13:11Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 4.166667,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-22T00:19:47Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 4.861111,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-22T00:25:23Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 3.75,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-22T00:32:11Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 4.583333,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-22T00:40:35Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 5.972222,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-22T00:44:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 3.194444,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-22T00:51:35Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 4.444444,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-22T00:58:11Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 4.583333,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-22T01:03:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 3.888889,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-22T01:10:35Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 4.722222,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-22T01:17:11Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 4.583333,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-22T01:23:11Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 4.027778,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-22T01:29:23Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 4.444444,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-22T01:35:47Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 4.444444,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-22T01:41:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 4.444444,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-22T01:48:23Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 4.444444,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-22T01:54:47Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 4.444444,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-22T02:01:35Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 4.583333,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-22T02:07:47Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 4.444444,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    },
+    {
+     "utc": "2026-06-22T02:10:35Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 1.944444,
+     "asset": "ETH",
+     "usd": null,
+     "basis": "onchain: Bridge value transfer (trace), block timestamp"
+    }
+   ],
+   "open_questions": "(1) V vs D: an operator signing key leaked, but the on-chain attestation also accepted a debug-mode enclave (BlockSec); either reading is defensible. (2) Why the 999 ETH message at 19:03:59 UTC did not deliver and whether it was retried later. (3) Who sent the 18 ETH release at 23:57:35 UTC. (4) The proposer halt time is inferred from L1 events; Taiko's post on it was not timed. (5) No Taiko post-mortem found; DefiLlama's 'Forged Proof' describes the effect, not the cause."
+  },
+  {
+   "event_id": "E56",
+   "dl_name": "Across",
+   "dl_date": "2026-07-17",
+   "scope": {
+    "value": "bridge_liquidity_or_relayer",
+    "note": "Relayer capital: the Risk Labs relayer advanced its own funds on 18 destination chains for invalid Solana deposit events accepted by its off-chain event reader. No SpokePool custody left and users were not affected.",
+    "sources": [
+     {
+      "url": "https://x.com/AcrossProtocol/status/2078036118209982566",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "At ~5:30 AM UTC today, Across was attacked on Solana. User funds are safe."
+     },
+     {
+      "url": "https://en.cryptonomist.ch/2026/07/24/across-solana-relayer-attack/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "it did not verify the 8-byte Anchor event discriminator"
+     },
+     {
+      "url": "https://startupfortune.com/across-protocol-got-hacked-on-solana-and-no-user-lost-a-cent/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "all pending transfers were completed or refunded"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-07-17",
+    "sources": [
+     {
+      "url": "https://coinstats.app/news/a70000162e302dd91e2fec9ba6b0a4625dc6a962137b503895ee17e03413e343_Across-Solana-Relayer-Attack-Drained-45M--No-User-Lost-a-Cent",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "first forged deposit submitted on Solana"
+     },
+     {
+      "url": "https://mainnet.base.org",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "first fill: Base block 48,737,755, timestamp 2026-07-17T05:07:37Z, status 1"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 4500000,
+    "range": "Gross about 4.5M USD advanced by the relayer (post-incident report; 4.545M summed from indexer fill amounts and prices, my computation); net under 4M after about 0.5M of the initiating party's funds held in the protocol. Face value of all 1,627 invalid deposits about 41.7M.",
+    "sources": [
+     {
+      "url": "https://www.kucoin.com/news/flash/across-protocol-relayer-attack-results-in-under-4m-net-loss",
+      "type": "press",
+      "how_read": "search snippet",
+      "quote": "The Relayer had advanced payments for 581 of these transactions, involving approximately $4.5 million of its own capital"
+     },
+     {
+      "url": "https://www.kucoin.com/news/flash/across-protocol-reports-security-incident-with-net-loss-under-4m",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "less than $4 million"
+     },
+     {
+      "url": "https://indexer.api.across.to/deposits",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "581 filled records; sum of outputAmount x outputPriceUsd = 4,545,050 USD (my computation)"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "Relayer's off-chain Solana event reader accepted fabricated deposit events that no deposit backed.",
+    "sources": [
+     {
+      "url": "https://en.cryptonomist.ch/2026/07/24/across-solana-relayer-attack/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "it did not verify the 8-byte Anchor event discriminator"
+     },
+     {
+      "url": "https://startupfortune.com/across-protocol-got-hacked-on-solana-and-no-user-lost-a-cent/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "all pending transfers were completed or refunded"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "other",
+    "share_note": "Relayer inventory on 18 destination chains (fills, USD from indexer prices, my computation): HyperEVM 158 fills about 1.33M; Ethereum 101, 0.84M; Robinhood Chain 97, 0.81M; Base 55, 0.44M; Optimism 36, 0.26M; Unichain 17, 0.13M; Polygon 16, 0.11M; Monad 12, 0.10M; BSC 12, 0.10M; zkSync Era 14, 0.08M; Ink 12, 0.08M; Mode 12, 0.08M; Lisk 10, 0.06M; Linea 8, 0.05M; World Chain 9, 0.05M; Lens 2; Soneium 9; Zora 1 (under 0.01M each). All invalid deposits named one EVM recipient address.",
+    "chains": [
+     "HyperEVM",
+     "Ethereum",
+     "Robinhood Chain",
+     "Base",
+     "Optimism",
+     "Unichain",
+     "Polygon",
+     "Monad",
+     "BSC",
+     "zkSync Era",
+     "Ink",
+     "Mode",
+     "Lisk",
+     "Linea",
+     "World Chain",
+     "Lens",
+     "Soneium",
+     "Zora",
+     "Solana"
+    ],
+    "sources": [
+     {
+      "url": "https://indexer.api.across.to/deposits",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "query: recipient in onchain_refs, originChainId=34268394551451, status=filled: 581 records on 18 destination chains"
+     },
+     {
+      "url": "https://app.across.to/api/chains",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "4663 Robinhood; 999 HyperEVM; 34268394551451 Solana"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "HyperEVM",
+    "first_release_utc": "2026-07-17T05:09:42Z",
+    "last_release_utc": "2026-07-17T06:16:27Z",
+    "duration_min": 66.75,
+    "release_tx_count": 581,
+    "count_note": "Counted: relayer fill transactions for invalid deposits on all 18 destination chains (581 in the post-incident report; 581 distinct fill transactions in the Across indexer). First and last times are for HyperEVM, the chain with the largest value (158 fills). Across all chains the first fill was at 05:07:37 UTC on Base, three seconds after its deposit event, and the last at 06:17:31 UTC on zkSync Era (both read from chain RPCs). Invalid deposit events ran 05:07:34-06:14:33 UTC; the remaining 1,046 (about 37M USD face value) expired unfilled. release_path lists the first and last fill on each chain.",
+    "sources": [
+     {
+      "url": "https://indexer.api.across.to/deposits",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "filled records: fillBlockTimestamp 2026-07-17T05:07:37Z to 06:17:31Z; HyperEVM 05:09:42Z to 06:16:27Z; depositBlockTimestamp 05:07:34Z to 06:14:31Z"
+     },
+     {
+      "url": "https://rpc.hyperliquid.xyz/evm",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "last HyperEVM fill: block 40,680,127, timestamp 2026-07-17T06:16:27Z, status 1"
+     },
+     {
+      "url": "https://mainnet.era.zksync.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "last fill overall: zkSync Era block 71,200,021, timestamp 2026-07-17T06:17:31Z, status 1"
+     },
+     {
+      "url": "https://en.cryptonomist.ch/2026/07/24/across-solana-relayer-attack/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the relayer filled 581 of them before Solana was disabled."
+     },
+     {
+      "url": "https://en.cryptonomist.ch/2026/07/24/across-solana-relayer-attack/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The remaining approximately $37 million in forged deposits expired worthless once the relayer stopped filling them."
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2026-07-17T08:36:33Z",
+    "channel": "X (@AcrossProtocol)",
+    "note": "Status ID 2078036118209982566; about 3.5 h after the first fill and 2 h 19 min after the last. It named one Solana and two EVM addresses tracked with SEAL 911. The post-incident report followed about July 24-25.",
+    "sources": [
+     {
+      "url": "https://x.com/AcrossProtocol/status/2078036118209982566",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "At ~5:30 AM UTC today, Across was attacked on Solana. User funds are safe."
+     },
+     {
+      "url": "https://coinstats.app/news/a70000162e302dd91e2fec9ba6b0a4625dc6a962137b503895ee17e03413e343_Across-Solana-Relayer-Attack-Drained-45M--No-User-Lost-a-Cent",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "first public statement issued"
+     }
+    ]
+   },
+   "first_alert": null,
+   "pause": {
+    "utc": "2026-07-17T06:16Z",
+    "basis": "stated",
+    "what": "Relayer blacklisted the first addresses of the initiating party and stopped filling the invalid deposits",
+    "by": "Risk Labs (relayer operator)",
+    "note": "The post-incident timeline puts the end of the invalid deposit stream at 06:14 and the first blacklisting at 06:16 UTC; the last fill observed is 06:17:31 UTC. Later steps: Solana disabled as origin and destination in the API at 08:23 UTC and the Solana SpokePool paused on-chain at 08:35 UTC (both stated); Solana deposits re-enabled through CCTP at 17:05 UTC; full operations on July 18.",
+    "sources": [
+     {
+      "url": "https://en.cryptonomist.ch/2026/07/24/across-solana-relayer-attack/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "06:14 — forged deposit stream ends; first attacker addresses blacklisted at 06:16"
+     },
+     {
+      "url": "https://en.cryptonomist.ch/2026/07/24/across-solana-relayer-attack/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "08:35 — Solana SpokePool paused on-chain"
+     },
+     {
+      "url": "https://coinstats.app/news/a70000162e302dd91e2fec9ba6b0a4625dc6a962137b503895ee17e03413e343_Across-Solana-Relayer-Attack-Drained-45M--No-User-Lost-a-Cent",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Solana disabled as an origin and destination chain in the API"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source describes a cap on relayer exposure per route, recipient or period. The relayer advanced about 4.5M USD over 70 minutes; the remaining invalid deposits expired once it stopped filling. The post-incident report lists anomaly detection for coordinated deposit patterns as work in progress.",
+    "sources": [
+     {
+      "url": "https://en.cryptonomist.ch/2026/07/24/across-solana-relayer-attack/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The remaining approximately $37 million in forged deposits expired worthless once the relayer stopped filling them."
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": 500000,
+    "native": "none returned",
+    "date": null,
+    "note": "About 0.5M USD of the initiating party's funds stayed held inside the protocol and offset the loss (post-incident report); what these funds were is not described. Users were not affected; the loss is the relayer's capital. Addresses were flagged with exchanges and off-ramps.",
+    "sources": [
+     {
+      "url": "https://en.cryptonomist.ch/2026/07/24/across-solana-relayer-attack/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "With roughly $500,000 in attacker funds trapped inside the protocol, the net loss sits under $4 million"
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2026-07-17T05:07:37Z",
+     "chain": "Base",
+     "side": "other",
+     "amount_native": 4620.669392,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (first fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:09:41Z",
+     "chain": "Robinhood Chain",
+     "side": "other",
+     "amount_native": 9898.446367,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (first fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:09:41Z",
+     "chain": "zkSync Era",
+     "side": "other",
+     "amount_native": 9667.209567,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (first fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:09:42Z",
+     "chain": "HyperEVM",
+     "side": "other",
+     "amount_native": 9854.756439,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (first fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:09:42Z",
+     "chain": "Unichain",
+     "side": "other",
+     "amount_native": 9677.699258,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (first fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:09:42Z",
+     "chain": "BSC",
+     "side": "other",
+     "amount_native": 9946.936176,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (first fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:09:43Z",
+     "chain": "Lisk",
+     "side": "other",
+     "amount_native": 9924.334413,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (first fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:09:43Z",
+     "chain": "Polygon",
+     "side": "other",
+     "amount_native": 9818.565477,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (first fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:09:43Z",
+     "chain": "Mode",
+     "side": "other",
+     "amount_native": 9584.095163,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (first fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:09:59Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 9952.150893,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (first fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:10:34Z",
+     "chain": "Lens",
+     "side": "other",
+     "amount_native": 6910.12222,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (first fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:10:35Z",
+     "chain": "World Chain",
+     "side": "other",
+     "amount_native": 6892.612209,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (first fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:10:36Z",
+     "chain": "Linea",
+     "side": "other",
+     "amount_native": 7170.546836,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (first fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:10:38Z",
+     "chain": "Monad",
+     "side": "other",
+     "amount_native": 5687.566194,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (first fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:10:39Z",
+     "chain": "Soneium",
+     "side": "other",
+     "amount_native": 2732.805911,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (first fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:10:39Z",
+     "chain": "Optimism",
+     "side": "other",
+     "amount_native": 6513.31416,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (first fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:10:39Z",
+     "chain": "Zora",
+     "side": "other",
+     "amount_native": 3931.65836,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (only fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:10:42Z",
+     "chain": "Ink",
+     "side": "other",
+     "amount_native": 532.697851,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (first fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:11:28Z",
+     "chain": "Lens",
+     "side": "other",
+     "amount_native": 1955.77757,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (last fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:11:29Z",
+     "chain": "Linea",
+     "side": "other",
+     "amount_native": 4628.241349,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (last fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:12:33Z",
+     "chain": "Ink",
+     "side": "other",
+     "amount_native": 6830.099875,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (last fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:20:01Z",
+     "chain": "Mode",
+     "side": "other",
+     "amount_native": 5440.43502,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (last fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:22:45Z",
+     "chain": "Lisk",
+     "side": "other",
+     "amount_native": 6954.063085,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (last fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:29:17Z",
+     "chain": "Soneium",
+     "side": "other",
+     "amount_native": 722.057001,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (last fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:30:47Z",
+     "chain": "World Chain",
+     "side": "other",
+     "amount_native": 254.726995,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (last fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:35:51Z",
+     "chain": "BSC",
+     "side": "other",
+     "amount_native": 5680.101091,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (last fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:37:25Z",
+     "chain": "Base",
+     "side": "other",
+     "amount_native": 8486.70667,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (last fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T05:56:23Z",
+     "chain": "Ethereum",
+     "side": "other",
+     "amount_native": 9443.663072,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (last fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T06:14:12Z",
+     "chain": "Polygon",
+     "side": "other",
+     "amount_native": 827.642885,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (last fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T06:14:54Z",
+     "chain": "Robinhood Chain",
+     "side": "other",
+     "amount_native": 9434.939004,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (last fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T06:15:05Z",
+     "chain": "Optimism",
+     "side": "other",
+     "amount_native": 7427.526178,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (last fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T06:15:22Z",
+     "chain": "Monad",
+     "side": "other",
+     "amount_native": 5607.975414,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (last fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T06:15:23Z",
+     "chain": "Unichain",
+     "side": "other",
+     "amount_native": 5644.374179,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (last fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T06:16:27Z",
+     "chain": "HyperEVM",
+     "side": "other",
+     "amount_native": 9821.103233,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (last fill on this chain)"
+    },
+    {
+     "utc": "2026-07-17T06:17:31Z",
+     "chain": "zkSync Era",
+     "side": "other",
+     "amount_native": 31.234448,
+     "asset": "USDC-equivalent output token",
+     "usd": null,
+     "basis": "dataset: Across indexer fill timestamp (last fill on this chain)"
+    }
+   ],
+   "open_questions": "(1) What the 0.5M USD of the initiating party's funds held in the protocol consisted of. (2) Whether the 06:16 UTC blacklist alone stopped fills (the deposit stream had ended at 06:14 UTC). (3) The Solana SpokePool pause at 08:35 UTC was not read on-chain. (4) Classification: D treats the relayer's event reader as the release-side verifier; the SpokePool contracts were not at fault (Risk Labs)."
+  },
+  {
+   "event_id": "E57",
+   "dl_name": "Allbridge Core",
+   "dl_date": "2026-07-19",
+   "scope": {
+    "value": "bridge_liquidity_or_relayer",
+    "note": "USDC and USDT left Allbridge Core's Solana liquidity pools in one transaction that used a pool-accounting flaw; no cross-chain message was involved in the release. Not the 2023 BNB Chain event, and not DefiLlama's separate 2026-08-19 'Allbridge' (Base) record.",
+    "sources": [
+     {
+      "url": "https://blocksec.com/blog/web3-security-allbridge-wanchain-exploits",
+      "type": "third-party analysis",
+      "how_read": "search snippet",
+      "quote": "The root cause was that the swap instruction accepted the same Pool account in both the send and receive roles without enforcing that the two are different."
+     },
+     {
+      "url": "https://x.com/Allbridge_io/status/2079172432179384501",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We confirm that an attacker withdrew $1.65M from Allbridge Core's liquidity"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-07-19",
+    "sources": [
+     {
+      "url": "https://api.mainnet-beta.solana.com",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "getTransaction: slot 433,941,722, blockTime 2026-07-19T17:51:28Z, err null"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 1650000,
+    "range": "1.65M USD: 1,118,249.78 USDC and 538,692.50 USDT left the pool vaults (BlockSec: about 1.12M USDC and 539K USDT)",
+    "sources": [
+     {
+      "url": "https://x.com/Allbridge_io/status/2079172432179384501",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We confirm that an attacker withdrew $1.65M from Allbridge Core's liquidity"
+     },
+     {
+      "url": "https://api.mainnet-beta.solana.com",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "token balance changes: USDC vault -1,118,249.78; USDT vault -538,692.50; initiating party +1,118,238.56 USDC, +538,692.50 USDT"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "O",
+    "phrase": "Swap accepted one pool account as both sender and receiver, so pool accounting diverged from the vault balances.",
+    "sources": [
+     {
+      "url": "https://blocksec.com/blog/web3-security-allbridge-wanchain-exploits",
+      "type": "third-party analysis",
+      "how_read": "search snippet",
+      "quote": "The root cause was that the swap instruction accepted the same Pool account in both the send and receive roles without enforcing that the two are different."
+     },
+     {
+      "url": "https://theblock.co/post/408855/allbridge-core-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The resulting pool imbalance created a temporary positive arbitrage window."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "other",
+    "share_note": "One transaction took 42.2% of the USDC vault (2,652,408.57 before, 1,534,158.79 after) and 25.5% of the USDT vault (2,108,936.03 to 1,570,243.53), using a flash loan from Kamino repaid in the same transaction. Allbridge said the resulting imbalance opened a temporary arbitrage window; swaps and cross-chain transfers through the affected pools continued until at least 18:30:21 UTC, and their effect on other chains' pools was not traced.",
+    "chains": [
+     "Solana",
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "https://api.mainnet-beta.solana.com",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "pre/post token balances of the bridge-authority vaults: USDT 2,108,936.03 to 1,570,243.53; USDC 2,652,408.57 to 1,534,158.79"
+     },
+     {
+      "url": "https://theblock.co/post/408855/allbridge-core-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The resulting pool imbalance created a temporary positive arbitrage window."
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Solana",
+    "first_release_utc": "2026-07-19T17:51:28Z",
+    "last_release_utc": "2026-07-19T17:51:28Z",
+    "duration_min": 0,
+    "release_tx_count": 1,
+    "count_note": "Counted: transactions by the initiating address taking value from the pools (one: a flash borrow, seven swap instructions and the repayment). Not counted: about 200 later swaps and cross-chain transfers by other addresses through the imbalanced pools between 17:53 and 18:30 UTC (the arbitrage window Allbridge describes); some local swaps returned 0.2%-14% more than they paid in. The released funds were moved to Ethereum later (PeckShield, CertiK).",
+    "sources": [
+     {
+      "url": "https://blocksec.com/blog/web3-security-allbridge-wanchain-exploits",
+      "type": "third-party analysis",
+      "how_read": "search snippet",
+      "quote": "The root cause was that the swap instruction accepted the same Pool account in both the send and receive roles without enforcing that the two are different."
+     },
+     {
+      "url": "https://api.mainnet-beta.solana.com",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "getSignaturesForAddress on the USDT vault and pool accounts, 17:51-21:10 UTC: Swap, SwapAndBridge and ReceiveAndSwap transactions by other signers until 18:30:21Z, then only Withdraw/Deposit/ClaimRewards and failed calls"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2026-07-19T19:58:41Z",
+    "channel": "X (@Allbridge_io)",
+    "note": "Status ID 2078932561036722319, about 2 h 7 min after the release; it announced the pause and asked arbitrageurs to return funds. Follow-up at 20:23:25 UTC (status ID 2078938784087908505); confirmation of the 1.65M figure at 11:51:51 UTC on July 20 (status ID 2079172432179384501).",
+    "sources": [
+     {
+      "url": "https://x.com/Allbridge_io/status/2078932561036722319",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Allbridge Core is experiencing a security incident. We have paused the protocol as a precaution while we investigate."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2026-07-20T00:29:57Z",
+    "channel": "X (@OnchainLens)",
+    "by": "Onchain Lens",
+    "note": "Status ID 2079000826178425126; after Allbridge's own statement. PeckShield followed at 01:10:59 UTC (status ID 2079011150713561173) and CertiK at 01:18:58 UTC (status ID 2079013163014770987).",
+    "sources": [
+     {
+      "url": "https://x.com/OnchainLens/status/2079000826178425126",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Allbridge Core exploited for $1.1M+ on @solana."
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2026-07-19T19:58:41Z",
+    "basis": "announcement",
+    "what": "Allbridge Core protocol paused",
+    "by": "Allbridge",
+    "note": "Upper bound from the announcement; no on-chain pause transaction was found on the affected pool accounts. Successful swaps through those accounts continued until 18:30:21 UTC, and LP withdrawals continued afterwards. Allbridge plans to relaunch Core without liquidity pools.",
+    "sources": [
+     {
+      "url": "https://x.com/Allbridge_io/status/2078932561036722319",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We have paused the protocol as a precaution while we investigate."
+     },
+     {
+      "url": "https://www.kucoin.com/news/flash/allbridge-halts-core-bridge-after-1-65m-flash-loan-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "If you have liquidity in affected pools, please withdraw now."
+     },
+     {
+      "url": "https://theblock.co/post/408855/allbridge-core-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "We are already working on relaunching Core without liquidity pools."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions a cap or rate limit; one transaction took 42.2% of the USDC pool vault and 25.5% of the USDT pool vault.",
+    "sources": [
+     {
+      "url": "https://api.mainnet-beta.solana.com",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "pre/post token balances of the bridge-authority vaults: USDT 2,108,936.03 to 1,570,243.53; USDC 2,652,408.57 to 1,534,158.79"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": null,
+    "native": "none reported",
+    "date": null,
+    "note": "Allbridge asked arbitrageurs to return gains to a listed address for LP compensation; no returns reported. The released funds were bridged to Ethereum and moved toward privacy protocols.",
+    "sources": [
+     {
+      "url": "https://theblock.co/post/408855/allbridge-core-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "return all affected funds"
+     },
+     {
+      "url": "https://www.kucoin.com/news/flash/allbridge-halts-core-bridge-after-1-65m-flash-loan-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "If you have liquidity in affected pools, please withdraw now."
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2026-07-19T17:51:28Z",
+     "chain": "Solana",
+     "side": "other",
+     "amount_native": 1118249.78,
+     "asset": "USDC",
+     "usd": 1120000,
+     "basis": "onchain: Solana blockTime (public RPC); usd per BlockSec"
+    },
+    {
+     "utc": "2026-07-19T17:51:28Z",
+     "chain": "Solana",
+     "side": "other",
+     "amount_native": 538692.5,
+     "asset": "USDT",
+     "usd": 539000,
+     "basis": "onchain: Solana blockTime (public RPC); usd per BlockSec"
+    }
+   ],
+   "open_questions": "(1) On-chain pause time (only the announcement found). (2) Value extracted by other addresses during the arbitrage window and released on other chains' pools. (3) Whether any funds were returned after July 20; the post-mortem on X ('Technical Post-Mortem: Solana Pool Swap Exploit') was not read. (4) Class O follows the brief's rule for accounting flaws inside one chain's pool; the pools serve cross-chain transfers."
+  }
+ ]
+}

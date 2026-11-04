@@ -1,0 +1,9 @@
+{
+ "end_block": 26201369,
+ "n_blocks": 30720,
+ "base_fee_gwei_median": 0.144337164,
+ "base_fee_gwei_p90": 0.553369282,
+ "priority_fee_gwei_median": 0.0569501735,
+ "eth_usd": 2441.3256171299313,
+ "eth_price_source": "valuation_20261016T000856Z.json"
+}

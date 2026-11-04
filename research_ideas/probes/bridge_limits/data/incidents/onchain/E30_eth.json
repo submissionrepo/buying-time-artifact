@@ -1,0 +1,46 @@
+{
+ "target": "E30_eth",
+ "config": {
+  "event_id": "E30",
+  "leg": "Ethereum escrow",
+  "chain": "ethereum",
+  "window_utc": [
+   "2024-08-06T09:00:00",
+   "2024-08-06T11:00:00"
+  ],
+  "min_usd": 500000
+ },
+ "blocks": [
+  20468494,
+  20469090
+ ],
+ "n_candidate_rows": 9,
+ "rows": [
+  {
+   "selected": true,
+   "ts": 1722939107,
+   "block": 20468848,
+   "kind": "erc20",
+   "symbol": "USDC",
+   "amount": 1998046.875,
+   "usd": 1996518.1964457561
+  },
+  {
+   "selected": true,
+   "ts": 1722937043,
+   "block": 20468679,
+   "kind": "native",
+   "symbol": "ETH",
+   "amount": 3996.09375,
+   "usd": 9819371.664845603
+  }
+ ],
+ "pauses": [
+  {
+   "label": "Paused",
+   "ts": 1722939323,
+   "utc": "2024-08-06T10:15:23Z",
+   "block": 20468866
+  }
+ ]
+}

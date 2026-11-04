@@ -1,0 +1,33 @@
+\begin{table*}[t]
+\centering
+\caption{The 20 largest failures, 96\% of the value. Class: stage where the withdrawals entered. Outflow: first to last unauthorized release. Response: first public response (a: acknowledgment, p: pause). Found: how the operator learned (alert: a third party's public alert; operator: own monitoring; user: a user's report or failed withdrawal; shortfall: a shortfall in the escrow). Pause: who could pause (indep.: a party independent of the failure; party: the failing party; none: no pause on the path). Recovered: returned or frozen afterwards. All 57 failures, with sources, are in the artifact.}
+\label{tab:failures}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}l l r l l r r l l r@{}}
+\toprule
+Failure & Year & \$M & Class & Side & Outflow & Response & Found & Pause & Recovered \\
+\midrule
+Poly Network & 2021 & 610 & check & escrow & 36\,min & 2\,h 47\,min a & -- & indep. & 610 \\
+BSC Token Hub & 2022 & 587 & check & mint & 2\,h 16\,min & 3\,h 46\,min p & -- & indep. & 436 \\
+Ronin 2022 & 2022 & 540 & keys & escrow & 1\,min & 6\,d 1\,h p & user & indep. & 70 \\
+Wormhole & 2022 & 322 & check & both & 7\,min & 1\,h 8\,min p & operator & indep. & 140 \\
+Liquid & 2026 & 318 & event & both & 0\,min & 3\,h 57\,min p & operator & indep. & 268 \\
+Kelp rsETH & 2026 & 294 & check & escrow & 0\,min & 45\,min p & operator & indep. & 71 \\
+Nomad & 2022 & 187 & check & escrow & 2\,h 33\,min & 1\,h 52\,min a & alert & indep. & 39 \\
+Mixin & 2023 & 143 & keys & escrow & 1\,h 25\,min & 2\,d 3\,h a & -- & none & 0 \\
+Multichain 2023 & 2023 & 129 & keys & escrow & 1\,h 55\,min & 5\,h 16\,min a & alert & none & 66 \\
+Harmony Horizon & 2022 & 100 & keys & escrow & 19\,min & 8\,h 46\,min p & operator & party & 0 \\
+HECO bridge & 2023 & 86 & keys & escrow & 20\,min & 2\,h 35\,min a & alert & -- & 0 \\
+Orbit Bridge & 2023 & 82 & keys & escrow & 17\,min & 1\,h 13\,min p & operator & indep. & 0 \\
+Qubit QBridge & 2022 & 80 & event & mint & 14\,min & 3\,h 37\,min a & alert & indep. & 0 \\
+AFX bridge & 2026 & 24 & keys & escrow & 0\,min & 5\,h 34\,min a & alert & -- & 0 \\
+Wanchain Cardano & 2026 & 14 & check & escrow & 8\,min & 15\,h 4\,min a & alert & indep. & 0 \\
+pNetwork pBTC & 2021 & 13 & check & escrow & 6\,min & 3\,h 3\,min a & operator & indep. & 0 \\
+Ronin 2024 & 2024 & 12 & check & escrow & 34\,min & 38\,min p & alert & indep. & 12 \\
+Verus bridge May & 2026 & 12 & check & escrow & 0\,min & -- & alert & indep. & 8 \\
+Garden solver & 2025 & 11 & keys & other & 4\,min & 5\,h 1\,min a & alert & none & 0 \\
+THORChain 2026 & 2026 & 11 & keys & escrow & 3\,h 28\,min & 52\,min p & operator & none & 0 \\
+\bottomrule
+\end{tabular}
+\end{table*}

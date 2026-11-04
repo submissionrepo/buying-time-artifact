@@ -1,0 +1,545 @@
+{
+ "batch": "B",
+ "generated_utc": "2026-10-15T16:44:17Z",
+ "events": [
+  {
+   "event_id": "E10",
+   "dl_name": "Qubit",
+   "dl_date": "2022-01-28",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "QBridge (Ethereum to BSC) minted xETH on BSC against Ethereum deposit events that locked no value. The realized loss left Qubit's BSC lending markets, where the unbacked xETH was posted as collateral for borrowing; no Ethereum escrow was drawn.",
+    "sources": [
+     {
+      "url": "https://medium.com/@QubitFin/protocol-exploit-report-305c34540fa3",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "A number of xETH tokens were minted by 16 voteProposal tx, and liquidity in Qubit was withdrawn using this as collateral"
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "A deprecated function allowed minting tokens without a valid proof."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2022-01-27",
+    "sources": [
+     {
+      "url": "https://medium.com/@QubitFin/protocol-exploit-report-305c34540fa3",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Jan-27–2022 09:36:32 PM +UTC~Jan-27–2022 09:51:02 PM +UTC : Sent 16 voteProposal tx to QBridge contract of BSC by Qubit Relayer"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 80000000,
+    "range": "77.1M-90.8M USD: 77.14M (Merkle Science on-chain estimate); about 80M as about 200k BNB (Rekt, CertiK via press, DefiLlama); 88.6M revised to 90.8M is Qubit's later 'amount of damage' tally (2022-02-22) and may use different valuation dates.",
+    "sources": [
+     {
+      "url": "https://rekt.news/qubit-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "200k BNB (~$80M)"
+     },
+     {
+      "url": "https://www.merklescience.com/blog/hack-track-analysis-of-qubit-finance-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "$77.14 million"
+     },
+     {
+      "url": "https://medium.com/@QubitFin/qubit-markets-reopening-d1d25f4fbfc4",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "Updated amount of damage: $88.6M > $90.8M"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "S",
+    "phrase": "Legacy source-chain deposit path emitted deposit events without locking any value.",
+    "sources": [
+     {
+      "url": "https://medium.com/@QubitFin/protocol-exploit-report-305c34540fa3",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "tokenAddress is 0, so safeTransferFrom didn’t fail and the deposit function ended normally regardless of the amount value."
+     },
+     {
+      "url": "https://arxiv.org/pdf/2208.07119",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "It will provide proof of non-existent locked tokens to the relayer and cause a false deposit on the destination chain."
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "[225] Qubit 11 Jan 2022 80M ■ ◔ ◑ – ◔ SC TC"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "mint",
+    "share_note": "100% through unbacked xETH minted on BSC by 16 relayer voteProposal transactions; value realized by borrowing BNB, ETH, BTCB, stablecoins and other tokens from Qubit's BSC markets against that xETH.",
+    "chains": [
+     "Ethereum (source-side deposit events)",
+     "BSC (mint and borrowing)"
+    ],
+    "sources": [
+     {
+      "url": "https://medium.com/@QubitFin/protocol-exploit-report-305c34540fa3",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "A number of xETH tokens were minted by 16 voteProposal tx, and liquidity in Qubit was withdrawn using this as collateral"
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "in the Target Chain Smart Contract if the attacker minted unbacked funds"
+     }
+    ]
+   },
+   "outflow": {
+    "first_release_utc": "2022-01-27T21:36:32Z",
+    "last_release_utc": "2022-01-27T21:51:02Z",
+    "duration_min": 14.5,
+    "release_tx_count": 16,
+    "count_note": "Counts the 16 relayer voteProposal transactions on BSC that minted xETH (release side). The 16 matching source-side deposit transactions on Ethereum ran 21:34:01-21:50:41 UTC. Borrowing transactions against the xETH followed; their times and count are not given in the sources read, but a third-party X post at 22:19:28 UTC already pointed to an address holding about $80M. Xscope flags 4 further deposit-type transactions it calls unreported (one on 2021-12-15, three on 2022-01-27), outside the 16.",
+    "sources": [
+     {
+      "url": "https://medium.com/@QubitFin/protocol-exploit-report-305c34540fa3",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Jan-27–2022 09:34:01 PM +UTC~Jan-27–2022 09:50:41 PM +UTC : Sent 16 deposit tx to QBridge of Ethereum"
+     },
+     {
+      "url": "https://medium.com/@QubitFin/protocol-exploit-report-305c34540fa3",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Jan-27–2022 09:36:32 PM +UTC~Jan-27–2022 09:51:02 PM +UTC : Sent 16 voteProposal tx to QBridge contract of BSC by Qubit Relayer"
+     },
+     {
+      "url": "https://twitter.com/0xclaudeshannon/status/1486826216661340161",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Did @QubitFin just get hacked for $80M? Check out this address:"
+     },
+     {
+      "url": "https://arxiv.org/pdf/2208.07119",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "Qubit Bridge UDE 16 16 (100%) +4 20"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2022-01-28T01:14:24Z",
+    "channel": "X (@QubitFin)",
+    "note": "Earliest project statement found: 3 h 23 min after the last mint transaction. It names the recipient address and says unlimited xETH was minted to borrow on BSC; it does not mention a pause. Follow-up X post 02:30:42Z (bounty, tracking). Medium post-mortem published 2022-01-28T07:32:00Z (RSS pubDate). First press: The Block 2022-01-28 08:42 UTC (3:42AM EST). SoK Table 5 puts Qubit's communication time in the 2-4 h bucket.",
+    "sources": [
+     {
+      "url": "https://twitter.com/QubitFin/status/1486870238591594497",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The protocol was exploited by; ... The hacker minted unlimited xETH to borrow on BSC."
+     },
+     {
+      "url": "https://www.coindesk.com/markets/2022/01/28/defi-protocol-qubit-finance-exploited-for-80m/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The team is currently working with security and network partners on next steps."
+     },
+     {
+      "url": "https://medium.com/feed/@QubitFin",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "Fri, 28 Jan 2022 07:32:00 GMT"
+     },
+     {
+      "url": "https://www.theblock.co/post/132157/qubit-finance-bridge-ethereum-bsc-exploited-lost-80-million",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "January 28, 2022, 3:42AM EST"
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "what": "Qubit Supply, Redeem, Borrow, Repay, Bridge and Bridge redemption functions (QBridge included); claiming left open",
+    "by": "Qubit Finance team",
+    "note": "Report 3 says the service was stopped immediately after the incident but gives no time. The disabled state is first documented in the post-mortem published 2022-01-28T07:32Z; the 01:14:24Z X post does not mention it. No on-chain pause event was located; to be measured.",
+    "sources": [
+     {
+      "url": "https://medium.com/@QubitFin/protocol-exploit-report-305c34540fa3",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Supply, Redeem, Borrow, Repay, Bridge, and Bridge redemption functions are disabled until further notice."
+     },
+     {
+      "url": "https://medium.com/@QubitFin/porotocol-exploit-report-3-82f4e3ade34b",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Immediately after the incident, the Qubit Finance team stopped operating the service,"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions one.",
+    "sources": []
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "none reported",
+    "date": null,
+    "note": "No return, freeze or seizure found in the sources read; Qubit's 2022-01-31 report said the funds were still on-chain and monitored. Reimbursement (separate): Qubit's team gave up its tokens and targeted a first compensation tranche of at least $10M; compensation began 2022-02-22 per the reopening post.",
+    "sources": [
+     {
+      "url": "https://medium.com/@QubitFin/porotocol-exploit-report-3-82f4e3ade34b",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "All of the funds are still on-chain and they are monitored by the team and our partners."
+     },
+     {
+      "url": "https://medium.com/@QubitFin/our-compensation-plan-1-63e7c64738ed",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "If any amount of the fund is recovered, it will be distributed to the victims right away."
+     },
+     {
+      "url": "https://medium.com/@QubitFin/our-compensation-plan-1-63e7c64738ed",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "We are targeting the first tranche of at least $10M to be invested by an asset management team"
+     },
+     {
+      "url": "https://medium.com/@QubitFin/qubit-markets-reopening-d1d25f4fbfc4",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "Qubit compensation will begin on February 22nd."
+     }
+    ]
+   },
+   "open_questions": "Times and count of the BSC borrowing transactions against the minted xETH (the actual drain of the lending pools) and of any on-chain pause of Qubit and QBridge functions remain to be measured from BSC logs. The minted xETH amount differs across sources (77,162 qXETH per CertiK via press; 216,960.20 qXETH per Merkle Science). Whether the 2021-12-15 deposit-type transaction flagged by Xscope led to a mint on BSC is not established. Report pages were read through Medium's RSS feed (article pages return 403); the chain of the four Report 2 admin transactions other than the BSC deployment is as summarized from that feed."
+  },
+  {
+   "event_id": "E11",
+   "dl_name": "Portal",
+   "dl_date": "2022-02-02",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Wormhole token bridge (Portal). The Solana side minted 120,000 wETH with no backing; 93,750 of it was then redeemed against the Ethereum escrow of the same bridge, and the rest was sold on Solana.",
+    "sources": [
+     {
+      "url": "https://kudelskisecurity.com/research/quick-analysis-of-the-wormhole-attack",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Transaction to mint 120000 wormhole ETH on Solana."
+     },
+     {
+      "url": "https://www.trmlabs.com/post/solana-wormhole-compromise-120k-stolen-eth",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Approximately 93,750 of these WETH have been transferred to a single address on the Ethereum blockchain and are sitting unspent."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2022-02-02",
+    "sources": [
+     {
+      "url": "https://api.mainnet-beta.solana.com (JSON-RPC getTransaction [redacted])",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "\"blockTime\":1643826253 ... \"slot\":119027414"
+     },
+     {
+      "url": "https://kudelskisecurity.com/research/quick-analysis-of-the-wormhole-attack",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "2022.02.02 18:24 Transaction to mint 120000 wormhole ETH on Solana."
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 324000000,
+    "range": "320M-326M USD for 120,000 wETH at the time (CertiK over 320M; The Block about 323M; TRM over 324M; Rekt and DefiLlama 326M). The Ethereum escrow leg alone was 93,750 ETH (about 250M per The Register citing samczsun).",
+    "sources": [
+     {
+      "url": "https://www.trmlabs.com/post/solana-wormhole-compromise-120k-stolen-eth",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "at least 120,000 Wrapped ETH worth over $324 million"
+     },
+     {
+      "url": "https://rekt.news/wormhole-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "A hacker distorted the fabric of Solana's space-time, netting $326M in the process."
+     },
+     {
+      "url": "https://www.theblock.co/news/ecosystems/2023-02-25-four-top-cryptocurrency-stories-from-the-past-week-215175",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "$140 million in crypto assets, a portion of $323 million stolen from Jump-operated Wormhole bridge in February 2022."
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "Solana-side guardian signature check trusted an unvalidated account, accepting a forged transfer message.",
+    "sources": [
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "A bug was introduced in the proof verification component in the target chain."
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "Due to a mistake, the version solana program being used didn’t verify correctly the signatures."
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "[123] Wormhole 22 Feb 2022 326M ■ ○ ◐ – ○ TC TC"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "both",
+    "share_note": "Mint: 120,000 wETH minted on Solana in one transaction (100% of the event). Escrow: 93,750 ETH (78.1% of the minted amount) redeemed from the Ethereum token bridge escrow in 3 transactions; the remaining 26,250 wETH (21.9%) stayed on Solana and was sold for about 432,662 SOL and 1,444 USDC (Rekt says about 36k; the 26,250 figure matches 120,000 minus 93,750).",
+    "chains": [
+     "Solana (mint)",
+     "Ethereum (escrow release)"
+    ],
+    "sources": [
+     {
+      "url": "https://rekt.news/wormhole-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "93,750 ETH was bridged back to Ethereum over the course of 3 transactions"
+     },
+     {
+      "url": "https://postquantum.com/crypto-security/wormhole-bridge-hack/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "including 93,750 wETH being bridged to regular ETH, and the remaining 26,250 wETH being liquidated to ... 432,662 SOL and 1444 USDC."
+     },
+     {
+      "url": "https://rekt.news/wormhole-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The remaining ~36k whETH were liquidated on Solana into USDC and SOL."
+     }
+    ]
+   },
+   "outflow": {
+    "first_release_utc": "2022-02-02T18:24:13Z",
+    "last_release_utc": "2022-02-02T18:33:32Z",
+    "duration_min": 9.3,
+    "release_tx_count": 4,
+    "count_note": "Counts 1 mint on Solana (slot 119027414, 18:24:13 UTC, 120,000 wETH) plus 3 escrow releases on Ethereum: 18:26:03 (10,000 ETH, completeTransferAndUnwrapETH, block 14128223), 18:28:37 (80,000 WETH, completeTransfer, block 14128237), 18:33:32 (3,750 ETH, completeTransferAndUnwrapETH, block 14128261). Ethereum leg alone: 7.5 min. The recipient's later WETH unwrap at 18:48:48 is not a bridge release. Preparatory Solana transactions began 17:58 UTC (block 119025020). Wormhole's own X timeline gives 18:26 UTC as the exploit time.",
+    "sources": [
+     {
+      "url": "https://api.mainnet-beta.solana.com (JSON-RPC getTransaction [redacted])",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "\"blockTime\":1643826253 ... \"slot\":119027414"
+     },
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Feb-02-2022 06:26:03 PM +UTC"
+     },
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Feb-02-2022 06:28:37 PM +UTC"
+     },
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Feb-02-2022 06:33:32 PM +UTC"
+     },
+     {
+      "url": "https://kudelskisecurity.com/research/quick-analysis-of-the-wormhole-attack",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "2022.02.02 18:28 Transaction to pull out 80000 wETH from wormhole smart contract."
+     },
+     {
+      "url": "https://postquantum.com/crypto-security/wormhole-bridge-hack/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "is confirmed less than half an hour later on block 119027414 at 18:24 UTC, which mints the fraudulent"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2022-02-02T20:42:24Z",
+    "channel": "X (@wormholecrypto, now @wormhole)",
+    "note": "First public project statement found, 2 h 18 min after the mint and 2 h 9 min after the last escrow release. Earlier signals: per the incident-report summary, contributors noticed the discrepancy 19:07-19:20 UTC; a Wormhole deployer address sent an on-chain message to the recipient address at 20:15:31 UTC (Ethereum block 14128723, bounty offer); a third-party X post by samczsun at 20:35:28 UTC. Second statement confirming 120k wETH at 22:25:03 UTC. First press: The Block 21:18:34 UTC. SoK Table 5 puts the communication time in the 0-2 h bucket.",
+    "sources": [
+     {
+      "url": "https://twitter.com/wormholecrypto/status/1488976115750383626",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The wormhole network is down for maintenance as we look into a potential exploit."
+     },
+     {
+      "url": "https://twitter.com/wormholecrypto/status/1489001949881978883",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The wormhole network was exploited for 120k wETH. ETH will be added over the next hours to ensure wETH is backed 1:1."
+     },
+     {
+      "url": "https://postquantum.com/crypto-security/wormhole-bridge-hack/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "At 20:42 UTC, the team announces the attack to the public via Twitter,"
+     },
+     {
+      "url": "https://tokeninsight.com/en/news/wormhole-released-an-incident-report-on-feb-2-accident",
+      "type": "press",
+      "how_read": "search snippet",
+      "quote": "19:07 to 19:20 UTC - The unusual transactions were noticed by Wormhole contributors and incident confirmed"
+     },
+     {
+      "url": "https://etherscan.io/txs?a=[redacted]&p=5",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "2022-02-02 20:15:31 ... Wormhole: Deployer 14"
+     },
+     {
+      "url": "https://www.theblock.co/post/132841/256-million-in-eth-stolen-from-cross-chain-protocol-wormhole",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "2022-02-02T16:18:34-05:00"
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2022-02-02T19:33Z",
+    "what": "Wormhole network (guardian message processing) and the Portal token bridge, 'down for maintenance'",
+    "by": "Wormhole contributors / guardian operators",
+    "note": "19:33 UTC is from one secondary source (PostQuantum); TokenInsight's summary of Wormhole's incident report (search snippet only) lists 19:33-20:14 UTC as bug fixing and testing, so the takedown time lies between 19:33 and 20:42:24 UTC, when Wormhole first said the network was down. All releases had ended at 18:33:32 UTC, about 1 h before. Patch 00:32-00:33 UTC on 2022-02-03; Ethereum escrow refilled and wETH backed 1:1 at 13:08 UTC; Portal back up 13:29 UTC (X post 13:44:12 UTC).",
+    "sources": [
+     {
+      "url": "https://postquantum.com/crypto-security/wormhole-bridge-hack/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "At 19:33 UTC, the team temporarily shuts down the Wormhole network."
+     },
+     {
+      "url": "https://tokeninsight.com/en/news/wormhole-released-an-incident-report-on-feb-2-accident",
+      "type": "press",
+      "how_read": "search snippet",
+      "quote": "19:33 to 20:14 UTC - Bug fixing and testing."
+     },
+     {
+      "url": "https://rekt.news/wormhole-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "the Wormhole team stated that the network was simply “down for maintenance”"
+     },
+     {
+      "url": "https://twitter.com/wormholecrypto/status/1489233259808571401",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "13:29 UTC — the Portal (token bridge) is back up"
+     },
+     {
+      "url": "https://forklog.com/en/hackers-drain-more-than-319-million-from-wormhole-cross-chain-bridge-pool/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "00:33 UTC — vulnerability was patched"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "no",
+    "acted": "n.a.",
+    "how": "No outflow limit on the path; the Governor (24 h notional cap) was first committed on 2022-07-19, after the event.",
+    "sources": [
+     {
+      "url": "https://api.github.com/repos/wormhole-foundation/wormhole/commits?path=node/pkg/governor/governor.go",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "Chain governor (#1277) ... 2022-07-19T18:08:06Z"
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "More than 93,000 ETH was moved back to Ethereum which could have been avoided if transfers were paused/blocked"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": 140000000,
+    "native": "net about $140M recovered from the recipient's Oasis vault positions (gross positions reported as about 120k wstETH and 3k rETH, about $202M-$225M, before repaying the vault debt)",
+    "date": "2023-02-21",
+    "note": "Seized, not returned: Oasis acted on an order of the High Court of England and Wales received 2023-02-21 and moved the assets to a wallet controlled by an authorised third party (reported as Jump Crypto); nothing went back to the bridge. Reimbursement (separate): Jump Crypto replaced 120,000 ETH, and Wormhole said all wETH were backed 1:1 as of 13:08 UTC on 2022-02-03 (Jump X post 18:13:26 UTC). DefiLlama's 'returned' value of 326M reflects that replenishment.",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/news/ecosystems/2023-02-25-four-top-cryptocurrency-stories-from-the-past-week-215175",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "$140 million in crypto assets, a portion of $323 million stolen from Jump-operated Wormhole bridge in February 2022."
+     },
+     {
+      "url": "https://forklog.com/en/news/oasis-platform-confiscates-assets-tied-to-wormhole-hack",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "On 21 February 2023 we received the order of the High Court of England and Wales."
+     },
+     {
+      "url": "https://forklog.com/en/news/oasis-platform-confiscates-assets-tied-to-wormhole-hack",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "+120k wstETH and +3k rETH ($225M)"
+     },
+     {
+      "url": "https://cryptopotato.com/wormhole-bridge-exploit-140m-worth-stolen-assets-recovered/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "$140 million worth of assets were successfully recovered following a counter-exploit."
+     },
+     {
+      "url": "https://thedefiant.io/counter-exploit-oasis-defi-hack",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "'Counter-Exploit' Claws Back $202M From Hacker"
+     },
+     {
+      "url": "https://twitter.com/JumpCryptoHQ/status/1489301013408497666",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "That's why we replaced 120k ETH to make community members whole and support Wormhole now as it continues to develop."
+     },
+     {
+      "url": "https://decrypt.co/91962/crypto-bridge-wormhole-replenished-after-hack-320m-ethereum",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "all wETH are backed up 1:1"
+     }
+    ]
+   },
+   "open_questions": "Exact takedown time of the guardian network (19:33 UTC rests on one secondary source; the original Wormhole incident report on Medium could not be opened, 403). Amount sold on Solana: 26,250 wETH by arithmetic and PostQuantum versus about 36k in Rekt. The 120,000 ETH replenishment transaction(s) into the Ethereum escrow on 2022-02-03 and the 2023-02-21 Oasis multisig transactions were not located. USD value of the 2023 recovery differs across reports (net 140M; gross 202M-225M)."
+  }
+ ]
+}

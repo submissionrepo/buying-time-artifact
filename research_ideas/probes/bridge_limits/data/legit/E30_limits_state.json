@@ -1,0 +1,22 @@
+{
+ "note": "Extract of the Ronin gateway's per-token limits at the block before the first unauthorized release of E30 (data/legit/read_e30_limits.py); the fields validation_bounds.py reads.",
+ "state": {
+  "before_first_release": {
+   "block_ts": 1722937031,
+   "tokens": {
+    "USDC": {
+     "symbol": "USDC",
+     "lockedThreshold_units": 2000000.0,
+     "dailyWithdrawalLimit_units": 2500000.0,
+     "lastSyncedWithdrawal_units": 16200.17466
+    },
+    "WETH": {
+     "symbol": "WETH",
+     "lockedThreshold_units": 4000.0,
+     "dailyWithdrawalLimit_units": 4500.0,
+     "lastSyncedWithdrawal_units": 103.42779729963569
+    }
+   }
+  }
+ }
+}

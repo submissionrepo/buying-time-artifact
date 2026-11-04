@@ -1,0 +1,380 @@
+{
+ "1 h m=1.0 q=None": {
+  "n_lanes": 16,
+  "lane_months": 171,
+  "delayed_share": 0.17885014227668916,
+  "delayed_n": 1194,
+  "wait_p50_h": 15.486082536975543,
+  "wait_p90_h": 197.788425350123,
+  "mean_delay_h_per_dollar": 11.136417620878605,
+  "review_share": 0.0,
+  "reviews_per_lane_month": 0.0,
+  "current_delayed_share": 0.1931170335980557,
+  "current_mean_delay_h_per_dollar": 0.5271430985783124,
+  "median_cap_ratio": {
+   "1 h": 0.7866156186744658,
+   "6 h": 0.6593884935703538
+  },
+  "sum_cap_ratio": {
+   "1 h": 0.957886839365874,
+   "6 h": 0.605324214103243
+  }
+ },
+ "1 h m=1.0 q=0.99": {
+  "n_lanes": 16,
+  "lane_months": 171,
+  "delayed_share": 0.048860274260356495,
+  "delayed_n": 782,
+  "wait_p50_h": 3.3412669879198074,
+  "wait_p90_h": 25.125068141619366,
+  "mean_delay_h_per_dollar": 0.12047332677360421,
+  "review_share": 0.23549501952837706,
+  "reviews_per_lane_month": 2.4210526315789473,
+  "current_delayed_share": 0.1931170335980557,
+  "current_mean_delay_h_per_dollar": 0.5271430985783124,
+  "median_cap_ratio": {
+   "1 h": 0.41657279254692164,
+   "6 h": 0.34764375846214446
+  },
+  "sum_cap_ratio": {
+   "1 h": 0.5753383495499744,
+   "6 h": 0.4131012177586682
+  }
+ },
+ "1 h m=1.0 q=0.995": {
+  "n_lanes": 16,
+  "lane_months": 171,
+  "delayed_share": 0.057829949302437504,
+  "delayed_n": 877,
+  "wait_p50_h": 5.522606495949957,
+  "wait_p90_h": 27.76378901971711,
+  "mean_delay_h_per_dollar": 0.20373160672145757,
+  "review_share": 0.1977002473793567,
+  "reviews_per_lane_month": 1.847953216374269,
+  "current_delayed_share": 0.1931170335980557,
+  "current_mean_delay_h_per_dollar": 0.5271430985783124,
+  "median_cap_ratio": {
+   "1 h": 0.5459913080363739,
+   "6 h": 0.3652308285503949
+  },
+  "sum_cap_ratio": {
+   "1 h": 0.649493901597446,
+   "6 h": 0.44582069921742173
+  }
+ },
+ "1 h m=1.5 q=None": {
+  "n_lanes": 16,
+  "lane_months": 171,
+  "delayed_share": 0.09661366506286531,
+  "delayed_n": 600,
+  "wait_p50_h": 11.310286242696973,
+  "wait_p90_h": 520.8024135828681,
+  "mean_delay_h_per_dollar": 9.90454482283929,
+  "review_share": 0.0,
+  "reviews_per_lane_month": 0.0,
+  "current_delayed_share": 0.1931170335980557,
+  "current_mean_delay_h_per_dollar": 0.5271430985783124,
+  "median_cap_ratio": {
+   "1 h": 1.1799234280116988,
+   "6 h": 0.9890827403555308
+  },
+  "sum_cap_ratio": {
+   "1 h": 1.4368302590488113,
+   "6 h": 0.9079863211548642
+  }
+ },
+ "1 h m=1.5 q=0.99": {
+  "n_lanes": 16,
+  "lane_months": 171,
+  "delayed_share": 0.008417332964544751,
+  "delayed_n": 178,
+  "wait_p50_h": 1.6023214401139154,
+  "wait_p90_h": 559.938623395231,
+  "mean_delay_h_per_dollar": 0.013588919630547834,
+  "review_share": 0.23549501952837706,
+  "reviews_per_lane_month": 2.4210526315789473,
+  "current_delayed_share": 0.1931170335980557,
+  "current_mean_delay_h_per_dollar": 0.5271430985783124,
+  "median_cap_ratio": {
+   "1 h": 0.6248591888203824,
+   "6 h": 0.5214656376932167
+  },
+  "sum_cap_ratio": {
+   "1 h": 0.8630075243249614,
+   "6 h": 0.6196518266380022
+  }
+ },
+ "1 h m=1.5 q=0.995": {
+  "n_lanes": 16,
+  "lane_months": 171,
+  "delayed_share": 0.011000298696830354,
+  "delayed_n": 213,
+  "wait_p50_h": 2.846489215493202,
+  "wait_p90_h": 1220.163453781936,
+  "mean_delay_h_per_dollar": 0.03520676560364788,
+  "review_share": 0.1977002473793567,
+  "reviews_per_lane_month": 1.847953216374269,
+  "current_delayed_share": 0.1931170335980557,
+  "current_mean_delay_h_per_dollar": 0.5271430985783124,
+  "median_cap_ratio": {
+   "1 h": 0.8189869620545609,
+   "6 h": 0.5478462428255924
+  },
+  "sum_cap_ratio": {
+   "1 h": 0.9742408523961689,
+   "6 h": 0.6687310488261329
+  }
+ },
+ "1 h m=2.0 q=None": {
+  "n_lanes": 16,
+  "lane_months": 171,
+  "delayed_share": 0.05832560086473204,
+  "delayed_n": 336,
+  "wait_p50_h": 18.6467550091611,
+  "wait_p90_h": 2661461.259343212,
+  "mean_delay_h_per_dollar": 9.518138693997331,
+  "review_share": 0.0,
+  "reviews_per_lane_month": 0.0,
+  "current_delayed_share": 0.1931170335980557,
+  "current_mean_delay_h_per_dollar": 0.5271430985783124,
+  "median_cap_ratio": {
+   "1 h": 1.5732312373489317,
+   "6 h": 1.3187769871407076
+  },
+  "sum_cap_ratio": {
+   "1 h": 1.915773678731748,
+   "6 h": 1.210648428206486
+  }
+ },
+ "1 h m=2.0 q=0.99": {
+  "n_lanes": 16,
+  "lane_months": 171,
+  "delayed_share": 0.00037850687621091304,
+  "delayed_n": 41,
+  "wait_p50_h": 309.16362718747723,
+  "wait_p90_h": 417.2499676483207,
+  "mean_delay_h_per_dollar": 0.0032190585544633623,
+  "review_share": 0.23549501952837706,
+  "reviews_per_lane_month": 2.4210526315789473,
+  "current_delayed_share": 0.1931170335980557,
+  "current_mean_delay_h_per_dollar": 0.5271430985783124,
+  "median_cap_ratio": {
+   "1 h": 0.8331455850938433,
+   "6 h": 0.6952875169242889
+  },
+  "sum_cap_ratio": {
+   "1 h": 1.1506766990999489,
+   "6 h": 0.8262024355173364
+  }
+ },
+ "1 h m=2.0 q=0.995": {
+  "n_lanes": 16,
+  "lane_months": 171,
+  "delayed_share": 0.0018653382425476723,
+  "delayed_n": 57,
+  "wait_p50_h": 70.7318707015117,
+  "wait_p90_h": 920.8897982450326,
+  "mean_delay_h_per_dollar": 0.013893679653385102,
+  "review_share": 0.1977002473793567,
+  "reviews_per_lane_month": 1.847953216374269,
+  "current_delayed_share": 0.1931170335980557,
+  "current_mean_delay_h_per_dollar": 0.5271430985783124,
+  "median_cap_ratio": {
+   "1 h": 1.0919826160727477,
+   "6 h": 0.7304616571007898
+  },
+  "sum_cap_ratio": {
+   "1 h": 1.298987803194892,
+   "6 h": 0.8916413984348435
+  }
+ },
+ "6 h m=1.0 q=None": {
+  "n_lanes": 16,
+  "lane_months": 171,
+  "delayed_share": 0.18597877482017794,
+  "delayed_n": 1562,
+  "wait_p50_h": 40.82823412312402,
+  "wait_p90_h": 329.6956769589583,
+  "mean_delay_h_per_dollar": 14.3368769536416,
+  "review_share": 0.0,
+  "reviews_per_lane_month": 0.0,
+  "current_delayed_share": 0.1931170335980557,
+  "current_mean_delay_h_per_dollar": 0.5271430985783124,
+  "median_cap_ratio": {
+   "1 h": 1.0443352256943892,
+   "6 h": 0.3993617412707177
+  },
+  "sum_cap_ratio": {
+   "1 h": 1.2468567958855603,
+   "6 h": 0.4516087603678323
+  }
+ },
+ "6 h m=1.0 q=0.99": {
+  "n_lanes": 16,
+  "lane_months": 171,
+  "delayed_share": 0.0825379877266552,
+  "delayed_n": 1409,
+  "wait_p50_h": 24.552478055887754,
+  "wait_p90_h": 104.9889550369978,
+  "mean_delay_h_per_dollar": 2.252315073901271,
+  "review_share": 0.23549501952837706,
+  "reviews_per_lane_month": 2.4210526315789473,
+  "current_delayed_share": 0.1931170335980557,
+  "current_mean_delay_h_per_dollar": 0.5271430985783124,
+  "median_cap_ratio": {
+   "1 h": 0.7292321992175279,
+   "6 h": 0.2911455095566713
+  },
+  "sum_cap_ratio": {
+   "1 h": 0.8811557299138381,
+   "6 h": 0.3233215863802572
+  }
+ },
+ "6 h m=1.0 q=0.995": {
+  "n_lanes": 16,
+  "lane_months": 171,
+  "delayed_share": 0.059588365327948575,
+  "delayed_n": 1431,
+  "wait_p50_h": 22.229948206676376,
+  "wait_p90_h": 144.59786381238035,
+  "mean_delay_h_per_dollar": 1.1107977938977933,
+  "review_share": 0.1977002473793567,
+  "reviews_per_lane_month": 1.847953216374269,
+  "current_delayed_share": 0.1931170335980557,
+  "current_mean_delay_h_per_dollar": 0.5271430985783124,
+  "median_cap_ratio": {
+   "1 h": 0.7630754359135804,
+   "6 h": 0.3241096759072954
+  },
+  "sum_cap_ratio": {
+   "1 h": 0.9209049182314977,
+   "6 h": 0.34375686565267727
+  }
+ },
+ "6 h m=1.5 q=None": {
+  "n_lanes": 16,
+  "lane_months": 171,
+  "delayed_share": 0.08304094059781099,
+  "delayed_n": 942,
+  "wait_p50_h": 27.45908067908552,
+  "wait_p90_h": 557.5275415659613,
+  "mean_delay_h_per_dollar": 10.75688267006423,
+  "review_share": 0.0,
+  "reviews_per_lane_month": 0.0,
+  "current_delayed_share": 0.1931170335980557,
+  "current_mean_delay_h_per_dollar": 0.5271430985783124,
+  "median_cap_ratio": {
+   "1 h": 1.5665028385415838,
+   "6 h": 0.5990426119060765
+  },
+  "sum_cap_ratio": {
+   "1 h": 1.8702851938283405,
+   "6 h": 0.6774131405517486
+  }
+ },
+ "6 h m=1.5 q=0.99": {
+  "n_lanes": 16,
+  "lane_months": 171,
+  "delayed_share": 0.035564963115314825,
+  "delayed_n": 640,
+  "wait_p50_h": 11.95854047179222,
+  "wait_p90_h": 223.39389809184604,
+  "mean_delay_h_per_dollar": 0.34029641834062146,
+  "review_share": 0.23549501952837706,
+  "reviews_per_lane_month": 2.4210526315789473,
+  "current_delayed_share": 0.1931170335980557,
+  "current_mean_delay_h_per_dollar": 0.5271430985783124,
+  "median_cap_ratio": {
+   "1 h": 1.0938482988262916,
+   "6 h": 0.43671826433500693
+  },
+  "sum_cap_ratio": {
+   "1 h": 1.321733594870757,
+   "6 h": 0.4849823795703856
+  }
+ },
+ "6 h m=1.5 q=0.995": {
+  "n_lanes": 16,
+  "lane_months": 171,
+  "delayed_share": 0.016215067807442498,
+  "delayed_n": 608,
+  "wait_p50_h": 13.644872920711835,
+  "wait_p90_h": 260.82315156228015,
+  "mean_delay_h_per_dollar": 0.21713822077019063,
+  "review_share": 0.1977002473793567,
+  "reviews_per_lane_month": 1.847953216374269,
+  "current_delayed_share": 0.1931170335980557,
+  "current_mean_delay_h_per_dollar": 0.5271430985783124,
+  "median_cap_ratio": {
+   "1 h": 1.1446131538703705,
+   "6 h": 0.486164513860943
+  },
+  "sum_cap_ratio": {
+   "1 h": 1.3813573773472465,
+   "6 h": 0.5156352984790161
+  }
+ },
+ "6 h m=2.0 q=None": {
+  "n_lanes": 16,
+  "lane_months": 171,
+  "delayed_share": 0.04583637720721385,
+  "delayed_n": 561,
+  "wait_p50_h": 26.69884101808071,
+  "wait_p90_h": 490.26181141879823,
+  "mean_delay_h_per_dollar": 9.77290924489408,
+  "review_share": 0.0,
+  "reviews_per_lane_month": 0.0,
+  "current_delayed_share": 0.1931170335980557,
+  "current_mean_delay_h_per_dollar": 0.5271430985783124,
+  "median_cap_ratio": {
+   "1 h": 2.0886704513887784,
+   "6 h": 0.7987234825414354
+  },
+  "sum_cap_ratio": {
+   "1 h": 2.4937135917711206,
+   "6 h": 0.9032175207356646
+  }
+ },
+ "6 h m=2.0 q=0.99": {
+  "n_lanes": 16,
+  "lane_months": 171,
+  "delayed_share": 0.006610516160428977,
+  "delayed_n": 249,
+  "wait_p50_h": 6.072801409165065,
+  "wait_p90_h": 261.39868514683513,
+  "mean_delay_h_per_dollar": 0.0377961217301766,
+  "review_share": 0.23549501952837706,
+  "reviews_per_lane_month": 2.4210526315789473,
+  "current_delayed_share": 0.1931170335980557,
+  "current_mean_delay_h_per_dollar": 0.5271430985783124,
+  "median_cap_ratio": {
+   "1 h": 1.4584643984350558,
+   "6 h": 0.5822910191133426
+  },
+  "sum_cap_ratio": {
+   "1 h": 1.7623114598276761,
+   "6 h": 0.6466431727605144
+  }
+ },
+ "6 h m=2.0 q=0.995": {
+  "n_lanes": 16,
+  "lane_months": 171,
+  "delayed_share": 0.004657861343635516,
+  "delayed_n": 277,
+  "wait_p50_h": 8.557332398957676,
+  "wait_p90_h": 256.05842607365713,
+  "mean_delay_h_per_dollar": 0.047440502380627435,
+  "review_share": 0.1977002473793567,
+  "reviews_per_lane_month": 1.847953216374269,
+  "current_delayed_share": 0.1931170335980557,
+  "current_mean_delay_h_per_dollar": 0.5271430985783124,
+  "median_cap_ratio": {
+   "1 h": 1.5261508718271608,
+   "6 h": 0.6482193518145908
+  },
+  "sum_cap_ratio": {
+   "1 h": 1.8418098364629953,
+   "6 h": 0.6875137313053545
+  }
+ }
+}

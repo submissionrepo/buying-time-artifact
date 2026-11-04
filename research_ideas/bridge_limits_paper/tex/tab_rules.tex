@@ -1,0 +1,36 @@
+\begin{table*}[t]
+\centering
+\caption{Limits, read in source code at fixed commits. Stage: verifiers, in the verifiers' software; send, on the sending chain; release, in the contract that releases on the receiving chain; token, in the token contract; send + release, a limit on each side. Shapes are those of Section~\ref{sec:shape}. Accounting: gross counts releases only; net subtracts counted inflows (Proposition~\ref{prop:netflow}). Automatic release: queued withdrawals leave when a timer expires; uncounted means outside the limit. Parameters: who can change the limit; no rule's code delays a loosening. Pause: who can stop releases. Issuer: the token's issuer; operator, owner and governors: a party other than the verifiers.}
+\label{tab:rules}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.95cm} >{\raggedright\arraybackslash}p{1.2cm} >{\raggedright\arraybackslash}p{3.55cm} >{\raggedright\arraybackslash}p{2.95cm} >{\raggedright\arraybackslash}p{1.95cm} >{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}p{2.0cm}@{}}
+\toprule
+Rule & Stage & Shape & Accounting & Automatic release & Parameters & Pause \\
+\midrule
+Wormhole Governor & verifiers & cliff at 24 h (sliding 24 h cap before) & gross (net with flow cancelling) & yes, uncounted & verifiers & any 7 of the 19 verifiers (withhold) \\
+Wormhole Global Accountant & verifiers & bounded (releases up to recorded locks) & conservation ledger & no & verifiers & none \\
+Wormhole NTT & send + release & ramp; cliff for queued items after 24 h & net (deposits of the same token) & yes, uncounted & issuer & issuer \\
+Chainlink CCIP token pools & send + release & ramp (token bucket) & gross & no & issuer & CCIP owner (curse) \\
+LayerZero OApp RateLimiter & send & ramp & optional net & no & app owner & app owner \\
+LayerZero stablecoin and RWA OFT & send + release & ramp & optional net (deposits of the same token) & no & issuer & sends only \\
+Axelar ITS & send + release & ramp (6 h calendar windows) & net within window (deposits of the same token) & no & issuer or operator & operator \\
+Axelar legacy gateway & release & ramp (6 h calendar windows) & gross & no & Axelar governance & pauser or governance \\
+Hyperlane rate-limited hook and ISM & send or release & ramp & gross & no & route owner & route owner, if added \\
+Hyperlane net-flow and delayed-flow & send + release & geometric; cliff at maxDelay for delayed flow & net (deposits of the same token) & delayed flow: yes & route owner & route owner, if added \\
+Circle CCTP & send; token & per-message cap at source; bounded at the token & n/a & n/a & verifier (Circle) & verifier (Circle) \\
+Linea & send + release & ramp (window from first use; ETH only) & gross & no & operator & operator; council \\
+StarkGate & send + release & geometric (5\% of balance per day) & gross within the day & no & operator & none on releases \\
+Ronin & release & ramp (UTC day); bounded above the lock threshold & gross & no & bridge admin & admin; pauser \\
+Celer cBridge & release & ramp plus delay for large items & gross & yes, counted when queued & governors & pausers \\
+Gnosis OmniBridge and xDai & send + release & ramp (UTC day) & gross & no & owner & none (limit to zero) \\
+BNB Chain BEP-171 & release & cliff at 12 h & n/a & yes & issuer; governance & validators \\
+xERC20 & token & ramp & gross & no & issuer & none (limit to zero) \\
+Taiko QuotaManager & release & ramp & gross & no & rollup owner & owner; pauser \\
+THORChain outbound delay & verifiers & ramp then cliff & n/a & yes & verifiers & one node \\
+THORChain solvency halt & verifiers & bounded (wallet against ledger) & wallet against ledger & auto-resume when solvent & verifiers & automatic \\
+ERC-7265 (draft) & release & geometric; cliff in hold mode & net (reported inflow) & hold mode: yes & protocol admin & protocol admin \\
+\bottomrule
+\end{tabular}
+\end{table*}

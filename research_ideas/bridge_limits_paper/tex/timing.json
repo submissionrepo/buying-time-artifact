@@ -1,0 +1,44 @@
+[
+ {
+  "label": "Last release",
+  "n": 48,
+  "q1": "0\\,s",
+  "median": "7\\,min 52\\,s",
+  "q3": "1\\,h 8\\,min"
+ },
+ {
+  "label": "90\\% of the value out",
+  "n": 34,
+  "q1": "0\\,s",
+  "median": "10\\,s",
+  "q3": "11\\,min 31\\,s"
+ },
+ {
+  "label": "Alert by a third party",
+  "n": 26,
+  "q1": "53\\,min 24\\,s",
+  "median": "1\\,h 25\\,min",
+  "q3": "4\\,h 2\\,min"
+ },
+ {
+  "label": "Acknowledgment",
+  "n": 47,
+  "q1": "2\\,h 35\\,min",
+  "median": "5\\,h 0\\,min",
+  "q3": "12\\,h 22\\,min"
+ },
+ {
+  "label": "Pause",
+  "n": 19,
+  "q1": "1\\,h 0\\,min",
+  "median": "3\\,h 39\\,min",
+  "q3": "8\\,h 9\\,min"
+ },
+ {
+  "label": "First response",
+  "n": 48,
+  "q1": "2\\,h 3\\,min",
+  "median": "3\\,h 42\\,min",
+  "q3": "11\\,h 23\\,min"
+ }
+]

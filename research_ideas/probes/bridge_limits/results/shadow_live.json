@@ -1,0 +1,490 @@
+{
+ "generated_utc": "2026-11-01T05:56:41Z",
+ "clock_offset_s_median": 0.31,
+ "clock_offset_s_range": [
+  -1.863,
+  2.55
+ ],
+ "window_utc": [
+  "2026-10-16T16:37:40Z",
+  "2026-11-01T05:56:34Z"
+ ],
+ "days": 15.55,
+ "polls": {
+  "ethereum": {
+   "attempts": 56195,
+   "ok": 54724,
+   "failed": 1471,
+   "gaps_over_60s": 36,
+   "longest_gap_s": 123518.2,
+   "time_in_gaps_over_60s_s": 684543.5,
+   "head_age_s": {
+    "0.5": 7.09,
+    "0.9": 11.75,
+    "0.99": 14.7,
+    "1.0": 30.23
+   }
+  },
+  "bsc": {
+   "attempts": 53881,
+   "ok": 53365,
+   "failed": 516,
+   "gaps_over_60s": 36,
+   "longest_gap_s": 123520.8,
+   "time_in_gaps_over_60s_s": 684444.8,
+   "head_age_s": {
+    "0.5": -0.21,
+    "0.9": 0.83,
+    "0.99": 5.99,
+    "1.0": 100838.72
+   }
+  }
+ },
+ "streams": {
+  "ccip bsc->ethereum": {
+   "releases": 812,
+   "by_mode": {
+    "backfill": 384,
+    "live": 428
+   },
+   "decode_failed": 0,
+   "first_check": {
+    "confirmed": 812
+   },
+   "raw_alarms": 0,
+   "cleared_at_60s": 0,
+   "cleared_at_300s": 0,
+   "confirmed_alarms": 0,
+   "standing_24h": 0,
+   "raw_alarms_with_outflow_rule": 0,
+   "confirmed_alarms_with_outflow_rule": 0,
+   "alarm_reasons": {},
+   "confirmed_alarm_reasons": {},
+   "source_final_at_first_check": {
+    "True": 811,
+    "None": 1
+   },
+   "live": {
+    "releases": 428,
+    "seen_after_release_s": {
+     "0.5": 10.15,
+     "0.9": 16.84,
+     "0.99": 22.79,
+     "1.0": 375.21
+    },
+    "first_verdict_after_release_s": {
+     "0.5": 43.85,
+     "0.9": 119.24,
+     "0.99": 2334.06,
+     "1.0": 2445.42
+    },
+    "confirmed_after_release_s": {
+     "0.5": 43.85,
+     "0.9": 119.24,
+     "0.99": 2334.06,
+     "1.0": 2445.42
+    },
+    "check_duration_s": {
+     "0.5": 24.96,
+     "0.9": 40.48,
+     "0.99": 60.71,
+     "1.0": 115.38
+    },
+    "deposit_age_at_release_s": {
+     "0.5": 10.0,
+     "0.9": 17.0,
+     "0.99": 33.46,
+     "1.0": 155.0
+    },
+    "held_by_gate_600s": 25
+   }
+  },
+  "ccip ethereum->bsc": {
+   "releases": 1190,
+   "by_mode": {
+    "backfill": 490,
+    "live": 700
+   },
+   "decode_failed": 0,
+   "first_check": {
+    "confirmed": 1190
+   },
+   "raw_alarms": 0,
+   "cleared_at_60s": 0,
+   "cleared_at_300s": 0,
+   "confirmed_alarms": 0,
+   "standing_24h": 0,
+   "raw_alarms_with_outflow_rule": 0,
+   "confirmed_alarms_with_outflow_rule": 0,
+   "alarm_reasons": {},
+   "confirmed_alarm_reasons": {},
+   "source_final_at_first_check": {
+    "True": 1190
+   },
+   "live": {
+    "releases": 700,
+    "seen_after_release_s": {
+     "0.5": 11.11,
+     "0.9": 21.49,
+     "0.99": 34.98,
+     "1.0": 44.84
+    },
+    "first_verdict_after_release_s": {
+     "0.5": 44.5,
+     "0.9": 84.62,
+     "0.99": 132.52,
+     "1.0": 910.69
+    },
+    "confirmed_after_release_s": {
+     "0.5": 44.5,
+     "0.9": 84.62,
+     "0.99": 132.52,
+     "1.0": 910.69
+    },
+    "check_duration_s": {
+     "0.5": 17.55,
+     "0.9": 27.02,
+     "0.99": 53.57,
+     "1.0": 101.4
+    },
+    "deposit_age_at_release_s": {
+     "0.5": 966.0,
+     "0.9": 1111.0,
+     "0.99": 1145.0,
+     "1.0": 27717.0
+    },
+    "held_by_gate_600s": 2
+   }
+  },
+  "wormhole bsc->ethereum": {
+   "releases": 2129,
+   "by_mode": {
+    "live": 1007,
+    "backfill": 1122
+   },
+   "decode_failed": 0,
+   "first_check": {
+    "confirmed": 2108,
+    "error": 21
+   },
+   "raw_alarms": 21,
+   "cleared_at_60s": 21,
+   "cleared_at_300s": 0,
+   "confirmed_alarms": 0,
+   "standing_24h": 0,
+   "raw_alarms_with_outflow_rule": 21,
+   "confirmed_alarms_with_outflow_rule": 0,
+   "alarm_reasons": {
+    "RangeError": 21
+   },
+   "confirmed_alarm_reasons": {},
+   "source_final_at_first_check": {
+    "True": 2106,
+    "None": 22,
+    "False": 1
+   },
+   "live": {
+    "releases": 1007,
+    "seen_after_release_s": {
+     "0.5": 11.33,
+     "0.9": 16.3,
+     "0.99": 20.7,
+     "1.0": 31.87
+    },
+    "first_verdict_after_release_s": {
+     "0.5": 32.36,
+     "0.9": 80.3,
+     "0.99": 302.69,
+     "1.0": 501.09
+    },
+    "confirmed_after_release_s": {
+     "0.5": 32.52,
+     "0.9": 90.37,
+     "0.99": 302.69,
+     "1.0": 501.09
+    },
+    "check_duration_s": {
+     "0.5": 16.66,
+     "0.9": 35.49,
+     "0.99": 65.23,
+     "1.0": 86.18
+    },
+    "deposit_age_at_release_s": {
+     "0.5": 17.0,
+     "0.9": 47.0,
+     "0.99": 1219.38,
+     "1.0": 47440.0
+    },
+    "held_by_gate_600s": 0
+   }
+  },
+  "wormhole ethereum->bsc": {
+   "releases": 1541,
+   "by_mode": {
+    "backfill": 762,
+    "live": 779
+   },
+   "decode_failed": 0,
+   "first_check": {
+    "confirmed": 1541
+   },
+   "raw_alarms": 0,
+   "cleared_at_60s": 0,
+   "cleared_at_300s": 0,
+   "confirmed_alarms": 0,
+   "standing_24h": 0,
+   "raw_alarms_with_outflow_rule": 0,
+   "confirmed_alarms_with_outflow_rule": 0,
+   "alarm_reasons": {},
+   "confirmed_alarm_reasons": {},
+   "source_final_at_first_check": {
+    "True": 1537,
+    "False": 4
+   },
+   "live": {
+    "releases": 779,
+    "seen_after_release_s": {
+     "0.5": 10.47,
+     "0.9": 20.32,
+     "0.99": 236.37,
+     "1.0": 396.01
+    },
+    "first_verdict_after_release_s": {
+     "0.5": 34.59,
+     "0.9": 66.93,
+     "0.99": 381.67,
+     "1.0": 1201.69
+    },
+    "confirmed_after_release_s": {
+     "0.5": 34.59,
+     "0.9": 66.93,
+     "0.99": 381.67,
+     "1.0": 1201.69
+    },
+    "check_duration_s": {
+     "0.5": 12.53,
+     "0.9": 20.24,
+     "0.99": 36.22,
+     "1.0": 138.53
+    },
+    "deposit_age_at_release_s": {
+     "0.5": 957.0,
+     "0.9": 1127.2,
+     "0.99": 1216.18,
+     "1.0": 118212.0
+    },
+    "held_by_gate_600s": 3
+   }
+  },
+  "all": {
+   "releases": 5672,
+   "by_mode": {
+    "live": 2914,
+    "backfill": 2758
+   },
+   "decode_failed": 0,
+   "first_check": {
+    "confirmed": 5651,
+    "error": 21
+   },
+   "raw_alarms": 21,
+   "cleared_at_60s": 21,
+   "cleared_at_300s": 0,
+   "confirmed_alarms": 0,
+   "standing_24h": 0,
+   "raw_alarms_with_outflow_rule": 21,
+   "confirmed_alarms_with_outflow_rule": 0,
+   "alarm_reasons": {
+    "RangeError": 21
+   },
+   "confirmed_alarm_reasons": {},
+   "source_final_at_first_check": {
+    "True": 5644,
+    "None": 23,
+    "False": 5
+   },
+   "live": {
+    "releases": 2914,
+    "seen_after_release_s": {
+     "0.5": 10.91,
+     "0.9": 17.58,
+     "0.99": 33.64,
+     "1.0": 396.01
+    },
+    "first_verdict_after_release_s": {
+     "0.5": 36.71,
+     "0.9": 82.18,
+     "0.99": 642.98,
+     "1.0": 2445.42
+    },
+    "confirmed_after_release_s": {
+     "0.5": 36.93,
+     "0.9": 84.26,
+     "0.99": 642.98,
+     "1.0": 2445.42
+    },
+    "check_duration_s": {
+     "0.5": 16.06,
+     "0.9": 31.88,
+     "0.99": 59.59,
+     "1.0": 138.53
+    },
+    "deposit_age_at_release_s": {
+     "0.5": 781.0,
+     "0.9": 1086.0,
+     "0.99": 1155.87,
+     "1.0": 118212.0
+    },
+    "held_by_gate_600s": 30
+   }
+  }
+ },
+ "twins": {
+  "ccip bsc->ethereum": {
+   "twins": 428,
+   "no_deposit": {
+    "not_found": 428
+   },
+   "no_deposit_flagged": 428,
+   "no_deposit_verdict_after_release_s": {
+    "0.5": 16.07,
+    "0.9": 29.57,
+    "0.99": 2292.86,
+    "1.0": 2405.55
+   },
+   "altered_amount_flagged": 428,
+   "altered_amount_tested": 428,
+   "altered_recipient_flagged": 428,
+   "altered_recipient_tested": 428,
+   "copies_tested": 1284,
+   "copies_flagged": 1284
+  },
+  "ccip ethereum->bsc": {
+   "twins": 700,
+   "no_deposit": {
+    "not_found": 700
+   },
+   "no_deposit_flagged": 700,
+   "no_deposit_verdict_after_release_s": {
+    "0.5": 17.2,
+    "0.9": 32.29,
+    "0.99": 53.4,
+    "1.0": 887.19
+   },
+   "altered_amount_flagged": 700,
+   "altered_amount_tested": 700,
+   "altered_recipient_flagged": 700,
+   "altered_recipient_tested": 700,
+   "copies_tested": 2100,
+   "copies_flagged": 2100
+  },
+  "wormhole bsc->ethereum": {
+   "twins": 1007,
+   "no_deposit": {
+    "not_found": 1007
+   },
+   "no_deposit_flagged": 1007,
+   "no_deposit_verdict_after_release_s": {
+    "0.5": 17.12,
+    "0.9": 23.84,
+    "0.99": 146.17,
+    "1.0": 473.93
+   },
+   "altered_amount_flagged": 986,
+   "altered_amount_tested": 986,
+   "altered_recipient_flagged": 986,
+   "altered_recipient_tested": 986,
+   "copies_tested": 2979,
+   "copies_flagged": 2979
+  },
+  "wormhole ethereum->bsc": {
+   "twins": 780,
+   "no_deposit": {
+    "not_found": 780
+   },
+   "no_deposit_flagged": 780,
+   "no_deposit_verdict_after_release_s": {
+    "0.5": 17.36,
+    "0.9": 31.2,
+    "0.99": 246.19,
+    "1.0": 1190.21
+   },
+   "altered_amount_flagged": 780,
+   "altered_amount_tested": 780,
+   "altered_recipient_flagged": 780,
+   "altered_recipient_tested": 780,
+   "copies_tested": 2338,
+   "copies_flagged": 2338
+  },
+  "all": {
+   "twins": 2915,
+   "no_deposit": {
+    "not_found": 2915
+   },
+   "no_deposit_flagged": 2915,
+   "no_deposit_verdict_after_release_s": {
+    "0.5": 17.1,
+    "0.9": 28.06,
+    "0.99": 596.0,
+    "1.0": 2405.55
+   },
+   "altered_amount_flagged": 2894,
+   "altered_amount_tested": 2894,
+   "altered_recipient_flagged": 2894,
+   "altered_recipient_tested": 2894,
+   "copies_tested": 8701,
+   "copies_flagged": 8701
+  }
+ },
+ "sweeps": {
+  "ethereum": {
+   "sweeps": 1084,
+   "failed": 41,
+   "missed_by_polls": 0,
+   "blocks_skipped": 50287
+  },
+  "bsc": {
+   "sweeps": 1077,
+   "failed": 14,
+   "missed_by_polls": 0,
+   "blocks_skipped": 1294307
+  }
+ },
+ "monitor": {
+  "down_periods": 34,
+  "down_s": 684199.8,
+  "longest_down_s": 123518.2,
+  "up_share": 0.491
+ },
+ "lines_in_events": 5673,
+ "duplicate_lines_dropped": 1,
+ "open_releases": 1,
+ "live_caught_up": {
+  "releases": 2846,
+  "verdict_after_release_s": {
+   "0.5": 36.4,
+   "0.9": 78.32,
+   "0.99": 163.93,
+   "1.0": 350.89
+  },
+  "over_600s": 0,
+  "behind_catch_up": 58,
+  "behind_catch_up_verdict_after_release_s": {
+   "0.5": 780.18,
+   "0.9": 2311.15,
+   "0.99": 2433.07,
+   "1.0": 2445.42
+  },
+  "behind_catch_up_over_600s": 30,
+  "interrupted_by_stop": 0,
+  "interrupted_verdict_after_release_s": {},
+  "read_late": 11,
+  "as_they_happened": 2904
+ },
+ "alarms": {
+  "read_errors": 21,
+  "paid_in_parts": 1,
+  "other": 0
+ },
+ "pending_checks_at_summary": 1
+}

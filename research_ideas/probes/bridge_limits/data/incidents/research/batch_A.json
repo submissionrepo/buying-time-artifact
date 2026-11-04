@@ -1,0 +1,664 @@
+{
+ "batch": "A",
+ "generated_utc": "2026-10-15T16:40:00Z",
+ "events": [
+  {
+   "event_id": "E05",
+   "dl_name": "Poly Network",
+   "dl_date": "2021-08-10",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Assets left Poly Network's LockProxy custody contracts on Ethereum, BSC and Polygon, released through each chain's cross-chain manager contract.",
+    "sources": [
+     {
+      "url": "https://rekt.news/polynetwork-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The hacker exploited the Proxy Lock Contracts of Poly Network on three different chains."
+     },
+     {
+      "url": "https://www.certik.com/resources/blog/poly-network-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The exploit came from mismanagement of access rights between two vital Poly Network's smart contracts: EthCrossChainManager and EthCrossChainData."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2021-08-10",
+    "sources": [
+     {
+      "url": "on-chain reference (withheld: transaction or address page)",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Aug-10-2021 09:51:02 AM +UTC"
+     },
+     {
+      "url": "https://www.merklescience.com/blog/hack-track-an-analysis-of-poly-network-hack-and-latest-related-events",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "On 10 August 2021, the Poly Network was attacked by a hacker, losing over $600 million."
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 611000000,
+    "range": "600.3M (Decrypt, 'at least') to 611M (DefiLlama, SoK, rekt.news); per chain: Ethereum 264.8M-272M, BSC 250M-250.8M, Polygon 85.09M",
+    "sources": [
+     {
+      "url": "https://rekt.news/polynetwork-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "TOTAL VALUE LOST - ~$611,000,000"
+     },
+     {
+      "url": "https://decrypt.co/78163/polynetwork-suffers-record-breaking-600-3m-hack",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "at least $600.3 million"
+     },
+     {
+      "url": "https://www.merklescience.com/blog/hack-track-an-analysis-of-poly-network-hack-and-latest-related-events",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Ten types of tokens — worth nearly $272 million — on the Ethereum blockchain have been stolen ... They transferred funds worth $250 million USD to BSC."
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "Release-side cross-chain manager executed a message that replaced its keeper public key",
+    "sources": [
+     {
+      "url": "https://mudit.blog/poly-network-largest-crypto-hack/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The root cause of this exploit is that the EthCrossChainManager contract is allowed to change the Keepers."
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "The attacker accessed the function putCurEpochConPubKeyBytes(bytes) that updates the validators' public keys in the EthCrossChainData contract."
+     },
+     {
+      "url": "https://blocksec.com/zh/blog/the-initial-analysis-of-the-poly-network-hack",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "攻击原因是 Keeper 被攻击者篡改（而非私钥泄露）。"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "All value left LockProxy custody: Ethereum about 264.8M-272M USD (10 assets), BSC about 250M USD, Polygon about 85.09M USD (USDC only).",
+    "chains": [
+     "Ethereum",
+     "BSC",
+     "Polygon"
+    ],
+    "sources": [
+     {
+      "url": "https://rekt.news/polynetwork-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "On the Ethereum blockchain, the hacker stole ... On BSC, the hacker stole: ... On the Polygon blockchain, the hacker stole:"
+     },
+     {
+      "url": "https://decrypt.co/78163/polynetwork-suffers-record-breaking-600-3m-hack",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "which currently holds $264.8 million worth of crypto ... $250.8 million ... $85 million"
+     },
+     {
+      "url": "https://www.merklescience.com/blog/hack-track-an-analysis-of-poly-network-hack-and-latest-related-events",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "successfully transferred 85,089,719 USDC from the Polygon blockchain."
+     }
+    ]
+   },
+   "outflow": {
+    "first_release_utc": "2021-08-10T09:51:02Z",
+    "last_release_utc": "2021-08-10T10:29:21Z",
+    "duration_min": 38.3,
+    "release_tx_count": 17,
+    "count_note": "Counted: transactions moving assets out of a LockProxy to the recipient addresses, all three chains. Ethereum: 10 releases, one per asset, 09:51:02 (2,857.49 ETH) to 10:27:38 (616,082.59 FEI); in between USDC 96.39M at 09:55:44, WBTC 1,032.12 at 09:57:22, DAI 673,227.94 at 09:58:41, UNI 43,023.75 at 09:58:59, SHIB 259.7B at 10:03:50, renBTC 14.47 at 10:04:22, USDT 33.43M at 10:11:39, WETH 26,109.06 at 10:25:32 (Etherscan transaction pages; the DAI transaction was located from token logs, then read on Etherscan). Polygon: 2 releases, 85,089,610.91 USDC at 10:04:22 and 108.69 USDC at 10:29:21 (Polygonscan). BSC: 5 releases at 10:08:55, 10:09:37, 10:10:19, 10:10:58 and 10:28:35 (block timestamps of the BSC transactions listed by Merkle Science, read from a BSC RPC node on 2026-10-16 because BscScan refused automated reads). Keeper-key replacements preceded the releases on each chain: BSC 09:33:07, Ethereum 09:48:40, Polygon 10:04:14. Ethereum-only window 09:51:02-10:27:38 (36.6 min). Mudit Gupta dates the start to 09:33:07, which is the BSC key replacement, not a release.",
+    "sources": [
+     {
+      "url": "on-chain reference (withheld: transaction or address page)",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Aug-10-2021 09:51:02 AM +UTC"
+     },
+     {
+      "url": "on-chain reference (withheld: transaction or address page)",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Aug-10-2021 10:27:38 AM +UTC"
+     },
+     {
+      "url": "on-chain reference (withheld: transaction or address page)",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Aug-10-2021 10:29:21 AM"
+     },
+     {
+      "url": "https://mudit.blog/poly-network-largest-crypto-hack/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The hack started as early as Aug-10-2021 09:33:07 AM +UTC ... the drainage continued till at least Aug-10-2021 10:29:21 AM +UTC"
+     },
+     {
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "RPC eth_getBlockByNumber: block 9906162 timestamp 0x61125037; block 9906550 timestamp 0x611254d3 (decoded 10:08:55 and 10:28:35 UTC)"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2021-08-10T12:38:09Z",
+    "channel": "X (Twitter) @PolyNetwork2",
+    "note": "Time from status ID 1425073987164381196 (12:38:09.791Z), about 2 h 47 min after the first release. A second post (status 1425079752721788931, 13:01:04Z) asked miners and exchanges to blacklist tokens; the open letter image followed (status 1425123153009803267, 15:53:31Z). Decrypt says the team also announced via Telegram, no time given. SoK Table 5 puts communication time in the 2-4 h bucket.",
+    "sources": [
+     {
+      "url": "https://twitter.com/PolyNetwork2/status/1425073987164381196",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We are sorry to announce that #PolyNetwork was attacked."
+     },
+     {
+      "url": "https://www.crowdfundinsider.com/2021/08/178991-600-million-lost-in-defi-hack-as-poly-network-asks-for-crypto-back/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "We call on miners of affected blockchain and crypto exchanges to blacklist tokens"
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "what": "No time found for a Poly Network pause. Partners suspended dependent services on 2021-08-10: O3 Swap cross-chain function (X post status 1425079239162744842, 12:59:01Z), Neo Legacy to N3 migration, Flamingo, Switcheo. Poly Network restored cross-chain functionality for 59 assets on 2021-08-26, which implies its services had been suspended.",
+    "by": "unknown for Poly Network; partners suspended their own services",
+    "note": "One analysis notes the cross-chain manager was pausable; no source read says it was paused during the outflow.",
+    "sources": [
+     {
+      "url": "https://mudit.blog/poly-network-largest-crypto-hack/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "EthCrossChainManager is a pausible contract"
+     },
+     {
+      "url": "https://twitter.com/O3_Labs/status/1425079239162744842",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "O3 Swap cross-chain function is currently suspended due to the PolyNetwork"
+     },
+     {
+      "url": "https://neonewstoday.com/?p=26816",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "In response to the attack, NGD has temporarily paused the migration of NEO and GAS from Neo Legacy to Neo N3."
+     },
+     {
+      "url": "https://forklog.com/en/poly-network-recovers-611-million-stolen-in-hack/amp",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "has now restored cross-chain functionality for a total of 59 assets"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions one; one analysis notes only that the manager contract was pausable. SoK Table 9 lists 'Set withdrawal limits' as a mitigation for this event.",
+    "sources": [
+     {
+      "url": "https://mudit.blog/poly-network-largest-crypto-hack/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "EthCrossChainManager is a pausible contract"
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "69 – Set withdrawal limits."
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": 611000000,
+    "native": "All assets: about 610M USD sent back by the recipient (the last 28,953 ETH and 1,032 WBTC through a shared multisig key) plus 33.43M USDT frozen by Tether and reissued to Poly Network",
+    "date": "2021-08-11 to 2021-08-25",
+    "note": "Timeline: first return 2021-08-11 08:46 UTC (10,000 USDC on Polygon); 4.77M USD by a post at 7:47 a.m. ET on 08-11; about 256M USD by the end of 08-11; by 08-12 everything except the frozen USDT had been sent back, but about 141M USD sat in a 3-of-4 multisig that needed the recipient's key; 427M USD counted as returned on 08-19; key shared on-chain 2021-08-23 08:39:04 UTC and the remaining 141M USD retrieved; Tether issued 33.4M USDT to Poly Network's multisig on 2021-08-25. Tether froze the USDT on 08-10 (CTO post status 1425090760609832978, 13:44:48Z). Poly Network paid a 160 ETH bounty.",
+    "sources": [
+     {
+      "url": "https://www.fxstreet.com/cryptocurrencies/news/poly-network-recovers-over-47-million-of-stolen-funds-in-largest-defi-hack-202108111435",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Seven minutes hence the hacker's Polygon address returned $10,000 in a stablecoin USDC to a wallet set up by Poly Network at 8:46 UTC."
+     },
+     {
+      "url": "https://threatpost.com/crypto-hack-600-million/168554/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "So far, we have received a total value of $4,772,297.675 assets returned by the hacker."
+     },
+     {
+      "url": "https://www.theblock.co/linked/114390/poly-network-hacker-returns-nearly-all-of-the-611-million-in-stolen-funds",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The only funds the hacker hasn't returned are the $33 million in USDT that were frozen by Tether following the exploit."
+     },
+     {
+      "url": "https://www.merklescience.com/blog/hack-track-an-analysis-of-poly-network-hack-and-latest-related-events",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "assets worth approximately $427 million were returned by the hacker."
+     },
+     {
+      "url": "https://www.theasianbanker.com/press-releases/poly-network-commences-full-asset-restoration-as-hacker-returns-remainder-of-600m-heist",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "At 08:39:04 AM +UTC on August 23, 2021, Mr. White Hat publicly shared a private key"
+     },
+     {
+      "url": "https://forklog.com/en/poly-network-recovers-611-million-stolen-in-hack/amp",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "on August 25 Tether issued USDT totaling $33.4 million from tokens frozen after the protocol hack."
+     }
+    ]
+   },
+   "open_questions": "Whether and when Poly Network paused its own manager or LockProxy contracts in August 2021 (a search for Paused events on the three managers would settle it). BSC release times rest on RPC block timestamps, not a published page. The per-asset split on BSC differs between rekt.news and Merkle Science. CertiK (search summary only, Medium page refused) puts the side-chain origin transaction at 09:32:32 UTC."
+  },
+  {
+   "event_id": "E06",
+   "dl_name": "pNetwork",
+   "dl_date": "2021-10-04",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "BTC collateral backing pBTC on BSC left pNetwork's Bitcoin custody. DefiLlama's 2021-10-04 date is the publication date of Halborn's explainer, not the event date.",
+    "sources": [
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "Attackers stole BTC collateral for the pBTC-on-BSC bridge."
+     },
+     {
+      "url": "https://decrypt.co/81301/defi-bridging-protocol-pnetwork-suffers-12-million-hack",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "We're sorry to inform the community that an attacker was able to leverage a bug in our codebase"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2021-09-19",
+    "sources": [
+     {
+      "url": "https://halborn.com/explained-the-pnetwork-hack-september-2021",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "On September 19, 2021, an attacker took advantage of a vulnerability in the project's code."
+     },
+     {
+      "url": "on-chain reference (withheld: transaction or address page)",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "\"block_height\":701295 ... \"block_time\":1632072924"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 13000000,
+    "range": "12.5M-13M USD for 277 BTC (12.5M Decrypt, 12.7M FXStreet, over 12M The Block, over 13M Halborn, 13M DefiLlama and SoK)",
+    "sources": [
+     {
+      "url": "https://halborn.com/explained-the-pnetwork-hack-september-2021",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "277 BTC worth over $13 million"
+     },
+     {
+      "url": "https://www.theblock.co/post/118060/defi-pnetwork-hack-wrapped-bitcoin-12-million-lost",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "lost 277 pBTC (worth over $12 million at current prices)."
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "S",
+    "phrase": "Bridge node accepted peg-out event logs emitted by contracts other than the bridge's",
+    "sources": [
+     {
+      "url": "https://halborn.com/explained-the-pnetwork-hack-september-2021",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The Rust code that extracted and processed these event logs did not validate"
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "A series of events was created from faulty contracts, with only one being a legit peg-out request."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "All value released from the BTC collateral on Bitcoin; no unbacked pBTC mint is reported.",
+    "chains": [
+     "Bitcoin",
+     "BSC (events observed)"
+    ],
+    "sources": [
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "On the original side (BTC) did not validate the requests, unlocking the funds to the attacker."
+     }
+    ]
+   },
+   "outflow": {
+    "first_release_utc": "2021-09-19T17:35:24Z",
+    "last_release_utc": "2021-09-19T17:42:08Z",
+    "duration_min": 6.7,
+    "release_tx_count": 2,
+    "count_note": "Counted: Bitcoin transactions from pNetwork's BTC custody paying the 100 recipient addresses listed in SoK reference 232. Two batch transactions, each with 100 outputs to the listed addresses: block 701295 at 17:35:24 UTC (100 x 1.38126597 = 138.13 BTC) and block 701297 at 17:42:08 UTC (100 x 1.37439399 = 137.44 BTC). An earlier single payment of 0.276 BTC to the first listed address in block 701293 at 17:22:03 UTC may be the one genuine peg-out request that the SoK mentions, or a first unauthorized payment; including it, the window is 17:22:03-17:42:08 (20.1 min, 3 transactions). The three payments total 275.84 BTC against 277 BTC reported. Times are Bitcoin block timestamps from mempool.space. The BSC-side transactions that emitted the events were not identified.",
+    "sources": [
+     {
+      "url": "on-chain reference (withheld: transaction or address page)",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "\"block_height\":701295 ... \"block_time\":1632072924"
+     },
+     {
+      "url": "on-chain reference (withheld: transaction or address page)",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "block_height: 701297 ... block_time: 1632073328"
+     },
+     {
+      "url": "on-chain reference (withheld: transaction or address page)",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "{\"confirmed\":true,\"block_height\":701293, ... \"block_time\":1632072123}"
+     },
+     {
+      "url": "https://pastebin.com/raw/bAquZVws",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "List of 100 Bitcoin addresses (SoK reference 232: \"List of btc addresses controlled by the pnetwork attacker.\")"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2021-09-19T20:39:20Z",
+    "channel": "X (Twitter) @pNetworkDeFi",
+    "note": "Time from status ID 1439690593211490324 (20:39:20.236Z), about 3 h 4 min after the first batch release (3 h 17 min after the 0.276 BTC payment); consistent with the SoK 2-4 h communication bucket. The SoK reports the team detected the event in 13 minutes.",
+    "sources": [
+     {
+      "url": "https://twitter.com/pNetworkDeFi/status/1439690593211490324",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We're sorry to inform the community that an attacker was able to leverage a bug in our codebase"
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "The collected data indicates that the Thorchain and pNetwork teams took 5 and 13 minutes, respectively, to detect the incidents."
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "what": "pNetwork took its bridges offline after detection and expected them back in about 12 hours; the pBTC-on-BSC bridge stayed suspended (X post status 1439915627058286598, 2021-09-20 11:33:32Z: not redeemable until further notice).",
+    "by": "pNetwork team",
+    "note": "Shutdown time not published in sources read. If detection took 13 minutes (SoK), the halt may have come shortly after the last batch at 17:42 UTC, but no source states the time.",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/118060/defi-pnetwork-hack-wrapped-bitcoin-12-million-lost",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "It expects the bridges to be back up in approximately 12 hours."
+     },
+     {
+      "url": "https://twitter.com/pNetworkDeFi/status/1439915627058286598",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "pBTC on BSC is working as usual but is currently not redeemable as its bridge is suspended until further notice,"
+     },
+     {
+      "url": "https://www.infosecurity-magazine.com/news/hacker-steals-12m-from-defi/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The DeFi platform said it had identified the bug but would keep certain data bridges closed until a fix was found."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions one. The two batch peg-outs of about 138 BTC each released most of the collateral.",
+    "sources": []
+   },
+   "returned": {
+    "amount_usd": 0,
+    "native": "0 BTC reported returned",
+    "date": null,
+    "note": "pNetwork offered a 1.5M USD bounty (X post status 1439690598529765384, 20:39:21Z). The SoK states the funds still sat in the recipient addresses when it was written. pNetwork said it was working on a solution for pBTC-on-BSC holders (operator-side, kept separate).",
+    "sources": [
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "The pNetwork hackers did not use any mixer and still retain funds in their addresses [232]."
+     },
+     {
+      "url": "https://decrypt.co/81301/defi-bridging-protocol-pnetwork-suffers-12-million-hack",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "we're offering a clean $1,500,000 bounty if funds are returned."
+     }
+    ]
+   },
+   "open_questions": "Whether the 0.276 BTC payment at 17:22:03 was the genuine peg-out or the first unauthorized one. The BSC transactions that emitted the events, and the shutdown time, need the pNetwork post-mortem (Medium refused automated reads)."
+  },
+  {
+   "event_id": "E07",
+   "dl_name": "BXH",
+   "dl_date": "2021-10-30",
+   "scope": {
+    "value": "not_a_bridge_failure",
+    "note": "Funds left a BXH yield vault on BSC through its ControllerHub after the project's admin wallet granted a governance role to an outside contract. No bridge custody or mint is involved. The SoK describes it as a compromised key of a 'bridge smart contract on the destination chain'; the code walk-through by Fairyproof shows a vault and strategy structure instead. BXH calls itself a cross-chain exchange. DefiLlama has bridgeHack=false.",
+    "sources": [
+     {
+      "url": "https://wublock.substack.com/p/a-thief-with-the-least-technical",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the attacker transferred his managed assets from the BXH strategy pool fund library"
+     },
+     {
+      "url": "https://fairyproof.substack.com/p/fairyproof-analysis-of-attack-on-bxh-932ae4067d72",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Subsequently, the ControllerHub contract called the “want()” function in the malicious strategy contract"
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "The private key associated with the bridge smart contract on the destination chain was compromised"
+     },
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-bxh-exchange-hack-october-2021",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "a decentralized cross-chain cryptocurrency exchange program"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2021-10-30",
+    "sources": [
+     {
+      "url": "https://wublock.substack.com/p/a-thief-with-the-least-technical",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "At 3 o'clock on the 30th (UTC)"
+     },
+     {
+      "url": "https://www.halborn.com/blog/post/explained-the-bxh-exchange-hack-october-2021",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "On October 29, 2021, the BXH (BOY X HIGHSPEED) cryptocurrency exchange experienced a hack of $139 million in tokens."
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 139000000,
+    "range": "130M (first BXH statement) to 139.19M (SlowMist); first press reports about 4,000 ETH",
+    "sources": [
+     {
+      "url": "https://ambcrypto.com/binance-smart-chain-project-hack-leads-to-theft-of-139-million/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the loss was over $139.19 million"
+     },
+     {
+      "url": "https://forkast.news/bxh-exploit-estimated-139m-admin-key-leakage/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Wang said today the loss amounted to an estimated US$139 million."
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "V",
+    "phrase": "Project admin wallet granted a governance role to an outside contract; admin key reportedly leaked",
+    "sources": [
+     {
+      "url": "https://wublock.substack.com/p/a-thief-with-the-least-technical",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the BXH project management wallet address ... gave the attack contract ... administrative privileges via grantRole"
+     },
+     {
+      "url": "https://forkast.news/bxh-exploit-estimated-139m-admin-key-leakage/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the exploit was likely caused by a leaked single admin key, used to drain funds."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "other",
+    "share_note": "Yield vault on BSC, not a bridge escrow or mint.",
+    "chains": [
+     "BSC"
+    ],
+    "sources": [
+     {
+      "url": "https://fairyproof.substack.com/p/fairyproof-analysis-of-attack-on-bxh-932ae4067d72",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "took away all the tokens one by one"
+     }
+    ]
+   },
+   "outflow": {
+    "first_release_utc": "2021-10-30T03:32:53Z",
+    "last_release_utc": null,
+    "duration_min": null,
+    "release_tx_count": null,
+    "count_note": "Fairyproof names one release transaction (its step 4) without a time; its block timestamp (block 12209242) was read from a BSC RPC node on 2026-10-16. Preparatory steps per Fairyproof: contract deployed 2021-10-27 13:47:34 UTC; governance role granted 2021-10-29 08:19:00 UTC; strategy contract deployed 2021-10-30 03:15:45 UTC. Whether further release transactions followed is not stated.",
+    "sources": [
+     {
+      "url": "https://fairyproof.substack.com/p/fairyproof-analysis-of-attack-on-bxh-932ae4067d72",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Oct-30–2021 03:15:45 AM +UTC"
+     },
+     {
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "RPC eth_getBlockByNumber: block 12209242 timestamp 0x617cbce5 (decoded 2021-10-30 03:32:53 UTC)"
+     },
+     {
+      "url": "https://wublock.substack.com/p/a-thief-with-the-least-technical",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "At 3 o'clock on the 30th (UTC)"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2021-10-30T08:35:39Z",
+    "channel": "X (Twitter) @BXH_Blockchain",
+    "note": "Time from status ID 1454366374353010695 (08:35:39.123Z), about 5 h after the release. Poly Network had posted at 06:51:16Z (status 1454340107855532032) that it would suspend cross-chain services for the affected assets on BSC.",
+    "sources": [
+     {
+      "url": "https://twitter.com/BXH_Blockchain/status/1454366374353010695",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We are sorry to announce that BXH was attacked on #BinanceChain. Other chains assets are safe."
+     },
+     {
+      "url": "https://twitter.com/PolyNetwork2/status/1454340107855532032",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "In order to avoid further transfer, Poly Network will suspend cross-chain services related to stolen assets on #BSC"
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "what": "BXH suspended its deposit and withdrawal service (time not given; reported by AMBCrypto by 12:00 UTC on 10-30) and later locked its contracts on OEC and HECO (X post status 1454705143362904067, 2021-10-31 07:01:47Z). Poly Network suspended cross-chain services for the affected BSC assets at 06:51:16Z; O3 Labs suspended BSC cross-chain at 07:25:36Z (status 1454348745500463105).",
+    "by": "BXH team; Poly Network and O3 Labs for their own services",
+    "note": "No bridge pause applies, since no bridge was drained.",
+    "sources": [
+     {
+      "url": "https://ambcrypto.com/binance-smart-chain-project-hack-leads-to-theft-of-139-million/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "In order to practice caution, the project suspended the deposit and withdrawal service."
+     },
+     {
+      "url": "https://forkast.news/bxh-exploit-estimated-139m-admin-key-leakage/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "and it has locked BXH contracts on OEC and HECO chains for asset security reasons."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions one.",
+    "sources": []
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "none reported",
+    "date": null,
+    "note": "No return reported in sources read. BXH offered a 1M USD bounty (X post status 1454813691409571842, 2021-10-31 14:13:07Z) and said it would draw up a repayment plan if the funds were not traced.",
+    "sources": [
+     {
+      "url": "https://forkast.news/bxh-exploit-estimated-139m-admin-key-leakage/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "BXH said it will offer a bonus of US$1 million to any white hat team that could help retrieve users’ assets."
+     }
+    ]
+   },
+   "open_questions": "Out of scope as a bridge event (yield vault, admin role). Number of release transactions and per-token totals not confirmed."
+  }
+ ]
+}

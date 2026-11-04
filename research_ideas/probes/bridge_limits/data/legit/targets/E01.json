@@ -1,0 +1,25 @@
+{
+ "note": "Collection targets for E01: bridge and token contracts, blocks and endpoints. Recipient, sender and transaction fields of the original targets are withheld; see docs/collection.md.",
+ "legs": {
+  "ethereum": {
+   "leg": "Ethereum V3 router pools",
+   "router": "0x6b7a87899490ece95443e979ca9485cbe7e71522",
+   "router_deploy_block": 12657964
+  },
+  "bsc": {
+   "leg": "BSC V3 router pools",
+   "router": "0xd1c5966f9f5ee6881ff6b261bbeda45972b1b5f3",
+   "router_deploy_block": 7910338
+  },
+  "fantom": {
+   "leg": "Fantom V3 router pools",
+   "router": "0x1ccca1ce62c62f7be95d4a67722a8fdbed6eecb4",
+   "router_deploy_block": 8475644
+  }
+ },
+ "failure_blocks": {
+  "ethereum": 12801739,
+  "bsc": 9043388,
+  "fantom": 11769327
+ }
+}

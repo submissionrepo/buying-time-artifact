@@ -1,0 +1,28 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 Anonymous Authors
+
+The derived data in this repository are licensed under the Creative Commons
+Attribution 4.0 International License. The legal code is at
+https://creativecommons.org/licenses/by/4.0/legalcode and a summary at
+https://creativecommons.org/licenses/by/4.0/.
+
+You may share and adapt the data for any purpose, provided that you give
+appropriate credit, provide a link to the license and indicate if changes were
+made.
+
+Covered: the data files that the authors compiled or derived, namely the
+failure dataset and its coding (research_ideas/probes/bridge_limits/results/,
+coding/, coverage/, incidents/curation.py as a data record, data/incidents/),
+the release histories (data/legit/), the derived CCIP, Wormhole and stake
+datasets (data/ccip/, data/wormhole/, data/stake/), the testbed logs
+(prototype/testbed/logs/), the prototype snapshots, the hand-compiled tables
+(research_ideas/bridge_limits_paper/tex/*.csv) and the generated numbers,
+tables and figures.
+
+Not covered: material that third parties publish under their own terms and that
+these files quote or transcribe, such as the DefiLlama incident list
+(data/incidents/defillama_hacks_20261015.json), short quotations from
+post-mortems and articles in the research notes, the tables transcribed from
+published papers (coverage/*.csv) and public blockchain records. Their own
+terms continue to apply. The code is covered by LICENSE.

@@ -1,0 +1,1000 @@
+[
+ {
+  "dl_date": "2021-07-10",
+  "dl_name": "Multichain",
+  "dl_amount_usd": 7900000,
+  "dl_chain": [
+   "Ethereum",
+   "BSC",
+   "Fantom"
+  ],
+  "dl_classification": "Key Compromise",
+  "dl_technique": "Weak Key Generation",
+  "dl_returned": null,
+  "dl_id": "591",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E01"
+ },
+ {
+  "dl_date": "2021-07-11",
+  "dl_name": "ChainSwap Bridge",
+  "dl_amount_usd": 4400000,
+  "dl_chain": [
+   "Ethereum",
+   "BSC"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Bridge Logic Flaw",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E02"
+ },
+ {
+  "dl_date": "2021-07-15",
+  "dl_name": "THORChain DEX",
+  "dl_amount_usd": 5000000,
+  "dl_chain": [
+   "Ethereum"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Bridge Logic Flaw",
+  "dl_returned": null,
+  "dl_id": "412",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E03"
+ },
+ {
+  "dl_date": "2021-07-22",
+  "dl_name": "THORChain DEX",
+  "dl_amount_usd": 8000000,
+  "dl_chain": [
+   "Ethereum"
+  ],
+  "dl_classification": "Protocol Logic",
+  "dl_technique": "Withdrawal Logic Flaw",
+  "dl_returned": null,
+  "dl_id": "412",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E04"
+ },
+ {
+  "dl_date": "2021-08-10",
+  "dl_name": "Poly Network",
+  "dl_amount_usd": 611000000,
+  "dl_chain": [
+   "Ethereum",
+   "BSC",
+   "Polygon"
+  ],
+  "dl_classification": "Access Control",
+  "dl_technique": "Improper Access Control",
+  "dl_returned": null,
+  "dl_id": "1796",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E05"
+ },
+ {
+  "dl_date": "2021-10-04",
+  "dl_name": "pNetwork",
+  "dl_amount_usd": 13000000,
+  "dl_chain": [
+   "BSC",
+   "Bitcoin"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Spoofed Event Log",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E06"
+ },
+ {
+  "dl_date": "2021-10-30",
+  "dl_name": "BXH",
+  "dl_amount_usd": 139000000,
+  "dl_chain": [
+   "BSC"
+  ],
+  "dl_classification": "Key Compromise",
+  "dl_technique": "Private Key Compromised",
+  "dl_returned": null,
+  "dl_id": "404",
+  "basis": "SoK table (DefiLlama bridgeHack=false): SoK Table 5 row 6 / Table 8: BXH, Oct 2021, 139M",
+  "event_id": "E07"
+ },
+ {
+  "dl_date": "2021-11-07",
+  "dl_name": "ChainSwap",
+  "dl_amount_usd": 4400000,
+  "dl_chain": [
+   "Ethereum",
+   "BSC"
+  ],
+  "dl_classification": "Access Control",
+  "dl_technique": "Caller Impersonation",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E08"
+ },
+ {
+  "dl_date": "2022-01-18",
+  "dl_name": "Multichain",
+  "dl_amount_usd": 1400000,
+  "dl_chain": [
+   "Ethereum"
+  ],
+  "dl_classification": "Input Validation",
+  "dl_technique": "Missing Input Validation",
+  "dl_returned": null,
+  "dl_id": "591",
+  "basis": "SoK table (DefiLlama bridgeHack=false): SoK Table 5 row 17 / Table 8: Multichain #1, Jan 2022, 3M",
+  "event_id": "E09"
+ },
+ {
+  "dl_date": "2022-01-28",
+  "dl_name": "Qubit",
+  "dl_amount_usd": 80000000,
+  "dl_chain": [
+   "BSC"
+  ],
+  "dl_classification": "Input Validation",
+  "dl_technique": "Missing Input Validation",
+  "dl_returned": null,
+  "dl_id": "516",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E10"
+ },
+ {
+  "dl_date": "2022-02-02",
+  "dl_name": "Portal",
+  "dl_amount_usd": 326000000,
+  "dl_chain": [
+   "Solana"
+  ],
+  "dl_classification": "Input Validation",
+  "dl_technique": "Signature Verification Flaw",
+  "dl_returned": 326000000,
+  "dl_id": "1541",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E11"
+ },
+ {
+  "dl_date": "2022-02-06",
+  "dl_name": "Meter",
+  "dl_amount_usd": 7700000,
+  "dl_chain": [
+   "Ethereum"
+  ],
+  "dl_classification": "Input Validation",
+  "dl_technique": "Missing Input Validation",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E12"
+ },
+ {
+  "dl_date": "2022-03-23",
+  "dl_name": "Ronin Bridge",
+  "dl_amount_usd": 624000000,
+  "dl_chain": [
+   "Ethereum"
+  ],
+  "dl_classification": "Key Compromise",
+  "dl_technique": "Validator Key Compromised",
+  "dl_returned": null,
+  "dl_id": "4440",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E13"
+ },
+ {
+  "dl_date": "2022-06-23",
+  "dl_name": "Harmony Bridge",
+  "dl_amount_usd": 100000000,
+  "dl_chain": [
+   "Ethereum",
+   "BSC"
+  ],
+  "dl_classification": "Key Compromise",
+  "dl_technique": "Validator Key Compromised",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E14"
+ },
+ {
+  "dl_date": "2022-08-01",
+  "dl_name": "Nomad",
+  "dl_amount_usd": 190000000,
+  "dl_chain": [
+   "Ethereum"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Forged Proof",
+  "dl_returned": null,
+  "dl_id": "1682",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E15"
+ },
+ {
+  "dl_date": "2022-10-06",
+  "dl_name": "Binance Bridge",
+  "dl_amount_usd": 570000000,
+  "dl_chain": [
+   "BSC"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Proof Verifier Bug",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E16"
+ },
+ {
+  "dl_date": "2022-10-11",
+  "dl_name": "QANplatform",
+  "dl_amount_usd": 2000000,
+  "dl_chain": [
+   "Ethereum"
+  ],
+  "dl_classification": "Key Compromise",
+  "dl_technique": "Weak Key Generation",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "SoK table (DefiLlama bridgeHack=false): SoK Table 8: QANplatform, Oct 2022, 2.00M",
+  "event_id": "E17"
+ },
+ {
+  "dl_date": "2022-11-02",
+  "dl_name": "Rubic",
+  "dl_amount_usd": 1200000,
+  "dl_chain": [
+   "Ethereum"
+  ],
+  "dl_classification": "Key Compromise",
+  "dl_technique": "Private Key Compromised",
+  "dl_returned": null,
+  "dl_id": "1282",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E18"
+ },
+ {
+  "dl_date": "2022-11-03",
+  "dl_name": "pNetwork",
+  "dl_amount_usd": 4300000,
+  "dl_chain": [
+   "BSC"
+  ],
+  "dl_classification": "Frontend & Infrastructure",
+  "dl_technique": "Key Leaked via Infrastructure",
+  "dl_returned": null,
+  "dl_id": "547",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E19"
+ },
+ {
+  "dl_date": "2022-12-25",
+  "dl_name": "Rubic",
+  "dl_amount_usd": 1410000,
+  "dl_chain": [
+   "Ethereum"
+  ],
+  "dl_classification": "Access Control",
+  "dl_technique": "Arbitrary External Call",
+  "dl_returned": null,
+  "dl_id": "1282",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E20"
+ },
+ {
+  "dl_date": "2023-07-02",
+  "dl_name": "Poly Network",
+  "dl_amount_usd": 5000000,
+  "dl_chain": [
+   "Ethereum",
+   "BSC",
+   "Polygon"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Forged Proof",
+  "dl_returned": null,
+  "dl_id": "1796",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E21"
+ },
+ {
+  "dl_date": "2023-07-07",
+  "dl_name": "Multichain",
+  "dl_amount_usd": 126000000,
+  "dl_chain": [
+   "Moonriver",
+   "BSC",
+   "Fantom"
+  ],
+  "dl_classification": "Key Compromise",
+  "dl_technique": "Validator Key Compromised",
+  "dl_returned": null,
+  "dl_id": "591",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E22"
+ },
+ {
+  "dl_date": "2023-09-23",
+  "dl_name": "Mixin Network",
+  "dl_amount_usd": 200000000,
+  "dl_chain": [
+   "Mixin"
+  ],
+  "dl_classification": "Frontend & Infrastructure",
+  "dl_technique": "Database Breach",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "SoK table (DefiLlama bridgeHack=false): SoK Table 8: Mixin Network, Sep 2023, 200.00M",
+  "event_id": "E23"
+ },
+ {
+  "dl_date": "2023-11-22",
+  "dl_name": "Heco Bridge",
+  "dl_amount_usd": 86600000,
+  "dl_chain": [
+   "Ethereum"
+  ],
+  "dl_classification": "Key Compromise",
+  "dl_technique": "Hot Wallet Key Compromised",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E24"
+ },
+ {
+  "dl_date": "2023-12-31",
+  "dl_name": "Orbit Bridge",
+  "dl_amount_usd": 81700000,
+  "dl_chain": [
+   "Ethereum"
+  ],
+  "dl_classification": "Input Validation",
+  "dl_technique": "Signature Verification Flaw",
+  "dl_returned": null,
+  "dl_id": "1981",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E25"
+ },
+ {
+  "dl_date": "2024-01-16",
+  "dl_name": "Bungee",
+  "dl_amount_usd": 3300000,
+  "dl_chain": [
+   "Ethereum"
+  ],
+  "dl_classification": "Input Validation",
+  "dl_technique": "Missing Input Validation",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E26"
+ },
+ {
+  "dl_date": "2024-04-24",
+  "dl_name": "XBridge",
+  "dl_amount_usd": 1440000,
+  "dl_chain": [
+   "Ethereum",
+   "BSC"
+  ],
+  "dl_classification": "Access Control",
+  "dl_technique": "Improper Access Control",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E27"
+ },
+ {
+  "dl_date": "2024-05-16",
+  "dl_name": "ALEX",
+  "dl_amount_usd": 4300000,
+  "dl_chain": [
+   "Stacks"
+  ],
+  "dl_classification": "Social Engineering",
+  "dl_technique": "Phishing",
+  "dl_returned": null,
+  "dl_id": "1466",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E28"
+ },
+ {
+  "dl_date": "2024-07-16",
+  "dl_name": "LiFi Finance",
+  "dl_amount_usd": 9730000,
+  "dl_chain": [
+   "zkSync Era",
+   "Linea",
+   "Metis"
+  ],
+  "dl_classification": "Access Control",
+  "dl_technique": "Token Approval Abuse",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E29"
+ },
+ {
+  "dl_date": "2024-08-06",
+  "dl_name": "Ronin Bridge",
+  "dl_amount_usd": 12000000,
+  "dl_chain": [
+   "Ethereum"
+  ],
+  "dl_classification": "Access Control",
+  "dl_technique": "Uninitialized Proxy",
+  "dl_returned": null,
+  "dl_id": "4440",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E30"
+ },
+ {
+  "dl_date": "2024-08-12",
+  "dl_name": "PolyNetwork",
+  "dl_amount_usd": 5000000,
+  "dl_chain": [
+   "PolyNetwork"
+  ],
+  "dl_classification": "Protocol Logic",
+  "dl_technique": "Unknown",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E31"
+ },
+ {
+  "dl_date": "2024-12-29",
+  "dl_name": "Fegex",
+  "dl_amount_usd": 1070000,
+  "dl_chain": [
+   "Ethereum",
+   "BSC",
+   "Base"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Cross-Chain Message Spoofing",
+  "dl_returned": null,
+  "dl_id": "672",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E32"
+ },
+ {
+  "dl_date": "2025-01-01",
+  "dl_name": "NoOnes",
+  "dl_amount_usd": 7900000,
+  "dl_chain": [
+   "Ethereum",
+   "Binance",
+   "Solana",
+   "Tron"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Cross-Chain Message Spoofing",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E33"
+ },
+ {
+  "dl_date": "2025-06-06",
+  "dl_name": "ForceBridge",
+  "dl_amount_usd": 3900000,
+  "dl_chain": [
+   "Nervos"
+  ],
+  "dl_classification": "Access Control",
+  "dl_technique": "Improper Access Control",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E34"
+ },
+ {
+  "dl_date": "2025-07-09",
+  "dl_name": "ZKSwap",
+  "dl_amount_usd": 5000000,
+  "dl_chain": [
+   "Ethereum"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Forged Proof",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E35"
+ },
+ {
+  "dl_date": "2025-07-10",
+  "dl_name": "Kinto Bridge",
+  "dl_amount_usd": 1550000,
+  "dl_chain": [
+   "Arbitrum"
+  ],
+  "dl_classification": "Access Control",
+  "dl_technique": "Uninitialized Proxy",
+  "dl_returned": null,
+  "dl_id": "4336",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E36"
+ },
+ {
+  "dl_date": "2025-09-13",
+  "dl_name": "Shibarium",
+  "dl_amount_usd": 4100000,
+  "dl_chain": [
+   "Shibarium"
+  ],
+  "dl_classification": "Key Compromise",
+  "dl_technique": "Validator Key Compromised",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E37"
+ },
+ {
+  "dl_date": "2025-09-23",
+  "dl_name": "Seedify",
+  "dl_amount_usd": 1200000,
+  "dl_chain": [
+   "BSC",
+   "Avalanche"
+  ],
+  "dl_classification": "Key Compromise",
+  "dl_technique": "Private Key Compromised",
+  "dl_returned": null,
+  "dl_id": "1511",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E38"
+ },
+ {
+  "dl_date": "2025-09-24",
+  "dl_name": "GriffinAI",
+  "dl_amount_usd": 3000000,
+  "dl_chain": [
+   "BSC"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Cross-Chain Message Spoofing",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E39"
+ },
+ {
+  "dl_date": "2025-10-30",
+  "dl_name": "Garden",
+  "dl_amount_usd": 11400000,
+  "dl_chain": [
+   "Ethereum",
+   "Arbitrum",
+   "Base",
+   "Solana"
+  ],
+  "dl_classification": "Frontend & Infrastructure",
+  "dl_technique": "Key Leaked via Infrastructure",
+  "dl_returned": null,
+  "dl_id": "4086",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E40"
+ },
+ {
+  "dl_date": "2026-02-01",
+  "dl_name": "CrossCurve",
+  "dl_amount_usd": 3000000,
+  "dl_chain": null,
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Cross-Chain Message Spoofing",
+  "dl_returned": null,
+  "dl_id": "5146",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E41"
+ },
+ {
+  "dl_date": "2026-02-21",
+  "dl_name": "IoTeX",
+  "dl_amount_usd": 4400000,
+  "dl_chain": [
+   "Ethereum"
+  ],
+  "dl_classification": "Key Compromise",
+  "dl_technique": "Validator Key Compromised",
+  "dl_returned": null,
+  "dl_id": "5486",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E42"
+ },
+ {
+  "dl_date": "2026-03-02",
+  "dl_name": "FOOM Cash",
+  "dl_amount_usd": 2260000,
+  "dl_chain": [
+   "Ethereum",
+   "Base"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Forged Proof",
+  "dl_returned": null,
+  "dl_id": "6908",
+  "basis": "DefiLlama classification 'Bridge & Cross-Chain' (bridgeHack=false)",
+  "event_id": "E43"
+ },
+ {
+  "dl_date": "2026-04-12",
+  "dl_name": "Hyperbridge",
+  "dl_amount_usd": 2500000,
+  "dl_chain": [
+   "Ethereum",
+   "Base",
+   "BSC",
+   "Arbitrum"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Forged Proof",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E44"
+ },
+ {
+  "dl_date": "2026-04-18",
+  "dl_name": "Kelp",
+  "dl_amount_usd": 293000000,
+  "dl_chain": [
+   "Ethereum",
+   "Arbitrum"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Cross-Chain Message Spoofing",
+  "dl_returned": null,
+  "dl_id": "3946",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E45"
+ },
+ {
+  "dl_date": "2026-05-11",
+  "dl_name": "TAC Protocol",
+  "dl_amount_usd": 2854486,
+  "dl_chain": [
+   "TON",
+   "TAC"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Proof Verifier Bug",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E46"
+ },
+ {
+  "dl_date": "2026-05-15",
+  "dl_name": "THORChain DEX",
+  "dl_amount_usd": 10700000,
+  "dl_chain": [
+   "Bitcoin",
+   "Ethereum",
+   "Base",
+   "BSC"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Bridge Logic Flaw",
+  "dl_returned": null,
+  "dl_id": "412",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E47"
+ },
+ {
+  "dl_date": "2026-05-17",
+  "dl_name": "Verus-Ethereum Bridge",
+  "dl_amount_usd": 11500000,
+  "dl_chain": [
+   "Verus"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Forged Proof",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E48"
+ },
+ {
+  "dl_date": "2026-05-30",
+  "dl_name": "Gravity Bridge",
+  "dl_amount_usd": 5400000,
+  "dl_chain": [
+   "Ethereum"
+  ],
+  "dl_classification": "Key Compromise",
+  "dl_technique": "Validator Key Compromised",
+  "dl_returned": null,
+  "dl_id": "3293",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E49"
+ },
+ {
+  "dl_date": "2026-06-07",
+  "dl_name": "Syscoin Bridge",
+  "dl_amount_usd": 10000000,
+  "dl_chain": [
+   "Syscoin"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Forged Proof",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E50"
+ },
+ {
+  "dl_date": "2026-06-10",
+  "dl_name": "Axelar Secret IBC Bridge",
+  "dl_amount_usd": 4670000,
+  "dl_chain": [
+   "Ethereum",
+   "Secret"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Unbacked Cross-Chain Mint",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E51"
+ },
+ {
+  "dl_date": "2026-06-14",
+  "dl_name": "Aztec Connect",
+  "dl_amount_usd": 2100000,
+  "dl_chain": [
+   "Ethereum"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Forged Proof",
+  "dl_returned": null,
+  "dl_id": "1016",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E52"
+ },
+ {
+  "dl_date": "2026-06-17",
+  "dl_name": "Aztec Bridge",
+  "dl_amount_usd": 2000000,
+  "dl_chain": [
+   "Ethereum"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Bridge Logic Flaw",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E53"
+ },
+ {
+  "dl_date": "2026-06-19",
+  "dl_name": "Secret Network",
+  "dl_amount_usd": 4670000,
+  "dl_chain": [
+   "Secret"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Unbacked Cross-Chain Mint",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E54"
+ },
+ {
+  "dl_date": "2026-06-21",
+  "dl_name": "Taiko Bridge",
+  "dl_amount_usd": 1700000,
+  "dl_chain": [
+   "Taiko"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Forged Proof",
+  "dl_returned": null,
+  "dl_id": "4692",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E55"
+ },
+ {
+  "dl_date": "2026-07-17",
+  "dl_name": "Across",
+  "dl_amount_usd": 4500000,
+  "dl_chain": [
+   "Solana"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Spoofed Event Log",
+  "dl_returned": null,
+  "dl_id": "1207",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E56"
+ },
+ {
+  "dl_date": "2026-07-19",
+  "dl_name": "Allbridge Core",
+  "dl_amount_usd": 1650000,
+  "dl_chain": [
+   "Solana"
+  ],
+  "dl_classification": "Protocol Logic",
+  "dl_technique": "Withdrawal Logic Flaw",
+  "dl_returned": null,
+  "dl_id": "3944",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E57"
+ },
+ {
+  "dl_date": "2026-07-21",
+  "dl_name": "Wanchain",
+  "dl_amount_usd": 10000000,
+  "dl_chain": [
+   "Cardano"
+  ],
+  "dl_classification": "Input Validation",
+  "dl_technique": "Signature Verification Flaw",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E58"
+ },
+ {
+  "dl_date": "2026-07-22",
+  "dl_name": "AFX Bridge",
+  "dl_amount_usd": 24150000,
+  "dl_chain": [
+   "Arbitrum"
+  ],
+  "dl_classification": "Key Compromise",
+  "dl_technique": "Validator Key Compromised",
+  "dl_returned": null,
+  "dl_id": "8006",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E59"
+ },
+ {
+  "dl_date": "2026-07-22",
+  "dl_name": "Verus-Ethereum Bridge",
+  "dl_amount_usd": 7530000,
+  "dl_chain": [
+   "Verus"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Forged Proof",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E60"
+ },
+ {
+  "dl_date": "2026-08-08",
+  "dl_name": "Oraichain",
+  "dl_amount_usd": 1000000,
+  "dl_chain": [
+   "Oraichain"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Unbacked Cross-Chain Mint",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E61"
+ },
+ {
+  "dl_date": "2026-08-11",
+  "dl_name": "Harmony Bridge",
+  "dl_amount_usd": 3200000,
+  "dl_chain": [
+   "Harmony"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Bridge Logic Flaw",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E62"
+ },
+ {
+  "dl_date": "2026-08-18",
+  "dl_name": "Maya Protocol",
+  "dl_amount_usd": 1700000,
+  "dl_chain": [
+   "Mayachain"
+  ],
+  "dl_classification": "Protocol Logic",
+  "dl_technique": "Withdrawal Logic Flaw",
+  "dl_returned": null,
+  "dl_id": "3791",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E63"
+ },
+ {
+  "dl_date": "2026-09-06",
+  "dl_name": "Liquid Network",
+  "dl_amount_usd": 320000000,
+  "dl_chain": [
+   "Liquid"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Unbacked Cross-Chain Mint",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E64"
+ },
+ {
+  "dl_date": "2026-09-09",
+  "dl_name": "Nomic",
+  "dl_amount_usd": 3150000,
+  "dl_chain": [
+   "Nomic"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Unbacked Cross-Chain Mint",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E65"
+ },
+ {
+  "dl_date": "2026-09-19",
+  "dl_name": "Fetch.ai",
+  "dl_amount_usd": 1530000,
+  "dl_chain": [
+   "Ethereum"
+  ],
+  "dl_classification": "Key Compromise",
+  "dl_technique": "Private Key Compromised",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E66"
+ },
+ {
+  "dl_date": "2026-09-24",
+  "dl_name": "Payy Network",
+  "dl_amount_usd": 1828589.378132,
+  "dl_chain": [
+   "Ethereum"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Bridge Logic Flaw",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E67"
+ },
+ {
+  "dl_date": "2026-09-27",
+  "dl_name": "Fake GIWA Bridge",
+  "dl_amount_usd": 2080000,
+  "dl_chain": [
+   "Ethereum"
+  ],
+  "dl_classification": "Social Engineering",
+  "dl_technique": "Impersonation Scam",
+  "dl_returned": null,
+  "dl_id": null,
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E68"
+ },
+ {
+  "dl_date": "2026-10-01",
+  "dl_name": "NEAR Intents",
+  "dl_amount_usd": 3800000,
+  "dl_chain": [
+   "BSC"
+  ],
+  "dl_classification": "Bridge & Cross-Chain",
+  "dl_technique": "Bridge Logic Flaw",
+  "dl_returned": null,
+  "dl_id": "6225",
+  "basis": "DefiLlama bridgeHack=true",
+  "event_id": "E69"
+ }
+]

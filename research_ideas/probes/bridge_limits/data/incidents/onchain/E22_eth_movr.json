@@ -1,0 +1,56 @@
+{
+ "target": "E22_eth_movr",
+ "config": {
+  "event_id": "E22",
+  "leg": "Ethereum escrow of the Moonriver bridge",
+  "chain": "ethereum",
+  "window_utc": [
+   "2023-07-06T16:00:00",
+   "2023-07-07T06:00:00"
+  ]
+ },
+ "blocks": [
+  17635848,
+  17640009
+ ],
+ "n_candidate_rows": 11,
+ "rows": [
+  {
+   "selected": true,
+   "ts": 1688672783,
+   "block": 17636967,
+   "kind": "erc20",
+   "symbol": "USDC",
+   "amount": 4830466.0,
+   "usd": 4829094.147656
+  },
+  {
+   "selected": true,
+   "ts": 1688672879,
+   "block": 17636975,
+   "kind": "erc20",
+   "symbol": "USDT",
+   "amount": 1042195.0,
+   "usd": 1042195.0
+  },
+  {
+   "selected": true,
+   "ts": 1688673023,
+   "block": 17636987,
+   "kind": "erc20",
+   "symbol": "DAI",
+   "amount": 780080.0,
+   "usd": 779408.35112
+  },
+  {
+   "selected": true,
+   "ts": 1688673179,
+   "block": 17637000,
+   "kind": "erc20",
+   "symbol": "WBTC",
+   "amount": 6.122,
+   "usd": 185319.062
+  }
+ ],
+ "pauses": []
+}

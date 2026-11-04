@@ -1,0 +1,13 @@
+{
+  "limiter_cancel": "30032",
+  "limiter_execute_escrow": "62824",
+  "limiter_execute_escrow_skip1": "65179",
+  "limiter_execute_mint": "62404",
+  "limiter_pause": "29662",
+  "limiter_queue": "100716",
+  "plain_release": "38135",
+  "token_transfer": "34344",
+  "window_release": "71473",
+  "window_release_expire1": "72456",
+  "window_release_expire3": "72136"
+}

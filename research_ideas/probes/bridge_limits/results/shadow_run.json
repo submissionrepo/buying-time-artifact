@@ -1,0 +1,470 @@
+{
+ "poll_s": 12.0,
+ "graces_s": [
+  0.0,
+  60.0
+ ],
+ "rechecks_s": [
+  60.0,
+  300.0
+ ],
+ "gate_s": 600.0,
+ "bsc_finality_s": 0.9,
+ "bridges": {
+  "ccip bsc->ethereum": {
+   "releases": 1020,
+   "usd": 7075175.089999993,
+   "unpriced": 3,
+   "unmatched": 0,
+   "unmatched_usd": 0,
+   "unmatched_rows": [],
+   "deposit_age_s": {
+    "0.0": 3.0,
+    "0.01": 4.0,
+    "0.5": 15.0,
+    "0.99": 246.6199999999999,
+    "1.0": 44784438.0
+   },
+   "final_when_released": 1020,
+   "not_final_when_released": 0,
+   "finality_after_release_s_max": -2.0999999046325684,
+   "configs": {
+    "any included deposit, grace 0 s": {
+     "ready": "any included deposit",
+     "grace_s": 0.0,
+     "false_alarms_raw": 0.0,
+     "false_alarms_confirmed": 0.0,
+     "raw_share": 0.0,
+     "confirmed_share": 0.0,
+     "held_by_gate": 0.0,
+     "delay_to_confirmation_s": {
+      "0.5": 5.5,
+      "0.99": 11.0,
+      "1.0": 11.0
+     }
+    },
+    "any included deposit, grace 60 s": {
+     "ready": "any included deposit",
+     "grace_s": 60.0,
+     "false_alarms_raw": 0.0,
+     "false_alarms_confirmed": 0.0,
+     "raw_share": 0.0,
+     "confirmed_share": 0.0,
+     "held_by_gate": 0.0,
+     "delay_to_confirmation_s": {
+      "0.5": 5.5,
+      "0.99": 11.0,
+      "1.0": 11.0
+     }
+    },
+    "final deposit, grace 0 s": {
+     "ready": "final deposit",
+     "grace_s": 0.0,
+     "false_alarms_raw": 0.0,
+     "false_alarms_confirmed": 0.0,
+     "raw_share": 0.0,
+     "confirmed_share": 0.0,
+     "held_by_gate": 0.0,
+     "delay_to_confirmation_s": {
+      "0.5": 5.5,
+      "0.99": 11.0,
+      "1.0": 11.0
+     }
+    },
+    "final deposit, grace 60 s": {
+     "ready": "final deposit",
+     "grace_s": 60.0,
+     "false_alarms_raw": 0.0,
+     "false_alarms_confirmed": 0.0,
+     "raw_share": 0.0,
+     "confirmed_share": 0.0,
+     "held_by_gate": 0.0,
+     "delay_to_confirmation_s": {
+      "0.5": 5.5,
+      "0.99": 11.0,
+      "1.0": 11.0
+     }
+    }
+   }
+  },
+  "ccip ethereum->bsc": {
+   "releases": 2350,
+   "usd": 12919604.710000021,
+   "unpriced": 14,
+   "unmatched": 0,
+   "unmatched_usd": 0,
+   "unmatched_rows": [],
+   "deposit_age_s": {
+    "0.0": 186.0,
+    "0.01": 773.0,
+    "0.5": 999.0,
+    "0.99": 1239.5099999999998,
+    "1.0": 40521255.0
+   },
+   "final_when_released": 2347,
+   "not_final_when_released": 3,
+   "finality_after_release_s_max": 820.0,
+   "configs": {
+    "any included deposit, grace 0 s": {
+     "ready": "any included deposit",
+     "grace_s": 0.0,
+     "false_alarms_raw": 0.0,
+     "false_alarms_confirmed": 0.0,
+     "raw_share": 0.0,
+     "confirmed_share": 0.0,
+     "held_by_gate": 0.0,
+     "delay_to_confirmation_s": {
+      "0.5": 5.5,
+      "0.99": 11.0,
+      "1.0": 11.0
+     }
+    },
+    "any included deposit, grace 60 s": {
+     "ready": "any included deposit",
+     "grace_s": 60.0,
+     "false_alarms_raw": 0.0,
+     "false_alarms_confirmed": 0.0,
+     "raw_share": 0.0,
+     "confirmed_share": 0.0,
+     "held_by_gate": 0.0,
+     "delay_to_confirmation_s": {
+      "0.5": 5.5,
+      "0.99": 11.0,
+      "1.0": 11.0
+     }
+    },
+    "final deposit, grace 0 s": {
+     "ready": "final deposit",
+     "grace_s": 0.0,
+     "false_alarms_raw": 3.000000000000001,
+     "false_alarms_confirmed": 3.000000000000001,
+     "raw_share": 0.0012765957446808514,
+     "confirmed_share": 0.0012765957446808514,
+     "held_by_gate": 2.333333333333333,
+     "delay_to_confirmation_s": {
+      "0.5": 6.0,
+      "0.99": 11.0,
+      "1.0": 831.0
+     }
+    },
+    "final deposit, grace 60 s": {
+     "ready": "final deposit",
+     "grace_s": 60.0,
+     "false_alarms_raw": 3.000000000000001,
+     "false_alarms_confirmed": 3.000000000000001,
+     "raw_share": 0.0012765957446808514,
+     "confirmed_share": 0.0012765957446808514,
+     "held_by_gate": 2.333333333333333,
+     "delay_to_confirmation_s": {
+      "0.5": 6.0,
+      "0.99": 11.0,
+      "1.0": 831.0
+     }
+    }
+   }
+  },
+  "wormhole bsc->ethereum": {
+   "releases": 5613,
+   "usd": 5261659.219999989,
+   "unpriced": 354,
+   "unmatched": 9,
+   "unmatched_usd": 0.0,
+   "unmatched_rows": [
+    {
+     "release_ts_utc": "2026-09-13T16:53:59Z",
+     "token": "WONKA",
+     "amount": "223525346.381437281",
+     "usd": "",
+     "kind": "unlock",
+     "matched": "yes",
+     "value_moved": "yes",
+     "amount_agrees": "no",
+     "note": "3 token movements after the redeem event; the first 2 of one token used; no price; disagrees: amount, recipient, fee"
+    },
+    {
+     "release_ts_utc": "2026-09-13T20:50:23Z",
+     "token": "WONKA",
+     "amount": "229781065.068946603",
+     "usd": "",
+     "kind": "unlock",
+     "matched": "yes",
+     "value_moved": "yes",
+     "amount_agrees": "no",
+     "note": "3 token movements after the redeem event; the first 2 of one token used; no price; disagrees: amount, recipient, fee"
+    },
+    {
+     "release_ts_utc": "2026-09-14T02:28:35Z",
+     "token": "WONKA",
+     "amount": "193462238.243160837",
+     "usd": "",
+     "kind": "unlock",
+     "matched": "yes",
+     "value_moved": "yes",
+     "amount_agrees": "no",
+     "note": "3 token movements after the redeem event; the first 2 of one token used; no price; disagrees: amount, recipient, fee"
+    },
+    {
+     "release_ts_utc": "2026-09-15T01:17:35Z",
+     "token": "WONKA",
+     "amount": "148537005.262938656",
+     "usd": "",
+     "kind": "unlock",
+     "matched": "yes",
+     "value_moved": "yes",
+     "amount_agrees": "no",
+     "note": "3 token movements after the redeem event; the first 2 of one token used; no price; disagrees: amount, recipient, fee"
+    },
+    {
+     "release_ts_utc": "2026-09-16T10:18:47Z",
+     "token": "WONKA",
+     "amount": "120462959.502865861",
+     "usd": "",
+     "kind": "unlock",
+     "matched": "yes",
+     "value_moved": "yes",
+     "amount_agrees": "no",
+     "note": "3 token movements after the redeem event; the first 2 of one token used; no price; disagrees: amount, recipient, fee"
+    },
+    {
+     "release_ts_utc": "2026-09-18T21:32:23Z",
+     "token": "WONKA",
+     "amount": "133625061.789587132",
+     "usd": "",
+     "kind": "unlock",
+     "matched": "yes",
+     "value_moved": "yes",
+     "amount_agrees": "no",
+     "note": "3 token movements after the redeem event; the first 2 of one token used; no price; disagrees: amount, recipient, fee"
+    },
+    {
+     "release_ts_utc": "2026-09-19T22:32:47Z",
+     "token": "WONKA",
+     "amount": "115553627.466840068",
+     "usd": "",
+     "kind": "unlock",
+     "matched": "yes",
+     "value_moved": "yes",
+     "amount_agrees": "no",
+     "note": "3 token movements after the redeem event; the first 2 of one token used; no price; disagrees: amount, recipient, fee"
+    },
+    {
+     "release_ts_utc": "2026-09-20T05:02:11Z",
+     "token": "WONKA",
+     "amount": "103984095.723471289",
+     "usd": "",
+     "kind": "unlock",
+     "matched": "yes",
+     "value_moved": "yes",
+     "amount_agrees": "no",
+     "note": "3 token movements after the redeem event; the first 2 of one token used; no price; disagrees: amount, recipient, fee"
+    },
+    {
+     "release_ts_utc": "2026-09-20T14:40:47Z",
+     "token": "WONKA",
+     "amount": "104335596.833683907",
+     "usd": "",
+     "kind": "unlock",
+     "matched": "yes",
+     "value_moved": "yes",
+     "amount_agrees": "no",
+     "note": "3 token movements after the redeem event; the first 2 of one token used; no price; disagrees: amount, recipient, fee"
+    }
+   ],
+   "deposit_age_s": {
+    "0.0": 3.0,
+    "0.01": 6.0,
+    "0.5": 19.0,
+    "0.99": 8797.470000000012,
+    "1.0": 12835969.0
+   },
+   "final_when_released": 5604,
+   "not_final_when_released": 0,
+   "finality_after_release_s_max": -2.0999999046325684,
+   "configs": {
+    "any included deposit, grace 0 s": {
+     "ready": "any included deposit",
+     "grace_s": 0.0,
+     "false_alarms_raw": 0.0,
+     "false_alarms_confirmed": 0.0,
+     "raw_share": 0.0,
+     "confirmed_share": 0.0,
+     "held_by_gate": 0.0,
+     "delay_to_confirmation_s": {
+      "0.5": 5.5,
+      "0.99": 11.0,
+      "1.0": 11.0
+     }
+    },
+    "any included deposit, grace 60 s": {
+     "ready": "any included deposit",
+     "grace_s": 60.0,
+     "false_alarms_raw": 0.0,
+     "false_alarms_confirmed": 0.0,
+     "raw_share": 0.0,
+     "confirmed_share": 0.0,
+     "held_by_gate": 0.0,
+     "delay_to_confirmation_s": {
+      "0.5": 5.5,
+      "0.99": 11.0,
+      "1.0": 11.0
+     }
+    },
+    "final deposit, grace 0 s": {
+     "ready": "final deposit",
+     "grace_s": 0.0,
+     "false_alarms_raw": 0.0,
+     "false_alarms_confirmed": 0.0,
+     "raw_share": 0.0,
+     "confirmed_share": 0.0,
+     "held_by_gate": 0.0,
+     "delay_to_confirmation_s": {
+      "0.5": 5.5,
+      "0.99": 11.0,
+      "1.0": 11.0
+     }
+    },
+    "final deposit, grace 60 s": {
+     "ready": "final deposit",
+     "grace_s": 60.0,
+     "false_alarms_raw": 0.0,
+     "false_alarms_confirmed": 0.0,
+     "raw_share": 0.0,
+     "confirmed_share": 0.0,
+     "held_by_gate": 0.0,
+     "delay_to_confirmation_s": {
+      "0.5": 5.5,
+      "0.99": 11.0,
+      "1.0": 11.0
+     }
+    }
+   }
+  },
+  "wormhole ethereum->bsc": {
+   "releases": 4278,
+   "usd": 4219616.349999997,
+   "unpriced": 233,
+   "unmatched": 4,
+   "unmatched_usd": 0.0,
+   "unmatched_rows": [
+    {
+     "release_ts_utc": "2026-09-11T22:34:06Z",
+     "token": "SHIBKILLER",
+     "amount": "808268952.2290146144",
+     "usd": "",
+     "kind": "unlock",
+     "matched": "yes",
+     "value_moved": "yes",
+     "amount_agrees": "no",
+     "note": "no price; disagrees: amount, fee"
+    },
+    {
+     "release_ts_utc": "2026-09-11T22:34:13Z",
+     "token": "MOONWENPEPE",
+     "amount": "326621652.437376791",
+     "usd": "",
+     "kind": "unlock",
+     "matched": "yes",
+     "value_moved": "yes",
+     "amount_agrees": "no",
+     "note": "3 token movements after the redeem event; the first 2 of one token used; no price; disagrees: amount, recipient, fee"
+    },
+    {
+     "release_ts_utc": "2026-09-11T22:34:13Z",
+     "token": "MOONWENPEPE",
+     "amount": "494433726.8682048094",
+     "usd": "",
+     "kind": "unlock",
+     "matched": "yes",
+     "value_moved": "yes",
+     "amount_agrees": "no",
+     "note": "3 token movements after the redeem event; the first 2 of one token used; no price; disagrees: amount, recipient, fee"
+    },
+    {
+     "release_ts_utc": "2026-09-11T22:34:23Z",
+     "token": "SHIBKILLER",
+     "amount": "877437664.9376605728",
+     "usd": "",
+     "kind": "unlock",
+     "matched": "yes",
+     "value_moved": "yes",
+     "amount_agrees": "no",
+     "note": "no price; disagrees: amount, fee"
+    }
+   ],
+   "deposit_age_s": {
+    "0.0": 774.0,
+    "0.01": 778.0,
+    "0.5": 982.0,
+    "0.99": 3267.4299999999484,
+    "1.0": 13189230.0
+   },
+   "final_when_released": 4274,
+   "not_final_when_released": 0,
+   "finality_after_release_s_max": -5.0,
+   "configs": {
+    "any included deposit, grace 0 s": {
+     "ready": "any included deposit",
+     "grace_s": 0.0,
+     "false_alarms_raw": 0.0,
+     "false_alarms_confirmed": 0.0,
+     "raw_share": 0.0,
+     "confirmed_share": 0.0,
+     "held_by_gate": 0.0,
+     "delay_to_confirmation_s": {
+      "0.5": 5.5,
+      "0.99": 11.0,
+      "1.0": 11.0
+     }
+    },
+    "any included deposit, grace 60 s": {
+     "ready": "any included deposit",
+     "grace_s": 60.0,
+     "false_alarms_raw": 0.0,
+     "false_alarms_confirmed": 0.0,
+     "raw_share": 0.0,
+     "confirmed_share": 0.0,
+     "held_by_gate": 0.0,
+     "delay_to_confirmation_s": {
+      "0.5": 5.5,
+      "0.99": 11.0,
+      "1.0": 11.0
+     }
+    },
+    "final deposit, grace 0 s": {
+     "ready": "final deposit",
+     "grace_s": 0.0,
+     "false_alarms_raw": 0.0,
+     "false_alarms_confirmed": 0.0,
+     "raw_share": 0.0,
+     "confirmed_share": 0.0,
+     "held_by_gate": 0.0,
+     "delay_to_confirmation_s": {
+      "0.5": 5.5,
+      "0.99": 11.0,
+      "1.0": 11.0
+     }
+    },
+    "final deposit, grace 60 s": {
+     "ready": "final deposit",
+     "grace_s": 60.0,
+     "false_alarms_raw": 0.0,
+     "false_alarms_confirmed": 0.0,
+     "raw_share": 0.0,
+     "confirmed_share": 0.0,
+     "held_by_gate": 0.0,
+     "delay_to_confirmation_s": {
+      "0.5": 5.5,
+      "0.99": 11.0,
+      "1.0": 11.0
+     }
+    }
+   }
+  }
+ },
+ "total": {
+  "releases": 13261,
+  "usd": 29476055.37,
+  "unmatched": 13,
+  "not_final_when_released": 3
+ }
+}

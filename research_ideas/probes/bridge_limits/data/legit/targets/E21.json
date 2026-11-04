@@ -1,0 +1,27 @@
+{
+ "note": "Collection targets for E21: bridge and token contracts, blocks and endpoints. Recipient, sender and transaction fields of the original targets are withheld; see docs/collection.md.",
+ "legs": {
+  "ethereum": {
+   "leg": "Ethereum lock proxy",
+   "role": "LockProxy (escrow) named in the operator post-mortem; emitter of the 58 forged Ethereum releases",
+   "custody": [
+    "0x250e76987d838a75310c34bf422ea9f1ac4cc906"
+   ]
+  },
+  "bsc": {
+   "leg": "BSC lock proxy",
+   "role": "LockProxy named in the operator post-mortem; same contract as the E05 BSC leg",
+   "custody": [
+    "0x2f7ac9436ba4b548f9582af91ca1ef02cd2f1f03"
+   ]
+  }
+ },
+ "peg": {
+  "bsc:0xe9e7cea3dedca5984780bafc599bd69add087d56": "coingecko:binance-usd",
+  "bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d": "coingecko:usd-coin",
+  "bsc:0x55d398326f99059ff775485246999027b3197955": "coingecko:tether",
+  "bsc:0x2170ed0880ac9a755fd29b2688956bd959f933f8": "coingecko:ethereum",
+  "bsc:0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c": "coingecko:bitcoin",
+  "ethereum:0xcb46c550539ac3db72dc7af7c89b11c306c727c2": "coingecko:ontology"
+ }
+}

@@ -1,0 +1,13 @@
+[profile.default]
+src = "src"
+out = "out"
+cache_path = "cache"
+libs = []
+# Same compiler settings as the prototype, so that gas matches its measurements.
+solc_version = "0.8.30"
+evm_version = "prague"
+optimizer = true
+optimizer_runs = 200
+# The limiter contracts are compiled from the prototype sources, which are only read.
+allow_paths = [".."]
+remappings = ["proto/=../"]

@@ -1,0 +1,10 @@
+system,stake_musd,confiscable_for_invalid_attestation,confiscable_short,value_held_musd,ratio,note
+Polygon PoS validators,342.4,no: slashing removed from the deployed contract,no: slashing removed,"2,184",0.16,escrow read on-chain (partial)
+Axelar validators,16.0,no: double signing and downtime only,"no: double signing, downtime",183.5,0.087,
+Hyperlane HYPER vault (Symbiotic),1.32,"yes, if a council approves","yes, with a council",76.5,0.017,
+Hyperlane EigenLayer service,"3,490 nominal",no: slashing not enabled,no: not enabled,76.5,n/a,registered weight valued at 1 ETH per share
+Lombard vault for LBTC on CCIP,0.144,"veto slasher, no published conditions",no published conditions,632.1,0.0002,
+Across proposer bond,0.0011,"lost if a dispute succeeds; disputes decided by a separate stake of 7.6",if a dispute succeeds,17.85,0.00006,
+LayerZero verifiers,0,"one optional verifier announces 5 of slashable stake, not found on-chain",none found on-chain,"11,110",0,
+Chainlink CCIP,0,"no: LINK staking (529) covers a price feed, not CCIP",no: staking covers a feed,"1,454",0,Ethereum lock-release pools
+Wormhole guardians,0,no stake,no stake,"1,648",0,

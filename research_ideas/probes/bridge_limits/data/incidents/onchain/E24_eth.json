@@ -1,0 +1,93 @@
+{
+ "target": "E24_eth",
+ "config": {
+  "event_id": "E24",
+  "leg": "Ethereum escrow",
+  "chain": "ethereum",
+  "window_utc": [
+   "2023-11-22T09:30:00",
+   "2023-11-22T11:00:00"
+  ],
+  "min_usd": 100000
+ },
+ "blocks": [
+  18626394,
+  18626840
+ ],
+ "n_candidate_rows": 8,
+ "rows": [
+  {
+   "selected": true,
+   "ts": 1700647463,
+   "block": 18626564,
+   "kind": "erc20",
+   "symbol": "USDT",
+   "amount": 42110000.0,
+   "usd": 42111986.46192976
+  },
+  {
+   "selected": true,
+   "ts": 1700647655,
+   "block": 18626580,
+   "kind": "erc20",
+   "symbol": "HBTC",
+   "amount": 489.0,
+   "usd": 17931141.0
+  },
+  {
+   "selected": true,
+   "ts": 1700647883,
+   "block": 18626599,
+   "kind": "erc20",
+   "symbol": "SHIB",
+   "amount": 346867120000.0,
+   "usd": 2795748.9872000003
+  },
+  {
+   "selected": true,
+   "ts": 1700648039,
+   "block": 18626612,
+   "kind": "erc20",
+   "symbol": "UNI",
+   "amount": 173200.0,
+   "usd": 926619.9999999999
+  },
+  {
+   "selected": true,
+   "ts": 1700648159,
+   "block": 18626622,
+   "kind": "erc20",
+   "symbol": "USDC",
+   "amount": 619000.0,
+   "usd": 619000.0
+  },
+  {
+   "selected": true,
+   "ts": 1700648303,
+   "block": 18626634,
+   "kind": "erc20",
+   "symbol": "LINK",
+   "amount": 42399.0,
+   "usd": 602913.78
+  },
+  {
+   "selected": true,
+   "ts": 1700648423,
+   "block": 18626644,
+   "kind": "erc20",
+   "symbol": "TUSD",
+   "amount": 346994.0,
+   "usd": 346589.404996
+  },
+  {
+   "selected": true,
+   "ts": 1700647175,
+   "block": 18626540,
+   "kind": "native",
+   "symbol": "ETH",
+   "amount": 10145.0,
+   "usd": 20382725.3
+  }
+ ],
+ "pauses": []
+}

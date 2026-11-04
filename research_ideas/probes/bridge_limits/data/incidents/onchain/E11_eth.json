@@ -1,0 +1,47 @@
+{
+ "target": "E11_eth",
+ "config": {
+  "event_id": "E11",
+  "leg": "Ethereum escrow (redemptions of the unbacked Solana mint)",
+  "chain": "ethereum",
+  "window_utc": [
+   "2022-02-02T18:00:00",
+   "2022-02-02T20:30:00"
+  ]
+ },
+ "blocks": [
+  14128112,
+  14128790
+ ],
+ "n_candidate_rows": 17,
+ "rows": [
+  {
+   "selected": true,
+   "ts": 1643826517,
+   "block": 14128237,
+   "kind": "erc20",
+   "symbol": "WETH",
+   "amount": 80000.0,
+   "usd": 214527247.45368177
+  },
+  {
+   "selected": true,
+   "ts": 1643826363,
+   "block": 14128223,
+   "kind": "native",
+   "symbol": "ETH",
+   "amount": 10000.0,
+   "usd": 26859670.84099223
+  },
+  {
+   "selected": true,
+   "ts": 1643826812,
+   "block": 14128261,
+   "kind": "native",
+   "symbol": "ETH",
+   "amount": 3750.0,
+   "usd": 10072376.565372087
+  }
+ ],
+ "pauses": []
+}

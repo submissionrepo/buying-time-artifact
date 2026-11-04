@@ -1,0 +1,23 @@
+rule,stage,shape,accounting,auto_release,controlled_by_verifiers,bound_without_response,source_section,params_by,pause_by
+Wormhole Governor,verifiers,cliff at 24 h (sliding 24 h cap before),gross (net with flow cancelling),"yes, uncounted",yes,no,2.1,verifiers,any 7 of the 19 verifiers (withhold)
+Wormhole Global Accountant,verifiers,bounded (releases up to recorded locks),conservation ledger,no,yes,yes,2.2,verifiers,none
+Wormhole NTT,send + release,ramp; cliff for queued items after 24 h,net (deposits of the same token),"yes, uncounted",no,no,2.3,issuer,issuer
+Chainlink CCIP token pools,send + release,ramp (token bucket),gross,no,no,no,2.4,issuer,CCIP owner (curse)
+LayerZero OApp RateLimiter,send,ramp,optional net,no,no,no,2.5,app owner,app owner
+LayerZero stablecoin and RWA OFT,send + release,ramp,optional net (deposits of the same token),no,no,no,2.6,issuer,sends only
+Axelar ITS,send + release,ramp (6 h calendar windows),net within window (deposits of the same token),no,partly,no,2.7,issuer or operator,operator
+Axelar legacy gateway,release,ramp (6 h calendar windows),gross,no,partly,no,2.8,Axelar governance,pauser or governance
+Hyperlane rate-limited hook and ISM,send or release,ramp,gross,no,no,no,2.9,route owner,"route owner, if added"
+Hyperlane net-flow and delayed-flow,send + release,geometric; cliff at maxDelay for delayed flow,net (deposits of the same token),delayed flow: yes,no,no,2.9,route owner,"route owner, if added"
+Circle CCTP,send; token,per-message cap at source; bounded at the token,n/a,n/a,yes,yes,2.10,verifier (Circle),verifier (Circle)
+Linea,send + release,ramp (window from first use; ETH only),gross,no,no,no,2.11,operator,operator; council
+StarkGate,send + release,geometric (5% of balance per day),gross within the day,no,no,no,2.12,operator,none on releases
+Ronin,release,ramp (UTC day); bounded above the lock threshold,gross,no,partly,yes,2.13,bridge admin,admin; pauser
+Celer cBridge,release,ramp plus delay for large items,gross,"yes, counted when queued",no,no,2.14,governors,pausers
+Gnosis OmniBridge and xDai,send + release,ramp (UTC day),gross,no,no,no,2.15,owner,none (limit to zero)
+BNB Chain BEP-171,release,cliff at 12 h,n/a,yes,no,no,2.16,issuer; governance,validators
+xERC20,token,ramp,gross,no,no,no,2.17,issuer,none (limit to zero)
+Taiko QuotaManager,release,ramp,gross,no,no,no,2.18,rollup owner,owner; pauser
+THORChain outbound delay,verifiers,ramp then cliff,n/a,yes,yes,no,2.19,verifiers,one node
+THORChain solvency halt,verifiers,bounded (wallet against ledger),wallet against ledger,auto-resume when solvent,yes,yes,2.19,verifiers,automatic
+ERC-7265 (draft),release,geometric; cliff in hold mode,net (reported inflow),hold mode: yes,no,no,2.20,protocol admin,protocol admin

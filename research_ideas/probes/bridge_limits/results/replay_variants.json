@@ -1,0 +1,142 @@
+{
+ "n_events": 57,
+ "n_timed": 48,
+ "placement": {
+  "bucket 1M/h": {
+   "verifier": 0.2553389833962249,
+   "release_separated": 0.8720082671272573,
+   "release_governed": 0.8063795201285465,
+   "release_pessimistic": 0.7576137715486506,
+   "release_separated_recoded": 0.8720082671272573,
+   "release_contract_only": 0.8282039546251496
+  },
+  "hold 24 h": {
+   "verifier": 0.26676244044337744,
+   "release_separated": 0.8074621513342609,
+   "release_governed": 0.7371690646137887,
+   "release_pessimistic": 0.6847361894760031,
+   "release_separated_recoded": 0.8047496807166087,
+   "release_contract_only": 0.7693230080426802
+  },
+  "matched benchmark": {
+   "verifier": 0.2069826835140284,
+   "release_separated": 0.7533211036519961,
+   "release_governed": 0.711098079331405,
+   "release_pessimistic": 0.6821406795427661,
+   "release_separated_recoded": 0.7533211036519961,
+   "release_contract_only": 0.7198515297280839
+  }
+ },
+ "response": {
+  "bucket 1M/h": {
+   "base": 0.8720082671272573,
+   "x2": 0.8031516709248813,
+   "x5": 0.6840898064569133,
+   "x10": 0.6283712904839778,
+   "outflow_detected_never": 0.6278880528592079,
+   "no_independent_pause_never": 0.8063795201285465,
+   "alert_time": 0.8791096559416742,
+   "alarm_10min": 0.9716431438781832,
+   "alarm_1h": 0.9607944595667283,
+   "all57_untimed_never": 0.8628635674632852
+  },
+  "hold 24 h": {
+   "base": 0.8074621513342609,
+   "x2": 0.7984187663972525,
+   "x5": 0.7180504055560792,
+   "x10": 0.2543106754627666,
+   "outflow_detected_never": 0.6486978715626512,
+   "no_independent_pause_never": 0.7346137184863829,
+   "alert_time": 0.8074621513342609,
+   "alarm_10min": 0.9965384394984855,
+   "alarm_1h": 0.9965384394984855,
+   "all57_untimed_never": 0.7989943430091146
+  },
+  "matched benchmark": {
+   "base": 0.7533211036519961,
+   "x2": 0.7166254226017829,
+   "x5": 0.6389075456601042,
+   "x10": 0.5690340588039376,
+   "outflow_detected_never": 0.5354453697383296,
+   "no_independent_pause_never": 0.711098079331405,
+   "alert_time": 0.754596192688844,
+   "alarm_10min": 0.7912521474715735,
+   "alarm_1h": 0.7912521474715735,
+   "all57_untimed_never": 0.7454210693253444
+  }
+ },
+ "weights": {
+  "bucket 1M/h": {
+   "value": 0.8720082671272573,
+   "event": 0.3201863363315804,
+   "net": 0.7924289619265132
+  },
+  "hold 24 h": {
+   "value": 0.8074621513342609,
+   "event": 0.7916666666666666,
+   "net": 0.675633774028173
+  },
+  "matched benchmark": {
+   "value": 0.7533211036519961,
+   "event": 0.18983485003156345,
+   "net": 0.6702213617580589
+  }
+ },
+ "shares": {
+  "V_keys_ctrl_yes_value": 0.10912784691465956,
+  "D_flaw_reach_yes_value": 0.0011982801925371342,
+  "n_V_keys_ctrl_yes": 12,
+  "n_V": 21,
+  "n_D_flaw_reach_yes": 2,
+  "n_D": 25,
+  "no_independent_pause_value": 0.11168319304206537,
+  "outflow_detected_value": 0.3071182430126479,
+  "n_outflow_detected": 20,
+  "recovered_share_timed": 0.47077594042353066
+ },
+ "breakeven_factor_bucket": 22.5,
+ "breakeven_factor_matched": 23.75,
+ "best_bucket": {
+  "median_D_h": 3.712222222222222,
+  "mean_D_h": 49.968275462962964,
+  "by_W": {
+   "5e+08": {
+    "expected_loss": 47933803.24538128,
+    "support_from_h": 5.0,
+    "support_to_h": 17.0,
+    "mean_D_below_crossing_h": 13.292021276595746,
+    "expected_loss_median_matched": 48863338.71217035,
+    "expected_loss_6h_matched": 47933803.24538128,
+    "crossing_h": 737.796422499885
+   },
+   "1e+09": {
+    "expected_loss": 58350469.912047945,
+    "support_from_h": 5.0,
+    "support_to_h": 17.0,
+    "mean_D_below_crossing_h": 13.292021276595746,
+    "expected_loss_median_matched": 59280005.37883701,
+    "expected_loss_6h_matched": 58350469.912047945,
+    "crossing_h": 1522.427705068669
+   },
+   "2e+09": {
+    "expected_loss": 58969500.21627227,
+    "support_from_h": 44.0,
+    "support_to_h": 347.0,
+    "mean_D_below_crossing_h": 49.968275462962964,
+    "expected_loss_median_matched": 66835219.87932628,
+    "expected_loss_6h_matched": 61687022.734385885,
+    "crossing_h": 3889.7807506223544
+   }
+  }
+ },
+ "k_buckets": {
+  "anchors_h": [
+   1,
+   6,
+   24,
+   168
+  ],
+  "max_ratio_to_majorant": 1.0604037080149304,
+  "max_ratio_to_envelope": 1.1887951614416905
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "note": "Collection targets for E50: bridge and token contracts, blocks and endpoints. Recipient, sender and transaction fields of the original targets are withheld; see docs/collection.md.",
+ "chain": "syscoin_nevm",
+ "rpc": "https://rpc.syscoin.org",
+ "explorer_api": "https://explorer.syscoin.org/api/v2",
+ "vault": "0x7904299b3d3dc1b03d1ddeb45e9fdf3576acbd5f",
+ "relay": "0xd714e7915362ff89388025f584726e6df26d20f9",
+ "failure_block": 934686
+}

@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\caption{Designs on the failed bridges' traffic, fitted a month ahead: share of the failures' value kept at the response time when the check that a deposit backs each release works and when it fails, and the cost to legitimate users in the month before each failure and the month before that (first/second number): value and transfers delayed (\%), and hours of delay per dollar, a reviewed transfer waiting one hour. Review: as in Table~\ref{tab:perbridge}, the review being the check. Gate: every withdrawal held while the check runs; behind it nothing, or the bucket of Table~\ref{tab:perbridge}, or that bucket with a margin of 3. Custody in a contract throughout; with custody as built, the gate keeps 96\% when the check works.}
+\label{tab:pbcost}
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}l r r r r r@{}}
+\toprule
+ & \multicolumn{2}{c}{Kept (\%), check} & \multicolumn{3}{c}{Cost}  \\
+\cmidrule(lr){2-3} \cmidrule(l){4-6}
+Design & works & fails & Value & Transfers & h/\$ \\
+\midrule
+Bucket & 72 & 72 & 17/48 & 0.8/12.7 & 4.7/40.8 \\
+Review 1/1000 & 78 & 8 & 40/49 & 0.4/0.3 & 0.4/0.5 \\
+\quad + alarm 1\,h & 94 & 8 & 40/49 & 0.4/0.3 & 0.4/0.5 \\
+Gate 10\,min & 100 & 0 & 100 & 100 & 0.17 \\
+\quad + bucket & 100 & 72 & 100 & 100 & 4.9/41.0 \\
+\quad + bucket, margin 3 & 100 & 64 & 100 & 100 & 1.6/9.8 \\
+\bottomrule
+\end{tabular}
+\end{table}

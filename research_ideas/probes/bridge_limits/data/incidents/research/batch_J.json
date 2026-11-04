@@ -1,0 +1,2022 @@
+{
+ "batch": "J",
+ "generated_utc": "2026-10-16T01:10:00Z",
+ "events": [
+  {
+   "event_id": "E17",
+   "dl_name": "QANplatform",
+   "dl_date": "2022-10-11",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "QANX left QANplatform's bridge contract (BridgeQANX, deployed at the same address on Ethereum and BSC, lock/release design holding QANX reserves on each chain). The releases were signed and submitted by the contract's deployer key. DefiLlama lists Ethereum only and bridgeHack=false, but the BSC copy of the contract released almost the same amount 80 s before the first Ethereum release.",
+    "sources": [
+     {
+      "url": "https://x.com/QANplatform/status/1579759166478254080",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The bridge smart contract that is offline was hacked and the attacker managed to withdraw tokens."
+     },
+     {
+      "url": "https://www.theblock.co/post/176118/hacker-drains-1-million-from-qanplatform-bridge-token-slumps-94",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "$2 million worth of tokens were stolen"
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"technique\": \"Weak Key Generation\", \"amount\": 2000000, \"chain\": [\"Ethereum\"], \"bridgeHack\": false"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2022-10-11",
+    "sources": [
+     {
+      "url": "https://bscscan.com/block/22078634",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "BSC RPC: release transaction in block 22078634, block timestamp 2022-10-11T08:16:39Z"
+     },
+     {
+      "url": "https://www.mexc.com/en-TR/support/articles/16281029920665",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "On-chain snapshots of QANX took place at 2022-10-11 08:16:39 (UTC)."
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 2000000,
+    "range": "1.17M-2M USD for 2,904,687,047 QANX released (1,460,517,946 on Ethereum, 1,444,169,101 on BSC). The recipient swapped part of it for about 3,090 BNB (837.5k) and 256 ETH (328k) (PeckShield); The Block, DefiLlama and SoK give 2M; Web3 Is Going Great 1.16M. At the 0.012 USD reference price used in the operator's compensation plan, the released QANX would be about 34.9M USD (my computation); the reserves mirrored supply on the other chain, so most of that nominal value was not realizable.",
+    "sources": [
+     {
+      "url": "https://x.com/PeckShieldAlert/status/1579778378609360896",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The @QANplatform exploiter has swapped tons of stolen $QANX to ~3,090 $BNB ($837.5k) and ~256 $ETH ($328k)"
+     },
+     {
+      "url": "https://www.theblock.co/post/176118/hacker-drains-1-million-from-qanplatform-bridge-token-slumps-94",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "$2 million worth of tokens were stolen"
+     },
+     {
+      "url": "https://www.web3isgoinggreat.com/single/qanx-bridge-suffers-1-16-million-loss-caused-by-the-profanity-vanity-address-vulnerability",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "QANX Bridge suffers $1.16 million loss caused by the Profanity vanity address vulnerability"
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "QANplatform | October 2022 | 2.00"
+     },
+     {
+      "url": "https://www.mexc.com/en-TR/support/articles/16281029920665",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the QANX market price was set at 0.012 USDT when it was attacked."
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "V",
+    "phrase": "Deployer key, generated with a weak vanity-address tool and set as the unlimited withdrawal signer, was recovered by an outside party and signed all releases.",
+    "sources": [
+     {
+      "url": "https://x.com/BlockSecTeam/status/1579781207503802369",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The private keys can be recovered. Multiple attackers have exploited this vulnerability."
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "// SET NO LIMIT SIGNER ON DEPLOYMENT"
+     },
+     {
+      "url": "https://etherscan.io/block/15723622",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: secp256k1 recovery of each release signature over the contract's txid formula returns the deployer address, which also sent all three release transactions (my computation)"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "All value left the bridge contract's QANX reserves: Ethereum 1,460,517,946.24 QANX (50.3%, two releases) and BSC 1,444,169,100.98 QANX (49.7%, one release). Each Ethereum call requested the whole contract balance and the contract kept its 2% fee, so the first release took 98% of the balance and the second 98% of the remainder (584,440.95 QANX left); on BSC 144,431.35 QANX were left. The Block values each chain at about 1M USD.",
+    "chains": [
+     "Ethereum",
+     "BSC"
+    ],
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/15723622",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: bridge QANX balance 1,461,102,387.19 at block 15723621, 29,222,047.74 at block 15723622, 584,440.95 at block 15724035"
+     },
+     {
+      "url": "https://bscscan.com/block/22078634",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "BSC RPC: bridge QANX balance 1,444,313,532.33 at block 22078633, 144,431.35 at block 22078634"
+     },
+     {
+      "url": "https://www.theblock.co/post/176118/hacker-drains-1-million-from-qanplatform-bridge-token-slumps-94",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "$2 million worth of tokens were stolen"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2022-10-11T08:17:59Z",
+    "last_release_utc": "2022-10-11T09:40:35Z",
+    "duration_min": 82.6,
+    "release_tx_count": 3,
+    "count_note": "3 = 2 on Ethereum (blocks 15,723,622 at 08:17:59Z, 1,431,880,339.45 QANX; 15,724,035 at 09:40:35Z, 28,637,606.79 QANX to a second recipient address) + 1 on BSC (block 22,078,634 at 08:16:39Z, 1,444,169,100.98 QANX). Across both chains the window is 08:16:39-09:40:35Z (83.9 min). Main chain chosen by QANX amount (Ethereum slightly larger). A scan of QANX transfers out of the bridge contract on both chains for 2022-10-10 to 2022-10-13 found no other outflows. No test transfers found. The second Ethereum release came 38.75 min after the operator's first post.",
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/15724035",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC eth_getLogs (QANX Transfer from the bridge, 2022-10-10 to 2022-10-13): two outflows, blocks 15723622 (08:17:59Z) and 15724035 (09:40:35Z)"
+     },
+     {
+      "url": "https://bscscan.com/block/22078634",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "BSC RPC eth_getLogs (QANX Transfer from the bridge, 2022-10-10 to 2022-10-13): one outflow, block 22078634 (08:16:39Z)"
+     },
+     {
+      "url": "https://www.theblock.co/post/176118/hacker-drains-1-million-from-qanplatform-bridge-token-slumps-94",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "$2 million worth of tokens were stolen"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2022-10-11T09:01:50Z",
+    "channel": "X (@QANplatform)",
+    "note": "Time from status ID 1579759166478254080 (09:01:50.451Z), 43 min after the first Ethereum release (45 min after the BSC release). Second post at 09:46:17Z (status ID 1579770352263364608) on the exchange pause and DEX liquidity withdrawal.",
+    "sources": [
+     {
+      "url": "https://x.com/QANplatform/status/1579759166478254080",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Please don’t perform any transactions related to the QANX token."
+     },
+     {
+      "url": "https://forklog.com/en/unknown-attacker-drains-over-1-million-from-qanplatform-blockchain/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The bridge smart contract that is offline was hacked and the attacker managed to withdraw tokens."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2022-10-11T08:55:33Z",
+    "channel": "X (@peckshield)",
+    "by": "PeckShield",
+    "note": "Time from status ID 1579757583736659969, 6 min before the operator's first post. Decrypt calls PeckShield the first to flag the event. BlockSec's post on the deployer key followed at 10:29:25Z (status ID 1579781207503802369).",
+    "sources": [
+     {
+      "url": "https://x.com/peckshield/status/1579757583736659969",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Hi @QANplatform, you may want to take a look."
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "basis": null,
+    "what": "No bridge pause: the verified BridgeQANX code has no pause function, and the operator said the bridge service was already offline. Releases ended when the reserves were exhausted. Exchanges paused QANX trading, deposits and withdrawals, and the operator withdrew DEX liquidity (announced 09:46:17Z).",
+    "by": "QANplatform (exchange pause and liquidity withdrawal)",
+    "note": "The deployer key still carried the unlimited signer setting after the first releases; no transaction lowering it was seen before the second Ethereum release at 09:40:35Z.",
+    "sources": [
+     {
+      "url": "https://x.com/QANplatform/status/1579770352263364608",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The liquidity has been withdrawn from Uniswap and Pancakeswap to mitigate the losses of users and further draining of the liquidity pool."
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "contract BridgeQANX is Signed {"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "yes",
+    "acted": "no",
+    "how": "Per-signer, per-transaction amount cap in the verified bridge code: a release passes only if the amount is below the recovering signer's limit. The deployer was set to the maximum value at deployment, and all three releases were signed by that key, each for the full contract balance.",
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "// THE ADDRESSES PERMITTED TO SIGN WITHDRAWAL REQUESTS UP TO X AMOUNT"
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "return amount < signers[ecrecover(txid, v, r, s)];"
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "// SET NO LIMIT SIGNER ON DEPLOYMENT"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "none reported",
+    "date": null,
+    "frozen_usd": null,
+    "note": "No return found; proceeds were sent to a mixer (PeckShield). Operator reimbursement, kept separate: a new QANX contract with a 1:1 airdrop from the pre-event snapshot at 08:16:39 UTC (the BSC release block time) and extra compensation for net buyers between 08:16:39 and 09:00:00 UTC at the 0.012 USDT reference price (MEXC notice, 2023-03-07).",
+    "sources": [
+     {
+      "url": "https://www.mexc.com/en-TR/support/articles/16281029920665",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Eligible users will get new QANX tokens at a 1:1 ratio based on their QANX balances"
+     },
+     {
+      "url": "https://x.com/PeckShieldAlert/status/1579778378609360896",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "started to transfer to Mixer (Tornado Cash)"
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2022-10-11T08:16:39Z",
+     "chain": "BSC",
+     "side": "escrow",
+     "amount_native": 1444169100.98,
+     "asset": "QANX",
+     "usd": null,
+     "basis": "onchain (block 22,078,634)"
+    },
+    {
+     "utc": "2022-10-11T08:17:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 1431880339.45,
+     "asset": "QANX",
+     "usd": null,
+     "basis": "onchain (block 15,723,622)"
+    },
+    {
+     "utc": "2022-10-11T09:40:35Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 28637606.79,
+     "asset": "QANX",
+     "usd": null,
+     "basis": "onchain (block 15,724,035)"
+    }
+   ],
+   "open_questions": "(1) The BSC copy of the bridge code was not read; its 2% fee arithmetic matches the Ethereum code. (2) Whether the operator still held the deployer key and could have lowered the signer limit before the second Ethereum release. (3) QANplatform's own disclosure post on Medium could not be read (HTTP 403). (4) The realized value depends on swap proceeds (about 1.17M USD per PeckShield) versus the 2M headline figures."
+  },
+  {
+   "event_id": "E18",
+   "dl_name": "Rubic",
+   "dl_date": "2022-11-02",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "RBC and BRBC left the reserves of Rubic's RBC/BRBC token bridge (a simple lock/release contract on Ethereum and BSC) through the owner-only release function, called by the compromised admin address that managed the bridge. Rubic said no contracts were exploited and user funds were unaffected. Distinct from the 2022-12-25 Rubic record (E20).",
+    "sources": [
+     {
+      "url": "https://x.com/CryptoRubic/status/1587704548688367619",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "This wallet managed the RBC/BRBC bridge and staking rewards."
+     },
+     {
+      "url": "https://quillaudits.substack.com/p/december-ends-with-8m-bitkeep-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "There were no contracts exploited."
+     },
+     {
+      "url": "https://etherscan.io/block/15879041",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: transferToUserWithFee called on the bridge contract; TransferFromOtherBlockchain event; RBC Transfer 34,048,374.97 from the bridge"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2022-11-02",
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/15879041",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: release in block 15879041, block timestamp 2022-11-02T01:25:47Z"
+     },
+     {
+      "url": "https://x.com/CryptoRubic/status/1587704548688367619",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "One of our admin’s wallet addresses was compromised."
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 1200000,
+    "range": "0.28M-1.2M USD: 34,048,374.97 RBC plus 54,402.58 BRBC released; press, DefiLlama and SoK value the tokens at about 1.2M; the recipient was reported to hold about 138 ETH (about 205-214k USD) and 205 BNB (about 65k USD) after selling, so realized value was roughly 0.28M.",
+    "sources": [
+     {
+      "url": "https://quillaudits.substack.com/p/december-ends-with-8m-bitkeep-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The attackers' 34 million RBC transfer was worth more than $1.2 million at the time of the hack."
+     },
+     {
+      "url": "https://quillaudits.substack.com/p/december-ends-with-8m-bitkeep-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "more than $205,000 in the ether in an Ethereum wallet."
+     },
+     {
+      "url": "https://quillaudits.substack.com/p/december-ends-with-8m-bitkeep-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "identified by Rubic in a tweet, held more than 205 BNB"
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "Rubic | November 2022 | 1.20"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "V",
+    "phrase": "Admin key holding the bridge's owner role (suspected malware) lifted the bridge pause and released its full reserves.",
+    "sources": [
+     {
+      "url": "https://x.com/CryptoRubic/status/1587704548688367619",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We suspect it was malicious software that was used to get access to the admin wallet's private keys."
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "require(!isProcessedTransaction(originalTxHash), \"swapContract: Transaction already processed\");"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "Ethereum bridge: 34,048,374.97 RBC, its entire balance (99.8% of released tokens). BSC bridge: 54,402.58 BRBC, its entire balance, paid to the compromised admin address itself. Staking-reward funds were reported safe.",
+    "chains": [
+     "Ethereum",
+     "BSC"
+    ],
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/15879041",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: bridge RBC balance 34,048,374.97 at block 15879040, 0 at block 15879041"
+     },
+     {
+      "url": "https://bscscan.com/block/22696249",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "BSC RPC: bridge BRBC balance 54,402.58 at block 22696248, 0 at block 22696249"
+     },
+     {
+      "url": "https://quillaudits.substack.com/p/december-ends-with-8m-bitkeep-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "On the Uniswap and PancakeSwap exchanges, approximately 34 million RBC and BRBC tokens were sold."
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2022-11-02T01:25:47Z",
+    "last_release_utc": "2022-11-02T01:25:47Z",
+    "duration_min": 0,
+    "release_tx_count": 2,
+    "count_note": "2 = 1 on Ethereum (block 15,879,041 at 01:25:47Z, 34,048,374.97 RBC) + 1 on BSC (block 22,696,249 at 02:04:11Z, 54,402.58 BRBC). Both called the owner-only release function. Preparatory step: the Ethereum bridge had been paused since 2022-10-31T19:34:47Z (block 15,870,161) and the same admin address unpaused it at 2022-11-02T01:21:23Z (block 15,879,019), 4 min 24 s before the release. Afterwards the recipient burned 500,000 RBC (01:29:35Z) and sent 33,548,374.97 RBC to a contract (01:56:35Z). No other RBC release event from the Ethereum bridge between 2022-10-26 and 2022-11-05.",
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/15879019",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: Unpaused event from the bridge in block 15879019 (2022-11-02T01:21:23Z), sender = admin address"
+     },
+     {
+      "url": "https://etherscan.io/block/15870161",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: Paused event from the bridge in block 15870161 (2022-10-31T19:34:47Z), sender = admin address"
+     },
+     {
+      "url": "https://bscscan.com/block/22696249",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "BSC RPC: block 22696249 (2022-11-02T02:04:11Z), transferToUserWithFee, BRBC Transfer 54,402.58 from the bridge to the admin address"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2022-11-02T07:13:57Z",
+    "channel": "X (@CryptoRubic)",
+    "note": "Time from status ID 1587704548688367619 (first post of a 4-post thread), 5 h 48 min after the Ethereum release.",
+    "sources": [
+     {
+      "url": "https://x.com/CryptoRubic/status/1587704548688367619",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "This wallet managed the RBC/BRBC bridge and staking rewards."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2022-11-02T11:00:23Z",
+    "channel": "X (@MistTrack_io)",
+    "by": "MistTrack (SlowMist)",
+    "note": "Time from status ID 1587761532762345472; it came after the operator's post. No earlier third-party alert found.",
+    "sources": [
+     {
+      "url": "https://x.com/MistTrack_io/status/1587761532762345472",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "the stolen assets are still on the hacker's address."
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "basis": null,
+    "what": "No pause after the event: the Ethereum bridge was empty and emitted no Paused event through block 16,100,000 (about 2022-12-02). A pause had been in force since 2022-10-31 but was lifted by the same compromised owner key before the release.",
+    "by": null,
+    "note": "Rubic said its exchange stayed operational. BSC-side pause events not scanned.",
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/15879019",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC eth_getLogs, Paused topic, bridge contract, blocks 15870000-16100000: one event, block 15870161 (before the release)"
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "@dev Pauses transfers of tokens on contract"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "no",
+    "acted": "n.a.",
+    "how": "Verified bridge code: the release function is owner-only with a replay check on the origin transaction hash; no amount cap or delay. A minimum amount applies only to deposits. The pause switch was held by the same owner role.",
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "amount >= minTokenAmount,"
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "require(!isProcessedTransaction(originalTxHash), \"swapContract: Transaction already processed\");"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "none reported",
+    "date": null,
+    "frozen_usd": null,
+    "note": "No return or freeze found in sources read.",
+    "sources": [
+     {
+      "url": "https://x.com/MistTrack_io/status/1587761532762345472",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "the stolen assets are still on the hacker's address."
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2022-11-02T01:25:47Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 34048374.97,
+     "asset": "RBC",
+     "usd": null,
+     "basis": "onchain (block 15,879,041)"
+    },
+    {
+     "utc": "2022-11-02T02:04:11Z",
+     "chain": "BSC",
+     "side": "escrow",
+     "amount_native": 54402.58,
+     "asset": "BRBC",
+     "usd": null,
+     "basis": "onchain (block 22,696,249)"
+    }
+   ],
+   "open_questions": "(1) Rubic's posts 2-4 of the thread were not read. (2) The BSC release (54.4k BRBC, about 2k USD at pre-event prices) cannot explain the 205 BNB later held by the recipient; source of that BNB not traced. (3) BSC-side pause or unpause events not scanned (BSC endpoints rate-limited on 2026-10-16). (4) The same admin address paused one of Rubic's router contracts on 2022-12-25 (see E20), so Rubic apparently kept using the key; whether it was rotated is not stated. (5) Realized value (about 0.28M) versus the 1.2M headline."
+  },
+  {
+   "event_id": "E19",
+   "dl_name": "pNetwork",
+   "dl_date": "2022-11-03",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "The bridge operator issued unbacked claims: after finding that ownership of the pGALA token contract on BSC had been taken over (proxy-admin owner key leaked; owner replaced on Aug 28 per SlowMist), pNetwork minted 55.6B uncollateralized pGALA and sold them into the PancakeSwap pGALA/BNB pool, extracting 12,977 BNB to keep it from the party controlling the contract. The GALA collateral in the Ethereum-side escrow did not move. Reconciliation: DefiLlama's 4.3M is the BNB taken from the pool (Beosin 12,976 BNB, about 4.3M; pNetwork 12,977 BNB = 4,589,449 USD); SoK's 10.8M has no stated basis and is close to Huobi's estimate of more than 10M of arbitrage profits, which would add losses borne by exchanges and pGALA buyers outside the pool.",
+    "sources": [
+     {
+      "url": "https://medium.com/pnetwork/pgala-post-mortem-measures-taken-to-safeguard-the-ecosystem-from-malicious-actors-and-recovery-6407048f4497",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The team noticed that the ownership of the pGALA smart contract (deployed on BSC) had been covertly taken over due to the misconfiguration."
+     },
+     {
+      "url": "https://medium.com/pnetwork/pgala-post-mortem-measures-taken-to-safeguard-the-ecosystem-from-malicious-actors-and-recovery-6407048f4497",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "No funds loss happened on the GALA cross-chain bridge."
+     },
+     {
+      "url": "https://vn.tradingview.com/news/cointelegraph:ba38c27fe:0-report-gala-token-exploit-resulted-from-public-leak-of-private-key-on-github",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the plaintext private key for the proxy admin owner address was exposed and publicly viewable on GitHub"
+     },
+     {
+      "url": "https://forklog.com/en/gala-games-to-airdrop-gala-v2-token/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Huobi believes that further coordinated attacks from multiple addresses brought the attackers more than $10 million in profits via arbitrage."
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "pNetwork | November 2022 | 10.80"
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"technique\": \"Key Leaked via Infrastructure\", \"amount\": 4300000, \"chain\": [\"BSC\"]"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2022-11-03",
+    "sources": [
+     {
+      "url": "https://bscscan.com/block/22745568",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "BSC RPC: first mint of 27,814,200,000 pGALA in block 22745568, timestamp 2022-11-03T20:13:51Z"
+     },
+     {
+      "url": "https://medium.com/pnetwork/pgala-post-mortem-measures-taken-to-safeguard-the-ecosystem-from-malicious-actors-and-recovery-6407048f4497",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "the pNetwork team issues 27,814,200,000 uncollateralized pGALA"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 4589449,
+    "range": "4.3M-4.59M USD for the 12,976-12,977 BNB extracted from the pool (Beosin and The Block 4.3M; pNetwork 4,589,449; Cointelegraph 4.5M); SoK 10.8M; Huobi more than 10M including arbitrage through exchanges; nominal value of the 55.6B unbacked pGALA about 2.17B-2.2B (Lookonchain, ForkLog).",
+    "sources": [
+     {
+      "url": "https://medium.com/pnetwork/pgala-post-mortem-measures-taken-to-safeguard-the-ecosystem-from-malicious-actors-and-recovery-6407048f4497",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "resulting a final whitehat-driven liquidity extraction of 12,977 BNB, worth of $4,589,449 at the time."
+     },
+     {
+      "url": "https://www.theblock.co/news/regulation/2022-11-04-developers-of-pnetwork-bridge-drain-4-3-million-from-pancakeswap-in-white-hat-attack-182969",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Our investigation shows that pNetwork had a privileged address and could mint the token."
+     },
+     {
+      "url": "https://x.com/lookonchain/status/1588352050642837505",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "An attacker minted 55.6B $GALA ($2.17B) on BSC."
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "O",
+    "phrase": "Operator minted 55.6B unbacked pGALA to drain the DEX pool after losing control of the token contract's proxy-admin owner key.",
+    "sources": [
+     {
+      "url": "https://medium.com/pnetwork/pgala-post-mortem-measures-taken-to-safeguard-the-ecosystem-from-malicious-actors-and-recovery-6407048f4497",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The rationale behind notifying the community a few minutes after the draining had started is to avoid the malicious attacker to frontrun the whitehat operation."
+     },
+     {
+      "url": "https://vn.tradingview.com/news/cointelegraph:ba38c27fe:0-report-gala-token-exploit-resulted-from-public-leak-of-private-key-on-github",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "On Aug. 28, the proxy admin contract owner was replaced, making the protocol vulnerable to an attack."
+     },
+     {
+      "url": "https://medium.com/pnetwork/lessons-learnt-from-the-pgala-exploit-50e686730b98",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "unfortunately not sufficient to promptly detect that the pGALA smart contract had been compromised."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "mint",
+    "share_note": "100% mint side on BSC: 2 x 27,814,200,000 pGALA issued without collateral; 10,717,427,435 of them sold into the PancakeSwap pGALA/WBNB pair in 204 transactions, the rest held by the minting address. No redemption against the Ethereum GALA escrow (cross-chain processing stopped). Buyers of the unbacked pGALA moved part of it to exchanges that still credited BEP-20 GALA deposits.",
+    "chains": [
+     "BSC"
+    ],
+    "sources": [
+     {
+      "url": "https://bscscan.com/block/22747974",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "BSC RPC eth_getLogs: 204 pGALA transfers from the minting address to the pGALA/WBNB pair, 20:18:09Z-22:16:04Z, total 10,717,427,435 pGALA"
+     },
+     {
+      "url": "https://medium.com/pnetwork/pgala-post-mortem-measures-taken-to-safeguard-the-ecosystem-from-malicious-actors-and-recovery-6407048f4497",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "the processing of cross-chain operations for the pGALA token via the bridge were temporarily stopped."
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "BSC",
+    "first_release_utc": "2022-11-03T20:13:51Z",
+    "last_release_utc": "2022-11-03T20:27:30Z",
+    "duration_min": 13.65,
+    "release_tx_count": 2,
+    "count_note": "Counted: unbacked mints on BSC (blocks 22,745,568 at 20:13:51Z and 22,745,841 at 20:27:30Z, 27,814,200,000 pGALA each, to the operator's address); these match the operator's timeline (20:13 and 20:27 UTC). Realization: 204 sales into the PancakeSwap pair from 20:18:09Z (block 22,745,654) to 22:16:04Z (block 22,747,974), matching the stated start (20:18) and stop (22:16). The operator's LP snapshot S1 is block 22,745,013 (19:45:45Z). Per-sale BNB amounts not summed (BSC endpoint rate-limited).",
+    "sources": [
+     {
+      "url": "https://bscscan.com/block/22745841",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "BSC RPC eth_getLogs: pGALA Transfer from the zero address, blocks 22745568 (20:13:51Z) and 22745841 (20:27:30Z), 27,814,200,000 each"
+     },
+     {
+      "url": "https://medium.com/pnetwork/pgala-post-mortem-measures-taken-to-safeguard-the-ecosystem-from-malicious-actors-and-recovery-6407048f4497",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "the pNetwork team issues another 27,814,200,000 uncollateralized pGALA"
+     },
+     {
+      "url": "https://medium.com/pnetwork/pgala-post-mortem-measures-taken-to-safeguard-the-ecosystem-from-malicious-actors-and-recovery-6407048f4497",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "the whitehat draining of the pool is stopped"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2022-11-03T20:28:31Z",
+    "channel": "X (@pNetworkDeFi)",
+    "note": "Time from status ID 1588266897061031936 (first post of a thread); posted 10 min after the sales began, by design. The post-mortem timeline gives 17:52 UTC for the first internal suspicion and 18:32 UTC for confirmation.",
+    "sources": [
+     {
+      "url": "https://x.com/pNetworkDeFi/status/1588266897061031936",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "bridge necessitated the redeployment of pGALA."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2022-11-03T20:54:44Z",
+    "channel": "X (@peckshield)",
+    "by": "PeckShield",
+    "note": "Time from status ID 1588273496819634176; pNetwork replied at 21:03:07Z that it had coordinated the action.",
+    "sources": [
+     {
+      "url": "https://x.com/peckshield/status/1588273496819634176",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Hi @GoGalaGames, you may want to take a look:"
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "basis": "stated",
+    "what": "pNetwork stopped processing cross-chain operations for pGALA (time not given; users could still initiate them). Exchanges suspended BEP-20 GALA deposits and withdrawals: Binance at 19:49 UTC (its own post), Huobi at 23:00-23:03 UTC.",
+    "by": "pNetwork; exchanges for their own services",
+    "note": "The operator ended its own sales at 22:16 UTC (stated; last sale on chain 22:16:04Z).",
+    "sources": [
+     {
+      "url": "https://medium.com/pnetwork/pgala-post-mortem-measures-taken-to-safeguard-the-ecosystem-from-malicious-actors-and-recovery-6407048f4497",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "the processing of cross-chain operations for the pGALA token via the bridge were temporarily stopped."
+     },
+     {
+      "url": "https://x.com/binance/status/1588434639643111425",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "#Binance suspended deposits and withdrawals for $GALA (BEP-20) on November 3, 19:49pm UTC, due to concerns regarding pNetwork's pGALA token."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source documents a mint cap; the operator's two mints of 27.8B pGALA each executed. The operator's lessons post says the party controlling the contract could have minted an unlimited amount.",
+    "sources": [
+     {
+      "url": "https://medium.com/pnetwork/lessons-learnt-from-the-pgala-exploit-50e686730b98",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "an unlimited amount of pGALA tokens could have been maliciously minted and sold on both decentralized and centralized exchanges"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "12,977 BNB held by the operator for redistribution; distribution not confirmed",
+    "date": null,
+    "frozen_usd": null,
+    "note": "The BNB went to the operator itself, which planned to return it to pool LPs and holders of the unbacked pGALA; on 2022-12-07 it said this part of the plan had been delayed for legal reasons, and no completion was found. New collateralized pGALA was airdropped 1:1 from snapshots (replacement, not recovery). Huobi and Gala Games announced their own compensation and sued pNetwork.",
+    "sources": [
+     {
+      "url": "https://medium.com/pnetwork/lessons-learnt-from-the-pgala-exploit-50e686730b98",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "the second part to return the recouped BNB tokens had to be delayed."
+     },
+     {
+      "url": "https://forklog.com/en/gala-games-to-airdrop-gala-v2-token/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "In April, Huobi and Gala Games filed a lawsuit against the project."
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2022-11-03T20:13:51Z",
+     "chain": "BSC",
+     "side": "mint",
+     "amount_native": 27814200000,
+     "asset": "pGALA",
+     "usd": null,
+     "basis": "onchain (block 22,745,568)"
+    },
+    {
+     "utc": "2022-11-03T20:27:30Z",
+     "chain": "BSC",
+     "side": "mint",
+     "amount_native": 27814200000,
+     "asset": "pGALA",
+     "usd": null,
+     "basis": "onchain (block 22,745,841)"
+    }
+   ],
+   "open_questions": "(1) Classification: O is chosen because the unbacked mint was made by the operator with its own minting authority; a V reading (the trigger was an admin key under outside control since Aug 28) is defensible, and so is not_a_bridge_failure (no escrow loss). (2) Time the operator stopped cross-chain processing. (3) BNB received by the operator per sale not summed on chain (BSC endpoint rate-limited). (4) Basis of the SoK 10.8M figure. (5) Whether the 12,977 BNB were ever distributed."
+  },
+  {
+   "event_id": "E20",
+   "dl_name": "Rubic",
+   "dl_date": "2022-12-25",
+   "scope": {
+    "value": "approval_outflow",
+    "note": "USDC left 49 user wallets through their approvals to two RubicProxy contracts (Rubic's cross-chain router). The USDC token had been added to the proxies' router whitelist, so a router call with arbitrary data could move approved USDC. No bridge custody was involved. Distinct from the 2022-11-02 Rubic record (E18).",
+    "sources": [
+     {
+      "url": "https://www.web3isgoinggreat.com/single/rubic-cross-chain-exchange-hacked",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "erroneously added the USDC stablecoin address as a router"
+     },
+     {
+      "url": "https://revoke.cash/exploits/rubic",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "added the USDC token contract itself to this trusted list"
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"technique\": \"Arbitrary External Call\", \"amount\": 1410000"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2022-12-25",
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/16260581",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: first exploit transaction in block 16260581, timestamp 2022-12-25T08:31:11Z"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 1508457,
+    "range": "1.40M-1.51M USD: 1,508,457.39 USDC moved on chain in two transactions (my sum); revoke.cash 1.51M; PeckShield and DefiLlama 1.41M; SoK 1.40M.",
+    "sources": [
+     {
+      "url": "https://revoke.cash/exploits/rubic",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "About $1.5M in USDC was taken from users on Ethereum."
+     },
+     {
+      "url": "https://etherscan.io/block/16260623",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC eth_getLogs: USDC Transfer to the exploit contract, 2022-12-24 to 2022-12-26: 49 transfers, total 1,508,457.39"
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "Rubic | December 2022 | 1.40"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "O",
+    "phrase": "Approval outflow: token contract whitelisted as a router let arbitrary calls spend users' approvals to the router proxy.",
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "if (!availableRouters.contains(_params.router)) {"
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "AddressUpgradeable.functionCallWithValue(_params.router, _data, _amountIn);"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "other",
+    "share_note": "User wallets with USDC approvals to the RubicProxy contracts; transaction 1 took 1,475,491.81 USDC from 26 wallets (largest 1,000,000), transaction 2 took 32,965.57 USDC from 23 wallets.",
+    "chains": [
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/16260581",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: block 16260581, 26 USDC transfers to the exploit contract, 1,475,491.81 USDC"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2022-12-25T08:31:11Z",
+    "last_release_utc": "2022-12-25T08:39:35Z",
+    "duration_min": 8.4,
+    "release_tx_count": 2,
+    "count_note": "Counted: transactions by the initiating party's exploit contract that pulled USDC from approving wallets (blocks 16,260,581 at 08:31:11Z and 16,260,623 at 08:39:35Z), carrying 49 transfers from 49 distinct wallets. Scan of USDC transfers to the exploit contract from 2022-12-24 to 2022-12-26 found no others.",
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/16260623",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: block 16260623 (08:39:35Z), 23 USDC transfers to the exploit contract, 32,965.57 USDC"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2022-12-25T09:52:31Z",
+    "channel": "X (@CryptoRubic)",
+    "note": "Time from status ID 1606951013449097218, 81 min after the first pull; a second post at 11:10:05Z (status ID 1606970530032230403) said the contracts were paused.",
+    "sources": [
+     {
+      "url": "https://x.com/CryptoRubic/status/1606951013449097218",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "One of our routing contracts might be compromised. All contracts will be stopped until we understand the situation fully."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2022-12-25T08:57:04Z",
+    "channel": "X (@peckshield)",
+    "by": "PeckShield",
+    "note": "Time from status ID 1606937055761952770, 18 min after the last pull.",
+    "sources": [
+     {
+      "url": "https://x.com/peckshield/status/1606937055761952770",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "1,100 $ETH already into Tornado Cash from the exploiter"
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2022-12-25T09:59:59Z",
+    "basis": "onchain",
+    "what": "Paused events on both RubicProxy contracts: RubicProxy2 at 09:50:35Z (through a Safe multisig transaction) and RubicProxy1 at 09:59:59Z.",
+    "by": "Rubic (RubicProxy1 paused by the same admin address that signed the November 2022 bridge releases, E18)",
+    "note": "71-80 min after the last pull; releases had already stopped.",
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/16261025",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: Paused event from RubicProxy1 in block 16261025 (2022-12-25T09:59:59Z); Paused event from RubicProxy2 in block 16260978 (09:50:35Z)"
+     },
+     {
+      "url": "https://x.com/CryptoRubic/status/1606970530032230403",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Rubic's contracts connected with the platform have been paused, There is no opportunity for further harm."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "no",
+    "acted": "n.a.",
+    "how": "Verified RubicProxy code stores per-token min/max amounts but no function reads them; the exploited router call checks only the router whitelist. Each pull was bounded only by the wallet's allowance and balance.",
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "mapping(address => uint256) public maxTokenAmount;"
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "if (!availableRouters.contains(_params.router)) {"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "none reported",
+    "date": null,
+    "frozen_usd": null,
+    "note": "No return; about 1,100 ETH went to a mixer. Operator reimbursement, kept separate: Rubic compensated affected users (revoke.cash; a Russian-language report gives 49 addresses, matching the on-chain count).",
+    "sources": [
+     {
+      "url": "https://revoke.cash/exploits/rubic",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "compensated them for their losses."
+     }
+    ]
+   },
+   "release_path": [],
+   "open_questions": "(1) When USDC was added to the router whitelist (not checked). (2) Rubic's 2022-12-26 explanation thread was not read beyond its first post. (3) Compensation amounts and dates not found."
+  },
+  {
+   "event_id": "E21",
+   "dl_name": "Poly Network",
+   "dl_date": "2023-07-02",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Forged cross-chain messages, signed with relay-chain consensus keys obtained by the initiating party, released assets from Poly's LockProxy contracts on 11 chains: real ERC-20s and ETH from the Ethereum escrow, and very large unbacked or pre-allocated token supplies elsewhere (for example 99,999,184 BNB and 9,999,963,057 BUSD on Metis). The event began on 2023-07-01 at 18:47 UTC; DefiLlama dates it 07-02. Not a duplicate of the 2021-08-10 Poly Network record.",
+    "sources": [
+     {
+      "url": "https://polynetwork.medium.com/the-poly-network-exploit-analysis-b0a77aff6078",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The target chain contract verified the relay chain signature, leading to the release of the corresponding modified asset amount to the attackers’ wallet addresses."
+     },
+     {
+      "url": "https://x.com/PolyNetwork2/status/1675592129727418370",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "As a result of the attack, 57 assets have been affected on 10 blockchains."
+     },
+     {
+      "url": "https://www.fxstreet.com/amp/cryptocurrencies/news/defi-platform-poly-network-hacked-hackers-issue-millions-of-tokens-on-metis-polygon-and-bsc-202307020655",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "hackers minted 99,999,184 Binance Coin (BNB), 10 billion Binance USD (BUSD) on Metis"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2023-07-01",
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/17601076",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: first LockProxy unlock to the initiating party in block 17601076, timestamp 2023-07-01T18:47:47Z"
+     },
+     {
+      "url": "https://www.certik.com/resources/blog/poly-network-incident-analysis",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "At 06:47 PM UTC"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 10100000,
+    "range": "Realized: 4.4M (SoK) - 5M (DefiLlama; PeckShield early 'more than $5M') - 10.1M (Beosin: 5,196 ETH swapped on Ethereum; CertiK at least 10M held on Ethereum). Ethereum escrow releases alone included 3,012,146 USDC, 2,651,957 USDT, 296,827 sUSD, 108,772 DAI and 1,592.52 ETH (about 3.05M), about 9.1M before other tokens (my sum). Nominal: over 34B (Beosin) to 42B (Arhat, CertiK), mostly unsellable tokens.",
+    "sources": [
+     {
+      "url": "https://x.com/BeosinAlert/status/1675773135755546625",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "exploiter has swapped a total of 5,196 $ETH (~$10.1M) on Ethereum."
+     },
+     {
+      "url": "https://www.certik.com/resources/blog/poly-network-incident-analysis",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "at least $10 million is being held in five wallets on the Ethereum network"
+     },
+     {
+      "url": "https://x.com/BeosinAlert/status/1675335846000578561",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The hacker minted over $34B worth of assets on multiple chains."
+     },
+     {
+      "url": "https://cryptoslate.com/poly-networks-services-remain-suspended-after-another-major-hack/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "held over $42 billion worth of tokens (on paper)"
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"technique\": \"Forged Proof\", \"amount\": 5000000"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "V",
+    "phrase": "Relay-chain consensus keys, taken through a trojan in the build environment, signed forged headers; target chains released modified amounts.",
+    "sources": [
+     {
+      "url": "https://polynetwork.medium.com/the-poly-network-exploit-analysis-b0a77aff6078",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The exploiters implanted a Trojan virus in the program compilation environment to acquire the consensus keys of the Poly Network’s Relay Chain."
+     },
+     {
+      "url": "https://polynetwork.medium.com/poly-network-exploit-damage-control-measures-0673721c63e4",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "confirming that the attackers had obtained the validator’s private keys."
+     },
+     {
+      "url": "https://x.com/dedaub/status/1675516729349292032",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Poly network had a simple 3 of 4 multisig arrangement over 2 years!"
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "3 out of 4 keys were compromised for a 3 out of 4 multi-sig."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "both",
+    "share_note": "Escrow: 58 forged releases from the Ethereum LockProxy (real assets, almost all realized value). Unbacked or pre-allocated supplies: forged releases on BNB Chain (44), Polygon (11), Heco (10), OKT (4), Avalanche (3), Metis (2), and one each on Arbitrum, Optimism, Fantom and Gnosis, including 99,999,184 BNB and 9,999,963,057 BUSD on Metis and 999.9T SHIB on Heco, mostly unsellable. One further Ethereum release of 93.66B SHIB at 21:19:11Z, relayed by Poly's regular relayer and absent from the operator's forged list, fits a redemption of Heco SHIB against the Ethereum escrow (Beosin: about 800k bridged to Ethereum). Origin-chain lock transactions were real but tiny; the amounts were changed on the forged relay-chain transactions.",
+    "chains": [
+     "Ethereum",
+     "BSC",
+     "Polygon",
+     "Heco",
+     "OKC",
+     "Avalanche",
+     "Metis",
+     "Arbitrum",
+     "Optimism",
+     "Fantom",
+     "Gnosis"
+    ],
+    "sources": [
+     {
+      "url": "https://docs.google.com/spreadsheets/d/1bvl1GfR5T8sFhBUetf1ezvWSf_SDkw-HnuSZf2swPhY/edit#gid=911359461",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "Operator's exploited-transaction sheet (CSV export): 136 rows; dstChain counts Ethereum 58, BNB Chain 44, Polygon 11, Heco 10, OKT Chain 4, Avalanche 3, Andromeda 2, Arbitrum 1, Optimism 1, FANTOM 1, Gnosis Chain 1"
+     },
+     {
+      "url": "https://polynetwork.medium.com/the-poly-network-exploit-analysis-b0a77aff6078",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The legitimate transaction on Poly Network’s Relay Chain amounted to 0.000000000000001ETH to Ethereum, while the exploiters’ relay chain transaction totaled 1592.51818168432ETH."
+     },
+     {
+      "url": "https://x.com/BeosinAlert/status/1675335846000578561",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Some of the stolen funds ($800k) are bridged to Ethereum address:"
+     },
+     {
+      "url": "https://www.fxstreet.com/amp/cryptocurrencies/news/defi-platform-poly-network-hacked-hackers-issue-millions-of-tokens-on-metis-polygon-and-bsc-202307020655",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "999.81 Trillion SHIB on Heco"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2023-07-01T18:47:47Z",
+    "last_release_utc": "2023-07-01T22:02:35Z",
+    "duration_min": 194.8,
+    "release_tx_count": 59,
+    "count_note": "Ethereum only: 58 forged LockProxy releases (all 58 hashes in the operator's sheet found on chain; 50 distinct submitting addresses) plus 1 relayed SHIB release (21:19:11Z) to the same recipient. First block 17,601,076 (18:47:47Z), last block 17,602,040 (22:02:35Z). Bulk at 18:47:47-18:58:59Z (17 releases) and 20:16:35-20:16:47Z (39 releases). BNB Chain releases began 12 s earlier, at 18:47:35Z (block 29,589,897); my BSC scan stopped at 41 releases (to 18:47:56Z) because of rate limits. All chains: 136 forged transactions (operator). SoK Table 5: 50-100 transactions. Ordinary relayed releases to unrelated users continued on Ethereum until at least 2023-07-02T01:07:35Z.",
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/17602040",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC eth_getLogs (LockProxy UnlockEvent, 2023-07-01 to 2023-07-03): 59 releases to the four recipient addresses, blocks 17601076-17602040"
+     },
+     {
+      "url": "https://bscscan.com/block/29589897",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "BSC RPC eth_getLogs (LockProxy UnlockEvent): first release to the same recipient in block 29589897, timestamp 2023-07-01T18:47:35Z"
+     },
+     {
+      "url": "https://polynetwork.medium.com/the-poly-network-exploit-analysis-b0a77aff6078",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "136 Exploited Transactions"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2023-07-02T06:03:35Z",
+    "channel": "X (@PolyNetwork2)",
+    "note": "Time from status ID 1675384703149568001, 11 h 16 min after the first release (SoK communication bucket 6-24 h). Follow-up thread at 19:44-19:52Z (57 assets on 10 chains).",
+    "sources": [
+     {
+      "url": "https://x.com/PolyNetwork2/status/1675384703149568001",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Poly Network is temporarily suspending its services due to a recent attack."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2023-07-02T02:49:26Z",
+    "channel": "X (@BeosinAlert)",
+    "by": "Beosin",
+    "note": "Time from status ID 1675335846000578561; earliest third-party post found (later: CZ 05:48:41Z, PeckShield 09:58:43Z, Dedaub 14:48:12Z). Search budget ran out before earlier alerts could be ruled out.",
+    "sources": [
+     {
+      "url": "https://x.com/BeosinAlert/status/1675335846000578561",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Poly Network was exploited again after 2021."
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2023-07-02T01:35:35Z",
+    "basis": "onchain",
+    "what": "Paused event on the Ethereum cross-chain manager proxy; Poly says it shut down the CrossChainManager contracts on each chain.",
+    "by": "Poly Network team",
+    "note": "6 h 48 min after the first Ethereum release (SoK discovery time 7 h; Dedaub: 7 hours to react). Pause times on other chains not read. Services later restored for unaffected projects after the relay-chain validators were replaced.",
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/17603095",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: Paused event from the cross-chain manager proxy in block 17603095, timestamp 2023-07-02T01:35:35Z"
+     },
+     {
+      "url": "https://polynetwork.medium.com/poly-network-exploit-damage-control-measures-0673721c63e4",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "We immediately shut down the CrossChainManager contracts for each chain on the mainnet so that the assets in the Lockproxy contracts will not be Unlocked anymore"
+     },
+     {
+      "url": "https://dedaub.com/blog/poly-network-hack/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "7 hours to react to today's attack"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "no",
+    "acted": "n.a.",
+    "how": "Verified Ethereum LockProxy unlock checks only the caller (manager contract), the source proxy and non-empty fields, then transfers; no cap or delay. Single releases of 3,012,146 USDC and 1,592.52 ETH passed.",
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "function unlock(bytes memory argsBs, bytes memory fromContractAddr, uint64 fromChainId) onlyManagerContract public returns (bool) {"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "none reported",
+    "date": null,
+    "frozen_usd": null,
+    "note": "No return found. Token teams pulled DEX liquidity; CertiK mentions token freezes without amounts. Poly replaced the relay-chain validators and later restored service for unaffected projects.",
+    "sources": [
+     {
+      "url": "https://polynetwork.medium.com/poly-network-exploit-damage-control-measures-0673721c63e4",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "We immediately contacted the old verifiers to change the relay chain validators, replacing them all with new ones."
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2023-07-01T18:47:35Z",
+     "chain": "BSC",
+     "side": "mint",
+     "amount_native": 16670938.18,
+     "asset": "8PAY",
+     "usd": null,
+     "basis": "onchain (block 29,589,897); first release on any chain found"
+    },
+    {
+     "utc": "2023-07-01T18:47:47Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 2651957.23,
+     "asset": "USDT",
+     "usd": 2651957.24,
+     "basis": "onchain (block 17,601,076); usd from operator's sheet"
+    },
+    {
+     "utc": "2023-07-01T18:47:47Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 296826.73,
+     "asset": "sUSD",
+     "usd": 296826.73,
+     "basis": "onchain (block 17,601,076); usd from operator's sheet"
+    },
+    {
+     "utc": "2023-07-01T18:47:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 3012146.2,
+     "asset": "USDC",
+     "usd": 3012146.2,
+     "basis": "onchain (block 17,601,077); usd from operator's sheet"
+    },
+    {
+     "utc": "2023-07-01T18:54:11Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 1592.52,
+     "asset": "ETH",
+     "usd": 3050000,
+     "basis": "onchain (block 17,601,108); usd from CertiK (about 3.05M)"
+    },
+    {
+     "utc": "2023-07-01T18:58:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 108772.47,
+     "asset": "DAI",
+     "usd": 108772.47,
+     "basis": "onchain (block 17,601,132); usd from operator's sheet"
+    },
+    {
+     "utc": "2023-07-01T21:19:11Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 93661924933.58,
+     "asset": "SHIB",
+     "usd": null,
+     "basis": "onchain (block 17,601,825); relayed release not in operator's forged list"
+    },
+    {
+     "utc": "2023-07-01T22:02:35Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 3502518.98,
+     "asset": "COW",
+     "usd": null,
+     "basis": "onchain (block 17,602,040); last forged Ethereum release"
+    }
+   ],
+   "open_questions": "(1) Release times on chains other than Ethereum and the start of BSC; Metis, Heco and Polygon not read. (2) Pause times on other chains. (3) SoK conflicts with itself: Table 5 lists PolyBridge #2 (July 2023, 4.4M, VL IM, EL TC) while the text says this event is not in Table 5, and Table 8 has no July 2023 row but a 'Poly Network July 2021 4.40' row. (4) The SHIB release at 21:19:11Z is read as a redemption of unbacked Heco SHIB; the Heco side was not checked. (5) Any frozen or returned amounts. (6) DefiLlama and SoK realized figures (4.4-5M) look like early estimates."
+  },
+  {
+   "event_id": "E26",
+   "dl_name": "Bungee",
+   "dl_date": "2024-01-16",
+   "scope": {
+    "value": "approval_outflow",
+    "note": "Funds left 231 user wallets through their approvals to SocketGateway (the contract behind Socket and its Bungee front end) via a route added three days earlier whose swap path allowed arbitrary calls. No bridge custody involved. DefiLlama names it Bungee, the SoK Socket.",
+    "sources": [
+     {
+      "url": "https://x.com/SOCKETProtocol/status/1747349422730813525",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Socket has experienced a security incident which affected wallets with infinite approvals to Socket contracts."
+     },
+     {
+      "url": "https://rekt.news/socket-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "neglects to validate the swapExtraData parameter"
+     },
+     {
+      "url": "https://www.dpss.inesc-id.pt/~mpc/pubs/augusto2024.pdf",
+      "type": "academic",
+      "how_read": "page read",
+      "quote": "Socket | January 2024 | 3.30"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2024-01-16",
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/19021454",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: first exploit transaction in block 19021454, timestamp 2024-01-16T19:11:23Z"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 3300000,
+    "range": "About 3.3M USD (PeckShield, Rekt, DefiLlama, SoK). On chain: 2,569,980.19 USDC, 347,005.65 USDT, 42.48 WETH, 2.89 WBTC, 13,821.01 DAI, 165,356.99 MATIC from 231 wallets.",
+    "sources": [
+     {
+      "url": "https://x.com/peckshield/status/1747353782004900274",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The bad route exploited in the hack was added 3 days ago and is now disabled."
+     },
+     {
+      "url": "https://etherscan.io/block/19021465",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC eth_getLogs: 232 token transfers to the initiating address in blocks 19021454 and 19021465 from 231 wallets"
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"technique\": \"Missing Input Validation\", \"amount\": 3300000"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "O",
+    "phrase": "Approval outflow: new swap route passed unvalidated call data, letting a zero-amount swap spend users' approvals to the gateway.",
+    "sources": [
+     {
+      "url": "https://x.com/BeosinAlert/status/1747450173675196674",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "It did not consider the case where the caller transfers in 0 WETH, allowing the caller to specify other functions"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "other",
+    "share_note": "User wallets with token approvals to SocketGateway; by value mostly USDC (about 78%).",
+    "chains": [
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/19021454",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: USDC 2,569,980.19 of the transfers to the initiating address"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2024-01-16T19:11:23Z",
+    "last_release_utc": "2024-01-16T19:13:35Z",
+    "duration_min": 2.2,
+    "release_tx_count": 2,
+    "count_note": "Counted: two contract-creation transactions by the initiating address (blocks 19,021,454 at 19:11:23Z and 19,021,465 at 19:13:35Z) whose constructors pulled 232 token transfers from 231 wallets. Route added 2024-01-13T06:23:47Z (block 18,996,162). Scan of six tokens' transfers to the initiating address, blocks 19,021,400-19,021,700.",
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/19021465",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: second exploit transaction in block 19021465, timestamp 2024-01-16T19:13:35Z"
+     },
+     {
+      "url": "https://etherscan.io/block/18996162",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: route-adding transaction in block 18996162, timestamp 2024-01-13T06:23:47Z"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2024-01-16T20:05:41Z",
+    "channel": "X (@SocketDotTech, now @SOCKETProtocol)",
+    "note": "Time from status ID 1747349422730813525, 54 min after the first pull; the post already said the affected contracts were paused.",
+    "sources": [
+     {
+      "url": "https://x.com/SOCKETProtocol/status/1747349422730813525",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "have paused the affected contracts."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2024-01-16T19:19:49Z",
+    "channel": "X (@spreekaway)",
+    "by": "spreekaway (independent analyst)",
+    "note": "Time from status ID 1747337879771033632, 6 min after the last pull and 6 min before the route was disabled.",
+    "sources": [
+     {
+      "url": "https://x.com/spreekaway/status/1747337879771033632",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Socket/Bungee approval being exploited rn. several million already gone. attack is ongoing"
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2024-01-16T19:25:47Z",
+    "basis": "onchain",
+    "what": "Exploited route disabled on SocketGateway",
+    "by": "Socket route admin",
+    "note": "14.4 min after the first pull, 12.2 min after the last; Rekt counts 14 minutes.",
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/19021526",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: route-disabling transaction in block 19021526, timestamp 2024-01-16T19:25:47Z"
+     },
+     {
+      "url": "https://x.com/peckshield/status/1747353782004900274",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The bad route exploited in the hack was added 3 days ago and is now disabled."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions an outflow limit; each pull was bounded by the wallet's allowance and balance (largest about 656k USDC).",
+    "sources": [
+     {
+      "url": "https://www.certik.com/resources/blog/socket-tech-incident-analysis",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "the stolen funds remain in the exploit wallet"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": 2300000,
+    "native": "1,032 ETH",
+    "date": "2024-01-23",
+    "frozen_usd": null,
+    "note": "Returned by the recipient: the initiating address sent 5 ETH (07:42:11Z), 495 ETH (08:26:23Z) and 532 ETH (09:18:11Z) on 2024-01-23 to a 1-of-2 Safe; Socket announced the recovery at 10:04:18Z (USD about 2.3M per press). On 2024-01-19 the initiating address had sent an on-chain message to Socket's route admin asking for email contact. The same address moved 106 ETH and its remaining tokens to another address on 2024-01-23. Socket reportedly added 1.1M USD to compensate users fully (operator reimbursement, kept separate).",
+    "sources": [
+     {
+      "url": "https://x.com/SOCKETProtocol/status/1749734794320363802",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We have successfully recovered 1032 ETH from the funds involved in the incident on 16th Jan."
+     },
+     {
+      "url": "https://cryptonews.com/news/socket-retrieves-2-3m-in-eth-following-bungee-bridge-exploit/",
+      "type": "press",
+      "how_read": "search snippet",
+      "quote": "Socket Retrieves $2.3M in ETH Following Bungee Bridge Exploit"
+     },
+     {
+      "url": "https://etherscan.io/block/19068425",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC trace_filter: value transfers of 5, 495 and 532 ETH from the initiating address to a Safe in blocks 19067957, 19068174 and 19068425"
+     },
+     {
+      "url": "https://www.techflowpost.com/en-US/newsletter/39303",
+      "type": "press",
+      "how_read": "search snippet",
+      "quote": "Socket will contribute an additional $1.1 million to fully compensate all affected users"
+     }
+    ]
+   },
+   "release_path": [],
+   "open_questions": "(1) The Safe owners are not identified as Socket; the match rests on the 1,032 ETH total and the announcement time. (2) Whether the 106 ETH and remaining tokens sent elsewhere were a negotiated bounty. (3) Distribution plan details not read."
+  },
+  {
+   "event_id": "E27",
+   "dl_name": "XBridge",
+   "dl_date": "2024-04-24",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Tokens left the custody contract of SaitaChain's XBridge on Ethereum, which holds both tokens locked by users bridging out and liquidity deposited by token listers. A listing function let the initiating party overwrite the registered lister of three tokens and then use the lister-only withdrawal. SlowMist and DefiLlama also name BNB Chain; no BNB Chain transactions were read.",
+    "sources": [
+     {
+      "url": "https://blog.verichains.io/p/when-the-bridge-is-the-risk",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "user funds that had been registered for bridging"
+     },
+     {
+      "url": "https://www.cryptotimes.io/2024/04/24/saitachains-xbridge-experienced-a-security-breach/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "our cross-chain platform- Xbridge has experienced a security breach."
+     },
+     {
+      "url": "https://hacked.slowmist.io/",
+      "type": "dataset",
+      "how_read": "search snippet",
+      "quote": "The cross-chain bridge project XBridge was exploited due to a smart contract vulnerability on the Ethereum Mainnet and the BNB chain, resulting in a loss of approximately $1.44 million."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2024-04-24",
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/19723706",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: first release in block 19723706, timestamp 2024-04-24T07:19:35Z"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 1440000,
+    "range": "1.44M (SlowMist, DefiLlama) to 1.6M (Verichains) USD for 482,589,886.90 STC, 1,372,522,850.79 SRLTY and 18,450,672.06 Mazi on Ethereum; per-token USD values not given.",
+    "sources": [
+     {
+      "url": "https://blog.verichains.io/p/when-the-bridge-is-the-risk",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "an estimated loss of $1.6 million in a combination of STC, SRLTY, and Mazi tokens"
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"technique\": \"Improper Access Control\", \"amount\": 1440000, \"chain\": [\"Ethereum\", \"BSC\"]"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "O",
+    "phrase": "Listing function let any caller overwrite a token's lister record; the new lister withdrew the custody balance.",
+    "sources": [
+     {
+      "url": "https://blog.verichains.io/p/when-the-bridge-is-the-risk",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "only checks if the pair is set up. It lacks a check to prevent someone else from re-registering the _baseToken with a different pair"
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "if(_baseToken.code.length > 0) _tokenOwner[_baseToken] = msg.sender;"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "Ethereum custody contract: STC, SRLTY and Mazi, one withdrawal each; the custody balance mixes users' locked tokens and lister-deposited liquidity. BNB Chain share unknown.",
+    "chains": [
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "https://blog.verichains.io/p/when-the-bridge-is-the-risk",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "withdraw all liquidity from the bridge contract"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2024-04-24T07:19:35Z",
+    "last_release_utc": "2024-04-24T08:03:59Z",
+    "duration_min": 44.4,
+    "release_tx_count": 3,
+    "count_note": "Counted: lister withdrawals from the Ethereum custody contract to the initiating address: blocks 19,723,706 (07:19:35Z, STC), 19,723,805 (07:39:35Z, SRLTY), 19,723,925 (08:03:59Z, Mazi). Preparatory re-listing at 07:18:35Z (block 19,723,701) with a 0.15 ETH listing fee, sent through a proxy contract created by the initiating address. All token transfers out of the custody contract 2024-04-23 to 2024-04-26 were scanned; the others were ordinary small releases on 04-23. BNB Chain not scanned (endpoints rate-limited).",
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/19723925",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC eth_getLogs (Transfer from the custody contract, any token): STC 07:19:35Z, SRLTY 07:39:35Z, Mazi 08:03:59Z to the initiating address"
+     },
+     {
+      "url": "https://etherscan.io/block/19723701",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: listing transaction in block 19723701 (2024-04-24T07:18:35Z), value 0.15 ETH"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2024-04-24T12:08:18Z",
+    "channel": "X (@SaitaChainCoin)",
+    "note": "Time from status ID 1783105687171834095 (linked by Crypto Times; the post text was not retrievable), 4 h 49 min after the first release.",
+    "sources": [
+     {
+      "url": "https://x.com/SaitaChainCoin/status/1783105687171834095",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Status ID 1783105687171834095 (linked from Crypto Times) decodes to 2024-04-24T12:08:18.980Z"
+     },
+     {
+      "url": "https://www.cryptotimes.io/2024/04/24/saitachains-xbridge-experienced-a-security-breach/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "There has been a hack on the Xbridge network."
+     }
+    ]
+   },
+   "first_alert": null,
+   "pause": {
+    "utc": "2024-04-24T10:58:35Z",
+    "basis": "onchain",
+    "what": "Ethereum custody proxy put into maintenance mode (only the proxy owner can call it afterwards)",
+    "by": "XBridge proxy owner",
+    "note": "2 h 55 min after the last release and 1 h 10 min before the operator's post. The vulnerable implementation is still the one in force. BNB Chain status unknown.",
+    "sources": [
+     {
+      "url": "https://etherscan.io/block/19724792",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC: maintenance storage slot of the custody proxy 0 at block 19724791, 1 at block 19724792 (2024-04-24T10:58:35Z); setMaintenance(true) sent by the proxy owner"
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "require(msg.sender == proxyOwner(), 'OwnedUpgradeabilityProxy: FORBIDDEN');"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "no",
+    "acted": "n.a.",
+    "how": "Verified XBridge code lets the registered lister withdraw up to the contract's token balance minus accrued tax; no cap or delay; the implementation has no pause. The proxy's maintenance switch is a halt, used after the event.",
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "require(user == _tokenOwner[token], \"ONLY_TOKEN_LISTER_CAN_WITHDRAW\");"
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/smart-contracts/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "require(amount <= (IERC20(token).balanceOf(address(this)) - tokenTax[token]), \"WITHDRAW_LESS\");"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "none reported",
+    "date": null,
+    "frozen_usd": null,
+    "note": "SaitaChain said it would work with exchanges to stop transfers from the recipient address; no return or freeze amount found.",
+    "sources": [
+     {
+      "url": "https://www.cryptotimes.io/2024/04/24/saitachains-xbridge-experienced-a-security-breach/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "our cross-chain platform- Xbridge has experienced a security breach."
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2024-04-24T07:19:35Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 482589886.9,
+     "asset": "STC",
+     "usd": null,
+     "basis": "onchain (block 19,723,706)"
+    },
+    {
+     "utc": "2024-04-24T07:39:35Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 1372522850.79,
+     "asset": "SRLTY",
+     "usd": null,
+     "basis": "onchain (block 19,723,805)"
+    },
+    {
+     "utc": "2024-04-24T08:03:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 18450672.06,
+     "asset": "Mazi",
+     "usd": null,
+     "basis": "onchain (block 19,723,925)"
+    }
+   ],
+   "open_questions": "(1) BNB Chain part (SlowMist, DefiLlama) not verified: no transactions read. (2) Scope alternative: bridge_liquidity_or_relayer, since releases came from lister-deposited liquidity pools. (3) Class alternative: D (release-side contract accepted an unauthorized withdrawal). (4) No third-party alert or operator post-mortem found. (5) USD per token."
+  },
+  {
+   "event_id": "E28",
+   "dl_name": "ALEX",
+   "dl_date": "2024-05-16",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "The 4.3M figure is value that left the BSC endpoint (custody) of XLink, the bridge ALEX Lab operated between Stacks and EVM chains, after the compromised deployer key upgraded the endpoint proxies on BSC and Ethereum. On Ethereum the operator changed ownership before any withdrawal (about 5M stayed locked). Separately, the same compromised deployer key moved assets out of an ALEX liquidity-pool vault on Stacks (13.77M STX and 92.57 aBTC) and minted 100 aBTC; that vault is not bridge custody. DefiLlama dates the record 05-16 and lists Stacks; the outflows began 2024-05-14. Not a duplicate of the 2025-06-06 ALEX record.",
+    "sources": [
+     {
+      "url": "https://x.com/Brotocol_xyz/status/1791034653236724043",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The exploiter took control of the XLink endpoints on BSC and Ethereum and upgraded them to a malicious implementation contract."
+     },
+     {
+      "url": "https://x.com/Brotocol_xyz/status/1791034653236724043",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Another $5 million worth of funds are locked on Ethereum, mainly LunarCrush tokens."
+     },
+     {
+      "url": "https://x.com/ALEXLabBTC/status/1790815791832498291",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "certain assets in certain ALEX liquidity pools are taken by the exploiter(s)"
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"classification\": \"Social Engineering\", \"technique\": \"Phishing\", \"amount\": 4300000, \"chain\": [\"Stacks\"]"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2024-05-14",
+    "sources": [
+     {
+      "url": "https://x.com/CertiKAlert/status/1790432967422083329",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Initial evidence points to a possible private key compromise."
+     },
+     {
+      "url": "https://explorer.hiro.so/txid/[redacted]?chain=mainnet",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Hiro API: vault transfer-ft of token-abtc by the deployer, block 150036, burn_block_time 2024-05-14T16:21:56Z"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 4300000,
+    "range": "4.3M USD left the BSC endpoint (CertiK, XLink, DefiLlama). CertiK totals 6.3M with about 2M on Stacks; Cointelegraph speaks of almost 10M including about 5M locked on Ethereum. The Stacks vault outflow (non-bridge) is about 13.7-13.8M STX (Rekt, Web3 Is Going Great) valued at about 2M by CertiK and Web3 Is Going Great.",
+    "sources": [
+     {
+      "url": "https://x.com/Brotocol_xyz/status/1791034653236724043",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "This resulted in a withdrawal of ~$4.3 million worth of funds on BSC."
+     },
+     {
+      "url": "https://www.certik.com/resources/blog/alex",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "received $4.3 million worth of assets"
+     },
+     {
+      "url": "https://www.web3isgoinggreat.com/single/alex-xlink-bridge-theft",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "$2 million stolen from ALEX's XLink bridge by bumbling exploiter"
+     },
+     {
+      "url": "https://rekt.news/alexlab-rekt",
+      "type": "third-party analysis",
+      "how_read": "search snippet",
+      "quote": "draining approximately 13.7 million STX from the compromised coffers"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "V",
+    "phrase": "Deployer key taken by phishing upgraded the bridge endpoint proxies to code that released the reserves.",
+    "sources": [
+     {
+      "url": "https://x.com/Brotocol_xyz/status/1791034653236724043",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Yesterday, we discovered an exploit involving compromised private keys obtained through a phishing attack."
+     },
+     {
+      "url": "https://www.certik.com/resources/blog/alex",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "didn't include access controls in their malicious implementation, meaning anyone could withdraw the funds"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "Bridge outflow: 100% from the BSC endpoint (about 4.3M USD), withdrawn by a third-party address that front-ran the initiating party's attempts and later returned the assets. Ethereum endpoint: about 5M locked, not withdrawn. Per-asset split differs across reports (BTC, USDC or stablecoins and SKO). The aBTC reserve held at a custodian was reported unaffected. Non-bridge: Stacks vault assets.",
+    "chains": [
+     "BSC"
+    ],
+    "sources": [
+     {
+      "url": "https://www.certik.com/resources/blog/alex",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "a 1.5 BNB transaction fee to ensure their transaction was ordered in front of the original attacker"
+     },
+     {
+      "url": "https://x.com/Brotocol_xyz/status/1791034653236724043",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "aBTC was largely unaffected by this exploit"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "BSC",
+    "first_release_utc": null,
+    "last_release_utc": null,
+    "duration_min": null,
+    "release_tx_count": null,
+    "count_note": "BSC transactions not read (BSC endpoints rate-limited on 2026-10-16). CertiK: the initiating party's first two withdrawal attempts failed and a third-party address paid a 1.5 BNB fee to place its withdrawal ahead of the third, at '16:44:03' (date 2024-05-14 implied, time zone not stated; consistent with UTC given CertiK's alert at 17:24:18Z). Rekt lists two BSC attack transactions; ForkLog cites another. Stacks (non-bridge vault), from the Hiro API: deployer-key transfers to the initiating party at 16:21:56Z (92.57 aBTC, 8 decimals assumed) and 16:45:32Z (13,771,000.21 STX), a peg-out request for the 92.57 aBTC at 16:45:32Z, vault ownership reassigned at 17:27:14Z, and 100 aBTC minted to the same address at 00:19:45Z on 05-15 followed by peg-out requests of 21 and 20 aBTC at 01:04:05Z.",
+    "sources": [
+     {
+      "url": "https://www.certik.com/resources/blog/alex",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "a 1.5 BNB transaction fee to ensure their transaction was ordered in front of the original attacker"
+     },
+     {
+      "url": "https://explorer.hiro.so/txid/[redacted]?chain=mainnet",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Hiro API: alex-vault-v1-1 transfer-ft token-wstx u1377100021228100 to the new owner, block 150040, 2024-05-14T16:45:32Z"
+     },
+     {
+      "url": "https://explorer.hiro.so/txid/[redacted]?chain=mainnet",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Hiro API: set-contract-owner on alex-vault-v1-1, block 150043, 2024-05-14T17:27:14Z"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2024-05-15T00:50:47Z",
+    "channel": "X (@XLinkbtc, now @Brotocol_xyz)",
+    "note": "Time from status ID 1790545326555770896, about 8 h after the BSC withdrawal. ALEX Lab posted at 05:15:12Z (status ID 1790611871986331855, later deleted by its author; linked by ForkLog) and at 18:45:31Z.",
+    "sources": [
+     {
+      "url": "https://x.com/Brotocol_xyz/status/1790545326555770896",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "XLink endpoints on Ethereum and BNB were compromised. Endpoints on other chains, including the Bitcoin multisig, are not affected."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2024-05-14T17:24:18Z",
+    "channel": "X (@CertiKAlert)",
+    "by": "CertiK",
+    "note": "Time from status ID 1790432967422083329.",
+    "sources": [
+     {
+      "url": "https://x.com/CertiKAlert/status/1790432967422083329",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Initial evidence points to a possible private key compromise."
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2024-05-15T00:50:47Z",
+    "basis": "announcement",
+    "what": "XLink bridge paused; on Ethereum the operator changed the endpoint's ownership before any withdrawal (time not given)",
+    "by": "XLink team",
+    "note": "Upper bound from the post announcing the pause. XLink prepared to reopen on 2024-05-17.",
+    "sources": [
+     {
+      "url": "https://x.com/Brotocol_xyz/status/1790545326555770896",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The bridge is currently paused while we conduct a thorough investigation with our security partners"
+     },
+     {
+      "url": "https://www.certik.com/resources/blog/alex",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "the team had managed to change ownership of the targeted contract and the funds were unaffected"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions one; the replacement implementation let anyone withdraw (CertiK).",
+    "sources": [
+     {
+      "url": "https://www.certik.com/resources/blog/alex",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "didn't include access controls in their malicious implementation, meaning anyone could withdraw the funds"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": 4300000,
+    "native": "BSC endpoint assets withdrawn by the third-party address (about 4.3M USD)",
+    "date": "2024-05-15 (announced 11:39:22Z)",
+    "frozen_usd": null,
+    "note": "Returned by the front-running recipient; Web3 Is Going Great says in exchange for a 10% bounty (terms not confirmed by XLink). Ethereum: about 5M locked, not withdrawn; most secured with LunarCrush, under 0.5M still locked. Stacks vault (non-bridge): many STX traced to exchanges were frozen, amounts not given.",
+    "sources": [
+     {
+      "url": "https://x.com/Brotocol_xyz/status/1790708547254165746",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "all the assets of Xlink users that were taken by the XLink exploiter from the impacted smart contract on BSC have been recovered."
+     },
+     {
+      "url": "https://x.com/ALEXLabBTC/status/1805422477310316582",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Many of those STX that we traced to CEXs are currently frozen with the relevant exchanges"
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": null,
+     "chain": "BSC",
+     "side": "escrow",
+     "amount_native": null,
+     "asset": "BTC, USDC/stablecoins, SKO",
+     "usd": 4300000,
+     "basis": "stated (CertiK: third-party withdrawal at 16:44:03, time zone not given)"
+    }
+   ],
+   "open_questions": "(1) BSC withdrawal time, transaction count and per-asset amounts not read on chain (endpoint rate limits); CertiK's 16:44:03 lacks a time zone. (2) Whether the BSC return was net of a 10% bounty. (3) Whether XLink's BTC custody paid any peg-out for the stolen or minted aBTC; the 92.57 aBTC destination received nothing, and the other destination's receipts do not match the 21 and 20 aBTC requests. (4) The Stacks vault outflow (13.77M STX) is valued at about 2M in reports, which looks low for that amount; not reconciled. (5) Scope alternative: if the record is meant to cover the Stacks vault, not_a_bridge_failure applies to that part."
+  }
+ ]
+}

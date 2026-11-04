@@ -1,0 +1,1614 @@
+{
+ "batch": "H",
+ "generated_utc": "2026-10-16T01:20:37Z",
+ "events": [
+  {
+   "event_id": "E13",
+   "dl_name": "Ronin Bridge",
+   "dl_date": "2022-03-23",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "ETH and USDC left the Ethereum-side escrow (Ronin bridge v1 gateway) through two withdrawals carrying five of nine validator signatures. Not a duplicate of the 2024-08-06 Ronin Bridge record (E30), a separate event on the later gateway.",
+    "sources": [
+     {
+      "url": "https://cointelegraph.com/news/axie-infinity-s-ronin-bridge-hacked-for-over-600m",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The attacker managed to gain control over five private keys, consisting of Sky Mavis’s four Ronin validators and a third-party validator run by Axie Decentralized Autonomous Organization"
+     },
+     {
+      "url": "https://x.com/Ronin_Network/status/1508828722085867521",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The Ronin bridge has been exploited for 173,600 Ethereum and 25.5M USDC."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2022-03-23",
+    "sources": [
+     {
+      "url": "data/incidents/onchain_summary.json",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "E13_eth: first_release_utc 2022-03-23T13:29:09Z, last_release_utc 2022-03-23T13:31:04Z, n_release_tx 2"
+     },
+     {
+      "url": "https://kaicho.substack.com/p/another-bridge-attack-axie-infinity",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "validator nodes and Axie DAO validator nodes were compromised on the 23rd of March 2022"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 540200000,
+    "range": "540M USD at prices of 2022-03-23 (our chain data; Kaicho 551.8M) to 612M-625M at prices of 2022-03-29 (press; DefiLlama 624M); 173,600 ETH and 25.5M USDC",
+    "sources": [
+     {
+      "url": "data/incidents/onchain_summary.json",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "E13_eth usd_total 540202807.59; ETH 173600.0 (514.67M USD), USDC 25500000.0 (25.53M USD)"
+     },
+     {
+      "url": "https://kaicho.substack.com/p/another-bridge-attack-axie-infinity",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Looking at market prices on said day placed the value of the attack to around $551.8 million"
+     },
+     {
+      "url": "https://cointelegraph.com/news/axie-infinity-s-ronin-bridge-hacked-for-over-600m",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "worth a combined $612 million at Tuesday’s prices"
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\": \"Ronin Bridge\", \"date\": \"2022-03-23\", \"amount\": 624000000"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "V",
+    "phrase": "Five of nine validator keys (four Sky Mavis, one Axie DAO) signed two withdrawals.",
+    "sources": [
+     {
+      "url": "https://fortune.com/2022/03/29/crypto-hack-record-heist-axie-infinity/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The attacker used “hacked private keys,” or passwords, “in order to forge fake withdrawals,” according to Ronin’s Substack post."
+     },
+     {
+      "url": "https://cointelegraph.com/news/axie-infinity-s-ronin-bridge-hacked-for-over-600m",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "of which at least five signatures are needed to recognize a deposit or withdrawal event"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "100% from the Ethereum-side escrow (v1 gateway): 173,600 ETH and 25.5M USDC in two transactions to one recipient address.",
+    "chains": [
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "data/incidents/onchain_summary.json",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "E13_eth by_symbol ETH 173600.0, USDC 25500000.0; selection recipients"
+     },
+     {
+      "url": "https://blocksec.com/blog/tracing-the-stolen-fund-of-the-ronin-bridge",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "withdrew 173,600 ETH and 25,500,000 USDC from the Ronin Bridge through two attack transactions"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2022-03-23T13:29:09Z",
+    "last_release_utc": "2022-03-23T13:31:04Z",
+    "duration_min": 1.92,
+    "release_tx_count": 2,
+    "count_note": "Counted: release transactions from the Ethereum v1 gateway to the recipient (blocks 14,442,835 and 14,442,840), both sent by the recipient address itself with validator signatures. Ordinary user withdrawals continued from the gateway until 2022-03-29T15:22:07Z (last withdrawal-type event before the pause, my log scan); the event was found when a 5,000 ETH user withdrawal could not be paid.",
+    "sources": [
+     {
+      "url": "data/incidents/onchain_summary.json",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "E13_eth first_release_utc 2022-03-23T13:29:09Z, last_release_utc 2022-03-23T13:31:04Z, duration_s 115"
+     },
+     {
+      "url": "https://forklog.com/en/ronin-the-ethereum-sidechain-hacked-attacker-siphons-625-million/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "«The Sky Mavis team discovered a breach in the security system on March 29 after reports that a user could not withdraw 5,000 ETH from the bridge,» the developers wrote."
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getLogs on the v1 gateway, 2022-03-23T13:00Z to 2022-03-30T12:00Z: two event types (2,138 and 1,688 logs), last at 2022-03-29T15:22:07Z and 15:22:33Z, then one Paused() at 15:24:40Z"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2022-03-29T15:29:34Z",
+    "channel": "X (@Ronin_Network); Substack community alert the same day",
+    "note": "Time from status ID 1508828719711879168 ('There has been a security breach on the Ronin Network.'); the thread's second post (1508828722085867521, 15:29:34.684Z) states the amounts and that the bridge and Katana were halted. About 6 days after the releases.",
+    "sources": [
+     {
+      "url": "https://x.com/Ronin_Network/status/1508828719711879168",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "There has been a security breach on the Ronin Network."
+     },
+     {
+      "url": "https://x.com/Ronin_Network/status/1508828722085867521",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The Ronin bridge and Katana Dex have been halted."
+     }
+    ]
+   },
+   "first_alert": null,
+   "pause": {
+    "utc": "2022-03-29T15:24:40Z",
+    "basis": "onchain",
+    "what": "Paused() on the Ethereum v1 gateway (bridge withdrawals and deposits stopped); Katana DEX also halted",
+    "by": "Ronin/Sky Mavis admin multisig on Ethereum (confirmTransaction executed the pause)",
+    "note": "Block 14,481,879, about 5 minutes before the first public post (15:29:34Z) and about 6 days 2 h after the last release. paused() read false at block 14,442,702 and true at block 14,487,439. The bridge reopened on 2022-06-28 with new limits.",
+    "sources": [
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getLogs: Paused() from the v1 gateway at block 14481879 (2022-03-29T15:24:40Z); tx sent to the admin multisig with selector 0xc01a8c84 (confirmTransaction)"
+     },
+     {
+      "url": "https://x.com/Ronin_Network/status/1508828722085867521",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The Ronin bridge and Katana Dex have been halted."
+     },
+     {
+      "url": "https://blog.roninchain.com/p/the-ronin-bridge-is-open-",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "after three audits, the Ronin Bridge is officially open and ready for use"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "no",
+    "acted": "n.a.",
+    "how": "No amount, rate or delay limit on v1 withdrawals; on 2022-04-05 the operator listed withdrawal limits as a feature to add. The relaunched bridge (2022-06-28) added value tiers (>=1M USD: 90% of signatures; >=10M USD: human review and a 7-day review) and a 50M USD daily withdrawal limit.",
+    "sources": [
+     {
+      "url": "https://blog.roninchain.com/p/securing-ronin",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "For example, we'd like to add the ability to assign withdrawal limits and enable more governance functions in the bridge."
+     },
+     {
+      "url": "https://blog.roninchain.com/p/the-ronin-bridge-is-open-",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "The initial daily withdrawal limit is set to $50M and the limit is reset every day at 00:00 utc."
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": 30000000,
+    "frozen_usd": 40000000,
+    "native": "mixed (law-enforcement seizures; 5.7M USD returned to Sky Mavis)",
+    "date": "2022-09-08 (seizure announced); 2024-06-07 (5.7M USD returned via Økokrim)",
+    "note": "Chainalysis announced on 2022-09-08 that law enforcement and industry partners had seized more than 30M USD (about 10% of the outflow). On 2024-06-07 Sky Mavis said Norway's Økokrim had returned 5.7M USD (probably part of the seized amount) and that law enforcement had frozen a further 40M USD. Binance reported recovering 5.8M USD on 2022-04-22 (overlap with the above unclear). Users were reimbursed by Sky Mavis (150M USD round led by Binance); 56,000 ETH of the Axie DAO treasury stayed unbacked (operator reimbursement, not recovery).",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/168663/chainalysis-and-us-law-enforcement-recover-30-million-from-north-korea-linked-ronin-exploit",
+      "type": "press",
+      "how_read": "search snippet",
+      "quote": "Chainalysis and U.S. law enforcement recover $30 million from North Korea-linked Ronin exploit"
+     },
+     {
+      "url": "https://cointelegraph.com/news/sky-mavis-recovers-5-7m-ronin-bridge-hack",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "law enforcement has frozen an additional $40 million in digital assets"
+     },
+     {
+      "url": "https://decrypt.co/98433/binance-recovers-5-8m-622m-axie-infinity-bridge-theft",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "$5.8M has been recovered."
+     },
+     {
+      "url": "https://blog.roninchain.com/p/the-ronin-bridge-is-open-",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "The 56,000 of missing ETH from the Axie DAO treasury will remain undercollateralized"
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2022-03-23T13:29:09Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 173600.0,
+     "asset": "ETH",
+     "usd": 514673941.11,
+     "basis": "data/incidents/onchain_summary.json (E13_eth)"
+    },
+    {
+     "utc": "2022-03-23T13:31:04Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 25500000.0,
+     "asset": "USDC",
+     "usd": 25528866.47,
+     "basis": "data/incidents/onchain_summary.json (E13_eth)"
+    }
+   ],
+   "open_questions": "No third-party alert before the operator's post was found (SoK: nobody noticed for 6 days); the earliest third-party post found is @FrankResearcher at 2022-03-29T15:44:39Z (status 1508832517826174989), a reaction to Ronin's post, so first_alert is null. The original Substack 'Community Alert' post is no longer at its URL; its publication time was not read. How the 30M USD seizure, the 5.7M USD return, the 40M USD freeze and Binance's 5.8M USD overlap is not stated. Exact time the Ronin-side validators stopped signing not found."
+  },
+  {
+   "event_id": "E14",
+   "dl_name": "Harmony Bridge",
+   "dl_date": "2022-06-23",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Tokens left the Horizon bridge's Ethereum-side managers (ERC20, ETH and BUSD managers) and the BSC-side BUSD manager, all controlled by one 2-of-4 multisig address on each chain. Harmony's trustless BTC bridge was not affected.",
+    "sources": [
+     {
+      "url": "https://www.elliptic.co/blog/analysis/over-1-billion-stolen-from-bridges-so-far-in-2022-as-harmony-s-horizon-bridge-becomes-latest-victim-in-100-million-hack",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "This theft occurred over the course of 14 transactions across Ethereum and Binance Smart Chain"
+     },
+     {
+      "url": "https://x.com/harmonyprotocol/status/1540110929672581121",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "3/ Note this does not impact the trustless BTC bridge"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2022-06-23",
+    "sources": [
+     {
+      "url": "data/incidents/onchain_summary.json",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "E14_eth: first_release_utc 2022-06-23T11:06:46Z, last_release_utc 2022-06-23T11:26:07Z"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 99700000,
+    "range": "98M-100M USD: our Ethereum chain data 92.3M for 11 releases plus 5.53M BUSD from a third manager (my read) = 97.8M; BSC 640,000 BUSD found (BNB not measured); Elliptic 99.7M; Harmony and press about 100M",
+    "sources": [
+     {
+      "url": "https://www.elliptic.co/blog/analysis/over-1-billion-stolen-from-bridges-so-far-in-2022-as-harmony-s-horizon-bridge-becomes-latest-victim-in-100-million-hack",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "estimating the value of assets stolen at $99.7 million"
+     },
+     {
+      "url": "data/incidents/onchain_summary.json",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "E14_eth usd_total 92295276.16 (11 releases from the ERC20 and ETH managers)"
+     },
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Ethereum RPC receipt: BUSD Transfer 5,530,000 from the BUSD manager to the recipient, block 15012687 (2022-06-23T11:16:02Z)"
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\": \"Harmony Bridge\", \"date\": \"2022-06-23\", \"amount\": 100000000"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "V",
+    "phrase": "Two of four multisig owner keys (Harmony's operational signers) confirmed the unlock transactions.",
+    "sources": [
+     {
+      "url": "https://medium.com/harmony-one/harmonys-horizon-bridge-hack-1e8d283b6d66",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Our incident response team has discovered evidence that private keys were compromised, leading to the breach of the Horizon bridge."
+     },
+     {
+      "url": "https://x.com/Mudit__Gupta/status/1540225234153996288",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The bridge was essentially a 2 of 5 multisig. If any 2 addresses told it to transfer funds to someone, it did."
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Multisig 0x715C…6De6: required() = 2 with 4 owners at block 15012600; each unlock submitted by owner 0xf845…a915 and confirmed by owner 0x812d…8f25, the same two keys that confirm ordinary bridge unlocks"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "Ethereum about 97.8M USD (13,100 ETH from the ETH manager; USDC, WBTC, USDT, DAI, AAG, FXS, SUSHI, AAVE, WETH, FRAX from the ERC20 manager; 5.53M BUSD from the BUSD manager). BSC: 640,000 BUSD from the BSC BUSD manager at 13:16:01Z (found), BNB release(s) not measured; Elliptic says 1.79M USD was held on the BSC address.",
+    "chains": [
+     "Ethereum",
+     "BSC"
+    ],
+    "sources": [
+     {
+      "url": "data/incidents/onchain_summary.json",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "E14_eth by_symbol: USDC 41.2M, ETH 13,100, WBTC 592, USDT 9.981M, DAI 6.07M, FRAX 5.62M, AAG 84.62M, FXS 110,000, SUSHI 415,000, AAVE 990, WETH 43"
+     },
+     {
+      "url": "https://bscscan.com/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "BSC RPC receipt: BUSD Transfer 640,000 from 0xfd53…c628 to the recipient, block 18940334 (2022-06-23T13:16:01Z), executed through multisig 0x715C…6De6"
+     },
+     {
+      "url": "https://www.elliptic.co/blog/analysis/over-1-billion-stolen-from-bridges-so-far-in-2022-as-harmony-s-horizon-bridge-becomes-latest-victim-in-100-million-hack",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "while $1.79 million of assets are held within the hacker’s Binance Smart Chain address"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2022-06-23T11:06:46Z",
+    "last_release_utc": "2022-06-23T11:26:07Z",
+    "duration_min": 19.35,
+    "release_tx_count": 12,
+    "count_note": "Counted: executed multisig unlocks on Ethereum to the recipient (multisig transaction IDs 0x5272-0x527e except 0x5278). Our chain data has 11 (ERC20 and ETH managers); I add a 12th, 5,530,000 BUSD from the separate BUSD manager at 11:16:02Z (block 15,012,687). One further unlock (0x5278, 5.62M of the FXS token) failed at 11:16:50Z. The attacker's first submissions (13,100 ETH) were at 10:55:00Z, 10:58:10Z and 11:01:16Z; only the fourth (11:05:24Z) was confirmed. BSC: one BUSD release found at 13:16:01Z; Elliptic's 14 transactions suggest a further BSC release (likely BNB), not located. Harmony's post-mortem says 11 transactions at '5:30 AM PST', which does not match the block times (04:06-04:26 PDT).",
+    "sources": [
+     {
+      "url": "data/incidents/onchain_summary.json",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "E14_eth n_release_tx 11, duration_s 1161"
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getLogs on multisig 0x715C…6De6: Submission 0x526f at 2022-06-23T10:55:00Z; Execution 0x5272 at 11:06:46Z; Execution 0x5277 at 11:16:02Z; ExecutionFailure 0x5278 at 11:16:50Z; Execution 0x527e at 11:26:07Z"
+     },
+     {
+      "url": "https://medium.com/harmony-one/harmonys-horizon-bridge-hack-1e8d283b6d66",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "At 5:30 AM PST, multiple transactions occurred that compromised the bridge with 11 transactions that extracted tokens stored in the bridge."
+     },
+     {
+      "url": "https://www.elliptic.co/blog/analysis/over-1-billion-stolen-from-bridges-so-far-in-2022-as-harmony-s-horizon-bridge-becomes-latest-victim-in-100-million-hack",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "This theft occurred over the course of 14 transactions across Ethereum and Binance Smart Chain"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2022-06-23T23:13:52Z",
+    "channel": "X (@harmonyprotocol)",
+    "note": "Time from status ID 1540110924400324608, first post of a 4-post thread; post 4 (status 1540110932000395265, 23:13:54Z) says the bridge was stopped. About 11 h 48 min after the first release. Harmony says it notified partners and the FBI before announcing.",
+    "sources": [
+     {
+      "url": "https://x.com/harmonyprotocol/status/1540110924400324608",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "1/ The Harmony team has identified a theft occurring this morning on the Horizon bridge amounting to approx. $100MM."
+     }
+    ]
+   },
+   "first_alert": null,
+   "pause": {
+    "utc": "2022-06-23T19:53:38Z",
+    "basis": "onchain",
+    "what": "Ethereum-side multisig threshold raised from 2 to 4 of 4 owners (changeRequirement), so the two exposed keys alone could no longer release; a fifth owner was added at 23:26:03Z (4 of 5)",
+    "by": "Harmony, executed with the two operational keys",
+    "note": "8 h 27 min after the last release. Between 15:28Z and 18:00Z the same two keys still executed ordinary user unlocks (0.019 ETH, 0.116 ETH, 1,450 USDC); a 0.4989 WBTC user unlock failed at 15:32:26Z because the WBTC had been released. Harmony announced 'stopped the Horizon bridge' at 23:13:54Z. BSC-side stop time not read.",
+    "sources": [
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getLogs on multisig 0x715C…6De6: RequirementChange(4) at block 15014576 (2022-06-23T19:53:38Z); OwnerAddition at block 15015390 (23:26:03Z); required() = 4 with 5 owners at block 15143929"
+     },
+     {
+      "url": "https://x.com/harmonyprotocol/status/1540110932000395265",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "4/ We have also notified exchanges and stopped the Horizon bridge to prevent further transactions."
+     },
+     {
+      "url": "https://medium.com/harmony-one/harmonys-horizon-bridge-hack-1e8d283b6d66",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "the team has mitigated the Ethereum side of the Horizon bridge to a 4-of-5 multisig since the incident"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions an amount, rate or delay limit; single unlocks of 13,100 ETH and 41.2M USDC executed within seconds of confirmation by two keys.",
+    "sources": [
+     {
+      "url": "data/incidents/onchain_summary.json",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "E14_eth path: 13,100 ETH at t=0 s, 41.2M USDC at t=75 s"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": null,
+    "native": "none reported",
+    "date": null,
+    "note": "Harmony offered 1M USD (25 June) and then a 10M USD retention offer (29 June, deadline 4 July); no return reported in the post-mortem updates read. Funds were swapped to ETH and moved through Tornado Cash from 27 June. Later freezes by exchanges were not checked.",
+    "sources": [
+     {
+      "url": "https://medium.com/harmony-one/harmonys-horizon-bridge-hack-1e8d283b6d66",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The final term is they retain $10 million and return the remaining amount"
+     },
+     {
+      "url": "https://medium.com/harmony-one/harmonys-horizon-bridge-hack-1e8d283b6d66",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The team anounced that they were aware the hacker has begun moving funds through Tornado Cash."
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2022-06-23T11:06:46Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 13100.0,
+     "asset": "ETH",
+     "usd": 14528797.42,
+     "basis": "data/incidents/onchain_summary.json (E14_eth)"
+    },
+    {
+     "utc": "2022-06-23T11:08:01Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 41200000.0,
+     "asset": "USDC",
+     "usd": 41231464.33,
+     "basis": "data/incidents/onchain_summary.json (E14_eth)"
+    },
+    {
+     "utc": "2022-06-23T11:09:16Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 592.0,
+     "asset": "WBTC",
+     "usd": 12241105.48,
+     "basis": "data/incidents/onchain_summary.json (E14_eth)"
+    },
+    {
+     "utc": "2022-06-23T11:13:41Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 9981000.0,
+     "asset": "USDT",
+     "usd": 9975283.24,
+     "basis": "data/incidents/onchain_summary.json (E14_eth)"
+    },
+    {
+     "utc": "2022-06-23T11:14:35Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 6070000.0,
+     "asset": "DAI",
+     "usd": 6071589.89,
+     "basis": "data/incidents/onchain_summary.json (E14_eth)"
+    },
+    {
+     "utc": "2022-06-23T11:16:02Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 5530000.0,
+     "asset": "BUSD",
+     "usd": null,
+     "basis": "Ethereum RPC receipt read by me (BUSD manager; not in our chain data)"
+    },
+    {
+     "utc": "2022-06-23T11:17:38Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 84620000.0,
+     "asset": "AAG",
+     "usd": 1418422.33,
+     "basis": "data/incidents/onchain_summary.json (E14_eth)"
+    },
+    {
+     "utc": "2022-06-23T11:18:54Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 110000.0,
+     "asset": "FXS",
+     "usd": 565844.21,
+     "basis": "data/incidents/onchain_summary.json (E14_eth)"
+    },
+    {
+     "utc": "2022-06-23T11:19:13Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 415000.0,
+     "asset": "SUSHI",
+     "usd": 530578.71,
+     "basis": "data/incidents/onchain_summary.json (E14_eth)"
+    },
+    {
+     "utc": "2022-06-23T11:20:14Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 990.0,
+     "asset": "AAVE",
+     "usd": 67711.22,
+     "basis": "data/incidents/onchain_summary.json (E14_eth)"
+    },
+    {
+     "utc": "2022-06-23T11:20:52Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 43.0,
+     "asset": "WETH",
+     "usd": 47692.3,
+     "basis": "data/incidents/onchain_summary.json (E14_eth)"
+    },
+    {
+     "utc": "2022-06-23T11:26:07Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 5620000.0,
+     "asset": "FRAX",
+     "usd": 5616787.04,
+     "basis": "data/incidents/onchain_summary.json (E14_eth)"
+    },
+    {
+     "utc": "2022-06-23T13:16:01Z",
+     "chain": "BSC",
+     "side": "escrow",
+     "amount_native": 640000.0,
+     "asset": "BUSD",
+     "usd": null,
+     "basis": "BSC RPC receipt read by me"
+    }
+   ],
+   "open_questions": "BSC leg incomplete: BNB release(s) and any further BSC releases not located (Elliptic: 14 transactions in total, 1.79M USD on the BSC address); the BSC-side stop time not read. No independent third-party alert before Harmony's thread was found; the earliest third-party post found is MistTrack at 2022-06-24T00:17:30Z (status 1540126935350554624), after the ack, so first_alert is null. Harmony's post-mortem time ('5:30 AM PST') conflicts with block times. Whether 0x5278 (failed 5.62M FXS unlock) was a mistyped FRAX request. Later exchange freezes of these funds were not checked. Full hash of the changeRequirement transaction not copied (block 15,014,576).",
+   "onchain_refs": [
+    {
+     "chain": "Ethereum/BSC",
+     "role": "bridge multisig (MultiSigWallet, same address on both chains; 2 of 4 before the event)",
+     "value": "0x715CdDa5e9Ad30A0cEd14940F9997EE611496De6"
+    },
+    {
+     "chain": "Ethereum/BSC",
+     "role": "BUSD manager (escrow; same address on both chains), not in our chain-data targets",
+     "value": "0xfd53b1b4af84d59b20bf2c20ca89a6beeaa2c628"
+    }
+   ]
+  },
+  {
+   "event_id": "E15",
+   "dl_name": "Nomad",
+   "dl_date": "2022-08-01",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Tokens left the Ethereum BridgeRouter escrow through Replica contracts that accepted unproven messages. Nomad states Ethereum was the only chain affected; Moonbeam, Evmos and Milkomeda were hit only through unbacked madAssets.",
+    "sources": [
+     {
+      "url": "https://medium.com/nomad-xyz-blog/nomad-bridge-relaunch-guide-3a4ef6624f90",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "The only chain impacted by the hack was Ethereum."
+     },
+     {
+      "url": "https://medium.com/nomad-xyz-blog/nomad-bridge-hack-root-cause-analysis-875ad2e5aacd",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "This authentication failure resulted in fraudulent messages being passed to the Nomad BridgeRouter contract."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2022-08-01",
+    "sources": [
+     {
+      "url": "data/incidents/onchain_summary.json",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "E15_eth first_release_utc 2022-08-01T21:32:31Z, last_release_utc 2022-08-02T00:05:49Z"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 186800000,
+    "range": "186M-190.7M USD: Nomad 'more than $186M'; Coinbase 'over $186M'; our chain data 138.8M plus 48.0M I reclassified (186.8M, 52 rows unpriced); press about 190M; PeckShield 190.7M",
+    "sources": [
+     {
+      "url": "https://medium.com/nomad-xyz-blog/the-road-to-recovery-6abe5eec8ff1",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "On August 1st, the Nomad token bridge was hacked for more than $186M."
+     },
+     {
+      "url": "https://www.coinbase.com/blog/nomad-bridge-incident-analysis",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Over $186M in ERC-20 tokens were stolen from the Nomad Bridge between August 1, 2022 at 21:32 UTC and August 2, 2022 at 05:49 UTC."
+     },
+     {
+      "url": "data/incidents/onchain_summary.json",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "E15_eth usd_total 138849298.04, usd_missing_rows 52, n_release_tx 923"
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\": \"Nomad\", \"date\": \"2022-08-01\", \"amount\": 190000000"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "Replica treated unproven messages as proven (zero root pre-confirmed at initialization).",
+    "sources": [
+     {
+      "url": "https://medium.com/nomad-xyz-blog/nomad-bridge-hack-root-cause-analysis-875ad2e5aacd",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "As a result, acceptableRoot(bytes32(0)); always returns true for these Replica contracts."
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_call confirmAt(0x0) = 1 at block 15259000 on both Ethereum Replicas used (remote domains 'avax' and 'beam')"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "100% from the Ethereum BridgeRouter escrow (USDC 41.9M, WETH 22,868, WBTC 1,028, CQT and others in our data). No release on other chains (Nomad).",
+    "chains": [
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "data/incidents/onchain_summary.json",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "E15_eth by_symbol: USDC 41900310.65, WETH 22868.1, WBTC 1028.29, CQT 113253851.49, USDT 8626248.97, FRAX 6683353.73"
+     },
+     {
+      "url": "https://medium.com/nomad-xyz-blog/nomad-bridge-relaunch-guide-3a4ef6624f90",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "The only chain impacted by the hack was Ethereum."
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2022-08-01T21:32:31Z",
+    "last_release_utc": "2022-08-02T00:05:49Z",
+    "duration_min": 153.3,
+    "release_tx_count": 962,
+    "count_note": "Counted: transactions that released BridgeRouter tokens after process() without proof. Our chain data classified 923 (process() on Replica 0x5D94…AEBA, remote domain 'avax') and left 283 rows in 68 transactions 'unknown'. Tracing those 68, I found 39 more unauthorized (31 via the Moonbeam-domain Replica 0x049b…20ef, 8 via the Evmos-domain Replica 0x5bae…033a; messages[hash] was zero before the block), 47.99M USD, 22:54:08Z-23:53:57Z, and 29 authorized proveAndProcess calls (0.93M USD). Total 962 transactions, consistent with ImmuneBytes' 960. Releases stopped because the Replicas were unenrolled at 00:06:55Z (block 15,259,777); 90 later calls to the Replicas up to 06:20Z all reverted. Coinbase's '05:49 UTC' end matches the last release at 00:05:49Z read as hh:mm (my inference); no release from the escrow occurred after 00:05:49Z through 2022-08-03T00:00Z. Over 300 addresses took part (Nomad).",
+    "sources": [
+     {
+      "url": "data/incidents/onchain_summary.json",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "E15_eth n_release_tx 923, n_candidate_rows 1206 (283 rows class unknown), last_release_utc 2022-08-02T00:05:49Z"
+     },
+     {
+      "url": "https://eth.drpc.org",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "trace_transaction on the 68 unknown transactions: 39 call process(bytes) on Replicas 0x049b…20ef or 0x5bae…033a with messages(hash) = 0 at the prior block; 29 call proveAndProcess"
+     },
+     {
+      "url": "https://eth.drpc.org",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "trace_filter toAddress Replicas, blocks 15259700-15261500: last successful process() in block 15259772 (2022-08-02T00:05:49Z); 90 calls after block 15259777, all reverted"
+     },
+     {
+      "url": "https://medium.com/nomad-xyz-blog/the-road-to-recovery-6abe5eec8ff1",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "over 300 unique addresses participated in the exploit"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2022-08-01T23:25:01Z",
+    "channel": "X (@nomadxyz_)",
+    "note": "Time from status ID 1554246853348036608, 1 h 53 min after the first release (Rekt says about three hours). Moonbeam announced maintenance mode at 23:18:03Z (status 1554245102071123968).",
+    "sources": [
+     {
+      "url": "https://x.com/nomadxyz_/status/1554246853348036608",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We are aware of the incident involving the Nomad token bridge. We are currently investigating and will provide updates when we have them."
+     },
+     {
+      "url": "https://rekt.news/nomad-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "the team’s official acknowledgement came three hours after the exploit began."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2022-08-01T21:37:23Z",
+    "channel": "X (@spreekaway)",
+    "by": "Spreek (independent analyst)",
+    "note": "Time from status ID 1554219768462426115, about 5 minutes after the first release; Rekt cites it as how the news spread. samczsun's thread followed at 23:45:33Z.",
+    "sources": [
+     {
+      "url": "https://x.com/spreekaway/status/1554219768462426115",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Nomad bridge getting rugged??? Looks very very sus"
+     },
+     {
+      "url": "https://rekt.news/nomad-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Once the fatal blow had been struck, the news spread"
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2022-08-02T00:06:55Z",
+    "basis": "onchain",
+    "what": "All five Replicas on Ethereum (remote domains avax, beam, evms, c1, xdai) unenrolled from the XAppConnectionManager, so the BridgeRouter rejected further messages",
+    "by": "Nomad watchers (five unenrollReplica transactions carrying watcher signatures, block 15,259,777)",
+    "note": "66 s after the last release and 2 h 34 min after the first. The escrow was already nearly empty (about 782 USD left near 00:00Z per press). Bridge relaunched for recovered-fund claims by 2022-12-20 (Nomad); XChainWatcher gives 2022-12-15.",
+    "sources": [
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getLogs on XAppConnectionManager 0xFe88…2B2F: five ReplicaUnenrolled events in block 15259777 (2022-08-02T00:06:55Z); isReplica() true at block 15259772, false at 15262000"
+     },
+     {
+      "url": "https://medium.com/nomad-xyz-blog/nomad-bridge-hack-root-cause-analysis-875ad2e5aacd",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Replicas have been unenrolled from the Nomad Bridge and Nomad Governance contracts. This prevents any message from being processed by the Bridge."
+     },
+     {
+      "url": "https://x.com/YannickCrypto/status/1554265378360000515",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "@nomadxyz_ was able to freeze the contract by just removing the Replica contract as owner."
+     },
+     {
+      "url": "https://medium.com/nomad-xyz-blog/nomad-bridge-relaunch-guide-3a4ef6624f90",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "[12/20/22 Update: The Nomad Token Bridge has been relaunched"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "yes",
+    "acted": "no",
+    "how": "30-minute optimistic window on each new message root (optimisticSeconds = 1800 on both Replicas); forged messages referenced the zero root, pre-confirmed with timestamp 1, so the window never applied. No amount or rate cap; circuit breakers were a 'TODO' page in Nomad's docs.",
+    "sources": [
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_call optimisticSeconds() = 0x708 (1800) on Replicas 0x5D94…AEBA and 0x049b…20ef at block 15259000"
+     },
+     {
+      "url": "https://docs.nomad.xyz/the-nomad-protocol/security/long-term-security/financial-controls",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "The absurdity of letting $100M exit in one transaction without any circuit breakers"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": 38800000,
+    "frozen_usd": null,
+    "native": "mixed tokens to Nomad's recovery wallet",
+    "date": "2022-08-17 (over 37M USD); 2022-11-11 (about 38.8M USD)",
+    "note": "Returned voluntarily by participants under a 10% bounty (announced 2022-08-05) to the recovery address published 2022-08-03T04:05:08Z; about 20% of the outflow. Distributed pro rata through the relaunched bridge from December 2022.",
+    "sources": [
+     {
+      "url": "https://medium.com/nomad-xyz-blog/the-road-to-recovery-6abe5eec8ff1",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "About 20% of funds (over $37M) has been recovered to-date"
+     },
+     {
+      "url": "https://medium.com/nomad-xyz-blog/recovery-wallet-operations-612d7f9644d3",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "the total pool of recovered funds was equivalent to ~$38.8M USD"
+     },
+     {
+      "url": "https://x.com/nomadxyz_/status/1554679735006859264",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Please send the funds to the following wallet address on Ethereum"
+     }
+    ]
+   },
+   "release_path": [],
+   "open_questions": "Our chain-data classifier should add the 'beam' and 'evms' Replicas (39 transactions, 47.99M USD; the per-transaction verdicts are not included). release_path left empty: 962 transactions; per-transaction times are in data/incidents/onchain/E15_eth.json. That Coinbase's '05:49' stands for 00:05:49 is my inference, not stated by Coinbase. Nomad does not say who held the watcher keys or what triggered the unenrollment at 00:06:55Z. Recoveries after 2022 not checked."
+  },
+  {
+   "event_id": "E16",
+   "dl_name": "Binance Bridge",
+   "dl_date": "2022-10-06",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "BSC Token Hub (bridge between Binance Beacon Chain and BSC) released 2M BNB from its pre-allocated BNB supply on forged deposit proofs.",
+    "sources": [
+     {
+      "url": "https://rekt.news/bnb-bridge-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "BSC Token Hub, the BNB bridge between the old Binance Beacon Chain and BSC, now BNB Chain… was exploited into minting two lots of 1M BNB directly to the hacker’s address."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2022-10-06",
+    "sources": [
+     {
+      "url": "https://rekt.news/bnb-bridge-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The transactions occurred at 18:26 UTC and 20:43 UTC."
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 570000000,
+    "range": "566M-586M USD nominal for 2M BNB (samczsun 566M; Rekt 586M at 293 USD); about 100M USD realized off BSC (CZ), with 147.5M USD borrowed on Venus against 900K BNB",
+    "sources": [
+     {
+      "url": "https://x.com/samczsun/status/1578167198203289600",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Five hours ago, an attacker stole 2 million BNB (~$566M USD) from the Binance Bridge."
+     },
+     {
+      "url": "https://rekt.news/bnb-bridge-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "With a BNB price of $293 at the time of the hack, the stolen 2M BNB amounts to $586M"
+     },
+     {
+      "url": "https://x.com/cz_binance/status/1578174707035013120",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The current impact estimate is around $100m USD equvilent"
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\": \"Binance Bridge\", \"date\": \"2022-10-06\", \"amount\": 570000000"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "Token Hub's IAVL proof verification accepted forged deposit proofs.",
+    "sources": [
+     {
+      "url": "https://rekt.news/bnb-bridge-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The bridge uses vulnerable IAVL verification which the attacker was able to forge, specifically for block 110217401, from August 2020."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "mint",
+    "share_note": "2M BNB released from the Token Hub's pre-allocated native supply on BSC in two 1M BNB transactions. About 900K BNB was posted on Venus (147.5M USD borrowed) and value moved to Ethereum, Fantom, Avalanche and Polygon; about 430M USD stayed on the BSC address when the chain halted (Rekt).",
+    "chains": [
+     "BSC"
+    ],
+    "sources": [
+     {
+      "url": "https://x.com/VenusProtocol/status/1578166457435033600",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "borrow app. $147.5M against 900K BNB Tokens deposited."
+     },
+     {
+      "url": "https://rekt.news/bnb-bridge-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "the hacker lost access to the ~$430M still on their BSC address."
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "BSC",
+    "first_release_utc": null,
+    "last_release_utc": null,
+    "duration_min": null,
+    "release_tx_count": 2,
+    "count_note": "Counted: two Token Hub releases of 1M BNB each. Rekt gives 18:26 and 20:43 UTC; an earlier compilation gives one at 18:58:14Z (block 21,958,422; I confirmed only that block's timestamp). Release times are being measured from BSC data by the coordinator, so they are left null here.",
+    "sources": [
+     {
+      "url": "https://rekt.news/bnb-bridge-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The transactions occurred at 18:26 UTC and 20:43 UTC."
+     },
+     {
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getBlockByNumber 21958422 timestamp 2022-10-06T18:58:14Z"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2022-10-06T22:19:57Z",
+    "channel": "X (@BNBCHAIN)",
+    "note": "Time from status ID 1578148078636650496 ('temporarily pausing BSC'), after block production had already stopped at 22:13:14Z. CZ posted at 20:40:43Z (status 1578123105649786887, now deleted; content unknown).",
+    "sources": [
+     {
+      "url": "https://x.com/BNBCHAIN/status/1578148078636650496",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Due to irregular activity we're temporarily pausing BSC."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2022-10-06T20:33:54Z",
+    "channel": "X (@jeffthedunker)",
+    "by": "independent analyst",
+    "note": "Time from status ID 1578121391223713792; it flagged the 900K BNB position on Venus as a whale's leverage play, not as an unauthorized release. The first posts calling it an exploit came after the halt (FrankResearcher 22:20:48Z; samczsun thread 23:35:55Z).",
+    "sources": [
+     {
+      "url": "https://x.com/jeffthedunker/status/1578121391223713792",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Some gigawhale (possibly Binance) is making a massive on-chain leverage play in real-time."
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2022-10-06T22:13:14Z",
+    "basis": "onchain",
+    "what": "BSC block production halted by validators (chain-level halt); last block 21,962,149, next block 21,962,150 at 2022-10-07T05:31:10Z",
+    "by": "BSC validators coordinated by BNB Chain",
+    "note": "About 90 min after the second release (Rekt); announced at 22:19:57Z. BNB Chain posted at 06:53:21Z on 10-07 that BSC had been running for 20+ minutes (block timestamps show production resumed at 05:31:10Z).",
+    "sources": [
+     {
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getBlockByNumber 21962149 timestamp 2022-10-06T22:13:14Z; 21962150 timestamp 2022-10-07T05:31:10Z"
+     },
+     {
+      "url": "https://rekt.news/bnb-bridge-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "When the BNB team halted the chain, approximately 90 mins after the second transaction"
+     },
+     {
+      "url": "https://x.com/BNBCHAIN/status/1578277281000136704",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "BNB Smart Chain (BSC) is running ok from 20+ mins ago."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "no",
+    "acted": "n.a.",
+    "how": "No large-transfer lock in Token Hub at the time; BEP-171 (created 2022-10-28) added a 12-hour lock on cross-chain transfers above 10K BNB.",
+    "sources": [
+     {
+      "url": "https://github.com/bnb-chain/BEPs/blob/master/BEPs/BEP171.md",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "The default threshold of BNB is 10K, and the default lock period is 12 hours"
+     },
+     {
+      "url": "https://github.com/bnb-chain/BEPs/blob/master/BEPs/BEP171.md",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "Apply timer lock to massive funds cross-chain transfer."
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": 6500000,
+    "native": "USDT frozen by the issuer (about 6.5M); about 430M USD of BNB immobilized on BSC",
+    "date": "2022-10-06/07",
+    "note": "Rekt cites SlowMist's table: frozen USDT about 6.5M (CZ's figure of about 7M frozen not read). The BNB left on the BSC address (about 430M USD) was immobilized by the chain halt; BNB Chain's update proposed governance votes on freezing or burning it. The mechanism and date of the lasting freeze were not read.",
+    "sources": [
+     {
+      "url": "https://rekt.news/bnb-bridge-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "including frozen USDT (totalling ~$6.5M)"
+     },
+     {
+      "url": "https://rekt.news/bnb-bridge-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "including governance votes to decide on whether to freeze or burn the stolen funds"
+     }
+    ]
+   },
+   "release_path": [],
+   "open_questions": "Release times (Rekt 18:26 and 20:43 UTC vs an earlier compilation's 18:58:14Z) and the recipient address and hashes were not read by me. Value moved off BSC: CZ about 100M USD; the 100M-137M range in our notes not re-checked. The lasting immobilization of the remaining BNB (blacklist via node upgrade or governance vote) and any later recoveries not read. BNB Chain's own post-mortem not read."
+  },
+  {
+   "event_id": "E25",
+   "dl_name": "Orbit Bridge",
+   "dl_date": "2023-12-31",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Five assets left Orbit Bridge's Ethereum vault (escrow backing oTokens on Orbit, Klaytn and other chains) through six withdrawals with valid validator signatures.",
+    "sources": [
+     {
+      "url": "https://medium.com/orbit-chain/%EC%98%A4%EB%A5%B4%EB%B9%97-%EB%B8%8C%EB%A6%BF%EC%A7%80-%EC%9D%B5%EC%8A%A4%ED%94%8C%EB%A1%9C%EC%9E%87%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9E%85%EC%9E%A5%EB%AC%B8-51ca11a41561",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "총 여섯 차례에 걸쳐 신원 불상의 공격자에 의해 오르빗 브릿지 이더리움 볼트 내 5개 자산(ETH, WBTC, USDT, USDC, DAI) 약 $81.5M 규모(*탈취 시점 기준)의 탈취가 발생했습니다."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2023-12-31",
+    "sources": [
+     {
+      "url": "https://x.com/Orbit_Chain/status/1741725778956730778",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "An unidentified access to Orbit Bridge, a decentralized Cross-chain protocol, was confirmed on Dec-31-2023 08:52:47 PM +UTC."
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 81580000,
+    "range": "81.5M-81.7M USD (Ozys and PeckShield 81.5M; Arkham 81.68M; DefiLlama 81.7M; our chain data 81.51M for five releases plus 0.069M for the 30.095 ETH release I add)",
+    "sources": [
+     {
+      "url": "data/incidents/onchain_summary.json",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "E25_eth usd_total 81514336.27 (includes a 513.87 USD legitimate transfer)"
+     },
+     {
+      "url": "https://x.com/peckshield/status/1741613040335036513",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The initial loss of @Orbit_Chain is ~$81.5M"
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\": \"Orbit Bridge\", \"date\": \"2023-12-31\", \"amount\": 81700000"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "Validators signed six withdrawals that reused earlier small deposits' nonces at inflated amounts; Ozys denies key theft and contract flaw.",
+    "sources": [
+     {
+      "url": "https://medium.com/orbit-chain/%EC%98%A4%EB%A5%B4%EB%B9%97-%EB%B8%8C%EB%A6%BF%EC%A7%80-%EC%9D%B5%EC%8A%A4%ED%94%8C%EB%A1%9C%EC%9E%87%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9E%85%EC%9E%A5%EB%AC%B8-51ca11a41561",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "이번 익스플로잇은 오르빗 브릿지 스마트 컨트랙트의 취약점이나, 밸리데이터 키 탈취에 의해 발생한 것은 아니었습니다."
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Decoded withdraw() calls: each of the six releases repeats an earlier paid withdrawal's Orbit tx hash, nonce, token and recipient with a larger amount; ecrecover over sha256(hub, fromChain, 'ETH', fromAddr, toAddr, token, bytes32s, uints, data) yields 7 (last two: 10) distinct registered owners; required() = 7 of 10"
+     },
+     {
+      "url": "https://rekt.news/orbit-bridge-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "the hack is initially assumed to be due to compromised keys of signer-addresses on the Orbit’s ETH Vault multisig"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "100% from the Ethereum vault: 10M DAI, 230.879 WBTC, 9,530.095 ETH, 10M USDC, 30M USDT; swapped into ETH and DAI and split across 8 wallets.",
+    "chains": [
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "data/incidents/onchain_summary.json",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "E25_eth by_symbol: USDT 30000000.0, ETH 9500.0, USDC 10000000.0, DAI 10000000.0, WBTC 230.891088"
+     },
+     {
+      "url": "https://medium.com/orbit-chain/%EC%98%A4%EB%A5%B4%EB%B9%97-%EB%B8%8C%EB%A6%BF%EC%A7%80-%EC%9D%B5%EC%8A%A4%ED%94%8C%EB%A1%9C%EC%9E%87%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9E%85%EC%9E%A5%EB%AC%B8-51ca11a41561",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "탈취 자산은 ETH와 DAI로 교환(swap)된 후, 8개의 지갑으로 분산돼"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2023-12-31T20:52:47Z",
+    "last_release_utc": "2023-12-31T21:25:35Z",
+    "duration_min": 32.8,
+    "release_tx_count": 6,
+    "count_note": "Counted: withdraw() transactions sent by the initiating party's address 0x9263…6aff that reused a nonce of its own earlier small deposit. Correction to our chain data: the first unauthorized release is 30.095 ETH at 20:52:47Z (block 18,907,961, to 0x27e2…5710, a recipient our selection missed), matching Orbit's '08:52:47 PM UTC' and Ozys' 05:52 KST; the 0.0120879 WBTC transfer at 20:40:35Z was a legitimate small withdrawal (nonce 8735) relayed by Orbit's usual sender, later replayed at 230.879 WBTC. Between 18:30Z and 20:40Z the same party's small deposits from Orbit were withdrawn normally to the six recipients; the six releases (20:52:47 to 21:25:35) reused nonces 8727, 8733, 8735, 8728, 8731, 8729. The Block also counts six transactions.",
+    "sources": [
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getLogs Withdraw events on the vault, blocks 18906800-18909800, decoded: 20:52:47Z nonce 8727 30.095 ETH; 21:07:59Z 8733 10,000,000 DAI; 21:10:59Z 8735 230.879 WBTC; 21:16:59Z 8728 9,500 ETH; 21:25:11Z 8731 10,000,000 USDC; 21:25:35Z 8729 30,000,000 USDT"
+     },
+     {
+      "url": "https://medium.com/orbit-chain/%EC%98%A4%EB%A5%B4%EB%B9%97-%EB%B8%8C%EB%A6%BF%EC%A7%80-%EC%9D%B5%EC%8A%A4%ED%94%8C%EB%A1%9C%EC%9E%87%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9E%85%EC%9E%A5%EB%AC%B8-51ca11a41561",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "지난 1월 1일 오전 5시 52분부터 6시 25분까지 총 여섯 차례에 걸쳐"
+     },
+     {
+      "url": "https://www.theblock.co/post/274411/orbit-bridge-firewall-sabotage-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "in six transactions to eight fresh wallets"
+     },
+     {
+      "url": "data/incidents/onchain_summary.json",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "E25_eth first_release_utc 2023-12-31T20:40:35Z (path value 513.87 USD), last_release_utc 2023-12-31T21:25:35Z"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2024-01-01T04:21:16Z",
+    "channel": "X (@Orbit_Chain)",
+    "note": "Status ID 1741675933663457752, embedded by FXStreet (published 2024-01-01T06:00Z) with the 'unidentified access' text; the post is now deleted. The same text was reposted at 07:39:20Z (status 1741725778956730778), which Rekt cites. Ozys says its team first learned of the event at 07:05 KST (22:05Z) through the validator group channel.",
+    "sources": [
+     {
+      "url": "https://www.fxstreet.com/cryptocurrencies/news/orbit-chain-hackers-ring-in-new-year-with-814-million-exploit-202401010600",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Dear Orbit Bridge Users, An unidentified access to Orbit Bridge, a decentralized Cross-chain protocol, was confirmed on Dec-31-2023 08:52:47 PM +UTC."
+     },
+     {
+      "url": "https://x.com/Orbit_Chain/status/1741725778956730778",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Further information regarding the issue will be updated."
+     },
+     {
+      "url": "https://medium.com/orbit-chain/%EC%98%A4%EB%A5%B4%EB%B9%97-%EB%B8%8C%EB%A6%BF%EC%A7%80-%EC%9D%B5%EC%8A%A4%ED%94%8C%EB%A1%9C%EC%9E%87%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9E%85%EC%9E%A5%EB%AC%B8-51ca11a41561",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "당사 개발팀은 밸리데이터 그룹 채널을 통해 오전 7시 5분 처음 사건을 인지하고"
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2023-12-31T21:43:36Z",
+    "channel": "X (@KGJRTG)",
+    "by": "independent analyst",
+    "note": "Time from status ID 1741575860635783385; the post is deleted, Rekt calls it the alarm. Earliest readable alert: Officer CIA at 21:54:50Z (status 1741578684933259417). PeckShield 00:11:21Z and CertiK 00:24:19Z on 01-01.",
+    "sources": [
+     {
+      "url": "https://rekt.news/orbit-bridge-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The attack began just after 9PM UTC, and the alarm was raised just a few minutes later."
+     },
+     {
+      "url": "https://x.com/officer_secret/status/1741578684933259417",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Looks like the Orbit bridge is hacked."
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2023-12-31T22:21:35Z",
+    "basis": "onchain",
+    "what": "Ethereum vault deactivated (changeActivate(false); withdraw and deposit require isActivated)",
+    "by": "Orbit policy admin (Ozys)",
+    "note": "Block 18,908,403, 56 min after the last release and 89 min after the first; matches Ozys' stated 07:21 KST. A legitimate 99.9 USDT withdrawal was still paid at 22:18:47Z.",
+    "sources": [
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_call isActivated() = 1 at block 18908402 (22:21:23Z), 0 at 18908403 (22:21:35Z); tx in 18908403 calls changeActivate(false) (selector 0x35fbff3c)"
+     },
+     {
+      "url": "https://medium.com/orbit-chain/%EC%98%A4%EB%A5%B4%EB%B9%97-%EB%B8%8C%EB%A6%BF%EC%A7%80-%EC%9D%B5%EC%8A%A4%ED%94%8C%EB%A1%9C%EC%9E%87%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9E%85%EC%9E%A5%EB%AC%B8-51ca11a41561",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "7시 21분, 추가 피해 방지를 위해 이더리움 볼트 가동을 정지하고"
+     },
+     {
+      "url": "https://rekt.news/orbit-bridge-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The bridge was deactivated at 22:21 UTC."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "no",
+    "acted": "n.a.",
+    "how": "withdraw() checks only reuse of the exact withdrawal hash and a 7-of-10 signature count before transferring; no amount, rate or delay limit in the published vault code, whose hash formula matches the on-chain signatures.",
+    "sources": [
+     {
+      "url": "https://github.com/orbit-chain/bridge-contract/blob/HEAD/solidity/vault/EthVault.impl.sol",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "uint validatorCount = _validate(whash, v, r, s); require(validatorCount >= required);"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "frozen_usd": null,
+    "native": "none reported",
+    "date": null,
+    "note": "Orbit asked exchanges to freeze assets (2024-01-01) and offered a bounty; funds stayed unmoved until June 2024, when about 48M USD went through Tornado Cash (The Block). Ozys reported continued monitoring in May 2025; no recovery reported.",
+    "sources": [
+     {
+      "url": "https://x.com/Orbit_Chain/status/1741825433916825982",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The Orbit Chain team has requested major global cryptocurrency exchanges to freeze stolen assets."
+     },
+     {
+      "url": "https://www.theblock.co/post/299192/orbit-chain-exploiter-moves-48-million-through-tornado-cash-after-months-of-post-hack-dormancy",
+      "type": "press",
+      "how_read": "search snippet",
+      "quote": "Orbit Chain exploiter moves $48 million through Tornado Cash after months of post-hack dormancy"
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2023-12-31T20:52:47Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 30.095,
+     "asset": "ETH",
+     "usd": 68828.0,
+     "basis": "data/incidents/onchain/E25_eth.json row (not selected in the summary); unauthorized per my decoding"
+    },
+    {
+     "utc": "2023-12-31T21:07:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 10000000.0,
+     "asset": "DAI",
+     "usd": 9992290.0,
+     "basis": "data/incidents/onchain_summary.json (E25_eth)"
+    },
+    {
+     "utc": "2023-12-31T21:10:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 230.879,
+     "asset": "WBTC",
+     "usd": 9814897.17,
+     "basis": "data/incidents/onchain_summary.json (E25_eth)"
+    },
+    {
+     "utc": "2023-12-31T21:16:59Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 9500.0,
+     "asset": "ETH",
+     "usd": 21726870.93,
+     "basis": "data/incidents/onchain_summary.json (E25_eth)"
+    },
+    {
+     "utc": "2023-12-31T21:25:11Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 10000000.0,
+     "asset": "USDC",
+     "usd": 9993354.31,
+     "basis": "data/incidents/onchain_summary.json (E25_eth)"
+    },
+    {
+     "utc": "2023-12-31T21:25:35Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 30000000.0,
+     "asset": "USDT",
+     "usd": 29986410.0,
+     "basis": "data/incidents/onchain_summary.json (E25_eth)"
+    }
+   ],
+   "open_questions": "Class: D is chosen because Ozys denies validator key theft and a contract flaw, while on-chain the vault correctly verified signatures from registered validators over amounts that matched no deposit; a V reading (validator signing hosts under outside control, e.g. through the weakened internal firewall Ozys reported) is equally consistent with the chain data. No root-cause report has been published (police investigation). DefiLlama's 'Signature Verification Flaw' does not match the vault behaviour. Our chain-data summary should drop the 20:40:35Z WBTC row and add the 30.095 ETH release. Whether Orbit posted earlier on Telegram or Korean channels than 04:21:16Z not checked."
+  },
+  {
+   "event_id": "E30",
+   "dl_name": "Ronin Bridge",
+   "dl_date": "2024-08-06",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "ETH and USDC left Ronin's Ethereum gateway (escrow) after an upgrade left the required operator vote weight at zero. Not a duplicate of E13 (2022, v1 gateway).",
+    "sources": [
+     {
+      "url": "https://x.com/Ronin_Network/status/1820804772917588339",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Earlier today, we were notified by white-hats about a potential exploit on the Ronin bridge."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2024-08-06",
+    "sources": [
+     {
+      "url": "data/incidents/onchain_summary.json",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "E30_eth first_release_utc 2024-08-06T09:37:23Z, last_release_utc 2024-08-06T10:11:47Z"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 11820000,
+    "range": "11.8M-12M USD for 3,996.09 ETH and 1,998,046.88 USDC (our chain data 11.82M; The Block 11.8M; Ronin about 12M)",
+    "sources": [
+     {
+      "url": "data/incidents/onchain_summary.json",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "E30_eth usd_total 11815889.86; ETH 3996.09375, USDC 1998046.875"
+     },
+     {
+      "url": "https://x.com/Ronin_Network/status/1820804772917588339",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The actors withdrew ~4K ETH and 2M USDC, valued at ~$12M"
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\": \"Ronin Bridge\", \"date\": \"2024-08-06\", \"amount\": 12000000"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "Upgrade left the gateway's minimum operator vote weight at zero; withdrawals passed without operator signatures.",
+    "sources": [
+     {
+      "url": "https://www.coindesk.com/tech/2024/08/06/ronin-bridge-paused-after-9m-drained-in-apparent-whitehat-hack",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Today’s bridge upgrade, after being deployed through the governance process, introduced an issue leading the bridge to misinterpret the required bridge operators vote threshold to withdraw funds."
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_call minimumVoteWeight() on the gateway: 1540 at block 20468437 (08:48:35Z), 0 from block 20468438 (08:48:47Z, upgrade tx with Upgraded and Initialized(4) events)"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "100% from the Ethereum gateway; each release went to an MEV bot contract, which swapped part on-chain.",
+    "chains": [
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "data/incidents/onchain_summary.json",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "E30_eth by_symbol ETH 3996.09375 (9.82M USD), USDC 1998046.875 (2.00M USD)"
+     }
+    ]
+   },
+   "outflow": {
+    "main_chain": "Ethereum",
+    "first_release_utc": "2024-08-06T09:37:23Z",
+    "last_release_utc": "2024-08-06T10:11:47Z",
+    "duration_min": 34.4,
+    "release_tx_count": 2,
+    "count_note": "Counted: two gateway releases (blocks 20,468,679 and 20,468,848), each submitted through an MEV bot contract. The faulty upgrade took effect at 08:48:47Z (block 20,468,438), 48.6 min before the first release.",
+    "sources": [
+     {
+      "url": "data/incidents/onchain_summary.json",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "E30_eth n_release_tx 2, duration_s 2064"
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "upgrade transaction in block 20468438 (2024-08-06T08:48:47Z) emitting Upgraded(address) and Initialized(4) on the gateway"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2024-08-06T10:36:56Z",
+    "channel": "X (@Psycheout86, Aleksander Larsen, Sky Mavis co-founder)",
+    "note": "Time from status ID 1820771028420739140. First @Ronin_Network post at 12:51:01Z (status 1820804772917588339). Ronin says white-hats notified it privately before the pause.",
+    "sources": [
+     {
+      "url": "https://x.com/Psycheout86/status/1820771028420739140",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The @Ronin_Network bridge has been paused while we investigate a report from whitehats about a potential MEV exploit."
+     },
+     {
+      "url": "https://x.com/Ronin_Network/status/1820804772917588339",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "the bridge was paused approximately 40 minutes after the first on-chain action was spotted."
+     }
+    ]
+   },
+   "first_alert": {
+    "utc": "2024-08-06T10:25:02Z",
+    "channel": "X (@pcaversaccio)",
+    "by": "pcaversaccio (independent security researcher)",
+    "note": "Time from status ID 1820768033884770481, after the on-chain pause; PeckShield followed at 10:31:49Z (status 1820769744292872240) and 10:38:44Z for the USDC release.",
+    "sources": [
+     {
+      "url": "https://x.com/pcaversaccio/status/1820768033884770481",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "MEV bot whitehatted (hopefully) a Ronin Bridge issue for almost ~4k ETH. Bridge got paused already."
+     },
+     {
+      "url": "https://x.com/PeckShieldAlert/status/1820769744292872240",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "#PeckShieldAlert @Ronin_Network #whitehacked? or Hacked? (w/ ~ $9.33M)"
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2024-08-06T10:15:23Z",
+    "basis": "onchain",
+    "what": "Ethereum gateway paused (Paused event)",
+    "by": "Ronin, via triggerPause() on its PauseEnforcer contract",
+    "note": "Block 20,468,866, 38 min after the first release and 3.6 min after the second.",
+    "sources": [
+     {
+      "url": "data/incidents/onchain_summary.json",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "E30_eth pause_logs: Paused at 2024-08-06T10:15:23Z, lag_from_first_release_s 2280"
+     },
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "pause tx in block 20468866 calls triggerPause() (0x6833f60d) on the PauseEnforcer; gateway emits Paused(account = PauseEnforcer)"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "yes",
+    "acted": "yes",
+    "how": "Withdrawals at or above lockedThreshold (4,000 WETH; 2,000,000 USDC) are locked for manual unlock; daily limit 4,500 WETH and 2,500,000 USDC for unlocked withdrawals; high-tier threshold 1,000 WETH and 1,000,000 USDC (values read at the block before the first release). Each release was sized just below the lock threshold (3,996.09 ETH; 1,998,046.88 USDC), capping the outflow at about 12M USD of a bridge holding over 850M USD; daily usage after the ETH release was about 4,100 of 4,500 WETH.",
+    "sources": [
+     {
+      "url": "https://rpc.mevblocker.io",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_call at block 20468678: lockedThreshold(WETH) 4000e18, lockedThreshold(USDC) 2000000e6, dailyWithdrawalLimit(WETH) 4500e18, dailyWithdrawalLimit(USDC) 2500000e6, highTierThreshold(WETH) 1000e18, lastSyncedWithdrawal(WETH) 103.43e18"
+     },
+     {
+      "url": "https://www.theblock.co/post/309707/ronin-bridge-pauses",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the maximum amount of each asset that can be withdrawn from the bridge in a single transaction."
+     },
+     {
+      "url": "https://www.fxstreet.com/cryptocurrencies/news/ronin-network-recovers-funds-following-white-hat-hack-202408062102",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The bridge limit serves as a critical safeguard to increase the security of large fund withdrawals, and it effectively prevented further damage in this exploit"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": 11800000,
+    "frozen_usd": null,
+    "native": "about 4,000 ETH and 2,000,000 USDC",
+    "date": "2024-08-06 (ETH by 15:36:17Z; USDC by 17:38:12Z)",
+    "note": "Returned voluntarily by the white-hat MEV operators; Ronin's bug bounty program paid 500K USD (operator payment). Return transactions not located.",
+    "sources": [
+     {
+      "url": "https://x.com/Ronin_Network/status/1820846361945792751",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The ETH (~$10 M) has been returned and we expect that the USDC will be returned later today."
+     },
+     {
+      "url": "https://x.com/Ronin_Network/status/1820877044994973731",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "We are confirming successful receipt of the final 2 M in remaining funds."
+     }
+    ]
+   },
+   "release_path": [
+    {
+     "utc": "2024-08-06T09:37:23Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 3996.09375,
+     "asset": "ETH",
+     "usd": 9819371.66,
+     "basis": "data/incidents/onchain_summary.json (E30_eth)"
+    },
+    {
+     "utc": "2024-08-06T10:11:47Z",
+     "chain": "Ethereum",
+     "side": "escrow",
+     "amount_native": 1998046.875,
+     "asset": "USDC",
+     "usd": 1996518.2,
+     "basis": "data/incidents/onchain_summary.json (E30_eth)"
+    }
+   ],
+   "open_questions": "Return transaction hashes and exact returned amounts not located (Ronin's posts only). Ronin's full post-mortem not found. That the daily limit (4,500 WETH) left room for only about 400 more ETH that day is my reading of the contract state, not stated by Ronin."
+  }
+ ]
+}

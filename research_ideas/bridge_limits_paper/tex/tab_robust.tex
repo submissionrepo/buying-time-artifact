@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\centering
+\caption{Share of the value of the failures that each rule would have contained, under other readings of the response time and other weightings. Base: as in Section~\ref{sec:shape}. 90\% interval: 5th to 95th percentile of the base share over 2,000 resamples of the failures. $2D$, $D + 1$\,h, $D + 6$\,h: the first response doubled or delayed. Pauses: only the 18 failures whose first response was a pause. By event: each failure weighted equally. Without largest: the largest failure, 17\% of the value, left out; without 3 largest: the three largest, 47\%. Matched: one limit at the release point that delays no transfer of the combined traffic of Wormhole's nine chains over the last 12 or 24 months, applied to every failure; with review, transfers above the Governor's size threshold wait for a review and the limit is matched to the rest. All rules but the last sit at the release point.}
+\label{tab:robust}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}l r r r r r r r r r@{}}
+\toprule
+Rule & Base & 90\% interval & $2D$ & $D + 1$\,h & $D + 6$\,h & Pauses & By event & Without largest & Without 3 largest \\
+\midrule
+Bucket, \$1M per hour & 87.2\% & 78 to 93\% & 80.3\% & 86.5\% & 83.3\% & 89.7\% & 32.0\% & 85.0\% & 84.1\% \\
+Hold, 24 hours & 80.7\% & 57 to 99\% & 79.8\% & 80.7\% & 80.4\% & 76.2\% & 79.2\% & 76.9\% & 91.4\% \\
+Cumulative cap, \$10M & 90.1\% & 84 to 93\% & 90.1\% & 90.1\% & 90.1\% & 92.9\% & 27.4\% & 89.1\% & 83.8\% \\
+Matched, 12 months & 75.3\% & 63 to 81\% & 71.7\% & 75.0\% & 73.7\% & 80.8\% & 19.0\% & 73.4\% & 64.5\% \\
+Matched, 24 months & 32.1\% & 14 to 47\% & 30.3\% & 30.7\% & 29.5\% & 36.7\% & 6.0\% & 30.2\% & 23.6\% \\
+Matched with review, 12 months & 85.4\% & 76 to 90\% & 80.1\% & 84.7\% & 81.5\% & 89.0\% & 24.9\% & 83.5\% & 78.8\% \\
+Matched with review, 24 months & 58.6\% & 37 to 75\% & 50.2\% & 55.5\% & 41.2\% & 58.7\% & 14.9\% & 54.1\% & 57.7\% \\
+Bucket in the verifiers' software & 25.5\% & 7 to 49\% & 25.0\% & 25.3\% & 24.2\% & 36.7\% & 10.7\% & 30.6\% & 48.5\% \\
+\bottomrule
+\end{tabular}
+\end{table*}

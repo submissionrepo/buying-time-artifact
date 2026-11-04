@@ -1,0 +1,2 @@
+chain,addr,symbol,coingecko_id,decimals,evidence
+2,000000000000000000000000f6718b2701d4a6498ef77d7c152b2137ab28b8a3,stBTC,lorenzo-stbtc,18,"Not on the Governor list; DefiLlama has no price under its chain key. The API values 350.00005 tokens at 38.64M USD on 2025-09-04, equal to the amount times DefiLlama price of coingecko:lorenzo-stbtc (110440 USD) within 0.1 percent."

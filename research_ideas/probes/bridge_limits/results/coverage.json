@@ -1,0 +1,33 @@
+{
+ "lists": {
+  "wu": {
+   "entries": 49,
+   "in_our_failures": 21,
+   "in_left_out": 4,
+   "other": 24
+  },
+  "zhang": {
+   "entries": 35,
+   "in_our_failures": 18,
+   "in_left_out": 4,
+   "other": 13
+  },
+  "lee": {
+   "entries": 8,
+   "in_our_failures": 4,
+   "in_left_out": 1,
+   "other": 3
+  }
+ },
+ "matched_entries": 43,
+ "left_out_entries": 9,
+ "other_entries": 40,
+ "entries": 92,
+ "other_reasons": {
+  "below 1M": 32,
+  "not a bridge release": 7,
+  "unclear": 1
+ },
+ "our_failures_in_some_list": 22,
+ "our_failures_after_lists": 33
+}

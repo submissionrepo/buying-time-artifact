@@ -1,0 +1,46 @@
+{
+ "n_bridge_set": 57,
+ "n_timed": 48,
+ "response_basis": {
+  "acknowledgment": 30,
+  "pause": 17,
+  "pause report": 1
+ },
+ "n_pause_report_first": 1,
+ "n_pause_without_ack": 1,
+ "n_both_ack_and_pause": 18,
+ "n_pause_before_ack": 16,
+ "median_ack_after_pause_h": 2.165694444444444,
+ "pause_basis_counts": {
+  "stated": 6,
+  "onchain": 13
+ },
+ "weekend": {
+  "n": 16,
+  "median_h": 3.5083333333333333
+ },
+ "weekday": {
+  "n": 32,
+  "median_h": 3.712222222222222
+ },
+ "weekend_vs_weekday_mannwhitney_p": 0.7511514571545256,
+ "by_hour_block": {
+  "00-06 UTC": {
+   "n": 6,
+   "median_h": 3.4712500000000004
+  },
+  "06-12 UTC": {
+   "n": 9,
+   "median_h": 2.785277777777778
+  },
+  "12-18 UTC": {
+   "n": 11,
+   "median_h": 3.0655555555555556
+  },
+  "18-24 UTC": {
+   "n": 22,
+   "median_h": 5.1402777777777775
+  }
+ },
+ "hour_blocks_kruskal_p": 0.40316850737225374
+}

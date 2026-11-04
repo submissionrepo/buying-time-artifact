@@ -1,0 +1,16 @@
+{
+  "_doc": "Rules for build_adjustments.py. event_exclusions remove transfers that belong to a documented unauthorized outflow event from the normal-flow series. Matching is on per-transfer Token Bridge messages (download_vaas.py, value_transfers.py).",
+  "event_exclusions": [
+    {
+      "id": "2022-02-02_solana_weth",
+      "chain_id": 1,
+      "from": "2022-02-02T18:00:00Z",
+      "to": "2022-02-02T19:00:00Z",
+      "token_chain": 2,
+      "token_address_hex_suffix": "c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "token_amounts": [10000.0, 80000.0, 3750.0],
+      "expect_n": 3,
+      "evidence": "Token Bridge messages emitted on Solana at 18:25:26, 18:27:10 and 18:30:28 UTC carrying 10,000 + 80,000 + 3,750 = 93,750 wETH to Ethereum; this matches the Ethereum-side releases of 2022-02-02 18:26:03 to 18:33:32 recorded in the failure dataset (E11: 120,000 wETH minted on Solana without a deposit)."
+    }
+  ]
+}

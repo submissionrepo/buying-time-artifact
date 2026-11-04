@@ -1,0 +1,75 @@
+{
+ "target": "E25_eth",
+ "config": {
+  "event_id": "E25",
+  "leg": "Ethereum escrow",
+  "chain": "ethereum",
+  "window_utc": [
+   "2023-12-31T20:30:00",
+   "2024-01-01T00:00:00"
+  ],
+  "min_usd": 100000
+ },
+ "blocks": [
+  18907848,
+  18908895
+ ],
+ "n_candidate_rows": 8,
+ "rows": [
+  {
+   "selected": true,
+   "ts": 1704055235,
+   "block": 18907900,
+   "kind": "erc20",
+   "symbol": "WBTC",
+   "amount": 0.0120879,
+   "usd": 513.8687169
+  },
+  {
+   "selected": true,
+   "ts": 1704056879,
+   "block": 18908035,
+   "kind": "erc20",
+   "symbol": "DAI",
+   "amount": 10000000.0,
+   "usd": 9992290.0
+  },
+  {
+   "selected": true,
+   "ts": 1704057059,
+   "block": 18908050,
+   "kind": "erc20",
+   "symbol": "WBTC",
+   "amount": 230.879,
+   "usd": 9814897.169
+  },
+  {
+   "selected": true,
+   "ts": 1704057911,
+   "block": 18908121,
+   "kind": "erc20",
+   "symbol": "USDC",
+   "amount": 10000000.0,
+   "usd": 9993354.310129851
+  },
+  {
+   "selected": true,
+   "ts": 1704057935,
+   "block": 18908123,
+   "kind": "erc20",
+   "symbol": "USDT",
+   "amount": 30000000.0,
+   "usd": 29986410.0
+  },
+  {
+   "selected": true,
+   "ts": 1704057419,
+   "block": 18908080,
+   "kind": "native",
+   "symbol": "ETH",
+   "amount": 9500.000000000002,
+   "usd": 21726870.92519395
+  }
+ ],
+ "pauses": []
+}

@@ -1,0 +1,828 @@
+{
+ "batch": "D",
+ "generated_utc": "2026-10-15T16:43:14Z",
+ "events": [
+  {
+   "event_id": "E22",
+   "dl_name": "Multichain",
+   "dl_date": "2023-07-07",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Assets left the Ethereum-side custody contracts of Multichain's Fantom, Moonriver and Dogechain bridges (plus a 2 USDT test transfer from the old BSC bridge contract) to six recipient addresses on 2023-07-06. A later movement of about $103M from Multichain addresses on several chains (2023-07-10/11, Beosin) is not counted here; Multichain's 2023-07-14 statement links the July movements to the CEO's sister, who obtained server login data while the CEO was in police custody.",
+    "sources": [
+     {
+      "url": "https://cointelegraph.com/news/multichain-mpc-bridge-sees-millions-in-outflows-exploit-feared",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "and $58 million worth of USD Coin (USDC) were withdrawn from the Fantom bridge's Ethereum smart contract"
+     },
+     {
+      "url": "https://alpha.rekt.news/multichain-rekt2",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The lockup assets on the Multichain MPC address have been moved to an unknown address abnormally."
+     },
+     {
+      "url": "https://forklog.com/en/analysts-record-a-103-million-outflow-of-crypto-assets-from-multichain/amp",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Beosin researchers reported a new outflow of more than $103 million in crypto assets from the cross-chain protocol Multichain."
+     },
+     {
+      "url": "https://decrypt.co/148559?amp=1",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "using login information obtained on the cloud server from an IP address in Kunming"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2023-07-06",
+    "sources": [
+     {
+      "url": "https://unchainedcrypto.com/hack-or-rugpull-multichain-sees-126-million-abnormal-outflows/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the first suspicious transaction which took place at 4:21 pm UTC, where just $2 in USDC was withdrawn"
+     },
+     {
+      "url": "https://etherscan.io/tokentxns?a=[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "2023-07-06 16:21:23 | Multichain: Fantom Bridge | 0x027f…5cd8 | 2 | USDC"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 126000000,
+    "range": "125M-130M. Per bridge: Fantom bridge about $102M (Cointelegraph; CoinGape says $122M; Decrypt says Fantom $118M), Moonriver $5.87M (Cointelegraph) to $6.8M (CoinDesk), Dogechain about $0.67M. A further ~$103M moved 2023-07-10/11 (not included); The Block (2025) calls the whole episode a $210M event.",
+    "sources": [
+     {
+      "url": "https://alpha.rekt.news/multichain-rekt2",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "drained yesterday for a total of $126M"
+     },
+     {
+      "url": "https://coindesk.com/business/2023/07/06/multichain-bridges-experience-unannounced-outflows-of-over-130m-in-crypto/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Multichain’s Moonriver bridge contract has seen $6.8 million in token outflows"
+     },
+     {
+      "url": "https://cointelegraph.com/news/multichain-mpc-bridge-sees-millions-in-outflows-exploit-feared",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "A total of $5,872,661 worth of USDC and Tether (USDT) were withdrawn"
+     },
+     {
+      "url": "https://cointelegraph.com/news/multichain-mpc-bridge-sees-millions-in-outflows-exploit-feared",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "a withdrawal of $666,000, which represented more than 86% of its total deposits"
+     },
+     {
+      "url": "https://kakapo.decrypt.co/147622/126m-multichain-funds-abnormally-moved-unknown-address-says-project",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Fantom saw the most significant withdrawals of $118 million out of four affected chains"
+     },
+     {
+      "url": "https://www.theblock.co/post/377094/multichain-extends-freeze-stolen-usdc",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Multichain suffered a $210 million exploit in July 2023,"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "V",
+    "phrase": "Bridge MPC signing keys used outside the operating team; releases carried valid signatures.",
+    "sources": [
+     {
+      "url": "https://unchainedcrypto.com/hack-or-rugpull-multichain-sees-126-million-abnormal-outflows/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "appears to be the result of a private key compromise"
+     },
+     {
+      "url": "https://www.theblock.co/post/238299/multichain-warning-outflow",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the attacker might have access to private key shards controlling Multichain's multi-party computation wallet."
+     },
+     {
+      "url": "https://decrypt.co/148559?amp=1",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "using login information obtained on the cloud server from an IP address in Kunming"
+     },
+     {
+      "url": "https://rekt.news/multichain-r3kt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The SMPC nodes are run by different organisations, institutions and individuals."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "All value counted here left Ethereum-side custody contracts that held assets locked for the Fantom, Moonriver and Dogechain bridges; no unbacked mint reported. Roughly 95% Fantom bridge, 5% Moonriver, 0.5% Dogechain by press figures.",
+    "chains": [
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "https://cointelegraph.com/news/multichain-mpc-bridge-sees-millions-in-outflows-exploit-feared",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "from the Multichain Moonriver bridge contracts on Ethereum, leaving only around $700,000 remaining on it"
+     },
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "From: [redacted] (labeled \"Multichain: Fantom Bridge\")"
+     }
+    ]
+   },
+   "outflow": {
+    "first_release_utc": "2023-07-06T16:21:23Z",
+    "last_release_utc": "2023-07-06T20:05:35Z",
+    "duration_min": 224.2,
+    "release_tx_count": 21,
+    "count_note": "Token transfers from bridge custody to the six recipient addresses on Ethereum, read from Etherscan token-transfer lists (flagged-token and zero-value transfers hidden): Fantom bridge 15 (2 USDC test 16:21:23; 2 USDC and 27.65M USDC 18:10:35; 30.14M USDC 18:14:11; 1,023.8 WBTC 18:33:11; 7,214 WETH 18:41:11; DAI, LINK, UNIDX, USDT, WOO, ICE, CRV, YFI, TUSD 19:02:47-19:37:47), old BSC bridge 1 (2 USDT test 16:30:23), Moonriver bridge 4 (19:46:23-19:52:59), Dogechain bridge 1 (20:05:35). First large release 18:10:35; from it to the last release is 115 min. Fantom, Moonriver and Dogechain chain-side activity not examined.",
+    "sources": [
+     {
+      "url": "https://etherscan.io/tokentxns?a=[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "2023-07-06 18:10:35 | Multichain: Fantom Bridge ([redacted]) | 0x027f…5cd8 | 27,653,471 | USDC"
+     },
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Jul-06-2023 06:10:35 PM +UTC"
+     },
+     {
+      "url": "https://etherscan.io/tokentxns?a=[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "2023-07-06 19:37:47 | Multichain: Fantom Bridge | Tracked address | 502,400.99… ($501,938.79) | TrueUSD (TUSD)"
+     },
+     {
+      "url": "https://etherscan.io/tokentxns?a=[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "2023-07-06 19:46:23 | Multichain: Moonriver Bridge ([redacted]) | 0x48bead… | 4,830,466 | USDC"
+     },
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Jul-06-2023 08:05:35 PM +UTC"
+     },
+     {
+      "url": "https://etherscan.io/tokentxns?a=[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "2023-07-06 16:30:23, sent from \"Multichain: Old BSC Bridge\" (0x533e3c0e...FF9648). It is 2 USDT"
+     },
+     {
+      "url": "https://unchainedcrypto.com/hack-or-rugpull-multichain-sees-126-million-abnormal-outflows/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "an hour later began to subsequently drain the Multichain Moonriver bridge and the Multichain Dogechain bridge"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2023-07-06T23:27:00Z",
+    "channel": "X (@MultichainOrg)",
+    "note": "Team post saying the MPC-address assets had moved 'abnormally' and advising users to stop using the service and revoke approvals. Earlier public signals: CoinDesk article published 20:35 UTC; Curve Finance warning post 20:48:00Z. About 7.1 h after the first test release and 5.3 h after the first large release (consistent with the SoK's 4-6 h communication-time bucket for this incident).",
+    "sources": [
+     {
+      "url": "https://twitter.com/MultichainOrg/status/1677096839731097600",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "linked_from": "https://coindesk.com/business/2023/07/06/multichain-bridges-experience-unannounced-outflows-of-over-130m-in-crypto/",
+      "quote": "The lockup assets on the Multichain MPC address have been moved to an unknown address abnormally"
+     },
+     {
+      "url": "https://kakapo.decrypt.co/147622/126m-multichain-funds-abnormally-moved-unknown-address-says-project",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The team is not sure what happened and is currently investigating."
+     },
+     {
+      "url": "https://twitter.com/CurveFinance/status/1677056825584152576",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "linked_from": "https://kakapo.decrypt.co/147622/126m-multichain-funds-abnormally-moved-unknown-address-says-project",
+      "quote": "Curve Finance, the largest decentralized stablecoin exchange, also warned users about using the bridge"
+     },
+     {
+      "url": "https://coindesk.com/business/2023/07/06/multichain-bridges-experience-unannounced-outflows-of-over-130m-in-crypto/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Published: Jul 6, 2023, 4:35 p.m. EDT"
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2023-07-07T04:57:54Z",
+    "what": "All Multichain cross-chain (bridge and router) services; bridge transactions left stuck on source chains.",
+    "by": "Multichain team",
+    "note": "Time of the team's X post announcing that the service had stopped; the actual stop time is not stated. Services had already been degraded since late May 2023 (stuck transfers after the CEO's detention). Multichain announced it was ceasing operations on 2023-07-14.",
+    "sources": [
+     {
+      "url": "https://twitter.com/MultichainOrg/status/1677180114227056641",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "linked_from": "https://lifi.substack.com/p/multichain-hacked-services-halted",
+      "quote": "The Multichain service stopped currently, and all bridge transactions will be stuck on the source chains."
+     },
+     {
+      "url": "https://www.fxstreet.com/cryptocurrencies/news/multichain-team-confirms-exploit-across-fantom-moonriver-and-dogechain-bridges-202307071358",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The Multichain service stopped currently, and all bridge transactions will be stuck on the source chains."
+     },
+     {
+      "url": "https://lifi.substack.com/p/multichain-hacked-services-halted",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Multichain has stopped all services, with no confirmed resume time. Please don't use Multichain."
+     },
+     {
+      "url": "https://www.theblock.co/post/238299/multichain-warning-outflow",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "There is no confirmed resumption time."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions one.",
+    "sources": []
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "None returned. Frozen in place: 63.2M USDC across three recipient addresses (Circle) and more than 2.5M USDT across two addresses (Tether).",
+    "date": "Freezes reported 2023-07-07 (Circle; 0xScope post 17:22:02Z, Fantom Foundation post 17:34:50Z) and 2023-07-08 (Tether; Fantom Foundation post 09:51:18Z).",
+    "note": "In October 2025 a New York bankruptcy court ordered Circle to keep the three addresses blacklisted while Multichain's Singapore liquidators seek about $63M; no transfer back reported. No operator reimbursement of users reported.",
+    "sources": [
+     {
+      "url": "https://forklog.com/en/circle-and-tether-freeze-assets-withdrawn-from-multichain-worth-65-million/amp",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Circle has frozen 63.2 million USDC across three addresses, withdrawn from the cross-chain protocol Multichain."
+     },
+     {
+      "url": "https://forklog.com/en/circle-and-tether-freeze-assets-withdrawn-from-multichain-worth-65-million/amp",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "froze more than 2.5 million USDT across two addresses on the Ethereum network."
+     },
+     {
+      "url": "https://twitter.com/ScopeProtocol/status/1677367383462416384",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "linked_from": "https://forklog.com/en/circle-and-tether-freeze-assets-withdrawn-from-multichain-worth-65-million/amp",
+      "quote": "The information was reported by the 0xScope team."
+     },
+     {
+      "url": "https://twitter.com/FantomFDN/status/1677370602561101828",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "linked_from": "https://lifi.substack.com/p/multichain-hacked-services-halted",
+      "quote": "Circle has frozen Multichain exploiter's accounts with >60M USD on Ethereum."
+     },
+     {
+      "url": "https://twitter.com/FantomFDN/status/1677616339362488321",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "linked_from": "https://forklog.com/en/circle-and-tether-freeze-assets-withdrawn-from-multichain-worth-65-million/amp",
+      "quote": "froze more than 2.5 million USDT across two addresses on the Ethereum network."
+     },
+     {
+      "url": "https://www.theblock.co/post/377094/multichain-extends-freeze-stolen-usdc",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Circle should maintain three hacker addresses on the blacklist until further notice"
+     }
+    ]
+   },
+   "open_questions": "(1) Whether the 2023-07-10/11 movement (~$103M from Multichain addresses on Fantom, Arbitrum, Optimism, Polygon, Avalanche, BNB Chain, Ethereum and others; Beosin) belongs to the same event; Multichain's 2023-07-14 statement describes one movement as access from a Kunming IP address and another as an asset-preservation transfer, and its account is unverified. (2) Whether any custody contract other than the four seen here released value on 2023-07-06 to addresses outside the six recipients. (3) Exact suspension time (only the 04:57:54Z announcement is known). (4) The 'Old BSC Bridge' contract address appears only truncated on the page read."
+  },
+  {
+   "event_id": "E23",
+   "dl_name": "Mixin Network",
+   "dl_date": "2023-09-23",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Mixin holds assets deposited from Bitcoin, Ethereum and other chains in deposit addresses and hot wallets that back balances on its own ledger (its 'domains' are the gateways for assets from other chains). The drained addresses were deposit addresses and hot wallets whose keys were recoverable from a breached cloud-provider database. Value therefore left the custody of Mixin's cross-chain deposit/withdrawal reserves, so it is coded as a custodial peg. Caveat: the custody is centralized key storage much like an exchange hot wallet; DefiLlama does not flag it as a bridge, while the SoK (Table 8) lists it.",
+    "sources": [
+     {
+      "url": "https://forklog.com/en/?p=84941",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "First, a large number of deposit addresses have been drained."
+     },
+     {
+      "url": "https://forklog.com/en/?p=84941",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Preliminary data indicate that some of the compromised addresses were Mixin hot wallets."
+     },
+     {
+      "url": "https://halborn.com/blog/post/explained-the-mixin-network-hack-september-2023",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "underscores the importance of using cold wallets to protect cryptocurrency assets"
+     },
+     {
+      "url": "https://cryptopotato.com/mixin-a-multi-layer-decentralized-network-that-offers-cross-chain-solutions-lightning-fast-transactions/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The domains provide a gateway to the Mixin Kernel"
+     },
+     {
+      "url": "https://cryptopotato.com/mixin-a-multi-layer-decentralized-network-that-offers-cross-chain-solutions-lightning-fast-transactions/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "the assets dealt by Mixin Domains can be of Bitcoin, Ethereum"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2023-09-22",
+    "sources": [
+     {
+      "url": "https://decrypt.co/198568/mixin-platform-suspends-deposits-withdrawals-200m-security-breach",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "in the early morning of September 23, 2023 Hong Kong time"
+     },
+     {
+      "url": "https://eth.blockscout.com/api?module=account&action=txlist&address=[redacted]&sort=asc&page=1&offset=15",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "0xd5e2209c...bc68d | 18194737 | 1695426335 | 0xfc73df7b... | 0x52e86988... | 500000000000000000"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 200000000,
+    "range": "141.3M traced on-chain (PeckShield: $94.48M ETH, $23.55M DAI swapped from USDT, $23.3M BTC) to 200M (Mixin's initial estimate). Mixin later said losses were smaller than first estimated, without a figure.",
+    "sources": [
+     {
+      "url": "https://cointelegraph.com/news/mixin-network-hack-200-m-crypto-assets",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "a hack on Sept. 23 drained approximately $200 million worth of crypto assets from its mainnet."
+     },
+     {
+      "url": "https://cointelegraph.com/news/mixin-network-hack-200-m-crypto-assets",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "At the time of the hack, Mixin held $94.48 million in Ether (ETH)"
+     },
+     {
+      "url": "https://btw.media/zh/mixin-network-200m-hack-zh",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "9350 万美元"
+     },
+     {
+      "url": "https://www.theblock.co/post/253154/mixin-network-offers-hacker-20-million-bug-bounty",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The losses are not as significant as estimated."
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "V",
+    "phrase": "Deposit-address and hot-wallet keys recovered from a breached cloud database; plain signed transfers.",
+    "sources": [
+     {
+      "url": "https://cointelegraph.com/news/mixin-network-hack-200-m-crypto-assets",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the database of Mixin Network's cloud service provider was attacked by hackers"
+     },
+     {
+      "url": "https://forklog.com/en/?p=84941",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The keys to them were likely stored in the cloud with recoverability."
+     },
+     {
+      "url": "https://rekt.news/mixin-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "appear to be simple transfers"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "Releases from deposit addresses and hot wallets on the assets' home chains: Ethereum (ETH about $94M; USDT about $23.5M, swapped to DAI) and Bitcoin (891 BTC, about $23M). No minting involved.",
+    "chains": [
+     "Ethereum",
+     "Bitcoin"
+    ],
+    "sources": [
+     {
+      "url": "https://rekt.news/mixin-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "60k ETH ($94M)"
+     },
+     {
+      "url": "https://rekt.news/mixin-rekt/",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "891 BTC ($23M)"
+     }
+    ]
+   },
+   "outflow": {
+    "first_release_utc": "2023-09-22T23:45:35Z",
+    "last_release_utc": null,
+    "duration_min": null,
+    "release_tx_count": 10000,
+    "count_note": "BlockSec: '10,000+ transactions' lasting several hours, drained from highest to lowest balance (lower bound; transfers from many deposit addresses). ETH leg into the main ETH recipient, read from the Blockscout API: first transfer 23:45:35Z (0.5 ETH; the recipient's first-ever incoming transfer, sent by an unlabeled address whose link to Mixin is not confirmed by a source), first large transfer 19,000 ETH at 23:47:11Z, last drain transfers (about 0.15 ETH each) at 2023-09-23T00:52:35Z, i.e. about 67 min. USDT leg into the second recipient began 00:53:23Z; its swaps to DAI ran by 01:25:59Z; its last inbound transfer and the BTC leg were not measured, so the overall last release is left null.",
+    "sources": [
+     {
+      "url": "https://forklog.com/en/?p=84941",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The attacker transferred funds in order from the highest to the lowest balance, involving 10,000+ transactions"
+     },
+     {
+      "url": "https://forklog.com/en/?p=84941",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "lasting several hours."
+     },
+     {
+      "url": "https://eth.blockscout.com/api?module=account&action=txlist&address=[redacted]&sort=asc&page=1&offset=15",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "0x355c66c4...4cda7c | 18194745 | 1695426431 | 0xf18c15c9... | 0x52e86988... | 19000000000000000000000"
+     },
+     {
+      "url": "https://eth.blockscout.com/api?module=account&action=txlist&address=[redacted]&startblock=18194700&endblock=18215000&sort=desc&page=1&offset=12",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "0x7bbcf3e8...e1d46c2 | 18195069 | 1695430355 | 0xa7d3380e... | 0x52e86988... | 150187160000000000"
+     },
+     {
+      "url": "https://eth.blockscout.com/api?module=account&action=tokentx&address=[redacted]&sort=asc&page=1&offset=6",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "0x744fcd57...dc0219 | 18195073 | 1695430403 | 0xf18c15c9... | 0x3b5fb9d9... | USDT | 194616210000 | 6"
+     },
+     {
+      "url": "https://etherscan.io/txs?a=[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "10,202 transactions"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2023-09-25T02:50:52Z",
+    "channel": "X (@MixinKernel)",
+    "note": "First public statement found, about 51 h after the first transfer: cloud-provider database breach, deposits and withdrawals suspended, Google and SlowMist engaged. SlowMist posted about the incident 23 minutes earlier (02:27:22Z). No earlier public notice found; whether users saw an in-app notice on 2023-09-23 is unknown. Founder livestream about 05:00 UTC on 2023-09-25.",
+    "sources": [
+     {
+      "url": "https://twitter.com/MixinKernel/status/1706139175018529139",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "linked_from": "https://decrypt.co/198568/mixin-platform-suspends-deposits-withdrawals-200m-security-breach",
+      "quote": "the database of Mixin Network's cloud service provider was attacked by hackers"
+     },
+     {
+      "url": "https://twitter.com/SlowMist_Team/status/1706133260869468503",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "linked_from": "https://www.theblock.co/post/252716/mixin-network-founder-says-just-half-users-assets-are-safe-after-200-million-hack",
+      "quote": "SlowMist said the Mixin Network cloud service provider database was attacked on Saturday (The Block's paraphrase)"
+     },
+     {
+      "url": "https://www.theblock.co/post/253154/mixin-network-offers-hacker-20-million-bug-bounty",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Late Sunday, Mixin Network said it had temporarily suspended deposit and withdrawal services"
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "what": "Deposits and withdrawals between Mixin and external chains (transfers inside Mixin continued).",
+    "by": "Mixin Network (reopening subject to consensus among its nodes)",
+    "note": "The suspension was announced in the 2023-09-25T02:50:52Z post; the time it took effect is not given. Cointelegraph says it followed the discovery immediately. No source found on when deposits and withdrawals reopened.",
+    "sources": [
+     {
+      "url": "https://cointelegraph.com/news/mixin-network-hack-200-m-crypto-assets",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "An immediate suspension of all deposit and withdrawal services on Mixin Network followed the revelation."
+     },
+     {
+      "url": "https://www.securityweek.com/200-million-in-cryptocurrency-stolen-in-mixin-network-hack/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "During this period, transfers are not affected"
+     },
+     {
+      "url": "https://dlnews.com/articles/defi/questions-swirl-around-hack-at-hong-kong-network-mixin/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "these services will be reopened once the vulnerabilities are confirmed and fixed"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions one.",
+    "sources": []
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "None reported returned.",
+    "date": "",
+    "note": "Mixin posted an on-chain message on 2023-09-24 (17:49:59Z, Blockscout) offering a $20M bounty for the return of the rest; no return reported. In February 2026 the ETH recipient moved 2,005 ETH onward (Etherscan). Operator compensation, kept separate: the founder said at least 50% of user assets would be covered, the rest via bond tokens to be repurchased from future profits.",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/253154/mixin-network-offers-hacker-20-million-bug-bounty",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "You can keep $20 million of the assets as a BUG Bounty Reward for the BUG."
+     },
+     {
+      "url": "https://www.theblock.co/post/252716/mixin-network-founder-says-just-half-users-assets-are-safe-after-200-million-hack",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "we will ensure that half of it is unaffected"
+     },
+     {
+      "url": "https://etherscan.io/txs?a=[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "2026-02-12 21:22:23 | Exploiter 1 | 0x9cba8592…bBDDc787f | 2,005 (OUT)"
+     }
+    ]
+   },
+   "open_questions": "(1) Scope is a judgment call: custodial deposit-address peg versus exchange-style hot wallet. (2) Last release time overall: USDT-leg end and BTC-leg times not measured. (3) Whether Mixin posted an earlier in-app or Chinese-language notice on 2023-09-23 when deposits and withdrawals stopped. (4) When deposits and withdrawals reopened. (5) Final loss figure after Mixin's asset tally."
+  },
+  {
+   "event_id": "E24",
+   "dl_name": "Heco Bridge",
+   "dl_date": "2023-11-22",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Value left the Ethereum-side custody contract of the HECO Chain bridge (assets locked for HECO Chain) through operator-called withdrawals to one recipient. Same-day outflows from HTX exchange hot wallets on Ethereum, TRON and Bitcoin (about $13-26M, separate reports) are an exchange hot-wallet component and are not counted here.",
+    "sources": [
+     {
+      "url": "https://www.certik.com/blog/heco-bridge-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The Heco Bridge was compromised due to the bridge's operator wallet being compromised."
+     },
+     {
+      "url": "https://www.theblock.co/post/264271/heco-bridge-appears-to-have-been-drained-of-86-6-million",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Initial estimates suggest that $86.6 million was taken from the Heco bridge"
+     },
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "10,145 ETH ($24,608,016.35), sent from HECO Chain: Bridge ([redacted])"
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2023-11-22",
+    "sources": [
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Nov-22-2023 09:59:35 AM +UTC"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 86600000,
+    "range": "85M-87M (PeckShield and Wintermute $86.6M; CertiK about $87M for the bridge, $113.3M including HTX hot wallets; crypto.news about $85M). Assets: 10,145 ETH; 42,110,000 USDT; 489 HBTC; 346,867,120,000 SHIB; 173,200 UNI; 619,000 USDC; 42,399 LINK; 346,994 TUSD.",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/264271/heco-bridge-appears-to-have-been-drained-of-86-6-million",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Initial estimates suggest that $86.6 million was taken from the Heco bridge"
+     },
+     {
+      "url": "https://cointelegraph.com/news/heco-chain-bridge-hack-86-million-lost",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "more than $86.6 million in digital assets"
+     },
+     {
+      "url": "https://www.certik.com/blog/heco-bridge-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The exploiter withdrew the following assets from the Heco bridge: 10,145 ETH; 42,110,000 USDT; 489 HBTC; ... 346,994 TUSD"
+     },
+     {
+      "url": "https://crypto.news/htx-marks-250m-outflow-post-november-hack/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The total losses suffered during the breach reached more than $100 million."
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "V",
+    "phrase": "Bridge operator keys used by an unauthorized party; releases carried valid operator calls.",
+    "sources": [
+     {
+      "url": "https://www.certik.com/blog/heco-bridge-exploit",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Based on the Heco Bridge contract, this function can only be called by the operator."
+     },
+     {
+      "url": "https://cointelegraph.com/news/heco-chain-bridge-hack-86-million-lost",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Note the tx is initiated by the operator. Looks like a compromised operator?"
+     },
+     {
+      "url": "https://eth.blockscout.com/api?module=account&action=txlist&address=[redacted]&startblock=18626400&endblock=18640000&sort=asc&page=1&offset=60",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "0xcfeb3318...ced77 | 18626539 | 1700647151 | 0x6b2286fc... | 0xd5b99d3c | 0 ; 0xbb6fe884...e131b | 18626540 | 1700647175 | 0x3d655889... | 0xd5b99d3c | 0"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "All releases from the Ethereum custody contract of the HECO bridge (home chain of the assets); no minting.",
+    "chains": [
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "42,110,000 USDT; Sender: HECO Chain: Bridge (page fields)"
+     }
+    ]
+   },
+   "outflow": {
+    "first_release_utc": "2023-11-22T09:59:35Z",
+    "last_release_utc": "2023-11-22T10:20:23Z",
+    "duration_min": 20.8,
+    "release_tx_count": 8,
+    "count_note": "Eight successful operator withdrawals (withdrawNative for 10,145 ETH, then seven withdrawToken calls; last 346,994 TUSD), all to one recipient. Each release was preceded about 24 s earlier by an identical call from a second operator address (Etherscan labels HTX 52 and HTX 54), consistent with a two-operator confirmation step; read from explorer data only. A ninth call (AAVE) reverted at 10:22:47; four withdrawToken calls from an unrelated address between 10:49 and 10:53 also reverted. The same operator addresses made further withdrawToken calls on 2023-11-23 (not examined; one sent a 1e18-unit amount to an unlabeled address).",
+    "sources": [
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Nov-22-2023 09:59:35 AM +UTC"
+     },
+     {
+      "url": "https://etherscan.io/tx/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Nov-22-2023 10:20:23 AM +UTC"
+     },
+     {
+      "url": "https://eth.blockscout.com/api?module=account&action=txlist&address=[redacted]&startblock=18610000&endblock=18640000&sort=asc&page=1&offset=40",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "0x862586ed...dd62 | 18626656 | 1700648567 | 0x3d655889... | 0xa929022c... | 0 | 0x02c1927c | 1"
+     },
+     {
+      "url": "https://cointelegraph.com/news/heco-chain-bridge-hack-86-million-lost",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Several other transactions followed."
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2023-11-22T12:34:56Z",
+    "channel": "X (Justin Sun, @justinsuntron)",
+    "note": "Post announcing that HTX and the Heco cross-chain bridge were affected, HTX hot-wallet losses would be compensated, and deposits and withdrawals were suspended. About 2.6 h after the first release. Earlier signals: PeckShield alert 11:23:33Z; The Block article 11:44 UTC. No earlier statement from HTX or HECO found.",
+    "sources": [
+     {
+      "url": "https://twitter.com/justinsuntron/status/1727304656622326180",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "linked_from": "https://cointelegraph.com/news/heco-chain-bridge-hack-86-million-lost",
+      "quote": "HTX and Heco Cross-Chain Bridge Undergo Hacker Attack."
+     },
+     {
+      "url": "https://twitter.com/PeckShieldAlert/status/1727286692489679360",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "linked_from": "https://cointelegraph.com/news/heco-chain-bridge-hack-86-million-lost",
+      "quote": "Note the tx is initiated by the operator. Looks like a compromised operator?"
+     },
+     {
+      "url": "https://www.theblock.co/post/264271/heco-bridge-appears-to-have-been-drained-of-86-6-million",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Published November 22, 2023, 6:44 AM EST (page metadata)"
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "what": "No pause of the bridge contract found. HTX (the exchange) stopped processing withdrawals around 11:26 UTC per Arkham data; Justin Sun's 12:34:56Z post announced deposits and withdrawals temporarily suspended.",
+    "by": "HTX (exchange); no bridge-contract pause found",
+    "note": "The bridge contract has pause() and unpause() restricted to a pauser role, but no Paused event was found from it between blocks 18,600,000 and 19,500,000 (Blockscout logs query). Releases stopped after 10:20:23; a ninth operator call reverted at 10:22:47 for an unknown reason. HTX resumed operations around 2023-11-25 (crypto.news).",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/264271/heco-bridge-appears-to-have-been-drained-of-86-6-million",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "HTX seems to have stopped processing withdrawals from the exchange as of around 06:26 ET, according to Arkham data."
+     },
+     {
+      "url": "https://cointelegraph.com/news/heco-chain-bridge-hack-86-million-lost",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Deposits and Withdrawals Temporarily Suspended."
+     },
+     {
+      "url": "https://eth.blockscout.com/api?module=logs&action=getLogs&address=[redacted]&fromBlock=18600000&toBlock=19500000&topic0=[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "No logs found"
+     },
+     {
+      "url": "https://etherscan.io/address/[redacted]#code",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "Pausable: paused"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "no",
+    "acted": "n.a.",
+    "how": "Verified bridge code shows operator role, confirmation count and pause, but no amount cap, rate limit or delay.",
+    "sources": [
+     {
+      "url": "https://etherscan.io/address/[redacted]#code",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "not enough native token"
+     },
+     {
+      "url": "https://etherscan.io/address/[redacted]#code",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "wrong operator"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "None reported returned.",
+    "date": "",
+    "note": "Operator reimbursement, kept separate: Justin Sun said HTX would fully compensate hot-wallet losses and later promised to reimburse users affected in the HTX and Heco bridge incidents. Part of the received ETH was later moved onward (CertiK traces 23,574 ETH from a second address to four addresses).",
+    "sources": [
+     {
+      "url": "https://cointelegraph.com/news/heco-chain-bridge-hack-86-million-lost",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "HTX Will Fully Compensate for HTX's hot wallet Losses."
+     },
+     {
+      "url": "https://crypto.news/htx-marks-250m-outflow-post-november-hack/",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "fully reimburse affected users in the HTX and Heco bridge incidents"
+     }
+    ]
+   },
+   "open_questions": "(1) How the bridge's confirmation threshold was set (explorer data suggest two operator calls per release; the threshold value is not shown). (2) Why the ninth (AAVE) call reverted and whether the operators' roles were changed afterwards; the same operator addresses kept calling withdrawToken on 2023-11-23. (3) When, or whether, HECO bridge withdrawals were formally suspended. (4) Mapping of release txs 3-7 to the five middle assets."
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+[profile.default]
+src = "src"
+test = "test"
+out = "out"
+libs = ["lib"]
+solc_version = "0.8.30"
+evm_version = "prague"
+optimizer = true
+optimizer_runs = 200
+remappings = ["forge-std/=lib/forge-std/src/"]
+# Compile `new` in tests as a real CREATE, so that expectRevert on a constructor behaves as written.
+dynamic_test_linking = false
+# Every top-level call in a test is its own transaction (cold storage, 21,000 base gas); the gas
+# bench depends on this.
+isolate = true
+
+[fuzz]
+runs = 1000
+seed = "0x2026" # fixed seed for the fuzz campaigns
+
+[invariant]
+runs = 256
+depth = 100
+fail_on_revert = false
+show_metrics = true
+
+[lint]
+# Casts are bounded by checks in the code (amount and value <= B < 2^128, timestamps < 2^64),
+# and the limit is time-based by design.
+exclude_lints = ["unsafe-typecast", "block-timestamp"]

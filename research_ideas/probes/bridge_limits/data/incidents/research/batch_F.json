@@ -1,0 +1,996 @@
+{
+ "batch": "F",
+ "generated_utc": "2026-10-15T16:28:01Z",
+ "events": [
+  {
+   "event_id": "E45",
+   "dl_name": "Kelp",
+   "dl_date": "2026-04-18",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Release of rsETH from the Ethereum-side LayerZero OFT adapter (escrow backing rsETH on L2s) after a forged Unichain-to-Ethereum message was attested by the single required verifier. Kelp's core restaking contracts were not touched.",
+    "sources": [
+     {
+      "url": "https://layerzero.network/publications/kelpdao-incident-report.pdf",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Because no second independent DVN was required to attest, the destination contract accepted the single valid attestation and unlocked rsETH."
+     },
+     {
+      "url": "https://governance.aave.com/t/rseth-incident-report-april-20-2026/24580",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "This released 116,500 rsETH from the Ethereum-side RSETH_OFTAdapter (0x85d456b2…98ef3) to the attacker."
+     },
+     {
+      "url": "https://www.coindesk.com/tech/2026/04/20/kelp-dao-claims-layerzero-s-default-settings-are-what-actually-caused-the-usd290-million-disaster",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Kelp's core restaking contracts were not touched, and the exploit was isolated to the bridge layer, they added."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-04-18",
+    "sources": [
+     {
+      "url": "https://governance.aave.com/t/rseth-incident-report-april-20-2026/24580",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "On 2026-04-18 at 17:35 UTC (Ethereum block 24,908,285)"
+     },
+     {
+      "url": "https://layerzero.network/publications/kelpdao-incident-report.pdf",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "2026-04-18 17:35 Exploit - Attacker unlocked 116,500 rsETH (~$292M USD)"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 292000000,
+    "range": "290M-293M USD for 116,500 rsETH (LayerZero report ~292M; CoinDesk ~290M; DefiLlama 293M; Rekt also cites a 293.7M estimate from Cyvers)",
+    "sources": [
+     {
+      "url": "https://layerzero.network/publications/kelpdao-incident-report.pdf",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "resulting in the loss of 116,500 rsETH (~ $292M USD at the time of the attack)"
+     },
+     {
+      "url": "https://www.coindesk.com/tech/2026/04/20/kelp-dao-claims-layerzero-s-default-settings-are-what-actually-caused-the-usd290-million-disaster",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "On Saturday, attackers drained 116,500 rsETH, worth about $290 million, from Kelp's LayerZero-powered bridge"
+     },
+     {
+      "url": "https://api.llama.fi/hacks",
+      "type": "dataset",
+      "how_read": "page read",
+      "quote": "\"name\": \"Kelp\", \"technique\": \"Cross-Chain Message Spoofing\", \"amount\": 293000000"
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "S",
+    "phrase": "Single required verifier attested a nonexistent source-chain send after its data feeds were falsified",
+    "sources": [
+     {
+      "url": "https://layerzero.network/publications/kelpdao-incident-report.pdf",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "rely exclusively on two compromised internal nodes and produce a valid attestation for the forged crosschain message"
+     },
+     {
+      "url": "https://layerzero.network/publications/kelpdao-incident-report.pdf",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Signer Keys. The DVN's private signing keys were not compromised."
+     },
+     {
+      "url": "https://layerzero.network/publications/kelpdao-incident-report.pdf",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "a previous 2-of-2 configuration had been modified by the application owner to a 1-of-1 configuration which used only the LayerZero Labs DVN"
+     },
+     {
+      "url": "https://governance.aave.com/t/rseth-incident-report-april-20-2026/24580",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The Unichain → Ethereum route was configured as a 1-of-1 DVN path with no optional verifiers."
+     },
+     {
+      "url": "https://rekt.news/kelpdao-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "One required DVN. No optional DVNs. Zero threshold."
+     },
+     {
+      "url": "https://www.coindesk.com/tech/2026/04/20/kelp-dao-claims-layerzero-s-default-settings-are-what-actually-caused-the-usd290-million-disaster",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "LayerZero's own quickstart guide and default GitHub configuration point to a 1/1 DVN setup"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "100% escrow: one release from the Ethereum-side OFT adapter (lock/unlock escrow on the asset's home chain). Adapter balance went from 116,723 to 223 rsETH. Arbitrum appears in DefiLlama because part of the released value was later moved there (Rekt cites Cyvers: about 178M on Ethereum and 72M on Arbitrum); no release occurred on Arbitrum.",
+    "chains": [
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "https://governance.aave.com/t/rseth-incident-report-april-20-2026/24580",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The adapter balance dropped from 116,723 rsETH (one block before the exploit) to 223 rsETH immediately after."
+     },
+     {
+      "url": "https://www.galaxy.com/insights/research/kelpdao-layerzero-exploit-defi",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "to unlock 116,500 rsETH from the Ethereum mainnet escrow"
+     }
+    ]
+   },
+   "outflow": {
+    "first_release_utc": "2026-04-18T17:35:35Z",
+    "last_release_utc": "2026-04-18T17:35:35Z",
+    "duration_min": 0,
+    "release_tx_count": 1,
+    "count_note": "One successful release transaction (packet nonce 308, 116,500 rsETH) in Ethereum block 24,908,285; seconds from that block's timestamp (public RPC). A second packet (nonce 309, about 40,000 rsETH) was verified by the same verifier; its two delivery attempts at 18:26 and 18:28 UTC reverted. CoinDesk (04-20) says the two blocked attempts would have released about 200M USD more; The Block, Rekt and the Aave/LlamaRisk report say 40,000 rsETH (about 100M USD).",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/397988/kelp-dao-293-million-defi-hack-lazarus-layerzero",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The successful drain transaction occurred at 17:35 UTC"
+     },
+     {
+      "url": "https://www.theblock.co/post/397988/kelp-dao-293-million-defi-hack-lazarus-layerzero",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Two subsequent attack attempts from the attacker at 18:26 UTC and 18:28 UTC both reverted"
+     },
+     {
+      "url": "https://governance.aave.com/t/rseth-incident-report-april-20-2026/24580",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "An inbound packet (nonce 309, for an additional 40,000 rsETH) was also verified by the same single DVN"
+     },
+     {
+      "url": "https://1rpc.io/eth",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getTransactionReceipt: \"blockNumber\":\"0x17c11fd\"; eth_getBlockByNumber(24908285) timestamp = 2026-04-18T17:35:35Z (converted by me)"
+     },
+     {
+      "url": "https://www.coindesk.com/tech/2026/04/20/kelp-dao-claims-layerzero-s-default-settings-are-what-actually-caused-the-usd290-million-disaster",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Its emergency pause, 46 minutes after the drain, blocked two follow-up attempts"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2026-04-18T20:10:23Z",
+    "channel": "X (@KelpDAO)",
+    "note": "Time from status ID 2045595819035046148; The Block gives 20:10 UTC. Statement: rsETH contracts paused across mainnet and several L2s. Earlier third-party alerts: @officer_secret (Vladimir S.) at 18:41:56 UTC and PeckShield at 19:17:09 UTC (both from status IDs linked on Rekt). LayerZero's first statement on X: 2026-04-20T04:20:30Z (status ID 2046081551574983137).",
+    "sources": [
+     {
+      "url": "https://x.com/KelpDAO/status/2045595819035046148",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "Earlier today we identified suspicious cross-chain activity involving rsETH."
+     },
+     {
+      "url": "https://www.theblock.co/post/397988/kelp-dao-293-million-defi-hack-lazarus-layerzero",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Kelp wrote on X at 20:10 UTC in its first public acknowledgement of the incident"
+     },
+     {
+      "url": "https://rekt.news/kelpdao-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "PeckShield followed 36 minutes later, a terse public nudge directly at KelpDAO's account and a single Etherscan link."
+     },
+     {
+      "url": "https://x.com/officer_secret/status/2045573559615934890",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "KELPDAO'S liquid staking token potentially exploited for over $100M!"
+     }
+    ]
+   },
+   "pause": {
+    "utc": "2026-04-18T18:21Z",
+    "what": "pauseAll on Kelp's LRT configuration contract; press reports Paused events in the deposit pool, withdrawal contract, oracle and the rsETH token, across mainnet and several L2s. The recipient address was also frozen before the second packet's delivery attempts.",
+    "by": "Kelp emergency pauser multisig (DeFi Prime calls it the operations multisig)",
+    "note": "About 46 minutes after the release. Sources differ on why the 18:26 and 18:28 attempts reverted: the pause (The Block, CoinDesk) or the recipient freeze (Aave/LlamaRisk report, Rekt). Pause transaction hash not found in sources read. Downstream: Aave began freezing rsETH reserves at about 19:00 UTC (Galaxy: 18:52 UTC).",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/397988/kelp-dao-293-million-defi-hack-lazarus-layerzero",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "At 18:21 UTC, the protocol's emergency pauser multisig executed pauseAll"
+     },
+     {
+      "url": "https://www.coindesk.com/tech/2026/04/19/2026-s-biggest-crypto-exploit-kelp-dao-hit-for-usd292-million-with-wrapped-ether-stranded-across-20-chains",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "Kelp's emergency pauser multisig froze the protocol's core contracts 46 minutes after the successful drain, at 18:21 UTC."
+     },
+     {
+      "url": "https://www.theblock.co/post/397988/kelp-dao-293-million-defi-hack-lazarus-layerzero",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "We have paused rsETH contracts across mainnet and several L2s while we investigate."
+     },
+     {
+      "url": "https://governance.aave.com/t/rseth-incident-report-april-20-2026/24580",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "as Kelp had already frozen the recipient address."
+     },
+     {
+      "url": "https://www.theblock.co/post/397988/kelp-dao-293-million-defi-hack-lazarus-layerzero",
+      "type": "press",
+      "how_read": "search snippet",
+      "quote": "the protocol's emergency pauser multisig executed pauseAll on Kelp's liquid restaking token configuration contract"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions one; a single transaction released 116,500 rsETH, about 99.8% of the adapter balance.",
+    "sources": [
+     {
+      "url": "https://governance.aave.com/t/rseth-incident-report-april-20-2026/24580",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The adapter balance dropped from 116,723 rsETH (one block before the exploit) to 223 rsETH immediately after."
+     },
+     {
+      "url": "https://layerzero.network/publications/kelpdao-incident-report.pdf",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Real-time monitoring will consist of configuration checking across libraries, DVN setups, rate limits, versioning, changelog and more."
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": 71100000,
+    "native": "30,766 ETH (Decrypt: 30,765.67 ETH) frozen on Arbitrum by the Arbitrum Security Council and moved to an intermediary wallet",
+    "date": "2026-04-21 (about 03:26 UTC = 11:26 PM ET on April 20; Arbitrum's X post at 03:46:45 UTC; Galaxy dates it April 21 11:26 p.m. ET)",
+    "note": "Frozen, not yet returned: an Arbitrum DAO temperature check (May 8) backed releasing it to the recovery effort; a May 1 SDNY restraining notice was later modified; execution not confirmed in sources read. Not counted: 40,373 rsETH Kelp withdrew from the adapter after the blocked second packet (Galaxy calls it a partial recovery from the reverted attempt); it appears to be adapter-held value that did not leave. Separately, user losses are being covered by an industry fund (DeFi United; Aave asked to commit 25,000 ETH), which is reimbursement, not recovery. LayerZero says zeroShadow assisted with seizure efforts (no amount).",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/398212/arbitrum-freezes-eth-kelp-dao-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "The Arbitrum Security Council has frozen 30,766 ETH, worth about $71.1 million,"
+     },
+     {
+      "url": "https://www.galaxy.com/insights/research/kelpdao-layerzero-exploit-defi",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "executed a 9-of-12 vote to recover the 30,766 ETH the attacker had bridged to Arbitrum."
+     },
+     {
+      "url": "https://rekt.news/kelpdao-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The freeze was completed at 11:26 PM ET."
+     },
+     {
+      "url": "https://x.com/arbitrum/status/2046435443680346189",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "In a Tuesday post on X, Arbitrum said the security council has moved the funds"
+     },
+     {
+      "url": "https://decrypt.co/367238/arbitrum-dao-votes-to-unlock-70-million-for-kelp-dao-exploit-relief",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "no transfer has been authorized"
+     },
+     {
+      "url": "https://www.galaxy.com/insights/research/kelpdao-layerzero-exploit-defi",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The adapter holds 40,373 rsETH (a partial recovery from a reverted second-drain attempt)"
+     },
+     {
+      "url": "https://governance.aave.com/t/arfc-rseth-incident-funding-update/24740",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Kelp recovered and froze 40,373 rsETH, equivalent to approximately 43,168 ETH at the reference ratio."
+     }
+    ]
+   },
+   "open_questions": "(1) Classification: S is chosen because the verifier's view of source-chain events was falsified while its keys were intact; a V reading (verifier operator infrastructure under unauthorized control) and a D reading (1-of-1 threshold set by the delegate) are both defensible. (2) Pause transaction hash and the two reverted delivery transactions were not found in sources read. (3) Adapter accounting is unclear: 223 rsETH left after the release, yet 40,373 rsETH were later held or withdrawn by Kelp; Aave's ARFC reads 152,577 rsETH as extracted, while LlamaRisk/Galaxy treat it as total L2 claims. (4) Whether the Arbitrum-frozen ETH has been transferred. (5) No source states whether the OFT adapter had a rate limiter configured.",
+   "onchain_refs": [
+    {
+     "chain": "Ethereum",
+     "role": "escrow (rsETH OFT adapter)",
+     "value": "0x85d456B2DfF1fd8245387C0BfB64Dfb700e98Ef3"
+    },
+    {
+     "chain": "Ethereum",
+     "role": "LayerZero EndpointV2",
+     "value": "0x1a44076050125825900e736c501f859c50fE728c"
+    }
+   ]
+  },
+  {
+   "event_id": "E46",
+   "dl_name": "TAC Protocol",
+   "dl_date": "2026-05-11",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Unbacked mint on TAC EVM from a deposit notice sent by a counterfeit jetton wallet on TON; minted tokens were then bridged back, releasing locked assets from the TON-side bridge, and USDT left via USDT0 to Ethereum and BLUM to BSC. TAC token, TON and ERC-20 assets bridged from Ethereum were reported unaffected. Not a duplicate of DefiLlama's separate 2026-08-22 'TAC' record (token supply incident, not flagged as a bridge).",
+    "sources": [
+     {
+      "url": "https://tac.build/blog/post-mortem-report-tac-bridge",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "the responsible party bridged the minted tokens back from TAC to TON, releasing the bridge's locked assets on TON."
+     },
+     {
+      "url": "https://m.web3isgoinggreat.com/archive/2026-05-12-0/0",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The TAC token, TON and all ERC-20 tokens bridged from Ethereum are NOT affected."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-05-11",
+    "sources": [
+     {
+      "url": "https://tac.build/blog/post-mortem-report-tac-bridge",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "On May 11th 2026, approximately at 02:20 UTC, the TON ↔ TAC asset bridge experienced a code-hash verification exploit."
+     },
+     {
+      "url": "https://blocksec.com/blog/weekly-web3-security-roundup-2026-05-17",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "On May 12, 2026, TAC"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 2854486.22,
+    "range": "2.8M-2.86M USD (TAC: about 2,854,486 USD in USDT, BLUM, tsTON as of 2026-05-12 22:00 UTC; BlockSec about 2.8M)",
+    "sources": [
+     {
+      "url": "https://tac.build/blog/post-mortem-report-tac-bridge",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Total protocol loss is approximately $2,854,486.22 as of May 12th 2026 22:00 UTC."
+     },
+     {
+      "url": "https://blocksec.com/blog/weekly-web3-security-roundup-2026-05-17",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "was exploited for approximately $2.8M."
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "S",
+    "phrase": "Sequencer accepted a deposit notice from a counterfeit token wallet; unbacked mint followed",
+    "sources": [
+     {
+      "url": "https://tac.build/blog/post-mortem-report-tac-bridge",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The TAC sequencer software performed neither check on the minter code coming from the sender jetton wallet."
+     },
+     {
+      "url": "https://blocksec.com/blog/weekly-web3-security-roundup-2026-05-17",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The root cause was missing canonical wallet verification in the TON-side jetton deposit flow."
+     }
+    ]
+   },
+   "release_side": {
+    "value": "both",
+    "share_note": "Unbacked mint on TAC EVM (14 mint transactions; BlockSec cites about 2.17M mapped USDT), then release of locked assets from the TON-side bridge when the minted tokens were bridged back. Value shares per side not published.",
+    "chains": [
+     "TAC",
+     "TON"
+    ],
+    "sources": [
+     {
+      "url": "https://tac.build/blog/post-mortem-report-tac-bridge",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "(14 mint transactions across BLUM, USD₮, tsTON)"
+     },
+     {
+      "url": "https://blocksec.com/blog/weekly-web3-security-roundup-2026-05-17",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "TAC EVM processed the bridge message and minted mapped assets, including approximately 2.17M mapped USD₮, completing the exploit path."
+     }
+    ]
+   },
+   "outflow": {
+    "first_release_utc": "2026-05-11T02:20Z",
+    "last_release_utc": null,
+    "duration_min": null,
+    "release_tx_count": 14,
+    "count_note": "14 = mint transactions on TAC EVM (post-mortem). TON-side release count not given. Onward exits: USDT to Ethereum via USDT0 in 13 transactions; BLUM from TAC to BSC in 2 transactions. The post-mortem's lessons section says about 302M BLUM were minted in five transactions, which conflicts with its 117M BLUM loss figure. Start time is approximate.",
+    "sources": [
+     {
+      "url": "https://tac.build/blog/post-mortem-report-tac-bridge",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "On May 11th 2026, approximately at 02:20 UTC, the TON ↔ TAC asset bridge experienced a code-hash verification exploit."
+     },
+     {
+      "url": "https://tac.build/blog/post-mortem-report-tac-bridge",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "USD₮ was bridged from TON to Ethereum mainnet via LayerZero (USDT0) in 13 transactions"
+     },
+     {
+      "url": "https://tac.build/blog/post-mortem-report-tac-bridge",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The exploit minted approximately 302M BLUM in only five transactions;"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": null,
+    "channel": "X (@TacBuild) and Telegram",
+    "note": "Press says TAC disclosed the incident on May 11 (no time). The earliest TAC post found is X status 2054620834879381870, which decodes to 2026-05-13T17:52:34Z (loss about 2.8M, bridge paused, post-mortem promised); it may not be the first statement, so it is not entered as the value.",
+    "sources": [
+     {
+      "url": "https://www.kucoin.com/news/flash/tac-discloses-ton-tac-bridge-vulnerability-recovers-90-of-stolen-assets",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "On May 11, TAC disclosed a security incident."
+     },
+     {
+      "url": "https://x.com/TacBuild/status/2054620834879381870",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "The bridge remains paused while forensic analysis and remediation work are ongoing."
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "what": "The full sequencer set connecting TAC and TON (all cross-chain asset and message flow); TAC EVM kept producing blocks",
+    "by": "TAC team",
+    "note": "Pause time not given; it occurred before the 2026-05-13 17:52 UTC post that says the bridge remains paused. Cross-chain transfers were reported restored on June 10 after an independent review of the patched sequencer.",
+    "sources": [
+     {
+      "url": "https://tac.build/blog/post-mortem-report-tac-bridge",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "decided to halt the entire sequencer set that connects TAC to TON"
+     },
+     {
+      "url": "https://tac.build/blog/post-mortem-report-tac-bridge",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "TON/TAC Crosschain framework is currently paused; no assets or messages move between TON and TAC blockchains."
+     },
+     {
+      "url": "https://www.cryptopolitan.com/tac-token-crashes-two-months-after-hack/",
+      "type": "press",
+      "how_read": "search snippet",
+      "quote": "TAC restored cross-chain transfers between TON and TAC on June 10 after its patched sequencer software cleared an independent review"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "no",
+    "acted": "n.a.",
+    "how": "Post-mortem lists per-minter rate limits and automated circuit breakers as future work; inferred absent at the time.",
+    "sources": [
+     {
+      "url": "https://tac.build/blog/post-mortem-report-tac-bridge",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "In parallel, we are working to release per-minter rate limits, supply invariants, and automated circuit breakers"
+     },
+     {
+      "url": "https://tac.build/blog/post-mortem-report-tac-bridge",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "rate-based active monitoring would have surfaced immediately for faster reaction."
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": 2290687.9,
+    "native": "Mixed assets returned to TAC multisigs (ZEC, DAI, wBTC, BLUM, TAC, BNB; 77.20 BNB still frozen); not recovered: 300 ZEC, 13 ETH, 1,007 SOL",
+    "date": "2026-05-14",
+    "note": "Returned by the initiating party under an offer that left about 10% as a bounty; TAC later called it a white-hat incident. TAC gives both 'about 90% of accessible assets' and a net 80.2% of the loss (2,290,687.90 USD). TAC Foundation treasury covers the remainder (reimbursement, not recovery).",
+    "sources": [
+     {
+      "url": "https://tac.build/blog/post-mortem-report-tac-bridge",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "resulting in an effective recovery rate of approximately 80.2% of the total affected funds."
+     },
+     {
+      "url": "https://tac.build/blog/post-mortem-report-tac-bridge",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The responsible party executed refunding transactions after completing additional consolidations that day."
+     },
+     {
+      "url": "https://www.kucoin.com/news/flash/tac-discloses-ton-tac-bridge-vulnerability-recovers-90-of-stolen-assets",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "By May 14, TAC recovered 90% of the stolen funds to its multi-signature wallet."
+     }
+    ]
+   },
+   "open_questions": "First public statement time and pause time not found (post-mortem Appendix II has the full transaction list, not read). TON-side release times and count not given. BLUM minted: 117M (loss table) vs about 302M (lessons section). Recovery share: 80.2% of loss vs 90% of accessible assets. DefiLlama's 'Proof Verifier Bug' label does not match the post-mortem, which describes a missing code-hash check in the sequencer."
+  },
+  {
+   "event_id": "E47",
+   "dl_name": "THORChain DEX",
+   "dl_date": "2026-05-15",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Outflow from one threshold-signature (TSS) vault of THORChain's cross-chain swap network, which holds native assets on each connected chain; transfers were signed directly with the reconstructed vault key on 10 chains. THORChain says one of five vaults; Rekt and KuCoin also say one of six. The other vaults were unaffected.",
+    "sources": [
+     {
+      "url": "https://blog.thorchain.org/blog/thorchain-exploit-report-1",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "THORChain was the victim of a targeted exploit that drained approximately $10.7M from a single vault"
+     },
+     {
+      "url": "https://blog.thorchain.org/blog/thorchain-exploit-report-1",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The four remaining vaults are unaffected."
+     },
+     {
+      "url": "https://www.quillaudits.com/blog/hack-analysis/thorchain-gg20-hack",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "$10.7M drained from THORChain's Asgard vault across 10 chains in minutes."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-05-15",
+    "sources": [
+     {
+      "url": "https://rekt.news/thorchain-rekt3",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "On May 15, 2026, THORChain's Asgard vault was drained across multiple chains in rapid succession."
+     },
+     {
+      "url": "https://blog.thorchain.org/thorchain-quarterly-report-q2-2026",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "On May 15, THORChain identified unauthorized outbound transactions from one of its five Asgard vaults."
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 10700000,
+    "range": "7.4M (first estimate) to 10.7M (revised); QuillAudits per-chain values sum to about 10.6M",
+    "sources": [
+     {
+      "url": "https://blog.thorchain.org/thorchain-quarterly-report-q2-2026",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "Losses were initially estimated at $7.4M, later revised to approximately $10.7M."
+     },
+     {
+      "url": "https://blog.thorchain.org/blog/thorchain-exploit-report-1",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Approximately $10M (initially estimated at $7.4M) is drained from the targeted vault."
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "V",
+    "phrase": "Newly joined node reconstructed a vault's threshold key and signed transfers directly",
+    "sources": [
+     {
+      "url": "https://blog.thorchain.org/blog/thorchain-exploit-report-1",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "With the vault full private key reconstructed, the attacker signs and broadcasts outbound transactions directly,"
+     },
+     {
+      "url": "https://blog.thorchain.org/blog/thorchain-exploit-report-1",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "(2) the leading theory is confirmed as an exploit in the GG20 TSS implementation"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "All value left vault custody on the assets' home chains. QuillAudits per chain: Ethereum 5.20M, Bitcoin 3.26M, Dogecoin 0.58M, Litecoin 0.58M, BNB Chain 0.45M, Avalanche 0.28M, Bitcoin Cash 0.15M, Base 0.056M, XRP 0.05M, TRON 0.014M (USD). The EdDSA-based SOL pool was reported safe.",
+    "chains": [
+     "Ethereum",
+     "Bitcoin",
+     "Dogecoin",
+     "Litecoin",
+     "BSC",
+     "Avalanche",
+     "Bitcoin Cash",
+     "Base",
+     "XRP",
+     "TRON"
+    ],
+    "sources": [
+     {
+      "url": "https://www.quillaudits.com/blog/hack-analysis/thorchain-gg20-hack",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "$10.7M drained from THORChain's Asgard vault across 10 chains in minutes."
+     },
+     {
+      "url": "https://blog.thorchain.org/blog/thorchain-exploit-report-1",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The SOL pool was explicitly confirmed safe, as EdDSA-based chains are not vulnerable to this class of attack."
+     }
+    ]
+   },
+   "outflow": {
+    "first_release_utc": null,
+    "last_release_utc": null,
+    "duration_min": null,
+    "release_tx_count": null,
+    "count_note": "Not given as a whole. Rekt lists outbound transactions for some chains: Bitcoin 2, Base 1, Dogecoin 2, Litecoin 1, Bitcoin Cash 1, XRP 2, TRON 1; Ethereum, BNB Chain and Avalanche counts not stated. One anchor: the Base outbound transaction (from the vault address) is in Base block 46,020,408 at 2026-05-15T07:29:23Z (public RPC). QuillAudits says 'in minutes'; THORChain says the automatic halt came within about 52 minutes of the unauthorized transactions.",
+    "sources": [
+     {
+      "url": "https://rekt.news/thorchain-rekt3",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "On May 15, 2026, THORChain's Asgard vault was drained across multiple chains in rapid succession."
+     },
+     {
+      "url": "https://mainnet.base.org",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "eth_getTransactionReceipt: block 46020408, from 0x82a5cf67…8bda (vault); block timestamp 2026-05-15T07:29:23Z (converted by me)"
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": "2026-05-15T11:01Z",
+    "channel": "not named in the THORChain timeline (X posts by @THORChain found at 14:51:58 and 19:54:20 UTC)",
+    "note": "THORChain's timeline (all times UTC) lists the first official statement at 11:01 (one vault, about 7.4M). Rekt says the official statement came over 5 hours after ZachXBT's alert, which matches the 14:51:58 UTC X post (status 2055300162331742233) better; the channels may differ. Community alarm 09:08-09:41 UTC (THORChain timeline); PeckShield alert 09:58:55 UTC (status 2055226411125027171).",
+    "sources": [
+     {
+      "url": "https://blog.thorchain.org/blog/thorchain-exploit-report-1",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "May 15, 2026 at 11:01 - First official public statement"
+     },
+     {
+      "url": "https://x.com/THORChain/status/2055300162331742233",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "One of six Asgard vaults had been compromised"
+     },
+     {
+      "url": "https://rekt.news/thorchain-rekt3",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Over 5 hours after ZachXBT's announcement."
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "what": "Automatic solvency-checker halt of signing and trading on ETH, AVAX, BSC, BASE, DOGE and GAIA; then manual 720-block node pauses and Mimir votes: HALTTRADING (THORChain block 26183438), HALTSIGNING (26183439), HALTCHAINGLOBAL (26183590), HALTCHURNING (26183849). Network restarted June 22.",
+    "by": "Automatic (solvency checker, triggered when over 66% of nodes report insolvency on a chain), then node operators",
+    "note": "Automatic halt within about 52 minutes of the unauthorized transactions (about 08:21 UTC if the Base transaction at 07:29:23 UTC was among the first; not confirmed). Full network halt within about two hours of the community alarm (09:08 UTC). Clock times of the halt heights not retrieved.",
+    "sources": [
+     {
+      "url": "https://blog.thorchain.org/blog/thorchain-exploit-report-1",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Within approximately 52 minutes of the unauthorized transactions, the solvency checker had automatically halted signing and trading across ETH, AVAX, BSC, BASE, DOGE, and GAIA"
+     },
+     {
+      "url": "https://blog.thorchain.org/blog/thorchain-exploit-report-1",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "HALTCHAINGLOBAL activated at block 26183590"
+     },
+     {
+      "url": "https://blog.thorchain.org/blog/thorchain-exploit-report-1",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "Node xuuu is first to act with a manual 720-block pause"
+     },
+     {
+      "url": "https://blog.thorchain.org/thorchain-quarterly-report-q2-2026",
+      "type": "project announcement",
+      "how_read": "page read",
+      "quote": "The network stayed offline for roughly five weeks, restarting June 22"
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "yes",
+    "acted": "yes",
+    "how": "Solvency checker halted signing and trading about 52 minutes later; direct key signing bypassed it, outflow already complete.",
+    "sources": [
+     {
+      "url": "https://blog.thorchain.org/blog/thorchain-exploit-report-1",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "The reactive mode caught the imbalance after the fact, but the funds had already left the vault."
+     },
+     {
+      "url": "https://blog.thorchain.org/blog/thorchain-exploit-report-1",
+      "type": "project post-mortem",
+      "how_read": "page read",
+      "quote": "the proactive mode had no opportunity to intercept the signing process."
+     },
+     {
+      "url": "https://thedefiant.io/news/security/thorchain-reports-usd10-7m-loss-from-compromised-asgard-vault",
+      "type": "press",
+      "how_read": "search snippet",
+      "quote": "approximately $7.4M in unauthorized outbound transactions before the network halted signing activity"
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "none reported",
+    "date": null,
+    "note": "No recovery of the outflow reported in sources read. Recovery approach (ADR-028: bond slashing, protocol-owned liquidity) was undecided at the time of the reports; KuCoin says the loss was absorbed by protocol-owned liquidity (operator absorption, not recovery).",
+    "sources": [
+     {
+      "url": "https://rekt.news/thorchain-rekt3",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "No compensation plan exists so far."
+     },
+     {
+      "url": "https://www.kucoin.com/news/flash/thorchain-resumes-trading-after-5-week-pause-following-10-7m-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the protocol absorbed the hit through its protocol-owned liquidity reserves"
+     }
+    ]
+   },
+   "open_questions": "(1) First and last outbound times per chain not published; only the Base transaction time was checked. (2) Whether the 7.4M versus 10.7M gap reflects value that left after the automatic halt or only a revised count; THORChain's text implies all value left before the halt. (3) First statement: 11:01 UTC (THORChain timeline) vs the 14:51 UTC X post (Rekt's 'over 5 hours'). (4) Vault count five vs six. (5) Solvency-halt block 26190429 (QuillAudits, Rekt) vs Mimir halt heights from 26183438 (THORChain). (6) Whether THORChain's scheduled-outbound delay could have applied: not mentioned, and direct key signing bypasses protocol outbound handling."
+  },
+  {
+   "event_id": "E48",
+   "dl_name": "Verus-Ethereum Bridge",
+   "dl_date": "2026-05-17",
+   "scope": {
+    "value": "bridge_custody_or_mint",
+    "note": "Release of reserves (ETH, tBTC, USDC) from the Ethereum-side Verus bridge contract in one import call. Not a duplicate of DefiLlama's 2026-07-22 Verus-Ethereum Bridge record (7.53M), a later event on the same bridge.",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/401571/verus-ethereum-bridge-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the Verus-Ethereum bridge has been drained for 103.6 tBTC, 1,625 ETH, and 147,000 USDC."
+     },
+     {
+      "url": "https://rekt.news/veruscoin-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Two months earlier, the same bridge lost $11.6 million to the same entry path and the same bug class."
+     }
+    ]
+   },
+   "event_date_utc": {
+    "value": "2026-05-17",
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/api/v2/transactions/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "\"timestamp\":\"2026-05-17T23:55:23.000000Z\", block 25118335, method submitImports, status ok"
+     },
+     {
+      "url": "https://www.theblock.co/post/401571/verus-ethereum-bridge-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "in a late Sunday post on X"
+     }
+    ]
+   },
+   "amount_usd": {
+    "value": 11580000,
+    "range": "11.0M-11.6M USD (Blockaid about 11.58M; The Block: swapped to 5,402 ETH, about 11.4M; Rekt 11.6M; DefiLlama 11.5M)",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/401571/verus-ethereum-bridge-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "drained roughly $11.58 million so far."
+     },
+     {
+      "url": "https://www.theblock.co/post/401571/verus-ethereum-bridge-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the attacker subsequently swapped the stolen assets for 5,402 ETH, worth about $11.4 million."
+     },
+     {
+      "url": "https://rekt.news/veruscoin-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "Two months earlier, the same bridge lost $11.6 million to the same entry path and the same bug class."
+     }
+    ]
+   },
+   "failure_class": {
+    "value": "D",
+    "phrase": "Release-side contract misparsed export data and released reserves without a matching valid export",
+    "sources": [
+     {
+      "url": "https://www.nominis.io/insights/nominis-monthly-report-crypto-exploits-and-attacks-in-may-2026",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "a parsing inconsistency between how Verus and the Ethereum contract interpreted export data."
+     },
+     {
+      "url": "https://rekt.news/veruscoin-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "checkCCEValues, the function patched after May, had held."
+     },
+     {
+      "url": "https://www.theblock.co/post/401571/verus-ethereum-bridge-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the attacker appeared to have sent a low-value transaction to the bridge contract and called a specific function"
+     }
+    ]
+   },
+   "release_side": {
+    "value": "escrow",
+    "share_note": "100% escrow: Ethereum-side bridge contract reserves (1,625.37 ETH, 103.568 tBTC, 147,658.84 USDC) sent in one transaction.",
+    "chains": [
+     "Ethereum"
+    ],
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/api/v2/addresses/[redacted]/token-transfers",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "2026-05-17T23:55:23Z, method 0x8c49b257: TBTC 103.56766017 and USDC 147658.836798 from the bridge (Delegator) to 0x65Cb…25F9"
+     },
+     {
+      "url": "https://eth.blockscout.com/api/v2/transactions/[redacted]/internal-transactions",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "call 1625.36688649 ETH from the bridge (Delegator) to 0x65Cb…25F9"
+     }
+    ]
+   },
+   "outflow": {
+    "first_release_utc": "2026-05-17T23:55:23Z",
+    "last_release_utc": "2026-05-17T23:55:23Z",
+    "duration_min": 0,
+    "release_tx_count": 1,
+    "count_note": "One transaction (submitImports, Ethereum block 25,118,335) carried all three asset transfers; found by me in Blockscout data and matching the press amounts. No other outbound transfers from the bridge to the recipient between May 17 and May 19 in the token-transfer listing (native ETH listing not checked beyond this transaction). First public alert: Blockaid at 2026-05-18T00:55:51Z (status 2056176908333654293), about 60 minutes later.",
+    "sources": [
+     {
+      "url": "https://eth.blockscout.com/api/v2/transactions/[redacted]",
+      "type": "explorer",
+      "how_read": "page read",
+      "quote": "\"timestamp\":\"2026-05-17T23:55:23.000000Z\", block 25118335, method submitImports, status ok"
+     },
+     {
+      "url": "https://x.com/blockaid_/status/2056176908333654293",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "drained roughly $11.58 million so far."
+     }
+    ]
+   },
+   "first_ack": {
+    "utc": null,
+    "channel": "Verus Discord (lead developer updates); X (@VerusCoin) redirected users to Discord",
+    "note": "Discord statement time not found; it was quoted by The Block, whose article was published 02:54 UTC and updated 07:34 UTC on May 18. Earliest @VerusCoin X post found: 2026-05-18T11:39:42Z (status 2056338938705420339), linked by Rekt as the redirect to Discord.",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/401571/verus-ethereum-bridge-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "with most block-generating nodes taking themselves offline after encountering byproducts of the attack as designed."
+     },
+     {
+      "url": "https://x.com/VerusCoin/status/2056338938705420339",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "VerusCoin redirected people to Discord, with Mike Toutonghi, Verus’s lead developer, giving updates."
+     }
+    ]
+   },
+   "pause": {
+    "utc": null,
+    "what": "Verus network halted: most block-generating nodes took themselves offline after encountering byproducts of the event (automatic by design). Whether the Ethereum-side contract was paused is not stated.",
+    "by": "Verus block-generating nodes (automatic)",
+    "note": "Halt time not given; reported in the team's Discord statement quoted by The Block on May 18. Recovered ETH was moved back into the bridge contract on July 8 as part of a bridge restoration update.",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/401571/verus-ethereum-bridge-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the Verus network has halted"
+     },
+     {
+      "url": "https://rekt.news/veruscoin-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "part of Verus’s v1.2.17 bridge restoration and recovery update."
+     }
+    ]
+   },
+   "limit_mechanism": {
+    "existed": "unknown",
+    "acted": "unknown",
+    "how": "No source mentions one; one transaction released 1,625 ETH, 103.6 tBTC and 147,659 USDC.",
+    "sources": [
+     {
+      "url": "https://www.theblock.co/post/401571/verus-ethereum-bridge-exploit",
+      "type": "press",
+      "how_read": "page read",
+      "quote": "the Verus-Ethereum bridge has been drained for 103.6 tBTC, 1,625 ETH, and 147,000 USDC."
+     }
+    ]
+   },
+   "returned": {
+    "amount_usd": null,
+    "native": "4,052.4 ETH returned to community control (about 75%); 1,350 ETH kept as a bounty",
+    "date": "2026-05-23 (confirmed by @VerusCoin, status 2058171278096228621 = 2026-05-23T13:00:46Z)",
+    "note": "Returned voluntarily under a public bounty offer (posted 2026-05-21T14:15:07Z, status 2057465214975492358). USD value not stated; at the 5,402 ETH = 11.4M rate implied by The Block it would be about 8.55M (my computation). Recovered funds converted back to original currencies by May 28; about 1,192 ETH moved back into the bridge contract on July 8.",
+    "sources": [
+     {
+      "url": "https://rekt.news/veruscoin-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "By May 23rd, the team confirmed 4,052.4 ETH, roughly 75% of the stolen funds, had been returned to community control."
+     },
+     {
+      "url": "https://rekt.news/veruscoin-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "The community offered 1,350 ETH as a bounty in exchange for the return of 4,052.4 ETH within 24 hours of the post."
+     },
+     {
+      "url": "https://x.com/VerusCoin/status/2058171278096228621",
+      "type": "X post (time from status ID)",
+      "how_read": "page read",
+      "quote": "By May 23rd, the team confirmed 4,052.4 ETH, roughly 75% of the stolen funds, had been returned to community control."
+     },
+     {
+      "url": "https://rekt.news/veruscoin-rekt",
+      "type": "third-party analysis",
+      "how_read": "page read",
+      "quote": "In May, the attacker returned 4,052.4 ETH and kept a 25% bounty."
+     }
+    ]
+   },
+   "open_questions": "Exact Verus network halt time and whether the Ethereum contract was paused. Verus team's first Discord statement time. USD value of the returned 4,052.4 ETH. Native-ETH outflows in other transactions were not scanned (the token listing and the release transaction's internal transfers match the press totals). Date conflict: DefiLlama 05-17 and the block time (23:55 UTC May 17) vs NOMINIS and CoinDesk ('Monday', May 18)."
+  }
+ ]
+}

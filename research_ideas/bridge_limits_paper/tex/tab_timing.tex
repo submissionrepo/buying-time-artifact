@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\caption{Timing of the failures, measured from the first unauthorized release: median and quartiles over the $n$ failures where each time is known. Last release, 90\% out: a quartile of 0\,s means that at least a quarter of these failures released everything within one block. Alert: the first public alert by a third party. Acknowledgment: the operator's first public statement. First response: the earlier of the acknowledgment and the pause, or for one failure a third party's report that the pause had happened.}
+\label{tab:timing}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}l r r r@{}}
+\toprule
+Quantity & $n$ & Median & Quartiles \\
+\midrule
+Last release & 48 & 7\,min 52\,s & 0\,s to 1\,h 8\,min \\
+90\% of the value out & 34 & 10\,s & 0\,s to 11\,min 31\,s \\
+Alert by a third party & 26 & 1\,h 25\,min & 53\,min 24\,s to 4\,h 2\,min \\
+Acknowledgment & 47 & 5\,h 0\,min & 2\,h 35\,min to 12\,h 22\,min \\
+Pause & 19 & 3\,h 39\,min & 1\,h 0\,min to 8\,h 9\,min \\
+First response & 48 & 3\,h 42\,min & 2\,h 3\,min to 11\,h 23\,min \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,110 @@
+{
+ "target": "E05_eth",
+ "config": {
+  "event_id": "E05",
+  "leg": "Ethereum escrow",
+  "chain": "ethereum",
+  "window_utc": [
+   "2021-08-10T09:00:00",
+   "2021-08-10T11:30:00"
+  ]
+ },
+ "blocks": [
+  12996452,
+  12997135
+ ],
+ "n_candidate_rows": 16,
+ "rows": [
+  {
+   "selected": true,
+   "ts": 1628589344,
+   "block": 12996694,
+   "kind": "erc20",
+   "symbol": "USDC",
+   "amount": 96389444.229984,
+   "usd": 96472277.7248434
+  },
+  {
+   "selected": true,
+   "ts": 1628589442,
+   "block": 12996698,
+   "kind": "erc20",
+   "symbol": "WBTC",
+   "amount": 1032.12483694,
+   "usd": 47569557.47158803
+  },
+  {
+   "selected": true,
+   "ts": 1628589521,
+   "block": 12996704,
+   "kind": "erc20",
+   "symbol": "DAI",
+   "amount": 673227.9415331132,
+   "usd": 677958.908223857
+  },
+  {
+   "selected": true,
+   "ts": 1628589539,
+   "block": 12996706,
+   "kind": "erc20",
+   "symbol": "UNI",
+   "amount": 43023.75136539644,
+   "usd": 1264366.3014270058
+  },
+  {
+   "selected": true,
+   "ts": 1628589830,
+   "block": 12996730,
+   "kind": "erc20",
+   "symbol": "SHIB",
+   "amount": 259737345149.51978,
+   "usd": 2003301.1219673576
+  },
+  {
+   "selected": true,
+   "ts": 1628589862,
+   "block": 12996736,
+   "kind": "erc20",
+   "symbol": "renBTC",
+   "amount": 14.47265047,
+   "usd": 665119.7242531044
+  },
+  {
+   "selected": true,
+   "ts": 1628590299,
+   "block": 12996766,
+   "kind": "erc20",
+   "symbol": "USDT",
+   "amount": 33431197.734821,
+   "usd": 33581269.14281543
+  },
+  {
+   "selected": true,
+   "ts": 1628591132,
+   "block": 12996839,
+   "kind": "erc20",
+   "symbol": "WETH",
+   "amount": 26109.060672756732,
+   "usd": 82240395.248991
+  },
+  {
+   "selected": true,
+   "ts": 1628591258,
+   "block": 12996843,
+   "kind": "erc20",
+   "symbol": "FEI",
+   "amount": 616082.5899889603,
+   "usd": 618856.4057660566
+  },
+  {
+   "selected": true,
+   "ts": 1628589062,
+   "block": 12996671,
+   "kind": "native",
+   "symbol": "ETH",
+   "amount": 2857.4863468458902,
+   "usd": 9016728.322516767
+  }
+ ],
+ "pauses": []
+}

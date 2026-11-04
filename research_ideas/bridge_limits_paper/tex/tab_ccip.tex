@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\caption{Inbound buckets at the release point of 16 CCIP token lanes, replayed on execution times in 30-day segments against today's buckets. Each 30 days, a bucket is refitted to the previous 90 days for a response time $D$ (in hours) and scaled by a margin $\mu$. Review: transfers above the 99th percentile of sizes in the fit window, about 2.4 per lane and month, wait for a review, and the bucket is fitted to the rest. Delayed: share of value that the bucket delayed. Delay: hours of waiting in the bucket per dollar of tested value. Reviewed: share of value sent to review. Even: the review latency, in hours, at which the delay per dollar, counting a reviewed transfer as waiting that latency, equals today's. 1\,h, 6\,h: release within that time, median over lanes, relative to today's bucket.}
+\label{tab:ccip}
+\footnotesize
+\setlength{\tabcolsep}{2.6pt}
+\begin{tabular}{@{}l l l r r r r r r@{}}
+\toprule
+$D$ & $\mu$ & Review & Delayed & Delay & Reviewed & Even & 1\,h & 6\,h \\
+\midrule
+\multicolumn{3}{@{}l}{Today's buckets} & 19.3\% & 0.53 & -- & -- & 1 & 1 \\
+6 & 1.5 & no & 8.3\% & 10.76 & -- & -- & 1.57 & 0.60 \\
+1 & 1.5 & no & 9.7\% & 9.90 & -- & -- & 1.18 & 0.99 \\
+1 & 1 & yes & 4.9\% & 0.12 & 24\% & 1.7 & 0.42 & 0.35 \\
+1 & 1.5 & yes & 0.8\% & 0.01 & 24\% & 2.2 & 0.62 & 0.52 \\
+1 & 2 & yes & 0.0\% & 0.00 & 24\% & 2.2 & 0.83 & 0.70 \\
+6 & 1.5 & yes & 3.6\% & 0.34 & 24\% & 0.8 & 1.09 & 0.44 \\
+6 & 2 & yes & 0.7\% & 0.04 & 24\% & 2.1 & 1.46 & 0.58 \\
+\bottomrule
+\end{tabular}
+\end{table}

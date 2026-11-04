@@ -1,0 +1,16 @@
+\begin{table*}[t]
+\centering
+\caption{Share of the value of the failures contained at the release point when the response time changes. $kD$: every response time multiplied by $k$. No response if found by outflow: the failures detected through their own outflow (third-party alert, user report, shortfall) get no response. No response without independent pause: the same for failures where no independent party could pause. Response at first alert: the first public alert by a third party, where earlier. Alarm: an independent pause one hour or ten minutes after the first release that no deposit backs. All 57: the untimed failures included, with no response.}
+\label{tab:response}
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}l r r r r r r r r r r @{}}
+\toprule
+Rule & \multicolumn{1}{p{1.3cm}}{\raggedleft As observed} & \multicolumn{1}{p{1.3cm}}{\raggedleft $2D$} & \multicolumn{1}{p{1.3cm}}{\raggedleft $5D$} & \multicolumn{1}{p{1.3cm}}{\raggedleft $10D$} & \multicolumn{1}{p{1.3cm}}{\raggedleft No response if found by outflow} & \multicolumn{1}{p{1.3cm}}{\raggedleft No response without independent pause} & \multicolumn{1}{p{1.3cm}}{\raggedleft Response at first alert} & \multicolumn{1}{p{1.3cm}}{\raggedleft Alarm, 1 h} & \multicolumn{1}{p{1.3cm}}{\raggedleft Alarm, 10 min} & \multicolumn{1}{p{1.3cm}}{\raggedleft All 57} \\
+\midrule
+Bucket, \$1M per hour & 87.2\% & 80.3\% & 68.4\% & 62.8\% & 62.8\% & 80.6\% & 87.9\% & 96.1\% & 97.2\% & 86.3\% \\
+Hold, 24 hours & 80.7\% & 79.8\% & 71.8\% & 25.4\% & 64.9\% & 73.5\% & 80.7\% & 99.7\% & 99.7\% & 79.9\% \\
+Matched to traffic & 75.3\% & 71.7\% & 63.9\% & 56.9\% & 53.5\% & 71.1\% & 75.5\% & 79.1\% & 79.1\% & 74.5\% \\
+\bottomrule
+\end{tabular}
+\end{table*}

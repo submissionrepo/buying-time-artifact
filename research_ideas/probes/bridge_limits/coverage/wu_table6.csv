@@ -1,0 +1,50 @@
+row,name,date,amount_usd,source,stage,reason,our_id,class,note
+1,THORChain #2,2021/07/16,5000000,Rekt News,Source Chain,Fake Lock Event,E03,,
+2,Qubit,2022/01/01,80000000,Rekt News,Source Chain,Fake Lock Event,E10,,paper date 26 days before ours (2022-01-27); name and amount match
+3,Meterio,2022/02/06,4200000,Rekt News,Source Chain,Fake Lock Event,E12,,
+4,THORChain #1,2021/06/29,350000,Slowmist,Source Chain,Fake Deposit Event,none,below 1M,DL THORChain DEX 2021-06-29 350000 bridgeHack=True
+5,THORChain #3,2021/07/23,8000000,Rekt News,Source Chain,Fake Deposit Event,E04,,
+6,QAN Platform,2022/10/11,2000000,Rekt News,Source Chain,Fake Deposit Event,E17,,
+7,Anyswap #1,2021/07/10,7900000,Rekt News,Off-chain,Verification failure,E01,,
+8,Levyathan,2021/07/30,1500000,Rekt News,Off-chain,Verification failure,none,not a bridge release,DL Levyathan 2021-07-30 1.5M Frontend & Infrastructure / Key Stored Publicly bridgeHack=False; yield-farm token minted through a taken-over Timelock/MasterChef (paper p.3)
+9,Ronin #1,2022/03/29,625000000,Rekt News,Off-chain,Verification failure,E13,,paper uses disclosure date; ours 2022-03-23
+10,Rainbow(NEAR) #1,2022/05/02,0,Notland et al. [20],Off-chain,Verification failure,none,below 1M,zero loss; not in DL
+11,Nomad,2022/08/01,190000000,Rekt News,Off-chain,Verification failure,E15,,
+12,Binance bridge,2022/10/08,566000000,Rekt News,Off-chain,Verification failure,E16,,
+13,Poly Network #2,2023/07/01,10200000,Rekt News,Off-chain,Verification failure,E21,,
+14,Ronin #2,2024/08/06,12000000,Rekt News,Off-chain,Verification failure,E30,,
+15,Poly Network #1,2021/08/11,600000000,Rekt News,Off-chain,Verification failure,E05,,
+16,ChainSwap,2021/07/11,8000000,Rekt News,Target Chain,Unverified withdrawal,E02,,amount 8M vs ours 4.4M
+17,pNetwork,2021/09/20,13000000,Medium,Target Chain,Unverified withdrawal,E06,,
+18,wormhole,2022/02/03,320000000,Rekt News,Target Chain,Unverified withdrawal,E11,,
+19,Ankr,2022/12/02,24000000,Rekt News,Target Chain,Unverified withdrawal,none,not a bridge release,DL Ankr 2022-12-02 5.0M Access Control bridgeHack=False; liquid-staking token minted with a compromised deployer key
+20,Hypr bridge,2023/12/14,220000,Rekt News,Target Chain,Unverified withdrawal,none,below 1M,not in DL
+21,X bridge,2024/04/24,1440000,Rekt News,Target Chain,Unverified withdrawal,E27,,
+22,Polygon Plasma,2021/10/21,850000000,Medium,Target Chain,Unverified withdrawal,none,below 1M,zero released: bug-bounty disclosure (value at risk); not in DL
+23,Zapper,2021/06/10,0,Notland et al. [20],Not specific to cross-chain process,Over-Authorisation,none,below 1M,zero loss (whitehat rescue); not in DL (DL Zapper record is a 2025 DNS hijack)
+24,Anyswap #2,2022/01/18,3000000,Notland et al. [20],Not specific to cross-chain process,Over-Authorisation,E09,in universe left out,our reason: user WETH approvals
+25,Li Finance,2022/03/20,600000,Medium,Not specific to cross-chain process,Over-Authorisation,none,below 1M,DL LI.FI 2022-03-21 600000 Token Approval Abuse bridgeHack=False
+26,Badger,2022/12/02,120000000,Rekt News,Not specific to cross-chain process,Over-Authorisation,none,not a bridge release,DL Badger DAO 2021-12-02 120M CDN Compromise bridgeHack=False; front-end script drained user approvals of a yield-vault protocol; paper year likely 2021
+27,Rubic,2022/12/25,1400000,Slowmist,Not specific to cross-chain process,Over-Authorisation,E20,in universe left out,our reason: user token approvals
+28,Hashflow,2023/07/14,600000,Medium,Not specific to cross-chain process,Over-Authorisation,none,below 1M,DL Hashflow 2023-06-15 605000 Token Approval Abuse bridgeHack=False
+29,Socket tech,2024/01/16,3300000,Notland et al. [20],Not specific to cross-chain process,Over-Authorisation,E26,in universe left out,our reason: user token approvals
+30,ALEX Lab,2024/05/15,4300000,Rekt,Not specific to cross-chain process,Private key leakage,E28,,
+31,Hector Network,2024/01/15,27000000,Notland et al. [20],Not specific to cross-chain process,Private key leakage,none,not a bridge release,DL Hector Network 2024-01-16 2.7M Access Control bridgeHack=False; redemption treasury drained through a privileged role
+32,Orbit chain,2023/12/31,81500000,Rekt News,Not specific to cross-chain process,Private key leakage,E25,,
+33,Heco bridge,2023/11/22,99100000,Rekt News,Not specific to cross-chain process,Private key leakage,E24,,
+34,pGala,2022/11/04,10800000,Slowmist,Not specific to cross-chain process,Private key leakage,E19,in universe left out,our reason: operator's own unbacked mint
+35,Harmony,2022/06/23,100000000,Rekt News,Not specific to cross-chain process,Private key leakage,E14,,
+36,Marvin Inu,2022/04/11,350000,Notland et al. [20],Not specific to cross-chain process,Private key leakage,none,below 1M,not in DL
+37,Allbridge,2023/04/01,57000000,Medium,Not specific to cross-chain process,Flash-loan,none,below 1M,DL Allbridge Core 2023-04-02 573000 bridgeHack=True; Zhang gives 0.57M; Wu figure 100x
+38,Zenon,2021/11/21,1000000,Rekt,Not specific to cross-chain process,Flash-loan,none,not a bridge release,not in DL; public burn function on wZNN token used to drain a DEX pool
+39,Multichain,2023/07/06,126300000,Rekt News,Not specific to cross-chain process,Rug-pull,E22,,
+40,Ordizk,2024/03/05,14000000,Certik,Not specific to cross-chain process,Rug-pull,none,not a bridge release,not in DL; team exit (token dumps and team wallets; CertiK puts it at 1.4M)
+41,Bondly,2021/07/15,5900000,Rekt News,Not specific to cross-chain process,Rug-pull,none,not a bridge release,DL Bondly 2021-07-15 5.9M Social Engineering bridgeHack=False; owner wallet minted BONDLY on Ethereum
+42,LayerSwap,2024/03/20,100000,Slowmist,Not specific to cross-chain process,DNS hijacking,none,below 1M,DL LayerSwap 100000 DNS Hijack bridgeHack=False
+43,Celer Bridge,2022/08/18,20000,Slowmist,Not specific to cross-chain process,DNS hijacking,none,below 1M,DL Celer cBridge 2022-08-18 240000 DNS Hijack bridgeHack=True
+44,EvoDeFi Bridge,2022/03/08,0,Slowmist,Not specific to cross-chain process,DNS hijacking,none,below 1M,not in DL for 2022
+45,deBridge,2022/08/06,0,Notland et al. [20],Not specific to cross-chain process,Phishing email,none,below 1M,zero loss; not in DL
+46,Rainbow(Aurora),2022/05/02,0,Notland et al. [20],Not specific to cross-chain process,False transaction,none,below 1M,zero loss; not in DL
+47,Rainbow(NEAR),2022/08/22,0,Notland et al. [20],Not specific to cross-chain process,Fabricated block,none,below 1M,zero loss; not in DL
+48,Omni Bridge,2022/09/16,4200000,Notland et al. [20],Not specific to cross-chain process,Replay attack,none,below 1M,not in DL; replay on the EthereumPoW fork releasing about 200 ETHW (BlockSec)
+49,Meson Finance,2024/04/19,0,Slowmist,Not specific to cross-chain process,Hacked twitter,none,below 1M,zero loss; not in DL

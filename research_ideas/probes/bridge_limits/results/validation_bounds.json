@@ -1,0 +1,41 @@
+{
+  "E55_taiko": {
+    "quota_eth_per_day": 1000.0,
+    "refill_eth_per_hour": 41.666666666666664,
+    "left_after_t0": 1.0,
+    "check_available_at_read": {
+      "model": 128.22,
+      "onchain": 128.22
+    },
+    "n_eth_releases": 25,
+    "first_eth_release": {
+      "eth": 130.0,
+      "bound": 136.0
+    },
+    "released_eth": 277.97,
+    "bound_at_last_release": 297.25,
+    "share_of_bound": 0.9351462304457524,
+    "max_cumulative_over_bound": 0.9872265464689471,
+    "held_eth_about": 1285
+  },
+  "E30_ronin_2024": {
+    "USDC": {
+      "lock_threshold": 2000000.0,
+      "daily_limit": 2500000.0,
+      "withdrawn_that_day_before": 16200.17466,
+      "bound": 2483799.82534,
+      "taken": 1998046.875,
+      "share_of_bound": 0.804431522466386,
+      "below_lock": true
+    },
+    "WETH": {
+      "lock_threshold": 4000.0,
+      "daily_limit": 4500.0,
+      "withdrawn_that_day_before": 103.42779729963569,
+      "bound": 4396.572202700364,
+      "taken": 3996.09375,
+      "share_of_bound": 0.9089112075870399,
+      "below_lock": true
+    }
+  }
+}

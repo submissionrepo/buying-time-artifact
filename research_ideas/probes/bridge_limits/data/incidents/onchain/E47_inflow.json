@@ -1,0 +1,271 @@
+{
+ "target": "E47_inflow",
+ "config": {
+  "event_id": "E47",
+  "leg": "Releases from one THORChain vault, read as inflows to the recipient addresses",
+  "mode": "inflow",
+  "window_utc": [
+   "2026-05-15T06:00:00",
+   "2026-05-15T11:00:00"
+  ]
+ },
+ "blocks": {
+  "ethereum": [
+   25098609,
+   25100108
+  ]
+ },
+ "n_candidate_rows": 101,
+ "rows": [
+  {
+   "selected": true,
+   "ts": 1778832743,
+   "block": 25099270,
+   "chain": "ethereum",
+   "kind": "erc20",
+   "symbol": "USDC",
+   "amount": 1261986.531199,
+   "usd": 1261605.7805722812
+  },
+  {
+   "selected": true,
+   "ts": 1778832755,
+   "block": 25099271,
+   "chain": "ethereum",
+   "kind": "erc20",
+   "symbol": "USDT",
+   "amount": 1756756.022509,
+   "usd": 1756243.9556058322
+  },
+  {
+   "selected": true,
+   "ts": 1778832779,
+   "block": 25099273,
+   "chain": "ethereum",
+   "kind": "erc20",
+   "symbol": "WBTC",
+   "amount": 5.20629375,
+   "usd": 418913.2628913958
+  },
+  {
+   "selected": true,
+   "ts": 1778832791,
+   "block": 25099274,
+   "chain": "ethereum",
+   "kind": "erc20",
+   "symbol": "DAI",
+   "amount": 4567.54327231,
+   "usd": 4566.1400405875875
+  },
+  {
+   "selected": true,
+   "ts": 1778832803,
+   "block": 25099275,
+   "chain": "ethereum",
+   "kind": "erc20",
+   "symbol": "THOR",
+   "amount": 3349323.54952154,
+   "usd": 152302.2362760236
+  },
+  {
+   "selected": true,
+   "ts": 1778832815,
+   "block": 25099276,
+   "chain": "ethereum",
+   "kind": "erc20",
+   "symbol": "LUSD",
+   "amount": 64138.47288456,
+   "usd": 64281.16211550907
+  },
+  {
+   "selected": true,
+   "ts": 1778832827,
+   "block": 25099277,
+   "chain": "ethereum",
+   "kind": "erc20",
+   "symbol": "XRUNE",
+   "amount": 73768463.86432339,
+   "usd": 75192.9000811963
+  },
+  {
+   "selected": true,
+   "ts": 1778834207,
+   "block": 25099392,
+   "chain": "ethereum",
+   "kind": "erc20",
+   "symbol": "USDP",
+   "amount": 38762.45256026,
+   "usd": 38759.07225018842
+  },
+  {
+   "selected": true,
+   "ts": 1778834591,
+   "block": 25099424,
+   "chain": "ethereum",
+   "kind": "erc20",
+   "symbol": "GUSD",
+   "amount": 61074.86,
+   "usd": 61035.52809128579
+  },
+  {
+   "selected": true,
+   "ts": 1778834807,
+   "block": 25099442,
+   "chain": "ethereum",
+   "kind": "erc20",
+   "symbol": "AAVE",
+   "amount": 78.10741458,
+   "usd": 7596.958225408592
+  },
+  {
+   "selected": true,
+   "ts": 1778834819,
+   "block": 25099443,
+   "chain": "ethereum",
+   "kind": "erc20",
+   "symbol": "LINK",
+   "amount": 1044.06055831,
+   "usd": 10806.265628772997
+  },
+  {
+   "selected": true,
+   "ts": 1778834831,
+   "block": 25099444,
+   "chain": "ethereum",
+   "kind": "erc20",
+   "symbol": "FOX",
+   "amount": 481996.68241809,
+   "usd": 3107.9136203305434
+  },
+  {
+   "selected": true,
+   "ts": 1778834843,
+   "block": 25099445,
+   "chain": "ethereum",
+   "kind": "erc20",
+   "symbol": "YFI",
+   "amount": 1.05702124,
+   "usd": 2826.9203892490023
+  },
+  {
+   "selected": true,
+   "ts": 1778834855,
+   "block": 25099446,
+   "chain": "ethereum",
+   "kind": "erc20",
+   "symbol": "SNX",
+   "amount": 1514.92539122,
+   "usd": 496.8974061894031
+  },
+  {
+   "selected": true,
+   "ts": 1778834867,
+   "block": 25099447,
+   "chain": "ethereum",
+   "kind": "erc20",
+   "symbol": "DPI",
+   "amount": 11.43217176,
+   "usd": 515.0324956284857
+  },
+  {
+   "selected": true,
+   "ts": 1778842247,
+   "block": 25100061,
+   "chain": "ethereum",
+   "kind": "erc20",
+   "symbol": "USDC",
+   "amount": 515.20025,
+   "usd": 515.0448102918702
+  },
+  {
+   "selected": true,
+   "ts": 1778842259,
+   "block": 25100062,
+   "chain": "ethereum",
+   "kind": "erc20",
+   "symbol": "TGT",
+   "amount": 779500.02439173,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1778842271,
+   "block": 25100063,
+   "chain": "ethereum",
+   "kind": "erc20",
+   "symbol": "GRT",
+   "amount": 335.93749999,
+   "usd": 9.362153905178085
+  },
+  {
+   "selected": true,
+   "ts": 1778842307,
+   "block": 25100066,
+   "chain": "ethereum",
+   "kind": "erc20",
+   "symbol": "LENDS",
+   "amount": 752.53222088,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1778842319,
+   "block": 25100067,
+   "chain": "ethereum",
+   "kind": "erc20",
+   "symbol": "XRUNE",
+   "amount": 3804.45023156,
+   "usd": 3.8779124728924437
+  },
+  {
+   "selected": true,
+   "ts": 1778842379,
+   "block": 25100072,
+   "chain": "ethereum",
+   "kind": "erc20",
+   "symbol": "vTHOR",
+   "amount": 34383.27798934,
+   "usd": null
+  },
+  {
+   "selected": true,
+   "ts": 1778842403,
+   "block": 25100074,
+   "chain": "ethereum",
+   "kind": "erc20",
+   "symbol": "wstETH",
+   "amount": 1.41e-06,
+   "usd": 0.003926086260071605
+  },
+  {
+   "selected": true,
+   "ts": 1778829899,
+   "block": 25099033,
+   "chain": "ethereum",
+   "kind": "native",
+   "symbol": "ETH",
+   "amount": 1086.0,
+   "usd": 2458968.46565245
+  },
+  {
+   "selected": true,
+   "ts": 1778837531,
+   "block": 25099668,
+   "chain": "ethereum",
+   "kind": "native",
+   "symbol": "ETH",
+   "amount": 0.09,
+   "usd": 203.7819170430207
+  },
+  {
+   "selected": true,
+   "ts": 1778830307,
+   "block": 949477,
+   "chain": "bitcoin",
+   "kind": "native",
+   "symbol": "BTC",
+   "amount": 36.8535043,
+   "usd": 2980813.0877368883
+  }
+ ]
+}

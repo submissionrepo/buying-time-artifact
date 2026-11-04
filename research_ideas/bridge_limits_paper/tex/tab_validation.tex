@@ -1,0 +1,26 @@
+\begin{table}[t]
+\centering
+\caption{Failures that met a rule in force. Prediction: what the model says the rule could hold, from its placement, control and shape (Sections~\ref{sec:where} and~\ref{sec:shape}); for the first three rules, at the release point under separate control, the bound from the parameters in force and the time the outflow ran. Outcome: what the failure released (Appendix~\ref{app:events}).}
+\label{tab:validation}
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.42cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{2.3cm} >{\raggedright\arraybackslash}p{2.3cm}@{}}
+\toprule
+Failure & Rule in force & Prediction & Outcome \\
+\midrule
+Taiko (2026) & ether quota of 1,000 a day, 999 used before & at most 297 ether by the last release (41.7 an hour) & 278 ether (94\%); assets without a quota in full \\
+Ronin (2024) & review above 4,000 ether or 2M USDC; daily cap & at most 4,397 ether and 2.48M USDC & 3,996 ether (91\%), 2.00M USDC (80\%) \\
+Poly Network Neo (2024) & a fifth of the backing in the releasing contract & at most that contract's balance & ended when it was empty \\
+Nomad (2022) & 30-minute window on new message roots & a hold in a skipped stage holds nothing & root accepted at initialization \\
+THORChain (2026) & halt of the verifiers' signing & a halt there misses key-signed releases & key-signed releases went on \\
+QANplatform (2022) & cap per transaction for each signer & a cap the failing key controls is absent & cap set to the maximum \\
+ChainSwap (2021) & quota per signer & a cap per message does not bound the total & 1,136 releases in 35 minutes \\
+Maya Protocol (2026) & delay for large outbound transfers & a delay by size holds nothing below it & no outbound was delayed \\
+AFX Trade (2026) & 200-second dispute window & a cliff holds nothing after its deadline & elapsed unchallenged \\
+Aztec 2.0 (2026) & escape window of 48 minutes in 16 hours & an open window without a cap holds nothing & all releases in an open window \\
+NEAR Intents (2026) & outlier monitor that pauses & an alarm alone saves what is left & paused after the last release \\
+Shibarium (2025) & halt on inconsistent checkpoints & an alarm alone saves what is left & halted after both releases \\
+Nomic on Osmosis (2026) & static cap on a pool's share & a cap whose room returns lets all out & 18 of 40.65 on day one; the rest later \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,119 @@
+{
+ "target": "E14_eth",
+ "config": {
+  "event_id": "E14",
+  "leg": "Ethereum escrow",
+  "chain": "ethereum",
+  "window_utc": [
+   "2022-06-23T10:30:00",
+   "2022-06-23T12:30:00"
+  ]
+ },
+ "blocks": [
+  15012482,
+  15012952
+ ],
+ "n_candidate_rows": 11,
+ "rows": [
+  {
+   "selected": true,
+   "ts": 1655982481,
+   "block": 15012652,
+   "kind": "erc20",
+   "symbol": "USDC",
+   "amount": 41200000.0,
+   "usd": 41231464.33063161
+  },
+  {
+   "selected": true,
+   "ts": 1655982556,
+   "block": 15012654,
+   "kind": "erc20",
+   "symbol": "WBTC",
+   "amount": 592.0,
+   "usd": 12241105.48257959
+  },
+  {
+   "selected": true,
+   "ts": 1655982821,
+   "block": 15012671,
+   "kind": "erc20",
+   "symbol": "USDT",
+   "amount": 9981000.0,
+   "usd": 9975283.23795739
+  },
+  {
+   "selected": true,
+   "ts": 1655982875,
+   "block": 15012677,
+   "kind": "erc20",
+   "symbol": "DAI",
+   "amount": 6070000.0,
+   "usd": 6071589.892289612
+  },
+  {
+   "selected": true,
+   "ts": 1655983058,
+   "block": 15012696,
+   "kind": "erc20",
+   "symbol": "AAG",
+   "amount": 84620000.0,
+   "usd": 1418422.3281276883
+  },
+  {
+   "selected": true,
+   "ts": 1655983134,
+   "block": 15012699,
+   "kind": "erc20",
+   "symbol": "FXS",
+   "amount": 110000.0,
+   "usd": 565844.2086041823
+  },
+  {
+   "selected": true,
+   "ts": 1655983153,
+   "block": 15012701,
+   "kind": "erc20",
+   "symbol": "SUSHI",
+   "amount": 415000.0,
+   "usd": 530578.7096107134
+  },
+  {
+   "selected": true,
+   "ts": 1655983214,
+   "block": 15012703,
+   "kind": "erc20",
+   "symbol": "AAVE",
+   "amount": 990.0,
+   "usd": 67711.21935177129
+  },
+  {
+   "selected": true,
+   "ts": 1655983252,
+   "block": 15012706,
+   "kind": "erc20",
+   "symbol": "WETH",
+   "amount": 43.0,
+   "usd": 47692.29888441428
+  },
+  {
+   "selected": true,
+   "ts": 1655983567,
+   "block": 15012721,
+   "kind": "erc20",
+   "symbol": "FRAX",
+   "amount": 5620000.0,
+   "usd": 5616787.0374036115
+  },
+  {
+   "selected": true,
+   "ts": 1655982406,
+   "block": 15012646,
+   "kind": "native",
+   "symbol": "ETH",
+   "amount": 13100.000000000002,
+   "usd": 14528797.415829249
+  }
+ ],
+ "pauses": []
+}

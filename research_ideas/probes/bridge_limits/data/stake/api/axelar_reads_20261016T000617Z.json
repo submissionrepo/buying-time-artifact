@@ -1,0 +1,18 @@
+{
+ "note": "Extract of stake/axelar_reads.py output: the fields make_numbers.py reads.",
+ "accessed_utc": "2026-10-16T00:06:09Z",
+ "latest_block": {
+  "chain_id": "axelar-dojo-1",
+  "height": "36297293",
+  "time": "2026-10-16T00:06:06.221851929Z"
+ },
+ "validators": {
+  "n_bonded": 43,
+  "sum_tokens_uaxl": 291051992641669,
+  "top1_share": 0.09929647956979977,
+  "top5_share": 0.27286281248710503,
+  "min_validators_over_60pct": 17,
+  "min_stake_over_60pct_uaxl": 181375660360770,
+  "smallest_bonded_uaxl": 1111325827
+ }
+}

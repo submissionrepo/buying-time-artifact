@@ -1,0 +1,21 @@
+{
+ "target": "E16_bsc",
+ "rows": [
+  {
+   "block": 21957793,
+   "ts": 1665080806,
+   "amount_bnb": 1000000.0
+  },
+  {
+   "block": 21960470,
+   "ts": 1665088998,
+   "amount_bnb": 1000000.0
+  }
+ ],
+ "halt_last_block": 21962149,
+ "halt_last_ts": 1665094394,
+ "resume_block": 21962150,
+ "resume_ts": 1665120670,
+ "gap_s": 26276,
+ "last_release_block": 21960470
+}

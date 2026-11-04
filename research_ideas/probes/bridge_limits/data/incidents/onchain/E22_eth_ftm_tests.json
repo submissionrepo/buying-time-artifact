@@ -1,0 +1,29 @@
+{
+ "target": "E22_eth_ftm_tests",
+ "config": {
+  "event_id": "E22",
+  "leg": "Ethereum escrow of the Fantom bridge, early window (preliminary transfers)",
+  "chain": "ethereum",
+  "window_utc": [
+   "2023-07-06T16:00:00",
+   "2023-07-06T18:05:00"
+  ]
+ },
+ "blocks": [
+  17635848,
+  17636465
+ ],
+ "n_candidate_rows": 8,
+ "rows": [
+  {
+   "selected": true,
+   "ts": 1688660483,
+   "block": 17635954,
+   "kind": "erc20",
+   "symbol": "USDC",
+   "amount": 2.0,
+   "usd": 2.0
+  }
+ ],
+ "pauses": []
+}

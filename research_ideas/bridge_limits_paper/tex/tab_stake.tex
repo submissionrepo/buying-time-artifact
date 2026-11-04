@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering
+\caption{Stake behind the verifiers against the value held at one time (Appendix~\ref{app:methods}), in millions of US dollars. Stake is read on-chain. Held: assets in the escrow and lock contracts that the verifiers' attestations release, read on-chain for Polygon (in part), Across and CCIP (the Ethereum lock-release pools), and otherwise the total reported by DefiLlama for Hyperlane, Lombard and LayerZero, Axelarscan for Axelar and Wormholescan for Wormhole. Confiscable: whether published rules let stake be taken for attesting to an invalid message. Nominal: the stake registered for the service, which its operators also restake for other services, at 1 ETH per share. Chainlink's LINK staking secures a price feed and is not counted for CCIP.}
+\label{tab:stake}
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.75cm} >{\raggedleft\arraybackslash}p{0.95cm} >{\raggedright\arraybackslash}p{2.6cm} r r@{}}
+\toprule
+System & Stake & Confiscable & Held & Ratio \\
+\midrule
+Polygon PoS validators & 342.4 & no: slashing removed & 2,184 & 0.16 \\
+Axelar validators & 16.0 & no: double signing, downtime & 183.5 & 0.087 \\
+Hyperlane HYPER vault (Symbiotic) & 1.32 & yes, with a council & 76.5 & 0.017 \\
+Hyperlane EigenLayer service & 3,490 nominal & no: not enabled & 76.5 & n/a \\
+Lombard vault for LBTC on CCIP & 0.144 & no published conditions & 632.1 & 0.0002 \\
+Across proposer bond & 0.0011 & if a dispute succeeds & 17.85 & 0.00006 \\
+LayerZero verifiers & 0 & none found on-chain & 11,110 & 0 \\
+Chainlink CCIP & 0 & no: staking covers a feed & 1,454 & 0 \\
+Wormhole guardians & 0 & no stake & 1,648 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}

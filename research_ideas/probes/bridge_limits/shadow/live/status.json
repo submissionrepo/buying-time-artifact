@@ -1,0 +1,52 @@
+{
+ "saved_utc": "2026-11-04T12:46:04Z",
+ "started_utc": "2026-10-16T16:37:40Z",
+ "restarts": 28,
+ "last_poll_utc": {
+  "ethereum": "2026-11-04T12:45:50Z",
+  "bsc": "2026-11-04T12:45:53Z"
+ },
+ "cursor": {
+  "ethereum": 26341536,
+  "bsc": 131627191
+ },
+ "finalized": {
+  "ethereum": 26341470,
+  "bsc": 131627193
+ },
+ "pending_checks": 1,
+ "decode_jobs": 0,
+ "queued": 0,
+ "counters": {
+  "ccip executions bsc pool problems": 66,
+  "ccip executions bsc state 2": 1770,
+  "ccip executions bsc state 3": 7,
+  "ccip executions bsc success without token release": 353,
+  "ccip executions ethereum pool problems": 2,
+  "ccip executions ethereum state 2": 1328,
+  "ccip executions ethereum state 3": 1,
+  "ccip executions ethereum success without token release": 306,
+  "error check": 21,
+  "error clock": 3,
+  "error discover": 2,
+  "final confirmed": 6677,
+  "final standing": 2,
+  "poll failed bsc": 626,
+  "poll failed ethereum": 2252,
+  "poll ok bsc": 66650,
+  "poll ok ethereum": 67947,
+  "releases ccip bsc->ethereum backfill": 461,
+  "releases ccip bsc->ethereum live": 561,
+  "releases ccip ethereum->bsc backfill": 550,
+  "releases ccip ethereum->bsc live": 867,
+  "releases wormhole bsc->ethereum backfill": 1256,
+  "releases wormhole bsc->ethereum live": 1221,
+  "releases wormhole ethereum->bsc backfill": 848,
+  "releases wormhole ethereum->bsc live": 916,
+  "sweep missed ccip bsc": 0,
+  "sweep missed ccip ethereum": 0,
+  "sweep missed wormhole bsc": 0,
+  "sweep missed wormhole ethereum": 0,
+  "twins no-deposit not_found": 3561
+ }
+}
