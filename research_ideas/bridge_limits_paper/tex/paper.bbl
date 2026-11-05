@@ -36,11 +36,6 @@ A.~Augusto, R.~Belchior, M.~Correia, A.~Vasconcelos, L.~Zhang, and T.~Hardjono,
   \url{https://web.archive.org/web/20240326005747/https://docs.roninchain.com/assets/files/CertiK-Audit-for-Axie-Infinity---Audit-v8-1bfcb82b195442bf34a28ed2fdbde6c5.pdf},
   2022, ronin bridge v2, verified June 21, 2022.
 
-\bibitem{cruz1991}
-R.~L. Cruz, ``A calculus for network delay, part {I}: Network elements in
-  isolation,'' \emph{IEEE Transactions on Information Theory}, vol.~37, no.~1,
-  pp. 114--131, 1991.
-
 \bibitem{leboudec2001}
 J.-Y. Le~Boudec and P.~Thiran, \emph{Network Calculus: A Theory of
   Deterministic Queuing Systems for the Internet}, ser. Lecture Notes in
@@ -68,12 +63,6 @@ J.~Wu, K.~Lin, D.~Lin, B.~Zhang, Z.~Wu, and J.~Su, ``Safeguarding blockchain
 D.~Lin, S.~Lu, Z.~Liu, J.~Wu, J.~Fang, J.~Su, B.~Song, Q.~Xia, and Z.~Zheng,
   ``{BridgeShield}: Risk-aware graph modeling for cross-chain bridge attack
   detection,'' arXiv:2508.20517v2, 2026.
-
-\bibitem{low1993burstiness}
-S.~H. Low and P.~P. Varaiya, ``Burstiness bounds for some burst reducing
-  servers,'' in \emph{Proceedings of IEEE INFOCOM '93, the Conference on
-  Computer Communications}.\hskip 1em plus 0.5em minus 0.4em\relax San
-  Francisco, CA, USA: IEEE Computer Society Press, 1993, pp. 2--9.
 
 \bibitem{liu2024monte}
 E.~Liu, E.~Luo, J.~C. Yan, K.~Izhikevich, S.~Grant, D.~Stefan, G.~M. Voelker,
@@ -235,6 +224,17 @@ A.~Zamyatin, D.~Harz, J.~Lind, P.~Panayiotou, A.~Gervais, and W.~Knottenbelt,
 E.~Budish, ``Trust at scale: The economic limits of cryptocurrencies and
   blockchains,'' \emph{The Quarterly Journal of Economics}, vol. 140, no.~1,
   pp. 1--62, Feb. 2025.
+
+\bibitem{cruz1991}
+R.~L. Cruz, ``A calculus for network delay, part {I}: Network elements in
+  isolation,'' \emph{IEEE Transactions on Information Theory}, vol.~37, no.~1,
+  pp. 114--131, 1991.
+
+\bibitem{low1993burstiness}
+S.~H. Low and P.~P. Varaiya, ``Burstiness bounds for some burst reducing
+  servers,'' in \emph{Proceedings of IEEE INFOCOM '93, the Conference on
+  Computer Communications}.\hskip 1em plus 0.5em minus 0.4em\relax San
+  Francisco, CA, USA: IEEE Computer Society Press, 1993, pp. 2--9.
 
 \bibitem{chang2000performance}
 C.-S. Chang, \emph{Performance Guarantees in Communication Networks}, ser.
