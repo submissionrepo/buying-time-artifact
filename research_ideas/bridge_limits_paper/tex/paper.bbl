@@ -42,64 +42,6 @@ J.-Y. Le~Boudec and P.~Thiran, \emph{Network Calculus: A Theory of
   Computer Science.\hskip 1em plus 0.5em minus 0.4em\relax Springer, 2001, vol.
   2050.
 
-\bibitem{chainlink_lanes}
-{Chainlink}, ``{CCIP} token lane configuration,'' File lanes.json,
-  \url{https://github.com/smartcontractkit/documentation/tree/main/src/config/data/ccip/v1_2_0/mainnet}.
-
-\bibitem{defillama_hacks}
-{DefiLlama}, ``Hacks,'' \url{https://defillama.com/hacks}.
-
-\bibitem{wormhole_governor}
-{Wormhole Foundation}, ``Governor,'' Wormhole whitepaper 0007,
-  \url{https://github.com/wormhole-foundation/wormhole/blob/ff186e441aff870bfee0481766934fbc3961d7bc/whitepapers/0007_governor.md}.
-
-\bibitem{wu2025bridgeguard}
-J.~Wu, K.~Lin, D.~Lin, B.~Zhang, Z.~Wu, and J.~Su, ``Safeguarding blockchain
-  ecosystem: Understanding and detecting attack transactions on cross-chain
-  bridges,'' in \emph{Proceedings of the ACM Web Conference 2025 (WWW
-  '25)}.\hskip 1em plus 0.5em minus 0.4em\relax ACM, 2025, pp. 4902--4912.
-
-\bibitem{lin2025bridgeshield}
-D.~Lin, S.~Lu, Z.~Liu, J.~Wu, J.~Fang, J.~Su, B.~Song, Q.~Xia, and Z.~Zheng,
-  ``{BridgeShield}: Risk-aware graph modeling for cross-chain bridge attack
-  detection,'' arXiv:2508.20517v2, 2026.
-
-\bibitem{liu2024monte}
-E.~Liu, E.~Luo, J.~C. Yan, K.~Izhikevich, S.~Grant, D.~Stefan, G.~M. Voelker,
-  and S.~Savage, ``Count of {Monte} {Crypto}: Accounting-based defenses for
-  cross-chain token bridges,'' arXiv:2410.01107v3, 2026.
-
-\bibitem{cubist2024bascule}
-{Cubist}, ``Introducing the bascule drawbridge for {Bitcoin} bridge security,''
-  Cubist blog,
-  \url{https://cubist.dev/blog/introducing-the-bascule-drawbridge-for-bitcoin-bridge-security},
-  2024.
-
-\bibitem{chainlink2023rmn}
-{Chainlink}, ``Chainlink {CCIP}'s defense-in-depth security and the risk
-  management network,'' Chainlink blog,
-  \url{https://chain.link/blog/ccip-risk-management-network}, Oct. 2023.
-
-\bibitem{chainlink_ccip_architecture}
-------, ``{CCIP} architecture overview,'' Chainlink Documentation,
-  \url{https://docs.chain.link/ccip/concepts/architecture/overview}, 2026,
-  {CCIP} 2.0.
-
-\bibitem{deb2024stakesure}
-S.~Deb, R.~Raynor, and S.~Kannan, ``{STAKESURE}: Proof of stake mechanisms with
-  strong cryptoeconomic safety,'' arXiv:2401.05797, 2024.
-
-\bibitem{kate2025hyperloop}
-A.~Kate, E.~V. Mangipudi, C.~Nomula, R.~Ramesh, A.~Terzoglou, and J.~Tobkin,
-  ``{HyperLoop}: Rationally secure efficient cross-chain bridge,'' Cryptology
-  {ePrint} Archive, Paper 2025/176, 2025.
-
-\bibitem{neuder2024exit}
-M.~Neuder, M.~M. Pai, and M.~Resnick, ``Optimizing exit queues for
-  proof-of-stake blockchains: A mechanism design approach,'' in \emph{6th
-  Conference on Advances in Financial Technologies (AFT 2024)}, ser. LIPIcs,
-  vol. 316, 2024, pp. 20:1--20:22.
-
 \bibitem{lee2023bridgehacks}
 S.-S. Lee, A.~Murashkin, M.~Derka, and J.~Gorzny, ``{SoK}: Not quite water
   under the bridge: Review of cross-chain bridge hacks,'' in \emph{2023 IEEE
@@ -136,6 +78,22 @@ A.~Augusto, R.~Belchior, J.~Pfannschmidt, A.~Vasconcelos, and M.~Correia,
   ``{XChainWatcher}: Identifying anomalies in cross-chain bridges,'' in
   \emph{Proceedings of the 26th International Middleware Conference (Middleware
   '25)}.\hskip 1em plus 0.5em minus 0.4em\relax ACM, 2025, pp. 413--426.
+
+\bibitem{liu2024monte}
+E.~Liu, E.~Luo, J.~C. Yan, K.~Izhikevich, S.~Grant, D.~Stefan, G.~M. Voelker,
+  and S.~Savage, ``Count of {Monte} {Crypto}: Accounting-based defenses for
+  cross-chain token bridges,'' arXiv:2410.01107v3, 2026.
+
+\bibitem{wu2025bridgeguard}
+J.~Wu, K.~Lin, D.~Lin, B.~Zhang, Z.~Wu, and J.~Su, ``Safeguarding blockchain
+  ecosystem: Understanding and detecting attack transactions on cross-chain
+  bridges,'' in \emph{Proceedings of the ACM Web Conference 2025 (WWW
+  '25)}.\hskip 1em plus 0.5em minus 0.4em\relax ACM, 2025, pp. 4902--4912.
+
+\bibitem{lin2025bridgeshield}
+D.~Lin, S.~Lu, Z.~Liu, J.~Wu, J.~Fang, J.~Su, B.~Song, Q.~Xia, and Z.~Zheng,
+  ``{BridgeShield}: Risk-aware graph modeling for cross-chain bridge attack
+  detection,'' arXiv:2508.20517v2, 2026.
 
 \bibitem{you2026asas}
 S.~You, A.~Joshi, A.~Kuehlkamp, and J.~Nabrzyski, ``{ASAS-BridgeAMM}:
@@ -208,11 +166,21 @@ M.~M{\"o}ser, I.~Eyal, and E.~G. Sirer, ``Bitcoin covenants,'' in
   K.~Rohloff, Eds., vol. 9604.\hskip 1em plus 0.5em minus 0.4em\relax Berlin,
   Heidelberg: Springer, 2016, pp. 126--141.
 
+\bibitem{wormhole_governor}
+{Wormhole Foundation}, ``Governor,'' Wormhole whitepaper 0007,
+  \url{https://github.com/wormhole-foundation/wormhole/blob/ff186e441aff870bfee0481766934fbc3961d7bc/whitepapers/0007_governor.md}.
+
 \bibitem{erc7265}
 D.~Campos, B.~Dimovski, P.~Dumonet, and M.~Bank, ``{ERC-7265}: Circuit
   breaker,'' Draft,
   \url{https://github.com/DeFi-Circuit-Breaker/EIPs/blob/master/EIPS/eip-7265.md},
   2023.
+
+\bibitem{neuder2024exit}
+M.~Neuder, M.~M. Pai, and M.~Resnick, ``Optimizing exit queues for
+  proof-of-stake blockchains: A mechanism design approach,'' in \emph{6th
+  Conference on Advances in Financial Technologies (AFT 2024)}, ser. LIPIcs,
+  vol. 316, 2024, pp. 20:1--20:22.
 
 \bibitem{zamyatin2019xclaim}
 A.~Zamyatin, D.~Harz, J.~Lind, P.~Panayiotou, A.~Gervais, and W.~Knottenbelt,
@@ -271,6 +239,38 @@ L.~Zhou, X.~Xiong, J.~Ernstberger, S.~Chaliasos, Z.~Wang, Y.~Wang, K.~Qin,
 \bibitem{elem2026overrides}
 O.~Elem and N.~Talmon, ``Legitimate overrides in decentralized protocols,''
   arXiv:2602.12260, 2026.
+
+\bibitem{chainlink_lanes}
+{Chainlink}, ``{CCIP} token lane configuration,'' File lanes.json,
+  \url{https://github.com/smartcontractkit/documentation/tree/main/src/config/data/ccip/v1_2_0/mainnet}.
+
+\bibitem{defillama_hacks}
+{DefiLlama}, ``Hacks,'' \url{https://defillama.com/hacks}.
+
+\bibitem{cubist2024bascule}
+{Cubist}, ``Introducing the bascule drawbridge for {Bitcoin} bridge security,''
+  Cubist blog,
+  \url{https://cubist.dev/blog/introducing-the-bascule-drawbridge-for-bitcoin-bridge-security},
+  2024.
+
+\bibitem{chainlink2023rmn}
+{Chainlink}, ``Chainlink {CCIP}'s defense-in-depth security and the risk
+  management network,'' Chainlink blog,
+  \url{https://chain.link/blog/ccip-risk-management-network}, Oct. 2023.
+
+\bibitem{chainlink_ccip_architecture}
+------, ``{CCIP} architecture overview,'' Chainlink Documentation,
+  \url{https://docs.chain.link/ccip/concepts/architecture/overview}, 2026,
+  {CCIP} 2.0.
+
+\bibitem{deb2024stakesure}
+S.~Deb, R.~Raynor, and S.~Kannan, ``{STAKESURE}: Proof of stake mechanisms with
+  strong cryptoeconomic safety,'' arXiv:2401.05797, 2024.
+
+\bibitem{kate2025hyperloop}
+A.~Kate, E.~V. Mangipudi, C.~Nomula, R.~Ramesh, A.~Terzoglou, and J.~Tobkin,
+  ``{HyperLoop}: Rationally secure efficient cross-chain bridge,'' Cryptology
+  {ePrint} Archive, Paper 2025/176, 2025.
 
 \bibitem{ccip_api}
 {Chainlink}, ``{CCIP} {API}, version 2,''

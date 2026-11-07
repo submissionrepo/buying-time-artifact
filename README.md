@@ -27,8 +27,8 @@ start with `research_ideas/` or name a file at the repository root.
 - Prototype and testbed: Foundry 1.8.5 (`forge`, `anvil`), which downloads solc 0.8.30, and forge-std
   v1.17.0 (installed by the command in [Prototype](#prototype)).
 - Manuscript: a TeX distribution with IEEEtran (`pdflatex`, `bibtex`).
-- Disk: the repository holds 393 files, 51 MB; `python reproduce.py unpack` adds about
-  122 MB of plain CSV files (ignored by git).
+- Disk: the repository holds 501 files, 197 MB; `python reproduce.py unpack` adds about
+  150 MB of plain CSV files (ignored by git).
 
 ```sh
 python -m venv .venv
@@ -75,32 +75,32 @@ and `testbed.md` (every testbed configuration).
 
 ## Paper map
 
-Section, table and figure numbers are those of the submitted version. "Data" lists the files that
+Section, table and figure numbers are those of the included manuscript. "Data" lists the files that
 `make_numbers.py`, `make_tables.py` or `make_figures.py` read; "Analysis" the level-2 scripts that write
 them (level 3 builds their inputs, [docs/collection.md](docs/collection.md)).
 
 | Paper | Data | Analysis |
 |---|---|---|
 | Abstract, Section 1, Fig. 1 (`fig_example.pdf`) | `results/incidents.csv`, `tex/replay.json`, `tex/rules.csv`, `tex/validation.csv`, `results/validation_bounds.json`, `results/replay_perbridge.json`, `results/delay_budget.json`, `results/coverage.json` | `incidents/05_build_dataset.py`, `replay_incidents.py`, `validation_bounds.py`, `replay_perbridge.py`, `delay_budget.py`, `coverage/counts.py` |
-| Section 2.1, Fig. 2 | `tex/figures/fig_pipeline.tex` (TikZ, no data) | none |
-| Section 2.2, Table 1 (`tab_rules.tex`), the CCIP census | `tex/rules.csv` (compiled by hand from `results/limiter_code_facts.md` Section 3, `results/deploy_controls.md`, `results/rules_controls.csv`), `data/ccip/derived/limits_distribution.json`, `data/ccip/derived/inbound_mismatch.json` | `ccip/limits_distribution.py`, `ccip/inbound_mismatch.py` |
-| Section 2.3, Table 2 (`tab_timing.tex`) | `results/incidents.csv`, `results/incident_coding.csv` (coded by hand, rules in `results/incident_coding.md`), `results/blind_agreement.json` | `incidents/05_build_dataset.py`, `coding/agreement.py` |
-| Section 4, Fig. 3 (`fig_replay.pdf`) | `results/incidents.csv`, `results/incident_coding.csv`, `results/replay_variants.json`, `results/blind_agreement.json`, `tex/replay.json` | `replay_incidents.py`, `replay_variants.py` |
-| Section 5, Table 3 (in `paper.tex`) | `tex/rules.csv`, `results/replay_variants.json` | the table's formulas are checked by `first_layer_f6_20261015.py`, `first_layer_f7_20261016.py`, `first_layer_f9_20261016.py` |
-| Section 6, Table 4 (`tab_validation.tex`) | `tex/validation.csv` (compiled by hand; `make_numbers.py` asserts its quantities against `results/validation_bounds.json`) | `validation_bounds.py` |
-| Section 7, Table 10 (`tab_robust.tex`) | `results/replay_matched.json`, `results/replay_variants.json`, `tex/robust.json` | `replay_matched.py`, `replay_variants.py` |
-| Section 7.1, Table 5 (`tab_perbridge.tex`) | `results/replay_perbridge.json`, `results/delay_budget.json`, `results/coverage.json`, `results/review_latency_ronin.json`, `data/ccip/derived/review_policy.json`, `rolling_v2.json`, `lags.json` | `replay_perbridge.py` (on the 20 histories in `data/legit/`), `delay_budget.py` |
-| Section 7.2, Table 6 (`tab_ccip.tex`) | `ccip/selection.json`, `data/ccip/derived/review_policy.json`, `rolling_v2.json`, `rolling_policy.json`, `out_of_sample.json`, `recommended_buckets.json`, `inbound_mismatch.json`, `lags.json`, `results/review_latency_ronin.json` | `ccip/flows_analyze.py`, then `ccip/review_policy.py`, `rolling_v2.py`, `rolling_policy.py`, `out_of_sample.py`, `recommend_buckets.py`, `inbound_mismatch.py`, `lags.py` |
-| Section 7.3 | `data/wormhole/derived/pooling_clean.json`, `data/wormhole/flows/summary.json`, `data/wormhole/flows/usage.csv`, `results/incidents.csv` | `wormhole/analyze_series.py`, `wormhole/pooling_clean.py` |
-| Section 8, Table 7 (`tab_pbcost.tex`) | `results/replay_perbridge.json`, `results/response_protocol.json`, `results/replay_variants.json`, `results/delay_budget.json`, `results/coverage.json`, `data/ccip/derived/lags.json`, `tex/review.json` | `replay_perbridge.py`, `response_protocol.py`, `delay_budget.py` |
-| Section 9, Table 8 (`tab_stake.tex`) | `tex/stake.csv` (compiled by hand from `results/stake_vs_value.md`), `data/stake/api/axelar_reads_*.json`, `data/stake/onchain/valuation_*.json`, `results/replay_matched.json` | `replay_matched.py`; the stake reads are level 3 (`stake/*.py`) |
-| Section 10 | `tex/replay.json`, `results/replay_variants.json`, `tex/rules.csv`, `results/coverage.json`, `results/delay_budget.json` | as above |
-| Section 11 | `prototype/snapshots/GasBench.json`, `TunedGasBench.json`, `test_summary.txt`, `test_suites.txt`, `gas_price.json`, `prototype/foundry.toml`, `results/testbed.json`, `results/testbed_forged.json` | `forge test` in `prototype/`; `prototype/testbed/summarize.py`, `summarize_forged.py` |
+| Section 3.1, Fig. 2 | `tex/figures/fig_pipeline.tex` (TikZ, no data) | none |
+| Section 3.2, Table 1 (`tab_rules.tex`), the CCIP census | `tex/rules.csv` (compiled by hand from `results/limiter_code_facts.md` Section 3, `results/deploy_controls.md`, `results/rules_controls.csv`), `data/ccip/derived/limits_distribution.json`, `data/ccip/derived/inbound_mismatch.json` | `ccip/limits_distribution.py`, `ccip/inbound_mismatch.py` |
+| Section 3.3, Table 2 (`tab_timing.tex`) | `results/incidents.csv`, `results/incident_coding.csv` (coded by hand, rules in `results/incident_coding.md`), `results/blind_agreement.json` | `incidents/05_build_dataset.py`, `coding/agreement.py` |
+| Section 6, Fig. 3 (`fig_replay.pdf`) | `results/incidents.csv`, `results/incident_coding.csv`, `results/replay_variants.json`, `results/blind_agreement.json`, `tex/replay.json` | `replay_incidents.py`, `replay_variants.py` |
+| Section 6.2, Table 3 (in `paper.tex`) | `tex/rules.csv`, `results/replay_variants.json` | the table's formulas are checked by `first_layer_f6_20261015.py`, `first_layer_f7_20261016.py`, `first_layer_f9_20261016.py` |
+| Section 7, Table 4 (`tab_validation.tex`) | `tex/validation.csv` (compiled by hand; `make_numbers.py` asserts its quantities against `results/validation_bounds.json`) | `validation_bounds.py` |
+| Section 8, Table 10 (`tab_robust.tex`) | `results/replay_matched.json`, `results/replay_variants.json`, `tex/robust.json` | `replay_matched.py`, `replay_variants.py` |
+| Section 8.1, Table 5 (`tab_perbridge.tex`) | `results/replay_perbridge.json`, `results/delay_budget.json`, `results/coverage.json`, `results/review_latency_ronin.json`, `data/ccip/derived/review_policy.json`, `rolling_v2.json`, `lags.json` | `replay_perbridge.py` (on the 20 histories in `data/legit/`), `delay_budget.py` |
+| Section 8.2, Table 6 (`tab_ccip.tex`) | `ccip/selection.json`, `data/ccip/derived/review_policy.json`, `rolling_v2.json`, `rolling_policy.json`, `out_of_sample.json`, `recommended_buckets.json`, `inbound_mismatch.json`, `lags.json`, `results/review_latency_ronin.json` | `ccip/flows_analyze.py`, then `ccip/review_policy.py`, `rolling_v2.py`, `rolling_policy.py`, `out_of_sample.py`, `recommend_buckets.py`, `inbound_mismatch.py`, `lags.py` |
+| Section 8.3 | `data/wormhole/derived/pooling_clean.json`, `data/wormhole/flows/summary.json`, `data/wormhole/flows/usage.csv`, `results/incidents.csv` | `wormhole/analyze_series.py`, `wormhole/pooling_clean.py` |
+| Section 9, Table 7 (`tab_pbcost.tex`) | `results/replay_perbridge.json`, `results/response_protocol.json`, `results/replay_variants.json`, `results/delay_budget.json`, `results/coverage.json`, `data/ccip/derived/lags.json`, `tex/review.json` | `replay_perbridge.py`, `response_protocol.py`, `delay_budget.py` |
+| Section 10, Table 8 (`tab_stake.tex`) | `tex/stake.csv` (compiled by hand from `results/stake_vs_value.md`), `data/stake/api/axelar_reads_*.json`, `data/stake/onchain/valuation_*.json`, `results/replay_matched.json` | `replay_matched.py`; the stake reads are level 3 (`stake/*.py`) |
+| Section 11 | `tex/replay.json`, `results/replay_variants.json`, `tex/rules.csv`, `results/coverage.json`, `results/delay_budget.json` | as above |
+| Section 12 | `prototype/snapshots/GasBench.json`, `TunedGasBench.json`, `test_summary.txt`, `test_suites.txt`, `gas_price.json`, `prototype/foundry.toml`, `results/testbed.json`, `results/testbed_forged.json` | `forge test` in `prototype/`; `prototype/testbed/summarize.py`, `summarize_forged.py` |
 | Section 13 | `results/incidents.csv`, `results/blind_agreement.json` | as above |
 | Appendix A | proofs in the text | exact checks `first_layer_*.py` (below) |
 | Appendix B, Table 9 (`tab_failures.tex`) | `results/incidents.csv`, `results/incident_coding.csv`, `incidents/curation.py`, `results/coverage.json`, `results/blind_agreement.json`, `results/replay_matched.json` | `incidents/05_build_dataset.py`, `coverage/counts.py`, `coding/agreement.py` |
 | Appendix C | `ccip/selection.json`, `data/ccip/derived/*.json`, `data/stake/*`, `results/review_latency_ronin.json` | as above |
-| Section 8, the shadow run ("Is a short gate realistic?") | `results/shadow_run.json`, `results/shadow_fee_tokens.json`, `results/shadow_live.json` | `shadow/simulate.py` (on `shadow/data/*_releases.csv`); `shadow/fee_token_check.py` and `shadow/live_monitor.py` are level 3 |
+| Section 9, the live deposit check | `results/shadow_run.json`, `results/shadow_fee_tokens.json`, `results/shadow_live.json` | `shadow/simulate.py` (on `shadow/data/*_releases.csv`); `shadow/fee_token_check.py` and `shadow/live_monitor.py` are level 3 |
 
 ## Level 2: the analyses
 
@@ -144,6 +144,7 @@ The analyses read only shipped files; the gzipped inputs are:
 
 | File | Gzipped | Unpacked |
 |---|---|---|
+| `data/ccip/derived/transfers.csv` | 3.1 MB | 28.2 MB |
 | `data/legit/E01.csv` | 0.1 MB | 0.8 MB |
 | `data/legit/E05.csv` | 1.6 MB | 8.7 MB |
 | `data/legit/E10.csv` | 1 kB | 5 kB |
@@ -164,10 +165,10 @@ The analyses read only shipped files; the gzipped inputs are:
 | `data/legit/E59.csv` | 28 kB | 0.2 MB |
 | `data/legit/E60.csv` | 6 kB | 31 kB |
 | `data/legit/E64.csv` | 30 kB | 0.2 MB |
-| `data/wormhole/tops_portal_hourly.csv` | 5.1 MB | 18.0 MB |
-| `data/wormhole/tops_cctp_v2_hourly.csv` | 0.8 MB | 3.1 MB |
-| `data/wormhole/hour_valuation.csv` | 0.5 MB | 1.8 MB |
 | `data/wormhole/adjustments_small.csv` | 0.3 MB | 2.3 MB |
+| `data/wormhole/hour_valuation.csv` | 0.5 MB | 1.8 MB |
+| `data/wormhole/tops_cctp_v2_hourly.csv` | 0.8 MB | 3.1 MB |
+| `data/wormhole/tops_portal_hourly.csv` | 5.1 MB | 18.0 MB |
 | `data/wormhole/transfers_classified.csv` | 3.2 MB | 20.1 MB |
 | `shadow/live/polls.csv` | 2.9 MB | 15.6 MB |
 
@@ -175,7 +176,7 @@ The analyses read only shipped files; the gzipped inputs are:
 
 `python reproduce.py checks` runs `test_analysis_core.py` (the window envelope, bucket fitting and FIFO
 replay of `analysis_core.py` against brute force; 10,979 cases) and the exact checks `first_layer_*.py`.
-Each check enumerates small integer instances of a statement of the paper with exact integer or rational
+The dated check files retain their original statement numbers; their topic descriptions identify the corresponding results after manuscript renumbering. Each check enumerates small integer instances with exact integer or rational
 arithmetic, prints a JSON line with the number of cases and failures, and exits with status 1 on a failure.
 They use only the Python standard library and read and write no files. The docstring of each script lists
 the statements and domains it covers (`first_layer_20261015.py`: control law, response functions of the
@@ -194,7 +195,7 @@ EVM Prague, optimizer 200 runs, `isolate = true`.
 
 ```sh
 cd research_ideas/probes/bridge_limits/prototype
-git clone --branch v1.17.0 --depth 1 https://github.com/foundry-rs/forge-std lib/forge-std   # commit f3dae6e
+# forge-std v1.17.0 is included in lib/forge-std (commit f3dae6e)
 forge test                      # 48 tests; rewrites snapshots/GasBench.json and TunedGasBench.json
 bash script/anvil_gas_check.sh  # optional: the same gas measured from receipts on a local anvil node
 ```
@@ -242,6 +243,8 @@ datasets by the same method; it does not reproduce the snapshot values exactly, 
 live configurations and API pages change over time. Levels 1 and 2 reproduce the paper's numbers.
 
 ## Data and anonymization
+
+The manuscript calls the verifier-flaw class `FLAW`; the machine-readable dataset and coding notes retain its established code `CHECK`. The presentation scripts map between them.
 
 [docs/data.md](docs/data.md) describes every dataset and the hand-compiled inputs. In short:
 

@@ -37,7 +37,7 @@ Every dataset below is an input of level 2 or level 1; the level-3 scripts that 
 - `coverage/`: the entries of three published lists (Wu et al. 2025, Table 6; Zhang et al. 2024, Table 4;
   Lee et al. 2023, the examples), transcribed from the papers and matched to the dataset by hand;
   `coverage/counts.py` writes `results/coverage.json`.
-- `results/validation_bounds.json`: the two predicted quantities of Section 6 (`validation_bounds.py`, from
+- `results/validation_bounds.json`: the two predicted quantities of Section 7 (`validation_bounds.py`, from
   `incidents/curation.py` and `data/legit/E30_limits_state.json`, an extract of the Ronin gateway's limits
   read on chain at the block before the first release).
 

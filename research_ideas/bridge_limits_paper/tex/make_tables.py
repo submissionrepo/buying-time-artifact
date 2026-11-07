@@ -1,6 +1,6 @@
 """Write the paper's tables (tab_*.tex) from the research outputs.
 
-tab_rules.tex   deployed rules: stage, shape, accounting, automatic release, control
+tab_rules.tex   deployed limits: stage, shape, accounting, automatic release, control
                 (rules.csv, from results/limiter_code_facts.md section 3)
 tab_timing.tex  timing of the failures (timing.json, written by make_numbers.py from
                 results/incidents.csv)
@@ -33,7 +33,7 @@ def rules_table():
     lines = [
         '\\begin{table*}[t]',
         '\\centering',
-        '\\caption{Limits, read in source code at fixed commits. Stage: verifiers, in the verifiers\' software; send, on the sending chain; release, in the contract that releases on the receiving chain; token, in the token contract; send + release, a limit on each side. Shapes are those of Section~\\ref{sec:shape}. Accounting: gross counts releases only; net subtracts counted inflows (Proposition~\\ref{prop:netflow}). Automatic release: queued withdrawals leave when a timer expires; uncounted means outside the limit. Parameters: who can change the limit; no rule\'s code delays a loosening. Pause: who can stop releases. Issuer: the token\'s issuer; operator, owner and governors: a party other than the verifiers.}',
+        '\\caption{Limits, read in source code at fixed commits. Stage: verifiers, in the verifiers\' software; send, on the sending chain; release, in the contract that releases on the receiving chain; token, in the token contract; send + release, a limit on each side. Shapes as in Table~\\ref{tab:shapes}: a ramp lets value out in proportion to time, a cliff all at once when a timer runs out, a geometric limit a fixed share of the balance per period, a bounded limit a fixed total. Accounting: gross counts releases only; net subtracts counted inflows (Section~\\ref{sec:shape}). Automatic release: queued withdrawals leave when a timer expires; uncounted means outside the limit. Parameters: who can change the limit; no limit\'s code delays a loosening. Pause: who can stop releases. Issuer: the token\'s issuer; operator, owner and governors: a party other than the verifiers. Flow cancelling: inbound transfers offset the cap. Curse: CCIP\'s stop on releases. RWA: real-world asset.}',
         '\\label{tab:rules}',
         '\\scriptsize',
         '\\setlength{\\tabcolsep}{3pt}',
@@ -42,7 +42,7 @@ def rules_table():
         '>{\\raggedright\\arraybackslash}p{3.55cm} >{\\raggedright\\arraybackslash}p{2.95cm} '
         '>{\\raggedright\\arraybackslash}p{1.95cm} >{\\raggedright\\arraybackslash}p{1.9cm} >{\\raggedright\\arraybackslash}p{2.0cm}@{}}',
         '\\toprule',
-        'Rule & Stage & Shape & Accounting & Automatic release & Parameters & Pause \\\\',
+        'Limit & Stage & Shape & Accounting & Automatic release & Parameters & Pause \\\\',
         '\\midrule',
     ]
     for r in rules:
@@ -110,13 +110,13 @@ def robust_table():
     lines = [
         '\\begin{table*}[t]',
         '\\centering',
-        f"\\caption{{Share of the value of the failures that each rule would have contained, under other readings of the response time and other weightings. Base: as in Section~\\ref{{sec:shape}}. 90\\% interval: 5th to 95th percentile of the base share over 2,000 resamples of the failures. $2D$, $D + 1$\\,h, $D + 6$\\,h: the first response doubled or delayed. Pauses: only the {n_p} failures whose first response was a pause. By event: each failure weighted equally. Without largest: the largest failure, {100 * rob['uniform ramp 1e+06']['largest_share_of_value']:.0f}\\% of the value, left out; without 3 largest: the three largest, {100 * rob['uniform ramp 1e+06']['top3_share_of_value']:.0f}\\%. Matched: one limit at the release point that delays no transfer of the combined traffic of Wormhole's nine chains over the last 12 or 24 months, applied to every failure; with review, transfers above the Governor's size threshold wait for a review and the limit is matched to the rest. All rules but the last sit at the release point.}}",
+        f"\\caption{{Share of the value of the failures that each limit would have kept, under other readings of the response time and other weightings. Base: as in Section~\\ref{{sec:shape}}. 90\\% interval: 5th to 95th percentile of the base share over 2,000 resamples of the failures. $2D$, $D + 1$\\,h, $D + 6$\\,h: the first response doubled or delayed. Pauses: only the {n_p} failures whose first response was a pause. By event: each failure weighted equally. Without largest: the largest failure, {100 * rob['uniform ramp 1e+06']['largest_share_of_value']:.0f}\\% of the value, left out; without 3 largest: the three largest, {100 * rob['uniform ramp 1e+06']['top3_share_of_value']:.0f}\\%. Matched: one limit at the release point that delays no transfer of the combined traffic of Wormhole's nine chains over the last 12 or 24 months, applied to every failure; with review, transfers above the Governor's size threshold wait for a review and the limit is matched to the rest. All limits but the last sit at the release point.}}",
         '\\label{tab:robust}',
         '\\footnotesize',
         '\\setlength{\\tabcolsep}{4pt}',
         '\\begin{tabular}{@{}l r r r r r r r r r@{}}',
         '\\toprule',
-        'Rule & Base & 90\\% interval & $2D$ & $D + 1$\\,h & $D + 6$\\,h & Pauses & By event & Without largest & Without 3 largest \\\\',
+        'Limit & Base & 90\\% interval & $2D$ & $D + 1$\\,h & $D + 6$\\,h & Pauses & By event & Without largest & Without 3 largest \\\\',
         '\\midrule',
     ]
     for key, label in rows:
@@ -134,14 +134,14 @@ def validation_table():
     lines = [
         '\\begin{table}[t]',
         '\\centering',
-        '\\caption{Failures that met a rule in force. Prediction: what the model says the rule could hold, from its placement, control and shape (Sections~\\ref{sec:where} and~\\ref{sec:shape}); for the first three rules, at the release point under separate control, the bound from the parameters in force and the time the outflow ran. Outcome: what the failure released (Appendix~\\ref{app:events}).}',
+        '\\caption{Failures that met a limit in force. Prediction: what the model says the limit could keep, from its placement, control and shape (Section~\\ref{sec:where}); for the first three limits, at the release point under separate control, the bound from the parameters in force and the time the outflow ran. Outcome: what the failure released (Appendix~\\ref{app:events}).}',
         '\\label{tab:validation}',
         '\\scriptsize',
         '\\setlength{\\tabcolsep}{2.5pt}',
         '\\begin{tabular}{@{}>{\\raggedright\\arraybackslash}p{1.42cm} >{\\raggedright\\arraybackslash}p{2.0cm} '
         '>{\\raggedright\\arraybackslash}p{2.3cm} >{\\raggedright\\arraybackslash}p{2.3cm}@{}}',
         '\\toprule',
-        'Failure & Rule in force & Prediction & Outcome \\\\',
+        'Failure & Limit in force & Prediction & Outcome \\\\',
         '\\midrule',
     ]
     for r in rows:
@@ -161,13 +161,13 @@ def response_table():
     lines = [
         '\\begin{table*}[t]',
         '\\centering',
-        '\\caption{Share of the value of the failures contained at the release point when the response time changes. $kD$: every response time multiplied by $k$. No response if found by outflow: the failures detected through their own outflow (third-party alert, user report, shortfall) get no response. No response without independent pause: the same for failures where no independent party could pause. Response at first alert: the first public alert by a third party, where earlier. Alarm: an independent pause one hour or ten minutes after the first release that no deposit backs. All 57: the untimed failures included, with no response.}',
+        '\\caption{Share of the value of the failures kept at the release point when the response time changes. $kD$: every response time multiplied by $k$. No response if found by outflow: the failures detected through their own outflow (third-party alert, user report, shortfall) get no response. No response without independent pause: the same for failures where no independent party could pause. Response at first alert: the first public alert by a third party, where earlier. Alarm: an independent pause one hour or ten minutes after the first release that no deposit backs. All 57: the untimed failures included, with no response.}',
         '\\label{tab:response}',
         '\\footnotesize',
         '\\setlength{\\tabcolsep}{2.5pt}',
         '\\begin{tabular}{@{}l ' + 'r ' * len(cols) + '@{}}',
         '\\toprule',
-        'Rule & ' + ' & '.join('\\multicolumn{1}{p{1.3cm}}{\\raggedleft ' + c + '}' for _, c in cols) + ' \\\\',
+        'Limit & ' + ' & '.join('\\multicolumn{1}{p{1.3cm}}{\\raggedleft ' + c + '}' for _, c in cols) + ' \\\\',
         '\\midrule',
     ]
     for key, label in rules:
@@ -233,7 +233,7 @@ def top_failures_table(k=20):
         inc = {r['id']: r for r in csv.DictReader(f) if r['in_bridge_set'] == 'yes'}
     with open(P / 'incident_coding.csv', encoding='utf-8') as f:
         cod = {r['id']: r for r in csv.DictReader(f)}
-    cls = {'S': 'event', 'V': 'keys', 'D': 'check', 'O': 'other'}
+    cls = {'S': 'event', 'V': 'keys', 'D': 'flaw', 'O': 'other'}   # data code CHECK shown as FLAW
     det = {'third_party_alert': 'alert', 'operator_monitoring': 'operator', 'unknown': '--', 'escrow_or_balance_shortfall': 'shortfall',
            'user_report_or_failed_withdrawal': 'user', 'other': 'other'}
     pause = {'independent_of_failure': 'indep.', 'no_pause_function': 'none', 'controlled_by_failing_party': 'party', 'unknown': '--'}
@@ -304,13 +304,13 @@ def perbridge_table():
     pb = read(HERE.parents[1] / 'probes' / 'bridge_limits' / 'results' / 'replay_perbridge.json')
     F, A = pb['failures'], pb['aggregate']
     short = short_names()
-    cls = {'S': 'event', 'V': 'keys', 'D': 'check', 'O': 'other'}
+    cls = {'S': 'event', 'V': 'keys', 'D': 'flaw', 'O': 'other'}   # data code CHECK shown as FLAW
     EOL = ' ' + '\\' * 2      # LaTeX row end
     PCT = '\\%'
     lines = [
         r'\begin{table*}[t]',
         r'\centering',
-        r"\caption{Limits fitted to each failed bridge's own traffic before the failure: share of the value released in the failure that each would have kept at the response time $D$. Legit: legitimate value released per day over the 150 days before the failure. Floor: the limit shaped like all 150 days, fitted in sample, which delays none of them; it is the most a limit that delays no legitimate transfer of that history could guarantee. Bucket: a token bucket fitted out of sample to the 90 days that end 30 days before the failure, for $D = 6$\,h, with a margin of 1.5. Review: transfers above the 99.9th percentile of sizes in those 90 days wait for a review that the party cannot pass, and a bucket for $D = 1$\,h with a margin of 1.5 takes the rest. Alarm: a pause one hour after the first release that no deposit backs, with the review design or alone, where the check flags the failure and someone other than the failing party can stop it. A range: the value released within the first hour is known only between bounds. Each release contract in a failure's scope has its own limit. Net: weighted by the value never returned or frozen. $^\dagger$Left out of the totals (Section~\ref{sec:perbridge}). Table~\ref{tab:pbcost} gives what the designs cost legitimate users and keep when the check fails.}",
+        r"\caption{Limits fitted to each failed bridge's own traffic before the failure: share of the value released in the failure that each would have kept at the response time $D$. Legit: legitimate value released per day over the 150 days before the failure. Floor: the limit shaped like all 150 days, fitted in sample, which delays none of them; it is the most a limit that delays no legitimate transfer of that history could keep. Bucket: a token bucket fitted out of sample to the 90 days that end 30 days before the failure, for $D = 6$\,h, with a margin of 1.5. Review: transfers above the 99.9th percentile of sizes in those 90 days wait for a review that the party cannot pass, and a bucket for $D = 1$\,h with a margin of 1.5 takes the rest. Alarm: a pause one hour after the first release that no deposit backs, with the review design or alone, where the check flags the failure and someone other than the failing party can stop it. A range: the value released within the first hour is known only between bounds. Each release contract that a failure reaches has its own limit. Net: weighted by the value never returned or frozen. $^\dagger$Left out of the totals (Section~\ref{sec:perbridge}). Table~\ref{tab:pbcost} gives what the designs cost legitimate users and keep when the check fails.}",
         r'\label{tab:perbridge}',
         r'\footnotesize',
         r'\setlength{\tabcolsep}{4pt}',
@@ -388,7 +388,7 @@ def pbcost_table():
     lines = [
         r'\begin{table}[t]',
         r'\centering',
-        r"\caption{Designs on the failed bridges' traffic, fitted a month ahead: share of the failures' value kept at the response time when the check that a deposit backs each release works and when it fails, and the cost to legitimate users in the month before each failure and the month before that (first/second number): value and transfers delayed (\%), and hours of delay per dollar, a reviewed transfer waiting one hour. Review: as in Table~\ref{tab:perbridge}, the review being the check. Gate: every withdrawal held while the check runs; behind it nothing, or the bucket of Table~\ref{tab:perbridge}, or that bucket with a margin of 3. Custody in a contract throughout; with custody as built, the gate keeps " + k(bk['loss_gate_works_built']['value']) + r"\% when the check works.}",
+        r"\caption{Designs on the failed bridges' traffic, fitted a month ahead: share of the failures' value kept at the response time when the check that a deposit backs each withdrawal works and when it fails, and the cost to legitimate users in the month before each failure and the month before that (first/second number): value and transfers delayed (\%), and hours of delay per dollar, a reviewed transfer waiting one hour. Review: as in Table~\ref{tab:perbridge}, the review being the check. Gate: every withdrawal held while the check runs; behind it nothing, or the bucket of Table~\ref{tab:perbridge}, or that bucket with a margin of 3. Custody in a contract throughout; with custody as built, the gate keeps " + k(bk['loss_gate_works_built']['value']) + r"\% when the check works.}",
         r'\label{tab:pbcost}',
         r'\scriptsize',
         r'\setlength{\tabcolsep}{2.5pt}',

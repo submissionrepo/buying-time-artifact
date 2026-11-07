@@ -1,13 +1,13 @@
 \begin{table*}[t]
 \centering
-\caption{Limits, read in source code at fixed commits. Stage: verifiers, in the verifiers' software; send, on the sending chain; release, in the contract that releases on the receiving chain; token, in the token contract; send + release, a limit on each side. Shapes are those of Section~\ref{sec:shape}. Accounting: gross counts releases only; net subtracts counted inflows (Proposition~\ref{prop:netflow}). Automatic release: queued withdrawals leave when a timer expires; uncounted means outside the limit. Parameters: who can change the limit; no rule's code delays a loosening. Pause: who can stop releases. Issuer: the token's issuer; operator, owner and governors: a party other than the verifiers.}
+\caption{Limits, read in source code at fixed commits. Stage: verifiers, in the verifiers' software; send, on the sending chain; release, in the contract that releases on the receiving chain; token, in the token contract; send + release, a limit on each side. Shapes as in Table~\ref{tab:shapes}: a ramp lets value out in proportion to time, a cliff all at once when a timer runs out, a geometric limit a fixed share of the balance per period, a bounded limit a fixed total. Accounting: gross counts releases only; net subtracts counted inflows (Section~\ref{sec:shape}). Automatic release: queued withdrawals leave when a timer expires; uncounted means outside the limit. Parameters: who can change the limit; no limit's code delays a loosening. Pause: who can stop releases. Issuer: the token's issuer; operator, owner and governors: a party other than the verifiers. Flow cancelling: inbound transfers offset the cap. Curse: CCIP's stop on releases. RWA: real-world asset.}
 \label{tab:rules}
 \scriptsize
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.05}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.95cm} >{\raggedright\arraybackslash}p{1.2cm} >{\raggedright\arraybackslash}p{3.55cm} >{\raggedright\arraybackslash}p{2.95cm} >{\raggedright\arraybackslash}p{1.95cm} >{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}p{2.0cm}@{}}
 \toprule
-Rule & Stage & Shape & Accounting & Automatic release & Parameters & Pause \\
+Limit & Stage & Shape & Accounting & Automatic release & Parameters & Pause \\
 \midrule
 Wormhole Governor & verifiers & cliff at 24 h (sliding 24 h cap before) & gross (net with flow cancelling) & yes, uncounted & verifiers & any 7 of the 19 verifiers (withhold) \\
 Wormhole Global Accountant & verifiers & bounded (releases up to recorded locks) & conservation ledger & no & verifiers & none \\

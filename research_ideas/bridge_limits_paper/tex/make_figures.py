@@ -90,7 +90,7 @@ def example():
 def replay_events():
     """Timed failures as the replay loads them (replay_incidents.load): what a release-point rule and
     a verifier-side rule see comes from replay_incidents.loss, so the figure and the text share one
-    coding (a verifier-side rule also sees the class CHECK failures of the verifiers' own
+    coding (a verifier-side limit also sees the class FLAW failures, coded CHECK in the data, of the verifiers' own
     software and the redemption legs of unbacked mints)."""
     sys.path.insert(0, str(PROBES))
     import replay_incidents as ri
@@ -99,7 +99,7 @@ def replay_events():
 
 
 def replay():
-    """Figure 3: contained share of the timed failures' value, (a) token bucket with refill r and
+    """Figure 3: kept share of the timed failures' value, (a) token bucket with refill r and
     capacity r times one hour, (b) hold H cancelled by the response (a step function in H)."""
     ri, ev = replay_events()
     tot = sum(e['A'] for e in ev)
@@ -120,7 +120,7 @@ def replay():
         ax.xaxis.set_minor_locator(NullLocator())
         hz.tag(ax, tag)
         hz.style_ticklabels(ax)
-    axes[0].set_ylabel('Value contained (%)')
+    axes[0].set_ylabel('Value kept (%)')
     axes[0].set_xlim(0.05, 100)
     axes[0].xaxis.set_major_locator(FixedLocator([0.1, 1, 10, 100]))
     axes[0].set_xticklabels(['0.1', '1', '10', '100'])
